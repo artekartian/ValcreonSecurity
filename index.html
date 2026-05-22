@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valcreon Security • Hub</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <style>
+    body { background: linear-gradient(135deg, #0b1220 0%, #111827 100%); }
+    .glass {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .header-btn {
+      background: linear-gradient(90deg, #2563eb, #3b82f6);
+      transition: all .25s ease;
+      box-shadow: 0 8px 20px rgba(37,99,235,.25);
+    }
+    .header-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(37,99,235,.35); }
+
+    .card:hover { transform: translateY(-2px); }
+    .card { transition: all .2s ease; }
+    .tag {
+      display:inline-flex; align-items:center;
+      padding: 4px 10px; border-radius: 9999px;
+      font-size: 12px; font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      color: rgba(229,231,235,0.92);
+      white-space: nowrap;
+    }
+    .tag-cyan { border-color: rgba(34,211,238,.25); color:#67e8f9; background: rgba(34,211,238,.08); }
+    .tag-amber{ border-color: rgba(245,158,11,.25); color:#fde68a; background: rgba(245,158,11,.08); }
+    .tag-violet{ border-color: rgba(167,139,250,.25); color:#ddd6fe; background: rgba(167,139,250,.08); }
+  </style>
+</head>
+
+<body class="text-gray-100 min-h-screen">
+  <div class="max-w-5xl mx-auto py-14 px-6 space-y-10">
+
+    <!-- Header -->
+    <header class="text-center space-y-5">
+      <div onclick="window.location.href='./'"
+           class="header-btn inline-flex items-center gap-3 text-white text-sm font-semibold px-6 py-3 rounded-2xl cursor-pointer select-noneracking-tight">Security Hub</h1>
+        <p class="text-gray-400 text-lg">
+          Krótkie, techniczne notatki: Entra ID, MFA, Conditional Access, ataki i wnioski.
+        </p>
+      </div>
+    </header>
+
+    <!-- Featured / Intro -->
+    <section class="glass rounded-2xl p-7">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div class="space-y-2">
+          <h2 class="text-xl font-semibold flex items-center gap-3">
+            <i class="fa-solid fa-book-open text-cyan-400"></i>
+            Publikacje
+          </h2>
+          <p class="text-gray-300">
+            Kliknij wpis jak na blogu — wszystkie strony są w folderze <strong>/sec</strong>.
+          </p>
+        </div>
+
+        <div class="flex gap-2 flex-wrap justify-start md:justify-end">
+          <span class="tag tag-cyan"><i class="fa-solid fa-filter mr-2"></i> Entra ID</span>
+          <span class="tag tag-amber"><i class="fa-solid fa-triangle-exclamation mr-2"></i> Threats</span>
+          <span class="tag tag-violet"><i class="fa-solid fa-user-shield mr-2"></i> MFA</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Posts grid -->
+    <section class="grid md:grid-cols-2 gap-6">
+      <!-- Post 1 -->
+      <a class="glass rounded-2xl p-7 card block"
+         href="./sec/mfa.html">
+        <div class="flex items-start justify-between gap-3">
+          <h3 class="text-lg font-semibold tracking-tight">
+            Entra ID – Registered vs Joined (MFA vs Single Factor)
+          </h3>
+          <i class="fa-solid fa-arrow-up-right-from-square text-gray-400"></i>
+        </div>
+
+        <p class="text-gray-300 mt-3 leading-relaxed">
+          Dlaczego jedno logowanie pokazuje MFA, a drugie „Single Factor” oraz jak to czytać w logach.
+        </p>
+
+        <div class="mt-5 flex gap-2 flex-wrap">
+          <span class="tag tag-violet">MFA</span>
+          <span class="tag tag-cyan">Windows Hello</span>
+          <span class="tag">Logi</span>
+        </div>
+      </a>
+
+      <!-- Post 2 (przykład) -->
+      <a class="glass rounded-2xl p-7 card block"
+         href="./sec/device-code-flow.html">
+        <div class="flex items-start justify-between gap-3">
+          <h3 class="text-lg font-semibold tracking-tight">
+            Device Code Flow – co się dzieje z tokenami i dlaczego to groźne
+          </h3>
+          <i class="fa-solid fa-arrow-up-right-from-square text-gray-400"></i>
+        </div>
+
+        <p class="text-gray-300 mt-3 leading-relaxed">
+          Jak wygląda phishing Device Code Flow i jakie kontrolki ograniczają ryzyko w Entra ID.
+        </p>
+
+        <div class="mt-5 flex gap-2 flex-wrap">
+          <span class="tag tag-amber">Threats</span>
+          <span class="tag tag-cyan">Entra ID</span>
+          <span class="tag">Tokens</span>
+        </div>
+      </a>
+
+      <!-- Dodawaj kolejne wpisy kopiuj-wklej -->
+    </section>
+
+    <footer class="text-center text-gray-500 text-xs pt-4">
+      valcreon.com • Microsoft 365 Security
+    </footer>
+  </div>
+</body>
+</html>
