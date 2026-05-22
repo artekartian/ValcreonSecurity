@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Włączenie Archiwum i AutoExpanding 2026 - PowerShell</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <style>
+    body { background: linear-gradient(135deg, #0b1220 0%, #111827 100%); }
+
+    /* Glass */
+    .glass {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* Header button */
+    .header-btn {
+      background: linear-gradient(90deg, #2563eb, #3b82f6);
+      transition: all .25s ease;
+      box-shadow: 0 8px 20px rgba(37,99,235,.25);
+    }
+    .header-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(37,99,235,.35);
+    }
+
+    /* Code blocks */
+    pre {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 16px;
+      overflow-x: auto;
+      line-height: 1.55;
+    }
+    code { color: rgba(226,232,240,0.98); }
+
+    /* Pills */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      color: rgba(229,231,235,0.92);
+    }
+    .pill-cyan  { border-color: rgba(34,211,238,.25); background: rgba(34,211,238,.08); color:#67e8f9; }
+    .pill-violet{ border-color: rgba(167,139,250,.25); background: rgba(167,139,250,.08); color:#ddd6fe; }
+    .pill-amber { border-color: rgba(245,158,11,.25); background: rgba(245,158,11,.08); color:#fde68a; }
+
+    /* Card hover */
+    .card { transition: all .2s ease; }
+    .card:hover { transform: translateY(-2px); }
+  </style>
+</head>
+
+<body class="text-gray-100 min-h-screen">
+  <div class="max-w-4xl mx-auto py-14 px-6 space-y-8">
+
+
+<!-- Header -->
+<div class="text-center mb-12">
+
+  <!-- Back link NA GÓRZE -->
+  <div class="mb-8">
+    <a href="../index.html"
+       class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-200 transition">
+      <i class="fa-solid fa-arrow-left text-xs"></i>
+      Back to Security Hub
+    </a>
+  </div>
+
+
+ <div class="text-center mb-2">
+      <div onclick="window.location.reload()"
+           class="header-btn inline-flex items-center gap-3 text-white text-sm font-semibold px-6 py-3 rounded-2xl cursor-pointer select-none">
+        <i class="fa-solid fa-box-archive"></i>
+        Exchange Online • Archiwum
+      </div>
+
+<br><br>
+
+  <h1 class="text-5xl md:text-6xl font-semibold tracking-tight">
+    Włączenie Archiwum i AutoExpanding 2026 - PowerShell
+  </h1>
+
+  <p class="text-gray-400 text-lg md:text-xl mt-5">
+    Praktyczne komendy i weryfikacja holdów (MRM / Retention / Litigation / In-Place)
+  </p>
+
+</div>
+
+
+
+
+
+
+      <h1 class="text-4xl font-semibold mt-7 tracking-tight">
+        Włączenie Archiwum i AutoExpanding 2026 - PowerShell
+      </h1>
+
+      <p class="text-gray-400 text-lg mt-3">
+        Praktyczne komendy i weryfikacja holdów (MRM / Retention / Litigation / In-Place)
+      </p>
+
+      <div class="mt-6 flex gap-2 justify-center flex-wrap">
+        <span class="pill pill-cyan"><i class="fa-solid fa-terminal"></i> PowerShell</span>
+        <span class="pill pill-violet"><i class="fa-solid fa-inbox"></i> Archive</span>
+        <span class="pill pill-amber"><i class="fa-solid fa-shield-halved"></i> Holds</span>
+      </div>
+    </div>
+
+    <!-- Uwagi -->
+    <section class="glass rounded-2xl p-8 card">
+      <h2 class="text-xl font-semibold mb-5 flex items-center gap-3">
+        <i class="fa-solid fa-circle-info text-cyan-400"></i>
+        Uwagi
+      </h2>
+
+      <div class="space-y-4 text-gray-200 leading-relaxed">
+        <p>
+          Lepiej jest nie wyłączać Retention Policy (zwyjątkowanie z zasad) przed uruchomieniem archiwum - bo wyłączenie może wprowadzić skrzynkę na inne holdy.
+        </p>
+        <p>
+          Sprawdzić, jaki jest Tag Archiwum jest w MRM policy dla skrzynki
+        </p>
+        <p>
+          Default MRM Policy = Archiwum po 2 latach
+        </p>
+      </div>
+    </section>
+
+    <!-- PowerShell -->
+    <section class="glass rounded-2xl p-8 card">
+      <h2 class="text-xl font-semibold mb-6 flex items-center gap-3">
+        <i class="fa-solid fa-terminal text-cyan-400"></i>
+        PowerShell
+      </h2>
+
+      <div class="space-y-6">
+        <div>
+          <div class="text-gray-300 mb-3">
+            <span class="text-gray-500">skrzynka:</span>
+            <span class="text-gray-100 font-semibold">skrzynka@firma.pl</span>
+          </div>
+          <pre><code>Enable-Mailbox skrzynka@firma.pl -Archive</code></pre>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="glass rounded-2xl p-6">
+            <h3 class="font-semibold text-gray-100 mb-3 flex items-center gap-2">
+              <i class="fa-solid fa-magnifying-glass text-gray-300"></i>
+              Sprawdź AutoExpanding
+            </h3>
+            <pre class="mb-0"><code>Get-Mailbox skrzynka@firma.pl | FL AutoExpandingArchiveEnabled</code></pre>
+          </div>
+
+          <div class="glass rounded-2xl p-6">
+            <h3 class="font-semibold text-gray-100 mb-3 flex items-center gap-2">
+              <i class="fa-solid fa-toggle-on text-gray-300"></i>
