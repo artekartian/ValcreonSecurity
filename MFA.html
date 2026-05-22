@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Windows Hello & Entra ID • Wyjaśnienie</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+body {
+  background: linear-gradient(135deg, #0b1220 0%, #111827 100%);
+}
+
+/* Glass */
+.glass {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Header button */
+.header-btn {
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  transition: all .25s ease;
+  box-shadow: 0 8px 20px rgba(37,99,235,.25);
+}
+.header-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(37,99,235,.35);
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-green {
+  background: rgba(16,185,129,.15);
+  color: #6ee7b7;
+  border: 1px solid rgba(16,185,129,.30);
+}
+
+.badge-yellow {
+  background: rgba(245,158,11,.18);
+  color: #fde68a;
+  border: 1px solid rgba(245,158,11,.30);
+}
+
+/* Table */
+.table-row:hover {
+  background: rgba(255,255,255,0.04);
+}
+</style>
+</head>
+
+<body class="text-gray-100 min-h-screen">
+
+<div class="max-w-4xl mx-auto py-14 px-6 space-y-8">
+
+  <!-- Header -->
+  <div class="text-center mb-12">
+    <div onclick="window.location.reload()"
+         class="header-btn inline-flex items-center gap-3 text-white text-sm font-semibold px-6 py-3 rounded-2xl mb-6 cursor-pointer select-none">
+      <i class="fa-solid fa-shield-halved"></i>
+      Entra ID • Security Insight
+    </div>
+
+    <h1 class="text-4xl font-semibold mb-3 tracking-tight">
+      Entra ID – Registered vs Joined
+    </h1>
+
+    <p class="text-gray-400 text-lg">
+      Dlaczego jedno logowanie pokazuje MFA, a drugie „Single Factor”?
+    </p>
+  </div>
+
+  <!-- Table -->
+  <div class="glass rounded-2xl p-8 mb-8">
+    <h2 class="text-xl font-semibold mb-6 flex items-center gap-3">
+      <i class="fa-solid fa-table text-cyan-400"></i>
+      Porównanie
+    </h2>
+
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="border-b border-white/10 text-sm text-gray-400">
+            <th class="py-4 px-5 font-medium text-left">Typ urządzenia</th>
+            <th class="py-4 px-5 font-medium text-left">Windows Hello</th>
+            <th class="py-4 px-5 font-medium text-left">Raport Entra ID</th>
+            <th class="py-4 px-5 font-medium text-left">Znaczenie</th>
+          </tr>
+        </thead>
+
+        <tbody class="text-sm">
+          <tr class="border-b border-white/10 table-row">
+            <td class="py-5 px-5 font-medium">Entra Registered</td>
+            <td class="py-5 px-5">Windows Hello</td>
+            <td class="py-5 px-5">
+              <span class="badge badge-green">
+                Multi-factor authentication
+              </span>
+            </td>
+            <td class="py-5 px-5 text-gray-300">
+              Traktowane jako silne uwierzytelnianie
+            </td>
+          </tr>
+
+          <tr class="table-row">
+            <td class="py-5 px-5 font-medium">Entra Joined / Hybrid</td>
+            <td class="py-5 px-5">Windows Hello for Business</td>
+            <td class="py-5 px-5">
+              <span class="badge badge-yellow">
+                Single-factor authentication
+              </span>
+            </td>
+            <td class="py-5 px-5 text-gray-300">
+              Urządzenie jest już zaufane
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="glass rounded-2xl p-7 flex flex-col justify-between">
+      <h3 class="text-cyan-400 font-semibold mb-4 flex items-center gap-2">
+        <i class="fa-solid fa-mobile-screen-button"></i>
+        Entra Registered
+      </h3>
+      <p class="text-gray-200 leading-relaxed">
+        Urządzenie nie jest w pełni zaufane.<br><br>
+        Windows Hello działa jak niezależna <strong>silna metoda MFA</strong>.
+      </p>
+    </div>
+
+    <div class="glass rounded-2xl p-7 flex flex-col justify-between">
+      <h3 class="text-violet-400 font-semibold mb-4 flex items-center gap-2">
+        <i class="fa-solid fa-laptop"></i>
+        Entra Joined
+      </h3>
+      <p class="text-gray-200 leading-relaxed">
+        Urządzenie jest w pełni zaufane przez Entra ID.<br><br>
+        Przy logowaniu dostaje <strong>Primary Refresh Token (PRT)</strong> z wbudowanym MFA.
+      </p>
+    </div>
+  </div>
+
+
+ <!-- Nowa sekcja -->
+    <div class="glass rounded-3xl p-8 mb-8">
+      <h3 class="text-2xl font-semibold mb-6 flex items-center gap-3 text-amber-400">
+        <i class="fa-solid fa-shield-virus"></i>
+        Implikacje bezpieczeństwa
+      </h3>
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <p class="text-gray-200 leading-relaxed mb-5">
+          <strong>Efekt jest taki:</strong> Jeśli użytkownik loguje się do urządzenia (zarówno <strong>Entra Registered</strong>, jak i <strong>Entra Joined </strong> za pomocą Windows Hello, to w wielu scenariuszach dodatkowe MFA nie będzie wymagane przy dostępie do aplikacji, ponieważ uwierzytelnianie zostało już spełnione wcześniej.
+        </p>
+        <div class="pl-4 border-l-2 border-amber-400">
+          <p class="text-amber-300 font-medium">Ciekawe pytanie – atak Device Code Flow:</p>
+          <p class="text-gray-300 mt-2">
+            Na urządzeniach Entra Joined silne uwierzytelnienie jest powiązane z Primary Refresh Token (PRT), który może zawierać informację o spełnionym MFA. W praktyce oznacza to, że w niektórych scenariuszach (np. Device Code Flow) dodatkowe MFA może nie zostać ponownie wymuszone, jeśli warunki uznają je za już spełnione.
+          </p>
+          <p class="text-gray-400 text-sm mt-4">
+            Na urządzeniach Entra Registered sytuacja jest inna (brak pełnego PRT), ale Windows Hello nadal może być traktowane jako metoda MFA, w zależności od kontekstu logowania i polityk.          </p>
+        </div>
+      </div>
+    </div>
+
+
+  <!-- Summary -->
+  <div class="glass rounded-2xl p-8 mt-6">
+    <h3 class="text-xl font-semibold mb-6">Kluczowe wnioski</h3>
+
+    <ul class="space-y-4 text-gray-200">
+      <li class="flex gap-3">
+        <span>✅</span>
+        <div><strong>Entra Joined jest silniejszy</strong> – „Single Factor” w logach nie oznacza słabości.</div>
+      </li>
+
+      <li class="flex gap-3">
+        <span>✅</span>
+        <div>Pełne SSO + wyższe zaufanie na poziomie systemu.</div>
+      </li>
+
+      <li class="flex gap-3">
+        <span>✅</span>
+        <div>„Previously satisfied” + Windows Hello for Business = bardzo dobry sygnał bezpieczeństwa.</div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="text-center text-gray-500 text-xs mt-12">
+    valcreon.com • Microsoft 365 Security
+  </div>
+
+</div>
+
+</body>
+</html>
