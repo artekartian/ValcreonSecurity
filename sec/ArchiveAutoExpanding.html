@@ -140,31 +140,57 @@
       </div>
     </section>
 
-    <!-- PowerShell -->
-    <section class="glass rounded-2xl p-8 card">
-      <h2 class="text-xl font-semibold mb-6 flex items-center gap-3">
-        <i class="fa-solid fa-terminal text-cyan-400"></i>
-        PowerShell
-      </h2>
+   <!-- PowerShell -->
+<section class="glass rounded-2xl p-8 card">
+  <h2 class="text-xl font-semibold mb-6 flex items-center gap-3">
+    <i class="fa-solid fa-terminal text-cyan-400"></i>
+    PowerShell
+  </h2>
 
-      <div class="space-y-6">
-        <div>
-          <div class="text-gray-300 mb-3">
-            <span class="text-gray-500">skrzynka:</span>
-            <span class="text-gray-100 font-semibold">skrzynka@firma.pl</span>
-          </div>
-          <pre><code>Enable-Mailbox skrzynka@firma.pl -Archive</code></pre>
-        </div>
+  <div class="text-gray-300 mb-4">
+    skrzynka: <span class="text-white font-semibold">skrzynka@firma.pl</span>
+  </div>
 
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="glass rounded-2xl p-6">
-            <h3 class="font-semibold text-gray-100 mb-3 flex items-center gap-2">
-              <i class="fa-solid fa-magnifying-glass text-gray-300"></i>
-              Sprawdź AutoExpanding
-            </h3>
-            <pre class="mb-0"><code>Get-Mailbox skrzynka@firma.pl | FL AutoExpandingArchiveEnabled</code></pre>
-          </div>
+  <!-- Główna komenda -->
+  <pre><code>Enable-Mailbox skrzynka@firma.pl -Archive</code></pre>
 
-          <div class="glass rounded-2xl p-6">
-            <h3 class="font-semibold text-gray-100 mb-3 flex items-center gap-2">
-              <i class="fa-solid fa-toggle-on text-gray-300"></i>
+  <!-- Grid -->
+  <div class="grid md:grid-cols-2 gap-6 mt-6">
+
+    <!-- 🔹 Sprawdzenie -->
+    <div class="glass rounded-2xl p-6">
+      <h3 class="font-semibold text-gray-100 mb-3 flex items-center gap-2">
+        <i class="fa-solid fa-magnifying-glass text-gray-300"></i>
+        Sprawdź AutoExpanding
+      </h3>
+      <pre><code>Get-Mailbox skrzynka@firma.pl | FL AutoExpandingArchiveEnabled</code></pre>
+    </div>
+
+    <!-- 🔹 Włączenie -->
+    <div class="glass rounded-2xl p-6">
+      <h3 class="font-semibold text-gray-100 mb-3 flex items-center gap-2">
+        <i class="fa-solid fa-toggle-on text-gray-300"></i>
+        Włącz AutoExpanding
+      </h3>
+      <pre><code>Enable-Mailbox skrzynka@firma.pl -AutoExpandingArchive
+Get-Mailbox skrzynka@firma.pl | FL AutoExpandingArchiveEnabled</code></pre>
+    </div>
+
+  </div>
+
+  <!-- Kolejne komendy -->
+  <div class="mt-6 space-y-4">
+    <pre><code>Start-ManagedFolderAssistant -Identity skrzynka@firma.pl</code></pre>
+
+    <pre><code>Get-MailboxStatistics -Identity skrzynka@firma.pl -Archive |
+Select DisplayName, TotalItemSize, ItemCount</code></pre>
+
+    <pre><code>Get-Mailbox skrzynka@firma.pl | Select RetentionHoldEnabled</code></pre>
+
+    <pre><code>Get-Mailbox skrzynka@firma.pl | fl LitigationHoldEnabled</code></pre>
+
+    <pre><code>Get-Mailbox skrzynka@firma.pl | fl InPlaceHolds</code></pre>
+
+    <pre><code>Get-Mailbox skrzynka@firma.pl | fl InPlaceHolds,LitigationHoldEnable</code></pre>
+  </div>
+</section>
