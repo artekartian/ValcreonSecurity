@@ -83,15 +83,39 @@
 <body class="text-gray-100 min-h-screen">
   <div class="max-w-5xl mx-auto py-14 px-6 space-y-10">
 
-    <!-- Header -->
-    <header class="text-center space-y-5">
-      <div onclick="window.location.href='./'"
-           class="header-btn inline-flex items-center gap-3 text-white text-sm font-semibold px-6 py-3 rounded-2xl cursor-pointer select-noneracking-tight">Security Hub</h1>
-        <p class="text-gray-400 text-lg">
-          Krótkie, techniczne notatki: Entra ID, MFA, Conditional Access, ataki i wnioski.
-        </p>
-      </div>
-    </header>
+
+<!-- Header -->
+<header class="text-center space-y-6">
+
+  <!-- Title -->
+  <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">
+    Valcreon <span class="text-blue-400">Security Hub</span>
+  </h1>
+
+  <!-- Subtitle -->
+  <p class="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+    Krótkie, techniczne notatki o zabezpieczeniach Microsoft 365 —
+    <span class="text-gray-300">Entra ID, MFA, Conditional Access, ataki i wnioski.</span>
+  </p>
+
+  <!-- Actions -->
+  <div class="flex justify-center gap-3 pt-2 flex-wrap">
+
+    <a href="#"
+       class="header-btn inline-flex items-center gap-2 text-white text-sm font-semibold px-5 py-2.5 rounded-xl">
+      <i class="fa-solid fa-book-open"></i>
+      Przeglądaj wpisy
+    </a>
+
+    <a href="./"
+       class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition px-4 py-2 rounded-xl border border-white/10">
+      <i class="fa-solid fa-house"></i>
+      Strona główna
+    </a>
+
+  </div>
+
+</header>
 
     <!-- Featured / Intro -->
     <section class="glass rounded-2xl p-7">
