@@ -76,7 +76,11 @@
 .hero-glow{
   box-shadow: 0 20px 60px rgba(37,99,235,.25);
 }
-    
+  
+html {
+    scroll-behavior: smooth;
+  }
+
   </style>
 </head>
 
@@ -101,17 +105,19 @@
   <!-- Actions -->
   <div class="flex justify-center gap-3 pt-2 flex-wrap">
 
-    <a href="#"
+    <a href="#posts"
        class="header-btn inline-flex items-center gap-2 text-white text-sm font-semibold px-5 py-2.5 rounded-xl">
       <i class="fa-solid fa-book-open"></i>
       Przeglądaj wpisy
     </a>
 
-    <a href="./"
-       class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition px-4 py-2 rounded-xl border border-white/10">
-      <i class="fa-solid fa-house"></i>
-      Strona główna
-    </a>
+
+<a href="https://valcreon.com"
+   class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition px-4 py-2 rounded-xl border border-white/10">
+  <i class="fa-solid fa-globe"></i>
+  valcreon.com
+</a>
+
 
   </div>
 
@@ -139,7 +145,7 @@
     </section>
 
     <!-- Posts grid -->
-    <section class="grid md:grid-cols-2 gap-6">
+    <section id="posts" class="grid md:grid-cols-2 gap-6">
       <!-- Post 1 -->
       <a class="glass rounded-2xl p-7 card block"
          href="./sec/mfa.html">
