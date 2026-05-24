@@ -74,7 +74,13 @@ body {
       transition: transform .15s ease, background .15s ease;
     }
     .btn:hover{transform: translateY(-1px)}
-  }
+
+
+.btn-wrap{
+  display: flex;
+  justify-content: center;
+}
+
   
 </style>
 </head>
@@ -226,10 +232,13 @@ body {
     </ul>
   </div>
 
-            <a class="btn" href="../index.html">
-            <i class="fa-solid fa-house"></i>
-            Wróć do Security Hub
-          </a>
+<div class="btn-wrap">
+  <a class="btn" href="../index.html">
+    <i class="fa-solid fa-house"></i>
+    Wróć do Security Hub
+  </a>
+</div>
+
 
   <div class="text-center text-gray-500 text-xs mt-12">
     valcreon.com • Microsoft 365 Security
