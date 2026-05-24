@@ -1,0 +1,10 @@
+header.hero .pill{
+  transform: translateY(-26px);
+}
+
+
+@media (max-width: 640px){
+  header.hero .pill{
+    transform: translateY(-6px);
+  }
+}
