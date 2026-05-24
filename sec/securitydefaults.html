@@ -505,7 +505,20 @@ header.hero .pill{
   header.hero .pill{
     transform: translateY(-6px);
   }
+
+  
+/* FIX BADGE HERO – global */
+header.hero .pill{
+  margin-top: -14px;   /* stabilniejsze niż transform */
 }
+
+/* FIX BADGE HERO – mobile */
+@media (max-width: 640px){
+  header.hero .pill{
+    margin-top: -4px;
+  }
+}
+
   
 </style>
 
