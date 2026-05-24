@@ -483,6 +483,18 @@
     .reco .reco-title{
       font-size: 22px;
     }
+
+    .link-reset{
+  color: inherit;
+  text-decoration: none;
+}
+
+.link-reset:hover{
+  color: inherit;
+  text-decoration: none;
+  opacity: 1;
+  text-shadow: 0 0 10px rgba(124,58,237,.35);
+}
   }
 </style>
 
@@ -723,7 +735,13 @@
 
 
     <footer>
-      © <span id="year"></span> valcreon.com • Microsoft 365 Security
+    
+      <div class="text-center text-gray-500 text-xs mt-12">
+  © <span id="year"></span>
+  <a href="https://valcreon.com" class="link-reset">valcreon.com</a>
+  • Microsoft 365 Security
+</div>
+      
     </footer>
 
   </div>
