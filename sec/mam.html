@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ochrona danych służbowych na telefonach prywatnych (BYOD) – 2026 — Valcreon Security</title>
+
+  <!-- favicon (jeśli masz fav.ico w katalogu głównym, a ten plik jest w /sec/ ) -->
+  <link rel="icon" href="../fav.ico" type="image/x-icon">
+
+  <!-- Fonts / Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root{
+      --bg0:#070A12;
+      --bg1:#0A1020;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.08);
+      --stroke:rgba(255,255,255,.12);
+      --text:#EAF0FF;
+      --muted:rgba(234,240,255,.70);
+      --muted2:rgba(234,240,255,.55);
+      --brand:#7C3AED;   /* fiolet */
+      --brand2:#22C55E;  /* zielony akcent */
+      --warn:#F59E0B;
+      --bad:#EF4444;
+      --shadow: 0 24px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 900px at 20% -10%, rgba(124,58,237,.25), transparent 60%),
+        radial-gradient(900px 700px at 100% 10%, rgba(34,197,94,.16), transparent 55%),
+        radial-gradient(900px 700px at 30% 110%, rgba(59,130,246,.10), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      min-height: 100vh;
+      padding: 28px 14px 80px;
+    }
+
+    a{color:inherit; text-decoration:none}
+    a:hover{opacity:.95}
+
+    .container{
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .glass{
+      background: linear-gradient(180deg, var(--card2), var(--card));
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom: 18px;
+    }
+
+    .back-link{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      transition: transform .15s ease, background .15s ease, color .15s ease;
+    }
+    .back-link:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background: rgba(124,58,237,.10);
+      color: rgba(234,240,255,.86);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    header.hero{
+      padding: 26px 22px;
+      margin-bottom: 16px;
+      overflow:hidden;
+      position:relative;
+    }
+
+    header.hero:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(750px 300px at 10% 10%, rgba(124,58,237,.24), transparent 55%),
+        radial-gradient(650px 260px at 90% 0%, rgba(34,197,94,.14), transparent 55%);
+      pointer-events:none;
+    }
+
+    .hero-inner{
+      position:relative;
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 16px;
+      align-items: center;
+    }
+    @media (max-width: 860px){
+      .hero-inner{grid-template-columns: 1fr}
+    }
+
+    h1{
+      margin: 8px 0 10px;
+      font-size: 34px;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    .lead{
+      margin:0;
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.6;
+      max-width: 72ch;
+    }
+
+    .hero-cards{
+      display:grid;
+      gap: 10px;
+    }
+
+    .mini{
+      padding: 14px 14px;
+      border-radius: 16px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.04);
+    }
+
+    .mini .t{
+      font-weight: 700;
+      font-size: 13px;
+      color: rgba(234,240,255,.92);
+      margin-bottom: 6px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .mini .d{
+      font-size: 12.8px;
+      color: var(--muted2);
+      line-height: 1.55;
+      margin:0;
+    }
+
+    section.section{
+      margin-top: 14px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    .card{
+      padding: 18px 18px;
+    }
+
+    h2{
+      font-size: 18px;
+      margin:0 0 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .p{
+      margin:0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 14.5px;
+    }
+
+    /* Callout (ważna zmiana / ostrzeżenie) */
+    .callout{
+      position: relative;
+      padding: 18px;
+      border-radius: 16px;
+      background:
+        radial-gradient(900px 230px at 10% 0%, rgba(245,158,11,.22), transparent 55%),
+        radial-gradient(700px 260px at 100% 30%, rgba(239,68,68,.14), transparent 55%),
+        linear-gradient(180deg, rgba(245,158,11,.14), rgba(12,16,32,.72));
+      border: 1px solid rgba(245,158,11,.38);
+      box-shadow:
+        0 22px 60px rgba(0,0,0,.55),
+        0 0 0 1px rgba(245,158,11,.12) inset,
+        0 0 40px rgba(245,158,11,.14);
+      overflow: hidden;
+    }
+    .callout::after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      pointer-events:none;
+      background:
+        radial-gradient(700px 260px at 30% 20%, rgba(245,158,11,.12), transparent 60%),
+        radial-gradient(600px 240px at 80% 60%, rgba(239,68,68,.10), transparent 62%);
+      opacity: .95;
+    }
+    .callout .head{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      font-weight: 800;
+      margin:0 0 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .list{
+      margin: 10px 0 0;
+      padding: 0;
+      list-style: none;
+      display:grid;
+      gap: 10px;
+    }
+
+    .li{
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.035);
+    }
+
+    .icon{
+      width: 36px;
+      height: 36px;
+      flex: 0 0 36px;
+      border-radius: 12px;
+      display:grid;
+      place-items:center;
+      border: 1px solid rgba(124,58,237,.35);
+      background: linear-gradient(180deg, rgba(124,58,237,.20), rgba(124,58,237,.08));
+      color: rgba(234,240,255,.95);
+      margin-top: 1px;
+    }
+    .icon i{font-size: 15px;}
+
+    .li .txt b{
+      display:block;
+      margin-bottom: 3px;
+      font-size: 13.8px;
+      letter-spacing: -0.01em;
+    }
+
+    .li .txt span{
+      display:block;
+      color: var(--muted2);
+      font-size: 12.8px;
+      line-height: 1.55;
+    }
+
+    .cta{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items:center;
+      justify-content: space-between;
+      padding: 18px;
+      margin-top: 12px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      border-radius: 999px;
+      padding: 11px 14px;
+      border: 1px solid rgba(124,58,237,.35);
+      background: linear-gradient(180deg, rgba(124,58,237,.18), rgba(124,58,237,.10));
+      color: rgba(234,240,255,.95);
+      font-weight: 650;
+      font-size: 13.5px;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn.secondary{
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .btn-wrap{
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ZALECENIA / RAMKA (jeśli chcesz tu też, możesz użyć w kolejnych wpisach) */
+    .reco{
+      position: relative;
+      padding: 22px;
+      border-radius: 18px;
+      margin-top: 14px;
+      border: 1px solid rgba(124,58,237,.65);
+      outline: 1px solid rgba(124,58,237,.22);
+      outline-offset: -10px;
+      background:
+        radial-gradient(1000px 280px at 0% 0%, rgba(124,58,237,.28), transparent 58%),
+        linear-gradient(180deg, rgba(124,58,237,.10), rgba(10,16,32,.82));
+      box-shadow:
+        0 26px 70px rgba(0,0,0,.62),
+        0 0 0 1px rgba(124,58,237,.20) inset,
+        0 0 70px rgba(124,58,237,.18);
+    }
+
+    /* link w stopce bez zmiany stylu */
+    .link-reset{
+      color: inherit;
+      text-decoration: none;
+    }
+    .link-reset:hover{
+      color: inherit;
+      text-decoration: none;
+      opacity: 1;
+      text-shadow: 0 0 10px rgba(124,58,237,.35);
+    }
+
+    footer{
+      margin-top: 18px;
+  	text-align: center;
+ 	 color: rgba(234,240,255,.55);
+ 	 font-size: 12.5px;
+ 	 margin-top: 48px;
+    }
+
+
+    /* MOBILE FIXES */
+    @media (max-width: 640px){
+      body{ padding: 18px 12px 60px; }
+
+      .topbar{
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+
+      .topbar .back-link,
+      .topbar .pill{
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .back-link{
+        padding: 12px 14px;
+        border-radius: 16px;
+      }
+
+      .topbar .pill{
+        white-space: normal;
+        line-height: 1.35;
+        padding: 10px 12px;
+        border-radius: 16px;
+      }
+
+      .hero .pill{
+        max-width: 100%;
+        white-space: normal;
+        line-height: 1.25;
+        text-align: left;
+      }
+
+      h1{font-size: 28px;}
+    }
+
+
+
+header.hero .pill{
+  transform: translateY(-26px);
+}
+
+
+@media (max-width: 640px){
+  header.hero .pill{
+    transform: translateY(-6px); /* albo 0px jeśli dalej źle */
+  }
+}
+
+
+
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Top -->
+    <div class="topbar">
+      <a class="back-link" href="../index.html" aria-label="Powrót do Security Hub">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Powrót do Security Hub</span>
+      </a>
+
+      <span class="pill">
+        <i class="fa-solid fa-shield-halved"></i>
+        Valcreon • Microsoft 365 Security
+      </span>
+    </div>
+
+    <!-- Hero -->
+    <header class="hero glass">
+      <div class="hero-inner">
+
+        <div>
+          <div class="pill" style="background:rgba(124,58,237,.12)">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            Ochrona danych na telefonach prywatnych (BYOD) • 2026
+          </div>
+
+          <h1>App Protection Policies: ochrona danych firmowych bez zarządzania telefonem</h1>
+          <p class="lead">
+            W pracy mobilnej największym ryzykiem nie jest sam telefon — tylko <b>przenoszenie danych firmowych</b>
+            do prywatnych aplikacji i przestrzeni. Intune App Protection Policies (APP) chronią dane
+            <b>wewnątrz aplikacji</b> (Outlook, Teams, OneDrive) nawet wtedy, gdy urządzenie jest prywatne i niezarządzane.
+          </p>
+        </div>
+
+        <div class="hero-cards">
+          <div class="mini">
+            <div class="t"><i class="fa-solid fa-user-lock"></i> Prywatność użytkownika</div>
+            <p class="d">Firma nie zarządza całym telefonem i nie widzi prywatnych danych. Chronione są tylko dane służbowe w aplikacjach.</p>
+          </div>
+          <div class="mini">
+            <div class="t"><i class="fa-solid fa-shield"></i> Kontrola danych</div>
+            <p class="d">APP kontroluje kopiowanie, zapisywanie i udostępnianie firmowych danych poza chronione aplikacje.</p>
+          </div>
+          <div class="mini">
+            <div class="t"><i class="fa-solid fa-calendar-days"></i> Zmiana 30.06.2026</div>
+            <p class="d">Wycofanie „Require approved client app” w Conditional Access. Ochrona mobilna ma się opierać na APP.</p>
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- Zmiana 2026 -->
+    <section class="section grid">
+      <div class="glass card">
+        <h2>Co zmienia Microsoft w czerwcu 2026?</h2>
+        <p class="p">
+          Od <b>30 czerwca 2026</b> Microsoft wycofuje mechanizm
+          <b>Require approved client app</b> (Wymagaj zatwierdzonej aplikacji klienckiej) w politykach dostępu warunkowego.
+          Zamiast listy „dozwolonych aplikacji” ochrona danych na telefonach będzie oparta o
+          <b>App Protection Policies (APP)</b>.
+        </p>
+        <p class="p" style="margin-top:10px">
+          Dla firm oznacza to jedno: aby dalej chronić dane służbowe na prywatnych telefonach,
+          trzeba wdrożyć APP w Intune oraz zapewnić odpowiednie licencje.
+        </p>
+      </div>
+
+      <div class="callout">
+        <p class="head"><i class="fa-solid fa-triangle-exclamation"></i> Najważniejszy wniosek</p>
+        <p class="p" style="margin:0">
+          Sama lista „zatwierdzonych aplikacji” <b>nie kontroluje danych po zalogowaniu</b>.
+          APP umożliwia wymuszenie zasad, które realnie ograniczają wyciek danych — nawet na prywatnych urządzeniach.
+        </p>
+      </div>
+    </section>
+
+    <!-- Czym jest APP -->
+    <section class="section glass card">
+      <h2>Czym są Zasady Ochrony Aplikacji (App Protection Policies)?</h2>
+      <p class="p">
+        App Protection Policies to zestaw reguł, które chronią dane firmowe <b>wewnątrz aplikacji mobilnych</b> —
+        niezależnie od tego, czy telefon jest prywatny czy służbowy.
+      </p>
+
+      <ul class="list">
+        <li class="li">
+          <div class="icon"><i class="fa-solid fa-user-secret"></i></div>
+          <div class="txt">
+            <b>Bez zarządzania urządzeniem (bez MDM)</b>
+            <span>Nie instalujesz profilu zarządzania telefonem. Ochrona obejmuje tylko dane służbowe w aplikacjach Microsoft.</span>
+          </div>
+        </li>
+
+        <li class="li">
+          <div class="icon"><i class="fa-solid fa-layer-group"></i></div>
+          <div class="txt">
+            <b>Separacja danych firmowych i prywatnych</b>
+            <span>Dane firmowe pozostają w „kontenerze aplikacji”, a prywatne dane użytkownika są poza kontrolą firmy.</span>
+          </div>
+        </li>
+
+        <li class="li">
+          <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="txt">
+            <b>Kontrola zachowania danych</b>
+            <span>Możesz blokować kopiowanie, zapisywanie i udostępnianie danych firmowych do aplikacji prywatnych.</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Co może być blokowane -->
+    <section class="section glass card">
+      <h2>Co może być blokowane i dlaczego?</h2>
+      <p class="p">
+        Zasady APP działają w tle i wprowadzają praktyczne ograniczenia, które chronią firmę przed wyciekiem danych:
+      </p>
+
+      <ul class="list">
+        <li class="li">
+          <div class="icon"><i class="fa-solid fa-copy"></i></div>
+          <div class="txt">
+            <b>Blokada kopiowania do aplikacji prywatnych</b>
+            <span>Brak możliwości przenoszenia danych służbowych do prywatnych notatek, komunikatorów czy aplikacji spoza polityki.</span>
+          </div>
+        </li>
+
+        <li class="li">
+          <div class="icon"><i class="fa-solid fa-file-arrow-down"></i></div>
+          <div class="txt">
+            <b>Blokada zapisu firmowych załączników w pamięci telefonu</b>
+            <span>Pliki pozostają w chronionych aplikacjach (np. OneDrive/SharePoint), zamiast w prywatnej galerii/pobranych.</span>
+          </div>
+        </li>
+
+        <li class="li">
+          <div class="icon"><i class="fa-solid fa-share-nodes"></i></div>
+          <div class="txt">
+            <b>Kontrola udostępniania plików</b>
+            <span>Brak możliwości przekazania dokumentu do nieautoryzowanych aplikacji. Minimalizuje to ryzyko „wycieku przez share”.</span>
+          </div>
+        </li>
+
+        <li class="li">
+          <div class="icon"><i class="fa-solid fa-eraser"></i></div>
+          <div class="txt">
+            <b>Zdalne usunięcie danych służbowych</b>
+            <span>Po odejściu pracownika lub utracie urządzenia można usunąć dane firmowe bez naruszania prywatnych danych użytkownika.</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Użytkownik -->
+    <section class="section grid">
+      <div class="glass card">
+        <h2>Dlaczego to nie jest uciążliwe dla użytkownika?</h2>
+        <p class="p">
+          Z perspektywy użytkownika telefon działa normalnie, aplikacje prywatne pozostają prywatne,
+          a firma nie ma wglądu w zdjęcia, SMS-y czy historię połączeń.
+        </p>
+        <p class="p" style="margin-top:10px">
+          Użytkownik po prostu: instaluje aplikacje Microsoft, loguje się kontem służbowym i pracuje jak dotychczas.
+          Ochrona jest praktycznie niewidoczna.
+        </p>
+      </div>
+
+      <div class="glass card">
+        <h2>Jakie aplikacje należy zainstalować?</h2>
+        <ul class="list" style="margin-top:10px">
+          <li class="li">
+            <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="txt">
+              <b>Microsoft Outlook</b>
+              <span>Firmowa poczta i kalendarz w aplikacji wspierającej APP.</span>
+            </div>
+          </li>
+          <li class="li">
+            <div class="icon"><i class="fa-solid fa-comments"></i></div>
+            <div class="txt">
+              <b>Microsoft Teams</b>
+              <span>Komunikacja i spotkania w aplikacji wspierającej APP.</span>
+            </div>
+          </li>
+          <li class="li">
+            <div class="icon"><i class="fa-solid fa-cloud"></i></div>
+            <div class="txt">
+              <b>OneDrive / SharePoint</b>
+              <span>Bezpieczna praca na plikach w środowisku firmowym.</span>
+            </div>
+          </li>
+          <li class="li">
+            <div class="icon"><i class="fa-solid fa-key"></i></div>
+            <div class="txt">
+              <b>Microsoft Authenticator</b>
+              <span>Uwierzytelnianie / MFA (zwykle i tak wymagane).</span>
+            </div>
+          </li>
+          <li class="li">
+            <div class="icon"><i class="fa-brands fa-android"></i></div>
+            <div class="txt">
+              <b>Android: Company Portal (bez logowania)</b>
+              <span>Wymagany komponent. Wystarczy pobrać — nie trzeba logować się kontem służbowym.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Licencje + źródło -->
+    <section class="section glass card">
+      <h2>Wymagania licencyjne</h2>
+      <p class="p">
+        Aby korzystać z App Protection Policies, użytkownik musi mieć licencję Intune, np.:
+        <b>Microsoft Intune</b> (samodzielnie), <b>Microsoft 365 Business Premium</b> lub pakiety Enterprise zawierające Intune.
+      </p>
+      <p class="p" style="margin-top:10px">
+        Sama polityka „Require approved client app” nie wystarczy — Microsoft oficjalnie komunikuje jej wycofanie
+        do <b>30 czerwca 2026</b>.
+      </p>
+
+      <div class="cta glass" style="box-shadow:none; border-radius:16px;">
+        <div>
+          <div style="font-weight:800; letter-spacing:-0.01em;">Źródło (Microsoft Learn)</div>
+          <div style="color:var(--muted2); font-size:13px; margin-top:4px;">
+            Migrate approved client app to application protection policy (APP)
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn secondary" href="https://learn.microsoft.com/en-us/entra/identity/conditional-access/migrate-approved-client-app"
+             target="_blank" rel="noopener">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            Otwórz Microsoft Learn
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dalsze kroki -->
+    <section class="section reco">
+      <h2 style="margin:0 0 10px; font-size:18px; letter-spacing:-0.01em;">Dalsze kroki</h2>
+      <p class="p">
+        Jeśli w firmie występuje BYOD (telefony prywatne), App Protection Policies powinny być wdrożone
+        jako standard ochrony danych. Najbezpieczniejsze podejście łączy APP z Conditional Access (MFA, kontrola sesji).
+      </p>
+      <p class="p" style="margin-top:10px">
+        W praktyce: firma decyduje <b>co chronić</b>, a wdrożenie i komunikację do użytkowników da się przeprowadzić
+        bez wpływu na prywatność i codzienną pracę.
+      </p>
+    </section>
+
+    <br><br>
+
+
+    <div class="btn-wrap">
+      <a class="btn" href="../index.html">
+        <i class="fa-solid fa-house"></i>
+        Wróć do Security Hub
+      </a>
+    </div>
+
+
+ 
+    <footer>
+      <div class="text-center text-gray-500 text-xs mt-12">
+        © <span id="year"></span>
+        <a href="https://valcreon.com" class="link-reset">valcreon.com</a> • Microsoft 365 Security
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // auto-year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
