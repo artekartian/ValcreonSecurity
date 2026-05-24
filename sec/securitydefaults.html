@@ -325,6 +325,55 @@
       color: var(--muted2);
       font-size: 12.5px;
     }
+    /* MOBILE FIXES */
+@media (max-width: 640px){
+
+  /* mniej paddingu na stronie */
+  body{
+    padding: 18px 12px 60px;
+  }
+
+  .topbar{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  /* oba elementy topbara na pełną szerokość */
+  .topbar .back-link,
+  .topbar .pill{
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* back-link: usuń „balloon effect” i popraw czytelność */
+  .back-link{
+    padding: 12px 14px;
+    border-radius: 16px; /* było 999px -> na wąskim robi „bubble” */
+  }
+
+  /* prawy pill: ma się ładnie łamać, a nie ciągnąć w jednej linii */
+  .topbar .pill{
+    white-space: normal;      /* zamiast nowrap */
+    line-height: 1.35;
+    padding: 10px 12px;
+    border-radius: 16px;
+  }
+
+  
+@media (max-width: 640px){
+  .hero-badge,     /* jeśli używasz hero-badge */
+  .hero .pill{     /* fallback jeśli nie masz hero-badge */
+    max-width: 100%;
+    white-space: normal;  /* pozwala na 2 linie */
+    line-height: 1.25;
+    text-align: left;
+  }
+}
+
+    
   </style>
 </head>
 
