@@ -202,7 +202,7 @@
 
   /* Callout (Problem w praktyce) */
   .callout{
-    position: relative; /* WAŻNE: żeby ::after działało */
+    position: relative;
     padding: 18px;
     border-radius: 16px;
     background:
@@ -320,7 +320,6 @@
     font-size: 12.5px;
   }
 
-  /* Guzik na dole – wycentrowany zawsze */
   .btn-wrap{
     display:flex;
     justify-content:center;
@@ -396,7 +395,6 @@
     opacity: .95;
   }
 
-  /* Panel wewnętrzny dla listy zaleceń */
   .reco .list{
     padding: 10px;
     border-radius: 16px;
@@ -436,12 +434,30 @@
     color: rgba(234,240,255,.62);
   }
 
+  /* link w stopce bez zmiany stylu */
+  .link-reset{
+    color: inherit;
+    text-decoration: none;
+  }
+  .link-reset:hover{
+    color: inherit;
+    text-decoration: none;
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(124,58,237,.35);
+  }
+
+  /* ==================================
+     FIX BADGE HERO (tylko badge w HERO)
+     ================================== */
+  header.hero > .hero-inner > div:first-child > .pill{
+    margin-top: -14px;         /* PODNIEŚ badge na desktop */
+    margin-bottom: 10px;       /* utrzymaj odstęp od H1 */
+  }
+
   /* MOBILE FIXES */
   @media (max-width: 640px){
     body{
-      padding: 18px 12px 60px;}
-      header.hero .pill{
-    transform: translateY(-6px);
+      padding: 18px 12px 60px;
     }
 
     .topbar{
@@ -486,22 +502,12 @@
       font-size: 22px;
     }
 
-    .link-reset{
-  color: inherit;
-  text-decoration: none;
-}
-
-.link-reset:hover{
-  color: inherit;
-  text-decoration: none;
-  opacity: 1;
-  text-shadow: 0 0 10px rgba(124,58,237,.35);
-}
-
-  header.hero .pill{
-  transform: translateY(-26px);
-}
-
+    /* Badge w HERO – mniej agresywnie na mobile */
+    header.hero > .hero-inner > div:first-child > .pill{
+      margin-top: -4px;
+      margin-bottom: 10px;
+    }
+  }
 </style>
 
     
