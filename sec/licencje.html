@@ -628,6 +628,28 @@ overflow-wrap: anywhere;
   color:#eaeaff;
 }
 
+.final-cta{
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: center;
+}
+
+/* przycisk wycentrowany */
+.btn-wrap-footer{
+  display: flex;
+  justify-content: center;
+}
+
+/* PRZESTRZEŃ PRZED FOOTEREM */
+footer{
+  margin-top: 64px; /* 🔥 zwiększone */
+  text-align: center;
+  color: rgba(234,240,255,.55);
+  font-size: 12.5px;
+}
+	  
   </style>
 </head>
 <body>
@@ -1075,16 +1097,20 @@ overflow-wrap: anywhere;
 </div>
 
 
-<div class="next-steps">
-  <b>Dalsze kroki</b>
-  <p>
-    Jeśli Twoja firma rozważa tańszą licencję, warto najpierw odpowiedzieć na jedno pytanie:
-    <b>„Czy chcemy wymuszać standard urządzeń i blokować ryzykowne logowania?”</b>
-  </p>
-  <p>
-    Jeśli odpowiedź brzmi „tak”, w praktyce oznacza to <b>Business Premium</b> (lub rozszerzenie o Entra P1/ Intune MDM/ Defender for Business), co nie będzie ekonimicznie uzasadnione.
-  </p>
-</div>
+<div class="final-cta">
+
+  <!-- Next steps -->
+  <div class="next-steps">
+    <b>Dalsze kroki</b>
+    <p>
+      Jeśli Twoja firma rozważa tańszą licencję, warto najpierw odpowiedzieć na jedno pytanie:
+      <b>„Czy chcemy wymuszać standard urządzeń i blokować ryzykowne logowania?”</b>
+    </p>
+    <p>
+      Jeśli odpowiedź brzmi „tak”, w praktyce oznacza to <b>Business Premium</b>
+      lub rozszerzenie o P1 / Intune / Defender.
+    </p>
+  </div>
 
 
       <div class="footer-gap"></div>
@@ -1093,12 +1119,16 @@ overflow-wrap: anywhere;
 
 </br></br>
 	
-    <div class="btn-wrap">
-      <a class="btn" href="../index.html">
-        <i class="fa-solid fa-house"></i>
-        Wróć do Security Hub
-      </a>
-    </div>
+
+  <!-- Button -->
+  <div class="btn-wrap-footer">
+    <a class="btn-back" href="../index.html">
+      ← Wróć do Security Hub
+    </a>
+  </div>
+
+</div>
+
 
 
  
