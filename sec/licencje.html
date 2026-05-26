@@ -762,18 +762,18 @@ footer{
                 <td><b>Tożsamość (logowania)</b><div class="small">Dostęp warunkowy, polityki dostępu</div></td>
                 <td>
                   <span class="pill bad">Brak dostępu warunkowego (Entra P1)</span>
-                  <div class="small">Możesz wymusić MFA „globalnie”, ale bez polityk kontekstu (urządzenie/lokalizacja).</div>
+                  <div class="small">Możesz wymusić uwierzytelnienie wieloskładnikowe „globalnie”, ale bez polityk kontekstu (urządzenie/lokalizacja/kraj).</div>
                 </td>
                 <td>
                   <span class="pill bad">Brak dostępu warunkowego (Entra P1)</span>
-                  <div class="small">To częsty błąd: „mamy Standard, więc mamy security”.</div>
+                  <div class="small">To częsty błąd: „mamy Standard, więc mamy bezpieczeństwo”.</div>
                 </td>
                 <td class="premium-col">
                   <span class="pill ok">Dostęp warunkowy (Entra P1)</span>
                   <ul class="list">
                     <li>blokada logowań z ryzykownych krajów</li>
                     <li>wymagaj zgodnego urządzenia</li>
-                    <li>wyłącz legacy auth</li>
+                    <li>wyłącz ryzykowne logowania (przejęcie tokena dostępu)</li>
                   </ul>
                   <div class="small">
                     Entra ID Plan 1 jest w tym planie.
@@ -794,18 +794,18 @@ footer{
                 <td><b>Urządzenia</b><div class="small">MDM/MAM, compliance, usuwanie danych</div></td>
                 <td>
                   <span class="pill bad">Brak Intune</span>
-                  <div class="small">Brak polityk: szyfrowanie, PIN, update’y, „zgodne urządzenie”.</div>
+                  <div class="small">Brak standardów ochrony: szyfrowanie, konfiguracja, aktualizacje, „zgodne urządzenie”.</div>
                 </td>
                 <td>
                   <span class="pill bad">Brak Intune</span>
-                  <div class="small">Ryzyko BYOD bez kontroli i bez egzekwowania standardu.</div>
+                  <div class="small">Ryzyko prywatnych urządzeń i aplikacji, bez kontroli i bez egzekwowania standardu.</div>
                 </td>
                 <td class="premium-col">
                   <span class="pill ok">Intune Plan 1</span>
                   <ul class="list">
-                    <li>wymuś szyfrowanie, PIN, Defender, aktualizacje</li>
-                    <li>compliance → warunek dostępu</li>
-                    <li>remote wipe po kradzieży</li>
+                    <li>wymuś szyfrowanie, Windows Hello, Defender, aktualizacje, automatyczna konfiguracja</li>
+                    <li>zgodność urządzenia jako warunek dostępu</li>
+                    <li>zdalne usuwanie danych po kradzieży</li>
                   </ul>
                   <div class="small">
                     Intune Plan 1 jest w tym planie.
@@ -822,17 +822,17 @@ footer{
                 <td><b>Poczta (phishing)</b><div class="small">Linki, załączniki, ochrona w M365</div></td>
                 <td>
                   <span class="pill warn">Bazowa ochrona</span>
-                  <div class="small">W praktyce często kończy się na „spam filter + MFA” – to nie blokuje nowoczesnych kampanii.</div>
+                  <div class="small">W praktyce często kończy się na „spam filter + uwierzytelnienie wieloskładnikowe” – to nie blokuje nowoczesnych kampanii.</div>
                 </td>
                 <td>
                   <span class="pill warn">Bazowa ochrona</span>
-                  <div class="small">Może wyglądać „OK”, dopóki nie trafi kampania targetowana.</div>
+                  <div class="small">Może wyglądać „OK”, dopóki nie rozpocznie się kampania targetowana.</div>
                 </td>
                 <td class="premium-col">
                   <span class="pill ok">Defender for Office 365 P1</span>
                   <ul class="list">
-                    <li>ochrona linków i załączników</li>
-                    <li>wzmocnienie przeciw phishing</li>
+                    <li>Zaawansowana ochrona linków i załączników</li>
+                    <li>wzmocnienie anty-phishingowe</li>
                   </ul>
                   <div class="small">
                     Defender for Office 365 Plan 1 jest w tym planie.
@@ -846,14 +846,14 @@ footer{
               </tr>
 
               <tr>
-                <td><b>Ochrona urządzeń</b><div class="small">EDR, ochrona stacji roboczych</div></td>
+                <td><b>Ochrona urządzeń</b><div class="small">XDR, ochrona stacji roboczych</div></td>
                 <td>
-                  <span class="pill bad">Brak „sensownego EDR”</span>
-                  <div class="small">Jak wejdzie ransomware na laptop – masz problem z danymi zsynchronizowanymi do chmury.</div>
+                  <span class="pill bad">Brak zaawansowanej ochrony przed malware</span>
+                  <div class="small">Jak wejdzie ransomware na urządzenia – powstaje problem z danymi zsynchronizowanymi do chmury.</div>
                 </td>
                 <td>
-                  <span class="pill bad">Brak „sensownego EDR”</span>
-                  <div class="small">W MŚP to najczęściej najsłabsze ogniwo.</div>
+                  <span class="pill bad">Brak „sensownego XDR”</span>
+                  <div class="small">W MŚP to często najsłabsze ogniwo.</div>
                 </td>
                 <td class="premium-col">
                   <span class="pill ok">Defender for Business</span>
@@ -893,14 +893,14 @@ footer{
                   <span class="pill ok">Masz narzędzia, żeby wymusić standard</span>
                   <ul class="list">
                     <li>polityki logowań + zgodne urządzenia</li>
-                    <li>ochrona maila + endpoint</li>
+                    <li>ochrona maila i urządzeń</li>
                     <li>realna egzekucja zasad</li>
                   </ul>
                 </td>
                 <td>
                   <span class="pill warn">Uwaga na skrzynkę</span>
                   <div class="small">
-                    F1 ma Exchange Kiosk (kalendarz Teams), bez pełnych praw skrzynki.
+                    F1 ma Exchange Kiosk (kalendarz Teams), bez pełnych praw do skrzynki e-mail.
                     <a href="https://www.microsoft.com/en-us/microsoft-365/enterprise/f1" target="_blank" rel="noopener noreferrer">Sprawdź opis F1</a>
                   </div>
                 </td>
@@ -911,19 +911,19 @@ footer{
                 <td>
                   <span class="pill warn">Tylko jeśli…</span>
                   <ul class="list">
-                    <li>to konto jest „pocztowe/web”</li>
-                    <li>i masz osobno licencje Enta P1/ Intune MDM w innym modelu</li>
+                    <li>to konto jest „przeglądarkowe”</li>
+                    <li>i masz osobno licencje Entra P1/ Intune MDM w innym modelu</li>
                   </ul>
                 </td>
                 <td>
                   <span class="pill warn">Tylko jeśli…</span>
                   <ul class="list">
                     <li>priorytet: aplikacje desktop</li>
-                    <li>ale security robisz dodatkowymi licencjami (P1/Intune/EDR)</li>
+                    <li>ale zabezpieczenia realizujesz dodatkowymi licencjami (Entra P1/Intune/XDR)</li>
                   </ul>
                 </td>
                 <td class="premium-col">
-                  <span class="pill ok">Najbezpieczniejszy „baseline” w MŚP</span>
+                  <span class="pill ok">Najbezpieczniejszy standard w MŚP</span>
 
                   <div class="cta-row">
                     <a
@@ -948,11 +948,11 @@ footer{
                   </div>
                 </td>
                 <td>
-                  <span class="pill info">Tani dostęp „na produkcję”</span>
+                  <span class="pill info">Tani dostęp dla pracowników terenowych</span>
                   <ul class="list">
                     <li>dobry dla „frontline”</li>
-                    <li>z P1 możesz pilnować dostępu</li>
-                    <li>tylko uważaj na mail (kiosk)</li>
+                    <li>z ENtra P1 możesz zabezpieczyć dostęp</li>
+                    <li>brak maila (tylko kalendarz dla Teams)</li>
                   </ul>
                 </td>
               </tr>
@@ -974,12 +974,12 @@ footer{
 
     <div class="card-section">
       <b>Tożsamość</b>
-      <span class="pill bad">Brak CA</span>
+      <span class="pill bad">Brak dostępu warunkowego</span>
     </div>
 
     <div class="card-section">
       <b>Urządzenia</b>
-      <span class="pill bad">Brak Intune</span>
+      <span class="pill bad">Brak zarządznaia urządzeniami Intune</span>
     </div>
 
     <div class="card-section">
@@ -990,8 +990,8 @@ footer{
     <div class="card-section">
       <b>Ryzyko</b>
       <ul>
-        <li>brak kontroli urządzeń</li>
-        <li>brak Zero Trust</li>
+        <li>brak kontroli nad urządzeniami</li>
+        <li>brak Zero Trust [zasady Zerowej Tolernacji]</li>
       </ul>
     </div>
   </div>
@@ -1107,8 +1107,8 @@ footer{
       <b>„Czy chcemy wymuszać standard urządzeń i blokować ryzykowne logowania?”</b>
     </p>
     <p>
-      Jeśli odpowiedź brzmi „tak”, w praktyce oznacza to <b>Business Premium</b>
-      lub rozszerzenie o P1 / Intune / Defender.
+      Jeśli odpowiedź brzmi „tak”, w praktyce oznacza to <b>Microsoft 365 Business Premium</b>
+      lub rozszerzenie o Entra P1 / Intune / Defender XDR.
     </p>
   </div>
 
