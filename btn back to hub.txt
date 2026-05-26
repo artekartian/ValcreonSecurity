@@ -1,4 +1,7 @@
-    .btn{
+
+
+<!--
+.btn{
       display:inline-flex;
       align-items:center;
       gap:10px;
@@ -12,14 +15,24 @@
       transition: transform .15s ease, background .15s ease;
     }
     .btn:hover{transform: translateY(-1px)}
+-->
+
+
+
+<!-- Fonts / Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <link rel="icon" href="../fav.ico" type="image/x-icon">
+
 
 
 .btn-wrap{
   display: flex;
   justify-content: center;
 }
-
-
 
 <div class="btn-wrap">
   <a class="btn" href="../index.html">
