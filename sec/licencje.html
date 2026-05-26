@@ -1,0 +1,1087 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Licencje Microsoft 365 dla SMB – wybór pod bezpieczeństwo</title>
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --bg2:#0f141b;
+      --card:rgba(255,255,255,.045);
+      --card2:rgba(255,255,255,.06);
+      --text:#dbe2ea;
+      --muted:#93a4b6;
+      --muted2:#6f8093;
+      --border:#1f2a36;
+      --shadow: 0 14px 50px rgba(0,0,0,.45);
+      --accent:#7c5cff;
+      --accent2:#22c55e;
+      --warn:#f59e0b;
+      --bad:#ef4444;
+      --good:#60a5fa;
+      --radius:18px;
+      --radius2:14px;
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+
+    html, body{
+      max-width:100%;
+      overflow-x:hidden;
+    }
+
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(124,92,255,.18), transparent 55%),
+        radial-gradient(900px 500px at 95% 0%, rgba(34,197,94,.10), transparent 50%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--text);
+      line-height:1.45;
+    }
+
+    a{
+      color:#c7d2fe;
+      text-decoration:none;
+    }
+    a:hover{ text-decoration:underline; }
+
+    .container{
+	max-width: 1440px;   /* możesz dać 1440 jeśli chcesz szerzej */
+  	width: 100%;
+  	margin: 0 auto;
+  	padding: 0 20px;
+     }
+
+    .hero{
+      padding:44px 0 10px;
+    }
+
+    .kicker{
+      display:inline-flex;
+      flex-wrap: wrap;
+      max-width: 100%;
+      gap:10px;
+      align-items:center;
+      padding:8px 12px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      border-radius:999px;
+      color:var(--muted);
+      font-size:13px;
+      max-width:100%;
+      flex-wrap:wrap;
+    }
+
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--accent);
+      box-shadow:0 0 0 6px rgba(124,92,255,.12);
+      flex:0 0 auto;
+    }
+
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(26px, 2.8vw, 40px);
+      letter-spacing:-.02em;
+      line-height:1.1;
+    }
+
+    .lead{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size: clamp(14px, 1.5vw, 16px);
+      max-width:72ch;
+    }
+
+    .note-row{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+      margin:14px 0 22px;
+    }
+
+    .note{
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.03));
+      border-radius:var(--radius);
+      padding:14px 14px;
+      color:var(--muted);
+      font-size:13px;
+      overflow-wrap:anywhere;
+    }
+
+    .note strong,
+    .note b{
+      color:var(--text);
+      font-weight:650;
+    }
+
+    .wrap{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .table-head{
+      padding:16px 16px 10px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:16px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      background:linear-gradient(180deg, rgba(124,92,255,.12), rgba(255,255,255,.02));
+      flex-wrap:wrap;
+    }
+
+    .table-head h2{
+      margin: 0 0 14px; 
+      font-size:18px;
+      letter-spacing:-.01em;
+    }
+
+    .table-head p{
+      margin:2px 0 0;
+      color:var(--muted);
+      font-size:13px;
+      max-width:68ch;
+    }
+
+    .scroll{
+      overflow-x:auto;
+      overflow-y:hidden;
+      -webkit-overflow-scrolling:touch;
+      max-width:100%;
+    }
+
+    .table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      table-layout:fixed;
+      font-size:14px;
+    }
+
+    .table col.col-risk{ width:24%; }
+    .table col.col-basic{ width:18%; }
+    .table col.col-standard{ width:18%; }
+    .table col.col-premium{ width:20%; }
+    .table col.col-f1{ width:20%; }
+
+    .table th,
+    .table td{
+      padding:12px 12px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      vertical-align:top;
+      overflow-wrap:anywhere;
+      word-break:break-word;
+    }
+
+    .table th{
+     text-align:left;
+     font-weight:700;
+     font-size:13px;
+     text-transform:uppercase;
+     letter-spacing:.08em;
+     color:#c7d2e3; /* jaśniej */
+     background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.06),
+    rgba(255,255,255,.02)
+  );
+}
+
+.table thead tr{
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.table th.premium-col{
+  color:#fff;
+  background:linear-gradient(
+    180deg,
+    rgba(124,92,255,.35),
+    rgba(124,92,255,.15)
+  );
+  border-left:1px solid rgba(124,92,255,.35);
+  border-right:1px solid rgba(124,92,255,.35);
+}
+
+    }
+
+    .table td{
+      color:var(--text);
+      background:rgba(255,255,255,.01);
+      vertical-align: top;
+    }
+
+    .table td:first-child,
+    .table th:first-child{
+      background:rgba(255,255,255,.02);
+    }
+
+    .premium-col{
+      position:relative;
+      background:linear-gradient(180deg, rgba(124,92,255,.16), rgba(255,255,255,.02)) !important;
+      border-left:1px solid rgba(124,92,255,.22);
+      border-right:1px solid rgba(124,92,255,.22);
+      box-shadow:
+        inset 1px 0 0 rgba(124,92,255,.14),
+        inset -1px 0 0 rgba(124,92,255,.14);
+    }
+
+    .premium-col .badge{
+      display:inline-block;
+      align-items:center;
+      gap:8px;
+      border:1px solid rgba(124,92,255,.45);
+      background:rgba(124,92,255,.18);
+      padding:6px 10px;
+      border-radius:12px;
+      font-size:12px;
+      color:#efeaff;
+      font-weight:700;
+      letter-spacing:.02em;
+      max-width:100%;
+      flex-wrap:wrap;   
+      width: fit-content;
+}
+
+    }
+
+    .badge .spark{
+      width:10px;
+      height:10px;
+      border-radius:3px;
+      background:var(--accent);
+      box-shadow:0 0 0 6px rgba(124,92,255,.14);
+      flex:0 0 auto;
+    }
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:8px 14px;
+
+  border-radius:999px;
+
+  font-size:12px;
+  font-weight:600;
+  line-height:1.2;
+
+  text-align:center;
+
+  white-space: normal;     /* ✅ pozwalamy łamać */
+  word-break: break-word;
+
+  min-height: 40px;        /* ✅ STAŁA wysokość */
+  max-width: 100%;
+}
+``
+
+.table td{
+  vertical-align: top;
+overflow-wrap: anywhere;
+}
+
+.table td .pill{
+  min-height: 32px;
+}
+
+    .ok{
+      color:#d9ffe7;
+      border-color:rgba(34,197,94,.35);
+      background:rgba(34,197,94,.12);
+    }
+
+    .warn{
+      color:#fff1d6;
+      border-color:rgba(245,158,11,.35);
+      background:rgba(245,158,11,.12);
+    }
+
+    .bad{
+      color:#ffe1e1;
+      border-color:rgba(239,68,68,.35);
+      background:rgba(239,68,68,.12);
+    }
+
+    .info{
+      color:#dbeafe;
+      border-color:rgba(96,165,250,.35);
+      background:rgba(96,165,250,.12);
+    }
+
+    .muted{ color:var(--muted); }
+    .small{ font-size:12.5px; color:var(--muted); }
+
+    .list{
+      margin:8px 0 0;
+      padding-left:18px;
+      color:var(--muted);
+    }
+
+    .list li{ margin:4px 0; }
+
+    .cta-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:11px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:650;
+      font-size:13px;
+      transition:transform .08s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.08);
+      border-color:rgba(255,255,255,.14);
+      text-decoration:none;
+    }
+
+    .btn.primary{
+      background:linear-gradient(180deg, rgba(124,92,255,.95), rgba(124,92,255,.72));
+      border-color:rgba(124,92,255,.65);
+    }
+
+    .btn.primary:hover{
+      background:linear-gradient(180deg, rgba(124,92,255,1), rgba(124,92,255,.80));
+    }
+
+    @media (max-width: 980px){
+      .table{
+        min-width:1080px;
+      }
+
+      .table td:first-child,
+      .table th:first-child{
+        position:sticky;
+        left:0;
+        z-index:2;
+        box-shadow:12px 0 24px rgba(0,0,0,.28);
+      }
+
+      .table th:first-child{ z-index:3; }
+    }
+
+
+	html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+    @media (max-width: 640px){
+      .container{
+        width:min(var(--max), calc(100% - 24px));
+      }
+
+      .hero{
+        padding:28px 0 6px;
+      }
+
+      .table-head{
+        padding:14px 14px 10px;
+      }
+
+      .table th,
+      .table td{
+        padding:10px 10px;
+      }
+
+      .note{
+        padding:12px 12px;
+      }
+    }
+
+    .footer-gap{ height:40px; }
+
+
+/* === MOBILE CARDS VERSION === */
+
+.cards{
+  display:none;
+}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      border-radius: 999px;
+      padding: 11px 14px;
+      border: 1px solid rgba(124,58,237,.35);
+      background: linear-gradient(180deg, rgba(124,58,237,.18), rgba(124,58,237,.10));
+      color: rgba(234,240,255,.95);
+      font-weight: 650;
+      font-size: 13.5px;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .btn:hover{transform: translateY(-1px)}
+
+
+.btn-wrap{
+  display: flex;
+  justify-content: center;
+}
+
+
+
+    footer{
+      margin-top: 18px;
+  	text-align: center;
+ 	 color: rgba(234,240,255,.55);
+ 	 font-size: 12.5px;
+ 	 margin-top: 48px;
+    }
+
+
+/* breakpoint */
+@media (max-width: 768px){
+
+  .scroll{
+    display:none; /* ukryj tabelę */
+  }
+
+  .cards{
+    display:grid;
+    gap:14px;
+  }
+
+  .card{
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.04);
+    border-radius:16px;
+    padding:16px;
+  }
+
+  .card.premium{
+    background:linear-gradient(180deg, rgba(124,92,255,.18), rgba(255,255,255,.04));
+    border:1px solid rgba(124,92,255,.45);
+    box-shadow:0 10px 40px rgba(124,92,255,.25);
+  }
+
+  .card-title{
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:10px;
+  }
+
+  .card-section{
+    margin-top:12px;
+  }
+
+  .card-section b{
+    display:block;
+    font-size:12px;
+    color:var(--muted);
+    margin-bottom:4px;
+  }
+
+  .card-section p{
+    margin:0;
+    font-size:13px;
+    color:var(--text);
+  }
+
+  .card ul{
+    padding-left:18px;
+    margin:6px 0 0;
+    font-size:13px;
+  }
+
+  .card ul li{
+    margin-bottom:4px;
+  }
+
+}
+
+.top-nav{
+  margin-bottom: 16px;
+}
+
+/* wariant "back" – bardziej subtelny niż CTA */
+.btn-back{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+
+  border-radius: 999px;
+  padding: 9px 14px;
+
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 13px;
+
+  transition: all .15s ease;
+}
+
+.btn-back:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.08);
+  color: var(--text);
+}
+
+.next-steps{
+  margin-top:20px;
+  padding:18px 18px;
+
+  border-radius:16px;
+
+  border:1px solid rgba(124,92,255,.4);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(124,92,255,.18),
+      rgba(10,14,22,.65)
+    );
+
+  box-shadow:
+    0 0 0 1px rgba(124,92,255,.15),
+    0 10px 40px rgba(124,92,255,.25);
+
+  position:relative;
+}
+
+/* cienki border glow jak na Twoim screenie */
+.next-steps::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:16px;
+  pointer-events:none;
+
+  box-shadow:
+    0 0 0 2px rgba(124,92,255,.15),
+    0 0 40px rgba(124,92,255,.25);
+}
+
+.next-steps b:first-child{
+  display:block;
+  font-size:15px;
+  margin-bottom:10px;
+  color:#fff;
+}
+
+.next-steps p{
+  margin:6px 0;
+  color:var(--muted);
+  font-size:13.5px;
+  line-height:1.45;
+}
+
+.next-steps p b{
+  color:#eaeaff;
+}
+
+  </style>
+</head>
+<body>
+
+
+    
+
+  <header class="hero">
+    <div class="container">
+
+
+<div class="top-nav">
+  <a class="btn btn-back" href="../index.html">
+    ← Powrót do Security Hub
+   </a>
+</div>
+
+
+      <div class="kicker"><span class="dot"></span> Licencje Microsoft 365 dla SMB – wybór pod bezpieczeństwo</div>
+
+      <h1>Nie kupujesz licencji. Kupujesz poziom ryzyka.</h1>
+
+      <p class="lead">
+        Przygotowaliśmy porównanie planów Microsoft 365 w ujęciu bezpieczeństwa: użytkownicy → dostęp → urządzenia → dane.</br></br>
+        Pokazujemy konkretnie, co można <b>zabezpieczyć </b>, a <b>czego nie da się technicznie skonfigurować</b> bez właściwej licencji.
+      </p>
+
+      <div class="note-row">
+        <div class="note">
+          <strong>Najważniejsze:</strong> jeśli chcesz polityk typu <b>Dostęp warunkowy</b> (blokady logowań, wymaganie zgodnych urządzeń),
+          potrzebujesz <b>Entra ID Plan 1</b> – jest m.in. w <b>Business Premium</b> i <b>Microsoft 365 F1</b> przeznaczonej na pracowników pracujących poza biurem.
+          <a href="https://learn.microsoft.com/en-us/entra/fundamentals/licensing" target="_blank" rel="noopener noreferrer">Sprawdź dokumentację licencjonowania Entra</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="pricing">
+    <div class="container">
+
+      <div class="wrap">
+        <div class="table-head">
+          <div>
+            <h2>Tabela licencji – bezpieczeństwo w praktyce</h2>
+            <p>Business Premium jest wyróżnione, poneważ jako jedyne w tym zestawieniu daje spójny „pakiet ochrony” (użytkownicy + dostęp warunkowy + urządzenia + dane).</p>
+          </div>
+          <div class="pill info">praktyczne różnice, a nie lista aplikacji</div>
+        </div>
+
+        <div class="scroll" role="region" aria-label="Tabela porównawcza licencji" tabindex="0">
+          <table class="table">
+            <colgroup>
+              <col class="col-risk">
+              <col class="col-basic">
+              <col class="col-standard">
+              <col class="col-premium">
+              <col class="col-f1">
+            </colgroup>
+
+            <thead>
+              <tr>
+                <th>Obszar ryzyka</th>
+                <th>Business Basic</th>
+                <th>Business Standard</th>
+                <th class="premium-col">
+                  <span class="badge"><span class="spark"></span>Business Premium (rekomendowane)</span>
+                </th>
+                <th>Microsoft 365 F1 (frontline)</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td><b>Profil użytkownika</b><div class="small">Dla kogo jest ten plan</div></td>
+                <td>
+                  <span class="pill warn">„żeby działała poczta + Office w przeglądarce”</span>
+                  <ul class="list">
+                    <li>Użytkownicy z podstawowymi potrzebami</li>
+                    <li>Bez wymuszania ochrony>/li>
+		    <li>Bez zarządzania urządzeniami</li>
+                  </ul>
+                </td>
+                <td>
+                  <span class="pill warn">„produktywność + programy Office”</span>
+                  <ul class="list">
+                    <li>Pracownicy biurowi</li>
+                    <li>Podstawowy poziom bezpieczeństwa (bez Entra P1)</li>
+		    <li>Domyślny plan zabezpieczeń: wszyscy albo nikt</li>
+                  </ul>
+                </td>
+                <td class="premium-col">
+                  <span class="pill ok">„minimum sensownego bezpieczeństwa”</span>
+                  <ul class="list">
+                    <li>Firmy z danymi klientów</li>
+                    <li>Praca zdalna i hybrydowa</li>
+                    <li>Wymogi ubezpieczeniowe i audyty</li>
+                  </ul>
+                </td>
+                <td>
+                  <span class="pill info">„frontline / mobilni”</span>
+                  <ul class="list">
+                    <li>Sklepy, magazyn, teren</li>
+                    <li>Teams + zasady dostępu</li>
+		    <li>Ochrona danych na telefonach</li>
+                  </ul>
+                </td>
+              </tr>
+
+              <tr>
+                <td><b>Tożsamość (logowania)</b><div class="small">Dostęp warunkowy, polityki dostępu</div></td>
+                <td>
+                  <span class="pill bad">Brak CA (bez P1)</span>
+                  <div class="small">Możesz wymusić MFA „globalnie”, ale bez polityk kontekstu (urządzenie/lokalizacja).</div>
+                </td>
+                <td>
+                  <span class="pill bad">Brak CA (bez P1)</span>
+                  <div class="small">To częsty błąd: „mamy Standard, więc mamy security”.</div>
+                </td>
+                <td class="premium-col">
+                  <span class="pill ok">Dostęp warunkowy (P1)</span>
+                  <ul class="list">
+                    <li>blokada logowań z ryzykownych krajów</li>
+                    <li>wymagaj zgodnego urządzenia</li>
+                    <li>wyłącz legacy auth</li>
+                  </ul>
+                  <div class="small">
+                    Entra ID Plan 1 jest w tym planie.
+                    <a href="https://www.microsoft.com/en-us/security/business/microsoft365-business-premium" target="_blank" rel="noopener noreferrer">Business Premium</a> ·
+                    <a href="https://learn.microsoft.com/en-us/entra/fundamentals/licensing" target="_blank" rel="noopener noreferrer">Licencjonowanie Entra</a>
+                  </div>
+                </td>
+                <td>
+                  <span class="pill ok">Dostęp warunkowy (P1)</span>
+                  <div class="small">
+                    Entra ID P1 jest m.in. w M365 F1.
+                    <a href="https://learn.microsoft.com/en-us/entra/fundamentals/licensing" target="_blank" rel="noopener noreferrer">Sprawdź dokumentację</a>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td><b>Urządzenia</b><div class="small">MDM/MAM, compliance, usuwanie danych</div></td>
+                <td>
+                  <span class="pill bad">Brak Intune</span>
+                  <div class="small">Brak polityk: szyfrowanie, PIN, update’y, „zgodne urządzenie”.</div>
+                </td>
+                <td>
+                  <span class="pill bad">Brak Intune</span>
+                  <div class="small">Ryzyko BYOD bez kontroli i bez egzekwowania standardu.</div>
+                </td>
+                <td class="premium-col">
+                  <span class="pill ok">Intune Plan 1</span>
+                  <ul class="list">
+                    <li>wymuś szyfrowanie, PIN, Defender, aktualizacje</li>
+                    <li>compliance → warunek dostępu</li>
+                    <li>remote wipe po kradzieży</li>
+                  </ul>
+                  <div class="small">
+                    Intune Plan 1 jest w tym planie.
+                    <a href="https://www.microsoft.com/en-us/security/business/microsoft365-business-premium" target="_blank" rel="noopener noreferrer">Business Premium</a>
+                  </div>
+                </td>
+                <td>
+                  <span class="pill info">Zależne od scenariusza</span>
+                  <div class="small">F1 stosuje się dla użytkowników mobilnych – dobór zależy od tego, czy musisz zarządzać komputerami.</div>
+                </td>
+              </tr>
+
+              <tr>
+                <td><b>Poczta (phishing)</b><div class="small">Linki, załączniki, ochrona w M365</div></td>
+                <td>
+                  <span class="pill warn">Bazowa ochrona</span>
+                  <div class="small">W praktyce często kończy się na „spam filter + MFA” – to nie blokuje nowoczesnych kampanii.</div>
+                </td>
+                <td>
+                  <span class="pill warn">Bazowa ochrona</span>
+                  <div class="small">Może wyglądać „OK”, dopóki nie trafi kampania targetowana.</div>
+                </td>
+                <td class="premium-col">
+                  <span class="pill ok">Defender for Office 365 P1</span>
+                  <ul class="list">
+                    <li>ochrona linków i załączników</li>
+                    <li>wzmocnienie przeciw phishing</li>
+                  </ul>
+                  <div class="small">
+                    Defender for Office 365 Plan 1 jest w tym planie.
+                    <a href="https://www.microsoft.com/en-us/security/business/microsoft365-business-premium" target="_blank" rel="noopener noreferrer">Business Premium</a>
+                  </div>
+                </td>
+                <td>
+                  <span class="pill warn">Zależne od roli</span>
+                  <div class="small">Frontline zwykle mniej maila, więcej Teams. Dobór ochrony zależy od tego, czy to konto ma realną skrzynkę.</div>
+                </td>
+              </tr>
+
+              <tr>
+                <td><b>Ochrona urządzeń</b><div class="small">EDR, ochrona stacji roboczych</div></td>
+                <td>
+                  <span class="pill bad">Brak „sensownego EDR”</span>
+                  <div class="small">Jak wejdzie ransomware na laptop – masz problem z danymi zsynchronizowanymi do chmury.</div>
+                </td>
+                <td>
+                  <span class="pill bad">Brak „sensownego EDR”</span>
+                  <div class="small">W MŚP to najczęściej najsłabsze ogniwo.</div>
+                </td>
+                <td class="premium-col">
+                  <span class="pill ok">Defender for Business</span>
+                  <ul class="list">
+                    <li>ochrona przed ransomware</li>
+                    <li>detekcja podejrzanych działań</li>
+                    <li>reakcja i izolacja</li>
+                  </ul>
+                  <div class="small">
+                    Defender for Business jest w tym planie.
+                    <a href="https://www.microsoft.com/en-us/security/business/microsoft365-business-premium" target="_blank" rel="noopener noreferrer">Business Premium</a>
+                  </div>
+                </td>
+                <td>
+                  <span class="pill info">Nie ten scenariusz</span>
+                  <div class="small">F1 jest pod pracowników „mobilnych/terenowych”, a nie pod pełne stacje biurowe.</div>
+                </td>
+              </tr>
+
+              <tr>
+                <td><b>Wąskie gardło</b><div class="small">Co najczęściej „nie wyjdzie”</div></td>
+                <td>
+                  <span class="pill bad">Brak polityk → brak egzekwowania</span>
+                  <ul class="list">
+                    <li>nie zablokujesz logowania z niezgodnych urządzeń</li>
+                    <li>nie zrobisz sensownego Zero Trust</li>
+                  </ul>
+                </td>
+                <td>
+                  <span class="pill bad">„Jest Office, nie ma tarczy”</span>
+                  <ul class="list">
+                    <li>ludzie pracują na desktop apps, a kontrola dostępu nadal słaba</li>
+                    <li>najgorsza pułapka: „myślimy, że jesteśmy zabezpieczeni”</li>
+                  </ul>
+                </td>
+                <td class="premium-col">
+                  <span class="pill ok">Masz narzędzia, żeby wymusić standard</span>
+                  <ul class="list">
+                    <li>polityki logowań + zgodne urządzenia</li>
+                    <li>ochrona maila + endpoint</li>
+                    <li>realna egzekucja zasad</li>
+                  </ul>
+                </td>
+                <td>
+                  <span class="pill warn">Uwaga na skrzynkę</span>
+                  <div class="small">
+                    F1 ma Exchange Kiosk (kalendarz Teams), bez pełnych praw skrzynki.
+                    <a href="https://www.microsoft.com/en-us/microsoft-365/enterprise/f1" target="_blank" rel="noopener noreferrer">Sprawdź opis F1</a>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td><b>Rekomendacje</b><div class="small">Najczęstszy wybór w małych i średnich firmach</div></td>
+                <td>
+                  <span class="pill warn">Tylko jeśli…</span>
+                  <ul class="list">
+                    <li>to konto jest „pocztowe/web”</li>
+                    <li>i masz osobno licencje Enta P1/ Intune MDM w innym modelu</li>
+                  </ul>
+                </td>
+                <td>
+                  <span class="pill warn">Tylko jeśli…</span>
+                  <ul class="list">
+                    <li>priorytet: aplikacje desktop</li>
+                    <li>ale security robisz dodatkowymi licencjami (P1/Intune/EDR)</li>
+                  </ul>
+                </td>
+                <td class="premium-col">
+                  <span class="pill ok">Najbezpieczniejszy „baseline” w MŚP</span>
+
+                  <div class="cta-row">
+                    <a
+                      class="btn primary"
+                      href="mailto:kontakt@redflag.tech?subject=Dob%C3%B3r%20licencji%20Microsoft%20365&body=Liczba%20u%C5%BCytkownik%C3%B3w:%0AObecne%20licencje:%0AProblem%20(bezpiecze%C5%84stwo/phishing/urz%C4%85dzenia/dane):%0A%0AChc%C4%99%20um%C3%B3wi%C4%87%2015%20min"
+                    >
+                      Umów 15 min (dobór licencji)
+                    </a>
+
+                    <a
+                      class="btn"
+                      href="mailto:kontakt@redflag.tech?subject=Szybki%20check%20M365%20(CA%2FIntune%2FDefender)&body=Liczba%20u%C5%BCytkownik%C3%B3w:%0A%0AProsz%C4%99%20o%20checklist%C4%99%20i%20weryfikacj%C4%99%20moich%20plan%C3%B3w."
+                    >
+                      Poproś o checklistę
+                    </a>
+                  </div>
+
+                  <div class="small" style="margin-top:10px;">
+                    Business Premium zawiera m.in. Entra ID P1, Intune P1, Defender for Business i Defender for Office 365 P1.
+                    <a href="https://www.microsoft.com/en-us/security/business/microsoft365-business-premium" target="_blank" rel="noopener noreferrer">Zobacz plan</a> ·
+                    <a href="https://learn.microsoft.com/en-us/entra/fundamentals/licensing" target="_blank" rel="noopener noreferrer">Licencjonowanie Entra</a>
+                  </div>
+                </td>
+                <td>
+                  <span class="pill info">Tani dostęp „na produkcję”</span>
+                  <ul class="list">
+                    <li>dobry dla „frontline”</li>
+                    <li>z P1 możesz pilnować dostępu</li>
+                    <li>tylko uważaj na mail (kiosk)</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+<div class="cards">
+
+  <!-- BASIC -->
+  <div class="card">
+    <div class="card-title">Business Basic</div>
+
+    <div class="card-section">
+      <b>Profil</b>
+      <p>„poczta + web”</p>
+    </div>
+
+    <div class="card-section">
+      <b>Tożsamość</b>
+      <span class="pill bad">Brak CA</span>
+    </div>
+
+    <div class="card-section">
+      <b>Urządzenia</b>
+      <span class="pill bad">Brak Intune</span>
+    </div>
+
+    <div class="card-section">
+      <b>Poczta</b>
+      <span class="pill warn">Bazowa</span>
+    </div>
+
+    <div class="card-section">
+      <b>Ryzyko</b>
+      <ul>
+        <li>brak kontroli urządzeń</li>
+        <li>brak Zero Trust</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- STANDARD -->
+  <div class="card">
+    <div class="card-title">Business Standard</div>
+
+    <div class="card-section">
+      <b>Profil</b>
+      <p>desktop + apps</p>
+    </div>
+
+    <div class="card-section">
+      <b>Tożsamość</b>
+      <span class="pill bad">Brak CA</span>
+    </div>
+
+    <div class="card-section">
+      <b>Urządzenia</b>
+      <span class="pill bad">Brak Intune</span>
+    </div>
+
+    <div class="card-section">
+      <b>Poczta</b>
+      <span class="pill warn">Bazowa</span>
+    </div>
+
+    <div class="card-section">
+      <b>Ryzyko</b>
+      <ul>
+        <li>fałszywe poczucie bezpieczeństwa</li>
+        <li>brak kontroli dostępu</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- PREMIUM -->
+  <div class="card premium">
+    <div class="card-title">Business Premium ✅</div>
+
+    <div class="card-section">
+      <b>Profil</b>
+      <p>pełne bezpieczeństwo MŚP</p>
+    </div>
+
+    <div class="card-section">
+      <b>Tożsamość</b>
+      <span class="pill ok">Dostęp warunkowy</span>
+    </div>
+
+    <div class="card-section">
+      <b>Urządzenia</b>
+      <span class="pill ok">Intune</span>
+    </div>
+
+    <div class="card-section">
+      <b>Poczta</b>
+      <span class="pill ok">Defender P1</span>
+    </div>
+
+    <div class="card-section">
+      <b>Endpoint</b>
+      <span class="pill ok">Defender</span>
+    </div>
+
+    <div class="card-section">
+      <b>Efekt</b>
+      <ul>
+        <li>blokada logowań</li>
+        <li>compliance urządzeń</li>
+        <li>realna ochrona</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- F1 -->
+  <div class="card">
+    <div class="card-title">Microsoft 365 F1</div>
+
+    <div class="card-section">
+      <b>Profil</b>
+      <p>frontline / mobilni</p>
+    </div>
+
+    <div class="card-section">
+      <b>Tożsamość</b>
+      <span class="pill ok">Dostęp warunkowy</span>
+    </div>
+
+    <div class="card-section">
+      <b>Uwagi</b>
+      <ul>
+        <li>kiosk mail</li>
+        <li>nie do laptopów biurowych</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="next-steps">
+  <b>Dalsze kroki</b>
+  <p>
+    Jeśli Twoja firma rozważa tańszą licencję, warto najpierw odpowiedzieć na jedno pytanie:
+    <b>„Czy chcemy wymuszać standard urządzeń i blokować ryzykowne logowania?”</b>
+  </p>
+  <p>
+    Jeśli odpowiedź brzmi „tak”, w praktyce oznacza to <b>Business Premium</b> (lub rozszerzenie o Entra P1/ Intune MDM/ Defender for Business), co nie będzie ekonimicznie uzasadnione.
+  </p>
+</div>
+
+
+      <div class="footer-gap"></div>
+    </div>
+  </main>
+
+    <div class="btn-wrap">
+      <a class="btn" href="../index.html">
+        <i class="fa-solid fa-house"></i>
+        Wróć do Security Hub
+      </a>
+    </div>
+
+    <footer>
+      <div class="text-center text-gray-500 text-xs mt-12">
+        © <span id="year"></span>
+        <a href="https://valcreon.com" class="link-reset">valcreon.com</a> • Microsoft 365 Security
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // auto-year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
