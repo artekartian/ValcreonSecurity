@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Fonts / Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <link rel="icon" href="../fav.ico" type="image/x-icon">
+
+<title>Microsoft 365 – podwyżki od lipca 2026</title>
+
+<style>
+
+.btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      border-radius: 999px;
+      padding: 11px 14px;
+      border: 1px solid rgba(124,58,237,.35);
+      background: linear-gradient(180deg, rgba(124,58,237,.18), rgba(124,58,237,.10));
+      color: rgba(234,240,255,.95);
+      font-weight: 650;
+      font-size: 13.5px;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .btn:hover{transform: translateY(-1px)}
+
+.btn-wrap{
+  display: flex;
+  justify-content: center;
+  margin-top:40px;
+}
+
+:root{
+  --bg:#04070d;
+  --card:#0b1220;
+  --accent:#7c3aed;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --up:#ef4444;
+}
+
+body{
+  margin:0;
+  font-family:Inter, Segoe UI, sans-serif;
+  background:radial-gradient(circle at top,#0f172a,#020617);
+  color:var(--text);
+}
+
+.wrap{max-width:1200px;margin:auto;padding:50px 20px}
+
+h1{
+    
+  font-size:clamp(2.8rem,5vw,4rem);
+  font-weight:800;
+  text-align:center;
+  letter-spacing:-0.02em;
+    background:linear-gradient(90deg,#ffffff,#a78bfa,#60a5fa);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:12px;
+  text-align:center;font-size:clamp(2rem,4vw,3rem)
+}
+
+h2{
+  font-size:28px;
+  font-weight:700;
+
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  margin-top:60px;
+  margin-bottom:20px;
+
+  color:#e5e7eb;
+}
+
+/* linia */
+h2::after{
+  content:"";
+  flex:1;
+  height:1px;
+
+  background:linear-gradient(
+    90deg,
+    rgba(124,58,237,.5),
+    transparent
+  );
+}
+
+.hero-sub{
+  text-align:center;
+  color:#94a3b8;
+  font-size:15px;
+  opacity:.9;
+}
+
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
+}
+
+.card{
+ background:linear-gradient(180deg,#0b1220,#060d1a);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:18px;
+  padding:22px;
+  position:relative;
+  transition:.25s;
+  
+  /* NOWOŚĆ – kontrast */
+  box-shadow:
+    0 8px 24px rgba(0,0,0,.6),
+    inset 0 1px 0 rgba(255,255,255,.04);
+
+}
+
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+  background:radial-gradient(circle at top left, rgba(124,58,237,.15), transparent 50%);
+  pointer-events:none;
+}
+
+.feature-row{
+  position:relative;
+}
+
+.feature-row::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:0;
+  height:2px;
+  background:#7c3aed;
+  transition:.25s;
+}
+
+.feature-row:hover::after{
+  width:60px;
+}
+
+
+
+
+.card:hover{
+
+  transform:translateY(-6px) scale(1.01);
+  border-color:rgba(124,58,237,.6);
+
+  box-shadow:
+    0 20px 50px rgba(124,58,237,.25),
+    0 8px 30px rgba(0,0,0,.8);
+
+}
+
+.plan{font-size:15px;margin-bottom:10px}
+
+.price{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.old{
+  text-decoration:line-through;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.new{
+  font-size:22px;
+  font-weight:700;
+}
+
+.arrow svg{
+  width:24px;
+  height:24px;
+  stroke:var(--accent);
+}
+
+.percent{
+  margin-top:6px;
+  font-size:13px;
+  color:var(--up);
+  font-weight:600;
+}
+
+.nochange{
+  color:#22c55e;
+}
+
+.split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+@media(max-width:900px){
+  .split{grid-template-columns:1fr}
+}
+
+.badge{
+  position:absolute;
+  top:10px;
+  right:10px;
+  font-size:10px;
+  padding:4px 8px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#7c3aed,#6366f1);
+}
+
+.footer{
+  margin-top:60px;
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.card:hover .new{
+  color:#a78bfa;
+}
+
+.percent{
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%{opacity:.5}
+  50%{opacity:1}
+  100%{opacity:.5}
+}
+
+.card{
+  padding:16px; /* było 22px */
+}
+
+/* mniejsze spacing tylko tu */
+.standalone .card .plan{
+  font-size:22px;
+}
+
+.standalone .price{
+  gap:6px;
+}
+
+
+.card.big-increase{
+  border:1px solid rgba(239,68,68,.5);
+  box-shadow:0 10px 30px rgba(239,68,68,.2);
+}
+
+.features-compact{
+  margin-top:20px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+/* LINIA PRODUKTU */
+.feature-row{
+  padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+/* NAZWA – DUŻA (jak ceny) */
+.feature-name{
+  font-size:24px;
+  font-weight:800;
+  margin-bottom:6px;
+}
+
+/* FUNKCJE W JEDNEJ LINI */
+.feature-line{
+  font-size:14px;
+  color:#a8b3cf;
+
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+/* Copilot highlight */
+.feature-highlight{
+  color:#a78bfa;
+  font-weight:600;
+}
+
+/* hover */
+.feature-row:hover{
+  transform:translateX(4px);
+  color:#fff;
+}
+
+
+.feature-card .desc{
+  line-height:1.5;
+}
+
+.feature-card .desc b{
+  color:#a78bfa;
+  font-weight:600;
+}
+
+.feature-highlight{
+  color:#a78bfa;        /* ten Twój fiolet */
+  font-weight:600;      /* nie 800 → subtelniej */
+}
+
+.link-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:13px;
+  padding:6px 10px;
+  border-radius:8px;
+  background:rgba(124,58,237,.15);
+  color:#c084fc;
+  text-decoration:none;
+}
+
+.link-chip:hover{
+  background:rgba(124,58,237,.25);
+}
+
+
+.center{
+  text-align:center;
+}
+
+footer{
+      margin-top: 18px;
+  	text-align: center;
+ 	 color: rgba(234,240,255,.55);
+ 	 font-size: 12.5px;
+ 	 margin-top: 48px;
+    }
+
+.link-reset{
+  color: inherit;
+  text-decoration: none;
+}
+
+.link-reset:hover{
+  color: inherit;
+  text-decoration: none;
+  opacity: 1;
+  text-shadow: 0 0 10px rgba(124,58,237,.35);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="btn-wrap">
+  <a class="btn" href="../index.html">
+    <i class="fa-solid fa-house"></i>
+    Wróć do Security Hub
+  </a>
+</div>
+    
+<div class="wrap">
+
+<h1>Microsoft 365 – podwyżki cen</h1>
+
+<p class="hero-sub">
+Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
+</p>
+
+
+<!-- BUSINESS -->
+<h2>Business suites</h2>
+
+<div class="split">
+
+<!-- WITH TEAMS -->
+<div>
+<h3>With Teams</h3>
+<div class="grid">
+
+<div class="card big-increase"><div class="plan">Business Basic</div><div class="price"><span class="old">$6.00</span><span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="new">$7.00</span></div><div class="percent">+16%</div></div>
+
+<div class="card"><div class="plan">Business Standard</div><div class="price"><span class="old">$12.50</span><span class="new">$14.00</span></div><div class="percent">+12%</div></div>
+
+<div class="card"><div class="plan">Business Premium</div><div class="price"><span class="new">$22.00</span></div><div class="percent nochange">bez zmiany</div></div>
+
+</div>
+</div>
+
+
+
+<!-- WITHOUT TEAMS -->
+<div>
+<h3>No Teams</h3>
+<div class="grid">
+
+<div class="card big-increase"><div class="plan">Business Basic (no T.)</div><div class="price"><span class="old">$4.40</span><span class="new">$5.40</span></div><div class="percent">+23%</div></div>
+
+<div class="card big-increase"><div class="plan">Business Standard (no T.)</div><div class="price"><span class="old">$9.29</span><span class="new">$10.79</span></div><div class="percent">+16%</div></div>
+
+<div class="card"><div class="plan">Business Premium (no T.)</div><div class="price"><span class="new">$18.79</span></div><div class="percent nochange">bez zmiany</div></div>
+
+</div>
+</div>
+
+</div>
+
+
+<!-- ENTERPRISE -->
+<h2>Enterprise suites</h2>
+
+<div class="split">
+
+<!-- WITH TEAMS -->
+<div>
+<h3>With Teams</h3>
+
+<div class="grid">
+
+<div class="card">
+<div class="plan">Office 365 E1</div>
+<div class="price">
+<span class="new">$10.00</span>
+</div>
+<div class="percent nochange">bez zmiany</div>
+</div>
+
+<div class="card">
+<div class="plan">Office 365 E3</div>
+<div class="price">
+<span class="old">$23.00</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+<span class="new">$26.00</span>
+</div>
+<div class="percent">+13%</div>
+</div>
+
+<div class="card">
+<div class="plan">Office 365 E5</div>
+<div class="price">
+<span class="old">$38.00</span>
+<span class="new">$41.00</span>
+</div>
+<div class="percent">+8%</div>
+</div>
+
+<div class="card">
+<div class="plan">Microsoft 365 E3</div>
+<div class="price">
+<span class="old">$36.00</span>
+<span class="new">$39.00</span>
+</div>
+<div class="percent">+8%</div>
+</div>
+
+<div class="card">
+<div class="plan">Microsoft 365 E5</div>
+<div class="price">
+<span class="old">$57.00</span>
+<span class="new">$60.00</span>
+</div>
+<div class="percent">+5%</div>
+</div>
+
+</div>
+</div>
+
+<!-- WITHOUT TEAMS -->
+<div>
+<h3>No Teams</h3>
+
+<div class="grid">
+
+<div class="card">
+<div class="plan">Office 365 E1 (no T.)</div>
+<div class="price">
+<span class="new">$6.79</span>
+</div>
+<div class="percent nochange">bez zmiany</div>
+</div>
+
+<div class="card">
+<div class="plan">Office 365 E3 (no T.)</div>
+<div class="price">
+<span class="old">$14.45</span>
+<span class="new">$17.45</span>
+</div>
+<div class="percent">+14%</div>
+</div>
+
+<div class="card">
+<div class="plan">Office 365 E5 (no T.)</div>
+<div class="price">
+<span class="old">$29.45</span>
+<span class="new">$32.45</span>
+</div>
+<div class="percent">+10%</div>
+</div>
+
+<div class="card">
+<div class="plan">Microsoft 365 E3 (no T.)</div>
+<div class="price">
+<span class="old">$27.45</span>
+<span class="new">$30.45</span>
+</div>
+<div class="percent">+11%</div>
+</div>
+
+<div class="card">
+<div class="plan">Microsoft 365 E5 (no T.)</div>
+<div class="price">
+<span class="old">$48.45</span>
+<span class="new">$51.45</span>
+</div>
+<div class="percent">+6%</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+<!-- FRONTLINE -->
+<h2>Frontline suites</h2>
+
+<div class="split">
+
+<!-- WITH TEAMS -->
+<div>
+<h3>With Teams</h3>
+
+<div class="grid">
+
+<div class="card big-increase">
+<div class="plan">Microsoft 365 F1</div>
+<div class="price">
+<span class="old">$2.25</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+<span class="new">$3.00</span>
+</div>
+<div class="percent">+33%</div>
+</div>
+
+<div class="card big-increase">
+<div class="plan">Microsoft 365 F3</div>
+<div class="price">
+<span class="old">$8.00</span>
+<span class="new">$10.00</span>
+</div>
+<div class="percent">+25%</div>
+</div>
+
+</div>
+</div>
+
+<!-- WITHOUT TEAMS -->
+<div>
+<h3>No Teams</h3>
+
+<div class="grid">
+
+<div class="card big-increase">
+<div class="plan">Microsoft 365 F1 (no T.)</div>
+<div class="price">
+<span class="old">$1.75</span>
+<span class="new">$2.50</span>
+</div>
+<div class="percent">+43%</div>
+</div>
+
+<div class="card">
+<div class="plan big-increase">Microsoft 365 F3 (no T.)</div>
+<div class="price">
+<span class="old">$6.93</span>
+<span class="new">$8.93</span>
+</div>
+<div class="percent">+29%</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+<!-- STANDALONE -->
+<h2>Samodzielne licencje (Standalone Components)</h2>
+
+<div class="split" class="standalone">
+
+<!-- LEFT -->
+<div class="grid">
+
+<div class="card">
+<div class="plan">Purview Suite</div>
+<div class="price"><span class="new">$12.00</span></div>
+<div class="percent nochange">bez zmiany</div>
+</div>
+
+<div class="card big-increase">
+<div class="plan">Windows E3</div>
+<div class="price">
+<span class="old">$6.63</span>
+<span class="new">$7.63</span>
+</div>
+<div class="percent">+15%</div>
+</div>
+
+<div class="card big-increase">
+<div class="plan">Apps for Business</div>
+<div class="price">
+<span class="old">$8.25</span>
+<span class="new">$10.00</span>
+</div>
+<div class="percent">+21%</div>
+</div>
+
+<div class="card">
+<div class="plan">EMS E3</div>
+<div class="price">
+<span class="old">$10.60</span>
+<span class="new">$12.00</span>
+</div>
+<div class="percent">+13%</div>
+</div>
+
+<div class="card big-increase">
+<div class="plan">Entra Plan 1</div>
+<div class="price">
+<span class="old">$6.00</span>
+<span class="new">$7.00</span>
+</div>
+<div class="percent">+16%</div>
+</div>
+
+<div class="card big-increase">
+<div class="plan">Windows Enterprise (device)</div>
+<div class="price">
+<span class="old">$5.85</span>
+<span class="new">$7.63</span>
+</div>
+<div class="percent">+31%</div>
+</div>
+
+</div>
+
+<!-- RIGHT -->
+<div class="grid">
+
+<div class="card">
+<div class="plan">Defender Suite</div>
+<div class="price"><span class="new">$12.00</span></div>
+<div class="percent nochange">bez zmiany</div>
+</div>
+
+<div class="card">
+<div class="plan">Windows E5</div>
+<div class="price">
+<span class="old">$11.81</span>
+<span class="new">$12.81</span>
+</div>
+<div class="percent">+9%</div>
+</div>
+
+<div class="card big-increase">
+<div class="plan">Microsoft 365 Apps</div>
+<div class="price">
+<span class="old">$12.00</span>
+<span class="new">$14.00</span>
+</div>
+<div class="percent">+17%</div>
+</div>
+
+<div class="card">
+<div class="plan">EMS E5</div>
+<div class="price">
+<span class="old">$16.40</span>
+<span class="new">$18.00</span>
+</div>
+<div class="percent">+10%</div>
+</div>
+
+<div class="card">
+<div class="plan">Entra Plan 2</div>
+<div class="price">
+<span class="old">$9.00</span>
+<span class="new">$10.00</span>
+</div>
+<div class="percent">+11%</div>
+</div>
+
+<div class="card big-increase">
+<div class="plan">Microsoft 365 Apps (device)</div>
+<div class="price">
+<span class="old">$36.00</span>
+<span class="new">$42.00</span>
+</div>
+<div class="percent">+17%</div>
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- TEAMS ADD-ON -->
+<h2>Microsoft Teams – ceny w pakietach</h2>
+
+<style>
+.teams-grid{
+  display:grid;
+  gap:30px;
+}
+
+.teams-block{
+  
+  background:linear-gradient(180deg,#0b1220,#020617);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:20px;
+  padding:24px;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.8),
+    inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+
+.card::after,
+.teams-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+
+  /* 🔥 światło na krawędzi */
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.06),
+    inset 0 10px 30px rgba(255,255,255,.02);
+
+  pointer-events:none;
+}
+
+
+.teams-title{
+  font-size:14px;
+  color:#94a3b8;
+  margin-bottom:12px;
+}
+
+.teams-items{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:14px;
+}
+
+.teams-card{
+  background:linear-gradient(180deg,#0b1324,#050b18);
+  border:1px solid rgba(255,255,255,.14);
+
+  padding:16px;
+    
+  border-radius:18px;
+  padding:22px;
+  position:relative;
+  transition:.25s;
+  box-shadow:
+    0 6px 16px rgba(0,0,0,.7),
+
+}
+
+.teams-card.big-increase{
+  border:1px solid rgba(239,68,68,.6); /* czerwony akcent */
+
+  box-shadow:
+    0 15px 40px rgba(239,68,68,.25), /* glow */
+    0 6px 16px rgba(0,0,0,.8);
+
+  background:linear-gradient(180deg,#140a0a,#050b18); /* lekko cieplejsze tło */
+}
+
+.teams-card .plan{
+  font-size:14px;
+  margin-bottom:6px;
+}
+
+
+.plan,
+.feature-name{
+  font-size:20px;
+  font-weight:800;
+  letter-spacing:.2px;
+  line-height:1.2;
+}
+
+
+.teams-card .price{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.old{
+  text-decoration:line-through;
+  font-size:13px;
+  color:#94a3b8;
+}
+
+.new{
+  font-size:18px;
+  font-weight:700;
+}
+
+.percent{
+  font-size:12px;
+  color:#ef4444;
+}
+
+.free{
+  color:#22c55e;
+  font-weight:600;
+}
+</style>
+
+<div class="teams-grid">
+
+<!-- ENTERPRISE -->
+<div class="teams-block">
+<div class="teams-title">Enterprise (z Teams)</div>
+
+<div class="teams-items">
+
+<div class="teams-card">
+<div class="plan">Office 365 E1</div>
+<div class="price"><span class="new">$2.50</span></div>
+</div>
+
+<div class="teams-card">
+<div class="plan">Office 365 E3</div>
+<div class="price"><span class="old">$5.75</span><span class="new">$6.50</span></div>
+<div class="percent">+13%</div>
+</div>
+
+<div class="teams-card">
+<div class="plan">Office 365 E5</div>
+<div class="price"><span class="old">$15.20</span><span class="new">$16.40</span></div>
+<div class="percent">+8%</div>
+</div>
+
+<div class="teams-card">
+<div class="plan">Microsoft 365 E3</div>
+<div class="price"><span class="old">$9.00</span><span class="new">$9.75</span></div>
+<div class="percent">+8%</div>
+</div>
+
+<div class="teams-card">
+<div class="plan">Microsoft 365 E5</div>
+<div class="price"><span class="old">$22.80</span><span class="new">$24.00</span></div>
+<div class="percent">+5%</div>
+</div>
+
+</div>
+</div>
+
+<!-- FRONTLINE -->
+<div class="teams-block">
+<div class="teams-title">Frontline (z Teams)</div>
+
+<div class="teams-items">
+
+<div class="teams-card big-increase">
+<div class="plan">Microsoft 365 F1</div>
+<div class="price"><span class="old">$0.56</span><span class="new">$0.75</span></div>
+<div class="percent">+33%</div>
+</div>
+
+<div class="teams-card big-increase"">
+<div class="plan">Microsoft 365 F3</div>
+<div class="price"><span class="old">$2.00</span><span class="new">$2.50</span></div>
+<div class="percent">+25%</div>
+</div>
+
+</div>
+</div>
+
+<!-- BUSINESS -->
+<div class="teams-block">
+<div class="teams-title">Business (z Teams)</div>
+
+<div class="teams-items">
+
+<div class="teams-card">
+<div class="plan">Business Basic</div>
+<div class="price"><span class="free">Free</span></div>
+</div>
+
+<div class="teams-card big-increase">
+<div class="plan">Business Standard</div>
+<div class="price"><span class="old">$3.00</span><span class="new">$3.50</span></div>
+<div class="percent">+17%</div>
+</div>
+
+<div class="teams-card">
+<div class="plan">Business Premium</div>
+<div class="price"><span class="new">$5.50</span></div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+<p style="text-align:center;margin:40px auto;max-width:700px;color:#94a3b8">
+Największe wzrosty dotyczą licencji Frontline oraz komponentów współpracy (Teams). 
+To efekt rozdzielenia Teams od pakietów i przygotowania pod rozwój AI (Copilot).
+</p>
+
+
+<!-- STANDALONE LOW PRICING -->
+<h2>Standalone – dodatkowe ceny (niższe SKU)</h2>
+
+<div class="split">
+
+<!-- LEFT -->
+<div class="grid">
+
+<div class="card">
+<div class="plan">Purview Suite</div>
+<div class="price"><span class="new">$4.80</span></div>
+</div>
+
+<div class="card big-increase">
+<div class="plan">Windows E3</div>
+<div class="price">
+<span class="old">$1.65</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+<span class="new">$1.90</span>
+</div>
+<div class="percent">+15%</div>
+</div>
+
+<div class="card">
+<div class="plan">EMS E3</div>
+<div class="price">
+<span class="old">$2.65</span>
+<span class="new">$3.00</span>
+</div>
+<div class="percent">+13%</div>
+</div>
+
+<div class="card big-increase">
+<div class="plan">Entra Plan 1</div>
+<div class="price">
+<span class="old">$1.50</span>
+<span class="new">$1.75</span>
+</div>
+<div class="percent">+16%</div>
+</div>
+
+<div class="card big-increase">
+<div class="plan">Microsoft 365 Apps</div>
+<div class="price">
+<span class="old">$3.00</span>
+<span class="new">$3.50</span>
+</div>
+<div class="percent">+17%</div>
+</div>
+
+<div class="card big-increase">
+<div class="plan">Microsoft 365 Apps (device)</div>
+<div class="price">
+<span class="old">$9.00</span>
+<span class="new">$10.50</span>
+</div>
+<div class="percent">+17%</div>
+</div>
+
+</div>
+
+<!-- RIGHT -->
+<div class="grid">
+
+<div class="card">
+<div class="plan">Defender Suite</div>
+<div class="price"><span class="new">$4.80</span></div>
+</div>
+
+<div class="card">
+<div class="plan">Windows E5</div>
+<div class="price">
+<span class="old">$4.40</span>
+<span class="new">$5.12</span>
+</div>
+<div class="percent">+9%</div>
+</div>
+
+<div class="card">
+<div class="plan">EMS E5</div>
+<div class="price">
+<span class="old">$6.56</span>
+<span class="new">$7.20</span>
+</div>
+<div class="percent">+10%</div>
+</div>
+
+<div class="card">
+<div class="plan">Entra Plan 2</div>
+<div class="price">
+<span class="old">$3.60</span>
+<span class="new">$4.00</span>
+</div>
+<div class="percent">+11%</div>
+</div>
+
+<div class="card big-increase">
+<div class="plan">Windows Enterprise</div>
+<div class="price">
+<span class="old">$1.46</span>
+<span class="new">$1.91</span>
+</div>
+<div class="percent">+31%</div>
+</div>
+
+</div>
+
+</div>
+
+<p style="text-align:center;margin:40px auto;max-width:700px;color:#94a3b8">
+Największe wzrosty procentowe dotyczą komponentów technicznych (Windows, Entra, Apps), 
+czyli tych, które są podstawą działania środowiska Microsoft 365.
+</p>
+
+<!-- FEATURES -->
+<!-- FEATURES -->
+<h2>Nowe możliwości (2026)</h2>
+
+<style>
+.features{
+  margin-top:30px;
+}
+
+.feature-card{
+  background:linear-gradient(180deg,#0b1324,#050b18); /* mocniejsze tło */
+
+  border:1px solid rgba(255,255,255,.12); /* 🔥 klucz – było .05 */
+  border-radius:14px;
+
+  padding:18px;
+
+  position:relative;
+  transition:.25s;
+
+  /* 🔥 cień – odcina od tła */
+  box-shadow:
+    0 6px 20px rgba(0,0,0,.7),
+    inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+
+.feature-card:hover{
+  transform:translateY(-3px);
+
+  border-color:rgba(124,58,237,.6);
+
+  box-shadow:
+    0 20px 50px rgba(124,58,237,.25),
+    0 10px 40px rgba(0,0,0,.9);
+}
+
+
+.features-block{
+  margin-bottom:40px;
+}
+
+.features-label{
+  font-size:13px;
+  color:#7c8aa0;
+  margin-bottom:16px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+/* 🔥 GRID ZAMIAST LISTY */
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+@media(max-width:800px){
+  .features-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+/* ITEM */
+.feature-item{
+  padding-bottom:14px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+/* DUŻA NAZWA */
+.feature-name{
+  font-size:24px;
+  font-weight:800;
+  margin-bottom:4px;
+}
+
+/* OPIS */
+.feature-desc{
+  font-size:14px;
+  color:#a8b3cf;
+  line-height:1.4;
+}
+
+/* TAGI */
+.feature-tags{
+  margin-top:6px;
+  display:flex;
+  gap:6px;
+}
+
+.tag{
+  font-size:11px;
+  padding:3px 8px;
+  border-radius:999px;
+  background:rgba(124,58,237,.15);
+  color:#c084fc;
+}
+
+/* DELIKATNY HOVER */
+.feature-item:hover{
+  transform:translateY(-2px);
+}
+
+.feature-card .desc{
+  line-height:1.5;
+}
+
+.feature-card .desc b{
+  color:#a78bfa;
+  font-weight:600;
+}
+</style>
+
+
+<!-- BUSINESS FEATURES -->
+<h2>Business – nowe funkcje</h2>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<div class="title">Business Basic</div>
+<div class="desc">
++50GB skrzynka, ochrona linków (time-of-click), <span class="feature-highlight">Copilot Chat, Copilot Analytics</span>
+</div>
+<div class="tag">Security</div>
+<div class="tag">AI</div>
+</div>
+
+<div class="feature-card">
+<div class="title">Business Standard</div>
+<div class="desc">
++50GB skrzynka, ochrona linków (time-of-click), <span class="feature-highlight"></span>Copilot Chat, Copilot Analytics</span>
+</div>
+<div class="tag">Security</div>
+<div class="tag">AI</div>
+</div>
+
+<div class="feature-card">
+<div class="title">Business Premium</div>
+<div class="desc">
++50GB skrzynka, Copilot Chat, Copilot Analytics
+</div>
+<div class="tag">AI</div>
+</div>
+
+</div>
+
+<!-- ENTERPRISE FEATURES -->
+<h2>Enterprise – nowe funkcje</h2>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<div class="title">Office 365 E1</div>
+<div class="desc">
+Ochrona linków (time-of-click), Copilot Chat, Copilot Analytics
+</div>
+<div class="tag">Security</div>
+<div class="tag">AI</div>
+</div>
+
+<div class="feature-card">
+<div class="title">Office 365 E3</div>
+<div class="desc">
+Defender for Office P1, Copilot Chat, Copilot Analytics
+</div>
+<div class="tag">Security</div>
+<div class="tag">AI</div>
+</div>
+
+<div class="feature-card">
+<div class="title">Office 365 E5</div>
+<div class="desc">
+Copilot Chat, Copilot Analytics
+</div>
+<div class="tag">AI</div>
+</div>
+
+<div class="feature-card">
+<div class="title">Microsoft 365 E3</div>
+<div class="desc">
+Defender P1, Intune (Remote Help, Analytics, Plan 2), Copilot
+</div>
+<div class="tag">Security</div>
+<div class="tag">Management</div>
+<div class="tag">AI</div>
+</div>
+
+<div class="feature-card">
+<div class="title">Microsoft 365 E5</div>
+<div class="desc">
+Security Copilot, Privilege Management, Cloud PKI, App Management
+</div>
+<div class="tag">Security</div>
+<div class="tag">Advanced</div>
+</div>
+
+</div>
+
+<!-- FRONTLINE FEATURES -->
+<h2>Frontline – nowe funkcje</h2>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<div class="title">Microsoft 365 F1</div>
+<div class="desc">
+Copilot Chat, Copilot Analytics
+</div>
+<div class="tag">AI</div>
+</div>
+
+<div class="feature-card">
+<div class="title">Microsoft 365 F3</div>
+<div class="desc">
+Copilot Chat, Copilot Analytics
+</div>
+<div class="tag">AI</div>
+</div>
+
+</div>
+
+<!-- STANDALONE FEATURES -->
+<h2>Standalone – nowe funkcje</h2>
+
+<style>
+
+.feature-card{
+  background:linear-gradient(180deg,#0b1324,#050b18); /* mocniejsze tło */
+
+  border:1px solid rgba(255,255,255,.12); /* 🔥 klucz – było .05 */
+  border-radius:14px;
+
+  padding:18px;
+
+  position:relative;
+  transition:.25s;
+
+  /* 🔥 cień – odcina od tła */
+  box-shadow:
+    0 6px 20px rgba(0,0,0,.7),
+    inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+.feature-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:14px;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.06),
+    inset 0 10px 30px rgba(255,255,255,.02);
+
+  pointer-events:none;
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:16px;
+}
+
+.feature-card .title{.feature-card .title:22px;
+  font-weight:800;
+  margin-bottom:6px;
+}
+
+
+
+.feature-card:hover{
+  transform:translateY(-3px);
+
+  border-color:rgba(124,58,237,.6);
+
+  box-shadow:
+    0 20px 50px rgba(124,58,237,.25),
+    0 10px 40px rgba(0,0,0,.9);
+}
+
+
+.feature-card .title{
+  font-size:14px;
+  margin-bottom:6px;
+}
+
+.feature-card .desc{
+  font-size:13px;
+  color:#94a3b8;
+  line-height:1.4;
+}
+
+.tag{
+  display:inline-block;
+  margin-top:10px;
+  font-size:11px;
+  padding:3px 8px;
+  border-radius:999px;
+  background:rgba(124,58,237,.2);
+  color:#c084fc;
+}
+</style>
+
+<div class="feature-grid">
+
+<!-- LEFT COLUMN -->
+<div class="feature-card">
+<div class="title">Purview Suite</div>
+<div class="desc">Brak nowych funkcji w tej aktualizacji</div>
+</div>
+
+<div class="feature-card">
+<div class="title">Windows E3</div>
+<div class="desc">Quick Machine Recovery (QMR), post‑quantum security APIs</div>
+<div class="tag">Security</div>
+</div>
+
+<div class="feature-card">
+<div class="title">Apps for Business</div>
+<div class="desc">Brak nowych funkcji</div>
+</div>
+
+<div class="feature-card">
+<div class="title">EMS E3</div>
+<div class="desc">Intune Remote Help, Intune Advanced Analytics, Intune Plan 2</div>
+<div class="tag">Management</div>
+</div>
+
+<div class="feature-card">
+<div class="title">Entra Plan 1</div>
+<div class="desc">Brak nowych funkcji</div>
+</div>
+
+<div class="feature-card">
+<div class="title">Windows Enterprise</div>
+<div class="desc">Basic resiliency features, Software Assurance</div>
+</div>
+
+<!-- RIGHT COLUMN -->
+<div class="feature-card">
+<div class="title">Defender Suite</div>
+<div class="desc">Brak zmian w tym pakiecie</div>
+</div>
+
+<div class="feature-card">
+<div class="title">Windows E5</div>
+<div class="desc">Brak nowych funkcji</div>
+</div>
+
+<div class="feature-card">
+<div class="title">Microsoft 365 Apps</div>
+<div class="desc">Brak nowych funkcji</div>
+</div>
+
+<div class="feature-card">
+<div class="title">EMS E5</div>
+<div class="desc">Rozszerzenia z EMS E3 (Intune Remote Help, Analytics, Plan 2)</div>
+<div class="tag">Upgrade</div>
+</div>
+
+<div class="feature-card">
+<div class="title">Entra Plan 2</div>
+<div class="desc">Brak nowych funkcji</div>
+</div>
+
+<div class="feature-card">
+<div class="title">Microsoft 365 Apps (device)</div>
+<div class="desc">Brak nowych funkcji</div>
+</div>
+
+</div>
+
+<p style="margin-top:20px;font-size:12px;color:#94a3b8">
+*Enhancements obejmują m.in. Copilot Chat, dostęp do agentów Word, Excel i PowerPoint oraz usprawnienia skrzynki i kalendarza.
+</p>
+
+<p style="text-align:center;margin:40px auto;max-width:700px;color:#9ca3af">
+W wielu przypadkach podwyżki cen nie wynikają z nowych funkcji tylko z ujednolicenia pakietów i przygotowania pod rozwój AI (Copilot).
+</p>
+
+
+
+<div class="center">
+  <a href="https://www.microsoft.com/en-us/licensing/news/2026-M365-Packaging-Pricing-Updates"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="link-chip">
+     Microsoft – szczegóły zmian →
+  </a>
+</div>
+
+    <footer>
+      
+<div class="text-center text-gray-500 text-xs mt-12">
+  © <span id="year"></span>
+  <a href="https://valcreon.com" class="link-reset">valcreon.com</a>
+  • Microsoft 365 Security
+</div>
+      
+    </footer>
+
+      <script>
+    // auto-year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+
+</div>
+
+      <script>
+    // auto-year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
