@@ -243,23 +243,15 @@ h2::after{
 }
 
 .old{
-  text-decoration:line-through;
-  color:var(--muted);
-  font-size:14px;
+  /* text-decoration: line-through; */
+  text-decoration-thickness: 1px;  /* 🔥 KLUCZ */
+  text-decoration-color: rgba(148,163,184,.6);
+  color: var(--muted);
+  font-size:18px;
+
 }
 
   
-.old::after{
-
-.old::after{
-  content:"→";
-  margin:0 6px;
-  color:#7c3aed;
-  font-weight:600;
-}
-
-
-}
 
 .new{
   font-size:22px;
@@ -283,13 +275,14 @@ h2::after{
   color:#22c55e;
 }
 
-.split{
 
+
+
+.split{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:60px;
   position:relative
-
 }
 
 .split::after{
@@ -305,6 +298,11 @@ h2::after{
     rgba(255,255,255,.15),
     transparent
   );
+}
+
+
+.split.no-divider::after{
+  display:none;
 }
 
 @media(max-width:900px){
@@ -323,7 +321,7 @@ h2::after{
 
 .footer{
   margin-top:60px;
-  text-align:center;
+  text-align:center;F
   color:var(--muted);
   font-size:13px;
 }
@@ -458,19 +456,50 @@ footer{
   text-shadow: 0 0 10px rgba(124,58,237,.35);
 }
 
+.back-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+
+  padding:6px 10px;
+  border-radius:8px;
+
+  background:rgba(124,58,237,.1);
+  color:#c084fc;
+
+  text-decoration:none;
+}
+
+.back-link:hover{
+  background:rgba(124,58,237,.2);
+}
+
+
+.back-link-wrap{
+  display:flex;
+  justify-content:center;
+  margin-top:40px;
+}
+
+
 </style>
 </head>
 
 <body>
 
-<div class="btn-wrap">
-  <a class="btn" href="../index.html">
-    <i class="fa-solid fa-house"></i>
-    Wróć do Security Hub
+
+
+  
+<div class="wrap">
+
+
+<div class="back-link-wrap">
+  <a href="../index.html" class="back-link">
+    <i class="fa-solid fa-arrow-left"></i>
+    Powrót do Security Hub
   </a>
 </div>
-    
-<div class="wrap">
+  
 
 <h1>Microsoft 365 – podwyżki cen</h1>
 
@@ -483,7 +512,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="section">
 <h2>Microsoft 365 Business (licencje dla firm)</h2>
 
-<div class="split">
+<div class="split no-divider">
 
 <!-- WITH TEAMS -->
 <div>
@@ -522,7 +551,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="section">  
 <h2>Microsoft 365 Enterprise (licencje dla przedsiębiorstw)</h2>
 
-<div class="split">
+<div class="split no-divider">
 
 <!-- WITH TEAMS -->
 <div>
@@ -645,7 +674,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="section">
 <h2>Microsoft 365 Frontline (licencje typu Frontline - pacownicy terenowi)</h2>
 
-<div class="split">
+<div class="split no-divider">
 
 <!-- WITH TEAMS -->
 <div>
@@ -711,7 +740,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="section">
 <h2>Samodzielne licencje (Standalone Components)</h2>
 
-<div class="split" class="standalone">
+<div class="split no-divider" class="standalone">
 
 <!-- LEFT -->
 <div class="grid">
@@ -1440,7 +1469,7 @@ Copilot Chat, Copilot Analytics
 </div>
 
 <p style="margin-top:20px;font-size:12px;color:#94a3b8">
-*Enhancements obejmują m.in. Copilot Chat, dostęp do agentów Word, Excel i PowerPoint oraz usprawnienia skrzynki i kalendarza.
+*Rozszerzenia obejmują m.in. Copilot Chat, dostęp do agentów Word, Excel i PowerPoint oraz usprawnienia skrzynki i kalendarza.
 </p>
 
 <p style="text-align:center;margin:40px auto;max-width:700px;color:#9ca3af">
@@ -1457,6 +1486,14 @@ W wielu przypadkach podwyżki cen nie wynikają z nowych funkcji tylko z ujednol
      Microsoft – szczegóły zmian →
   </a>
 </div>
+
+<div class="btn-wrap">
+  <a class="btn" href="../index.html">
+    <i class="fa-solid fa-house"></i>
+    Wróć do Security Hub
+  </a>
+</div>
+
 </div>
 
     <footer>
