@@ -21,6 +21,64 @@ margin-top:100px;
 }
 
 
+.section-center{
+  text-align:center;
+  margin:100px 0 60px;
+}
+
+/* nadpisanie standardowego H2 */
+.section-center h2{
+  display:inline-block;
+  position:relative;
+  font-size:42px;
+  font-weight:800;
+  background:linear-gradient(90deg,#ffffff,#a78bfa,#60a5fa);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+}
+
+
+.section-center h2::before,
+.section-center h2::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  width:120px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(124,58,237,.6));
+}
+
+.section-center h2::before{
+  right:100%;
+  margin-right:16px;
+}
+
+.section-center h2::after{
+  left:100%;
+  margin-left:16px;
+  transform:scaleX(-1);
+}
+
+
+@media(max-width: 900px){
+  .split::after{
+    display:none;
+  }
+}
+
+
+
+@media(max-width: 900px){
+  .split > div:first-child{
+    padding-bottom:30px;
+    margin-bottom:30px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+}
+
+
+
 .btn{
       display:inline-flex;
       align-items:center;
@@ -159,6 +217,10 @@ h2::after{
 }
 
 
+.arrow{
+  transform:translateY(4px);
+}
+
 
 
 .card:hover{
@@ -176,8 +238,8 @@ h2::after{
 
 .price{
   display:flex;
-  align-items:center;
-  gap:10px;
+  align-items:baseline;
+  gap:8px;
 }
 
 .old{
@@ -222,9 +284,27 @@ h2::after{
 }
 
 .split{
+
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:20px;
+  gap:60px;
+  position:relative
+
+}
+
+.split::after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:50%;
+  width:1px;
+
+  background:linear-gradient(
+    transparent,
+    rgba(255,255,255,.15),
+    transparent
+  );
 }
 
 @media(max-width:900px){
@@ -412,7 +492,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 
 <div class="card big-increase"><div class="plan">Business Basic</div><div class="price"><span class="old">$6.00</span><span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="new">$7.00</span></div><div class="percent">+16%</div></div>
 
-<div class="card"><div class="plan">Business Standard</div><div class="price"><span class="old">$12.50</span><span class="new">$14.00</span></div><div class="percent">+12%</div></div>
+<div class="card"><div class="plan">Business Standard</div><div class="price"><span class="old">$12.50</span><span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="new">$14.00</span></div><div class="percent">+12%</div></div>
 
 <div class="card"><div class="plan">Business Premium</div><div class="price"><span class="new">$22.00</span></div><div class="percent nochange">bez zmiany</div></div>
 
@@ -426,9 +506,9 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <h3>No Teams</h3>
 <div class="grid">
 
-<div class="card big-increase"><div class="plan">Business Basic (no T.)</div><div class="price"><span class="old">$4.40</span><span class="new">$5.40</span></div><div class="percent">+23%</div></div>
+<div class="card big-increase"><div class="plan">Business Basic (no T.)</div><div class="price"><span class="old">$4.40</span><span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="new">$5.40</span></div><div class="percent">+23%</div></div>
 
-<div class="card big-increase"><div class="plan">Business Standard (no T.)</div><div class="price"><span class="old">$9.29</span><span class="new">$10.79</span></div><div class="percent">+16%</div></div>
+<div class="card big-increase"><div class="plan">Business Standard (no T.)</div><div class="price"><span class="old">$9.29</span><span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="new">$10.79</span></div><div class="percent">+16%</div></div>
 
 <div class="card"><div class="plan">Business Premium (no T.)</div><div class="price"><span class="new">$18.79</span></div><div class="percent nochange">bez zmiany</div></div>
 
@@ -472,6 +552,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="plan">Office 365 E5</div>
 <div class="price">
 <span class="old">$38.00</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="new">$41.00</span>
 </div>
 <div class="percent">+8%</div>
@@ -481,6 +562,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="plan">Microsoft 365 E3</div>
 <div class="price">
 <span class="old">$36.00</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="new">$39.00</span>
 </div>
 <div class="percent">+8%</div>
@@ -490,6 +572,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="plan">Microsoft 365 E5</div>
 <div class="price">
 <span class="old">$57.00</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="new">$60.00</span>
 </div>
 <div class="percent">+5%</div>
@@ -516,6 +599,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="plan">Office 365 E3 (no T.)</div>
 <div class="price">
 <span class="old">$14.45</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="new">$17.45</span>
 </div>
 <div class="percent">+14%</div>
@@ -525,6 +609,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="plan">Office 365 E5 (no T.)</div>
 <div class="price">
 <span class="old">$29.45</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="new">$32.45</span>
 </div>
 <div class="percent">+10%</div>
@@ -534,6 +619,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="plan">Microsoft 365 E3 (no T.)</div>
 <div class="price">
 <span class="old">$27.45</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="new">$30.45</span>
 </div>
 <div class="percent">+11%</div>
@@ -543,6 +629,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="plan">Microsoft 365 E5 (no T.)</div>
 <div class="price">
 <span class="old">$48.45</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="new">$51.45</span>
 </div>
 <div class="percent">+6%</div>
@@ -580,6 +667,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="plan">Microsoft 365 F3</div>
 <div class="price">
 <span class="old">$8.00</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="new">$10.00</span>
 </div>
 <div class="percent">+25%</div>
@@ -597,7 +685,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="card big-increase">
 <div class="plan">Microsoft 365 F1 (no T.)</div>
 <div class="price">
-<span class="old">$1.75</span>
+<span class="old">$1.75</span><span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="new">$2.50</span>
 </div>
 <div class="percent">+43%</div>
@@ -606,7 +694,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="card">
 <div class="plan big-increase">Microsoft 365 F3 (no T.)</div>
 <div class="price">
-<span class="old">$6.93</span>
+<span class="old">$6.93</span><span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="new">$8.93</span>
 </div>
 <div class="percent">+29%</div>
@@ -638,6 +726,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="plan">Windows E3</div>
 <div class="price">
 <span class="old">$6.63</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="new">$7.63</span>
 </div>
 <div class="percent">+15%</div>
@@ -647,6 +736,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="plan">Apps for Business</div>
 <div class="price">
 <span class="old">$8.25</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="new">$10.00</span>
 </div>
 <div class="percent">+21%</div>
@@ -656,6 +746,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="plan">EMS E3</div>
 <div class="price">
 <span class="old">$10.60</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="new">$12.00</span>
 </div>
 <div class="percent">+13%</div>
@@ -665,6 +756,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="plan">Entra Plan 1</div>
 <div class="price">
 <span class="old">$6.00</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="new">$7.00</span>
 </div>
 <div class="percent">+16%</div>
@@ -674,6 +766,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="plan">Windows Enterprise (device)</div>
 <div class="price">
 <span class="old">$5.85</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="new">$7.63</span>
 </div>
 <div class="percent">+31%</div>
@@ -694,6 +787,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="plan">Windows E5</div>
 <div class="price">
 <span class="old">$11.81</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="new">$12.81</span>
 </div>
 <div class="percent">+9%</div>
@@ -703,6 +797,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="plan">Microsoft 365 Apps</div>
 <div class="price">
 <span class="old">$12.00</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="new">$14.00</span>
 </div>
 <div class="percent">+17%</div>
@@ -712,6 +807,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="plan">EMS E5</div>
 <div class="price">
 <span class="old">$16.40</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="new">$18.00</span>
 </div>
 <div class="percent">+10%</div>
@@ -721,6 +817,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="plan">Entra Plan 2</div>
 <div class="price">
 <span class="old">$9.00</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="new">$10.00</span>
 </div>
 <div class="percent">+11%</div>
@@ -730,6 +827,7 @@ Zmiany cen Microsoft 365 • obowiązują od 1 lipca 2026
 <div class="plan">Microsoft 365 Apps (device)</div>
 <div class="price">
 <span class="old">$36.00</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="new">$42.00</span>
 </div>
 <div class="percent">+17%</div>
@@ -957,9 +1055,11 @@ To efekt rozdzielenia Teams od pakietów i przygotowania pod rozwój AI (Copilot
 <!-- FEATURES -->
 
   
-<div class="section">  
-<h2>Nowe możliwości (od lipca 2026)</h2>
+
+<div class="section section-center">
+  <h2>Nowe możliwości (od lipca 2026)</h2>
 </div>
+
   
 <style>
 .features{
