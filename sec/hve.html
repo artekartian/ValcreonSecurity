@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>High Volume Email w Microsoft 365 – czy to ma sens dla małych i średnich firm? | Valcreon</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="icon" href="../fav.ico" type="image/x-icon">
+  
+  
+  <style>
+    :root{
+      --bg0:#070A12;
+      --bg1:#0A1020;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.08);
+      --stroke:rgba(255,255,255,.12);
+      --text:#EAF0FF;
+      --muted:rgba(234,240,255,.70);
+      --muted2:rgba(234,240,255,.55);
+      --brand:#7C3AED;   /* fiolet */
+      --brand2:#22C55E;  /* zielony akcent */
+      --warn:#F59E0B;
+      --bad:#EF4444;
+      --shadow: 0 24px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 900px at 20% -10%, rgba(124,58,237,.25), transparent 60%),
+        radial-gradient(900px 700px at 100% 10%, rgba(34,197,94,.16), transparent 55%),
+        radial-gradient(900px 700px at 30% 110%, rgba(59,130,246,.10), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      min-height: 100vh;
+      padding: 28px 14px 80px;
+    }
+
+    a{color:inherit; text-decoration:none}
+    a:hover{opacity:.95}
+
+    .container{
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .glass{
+      background: linear-gradient(180deg, var(--card2), var(--card));
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom: 18px;
+    }
+
+    .back-link{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      transition: transform .15s ease, background .15s ease, color .15s ease;
+    }
+    .back-link:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background: rgba(124,58,237,.10);
+      color: rgba(234,240,255,.86);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    header.hero{
+      padding: 26px 22px;
+      margin-bottom: 16px;
+      overflow:hidden;
+      position:relative;
+    }
+
+    header.hero:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(750px 300px at 10% 10%, rgba(124,58,237,.24), transparent 55%),
+        radial-gradient(650px 260px at 90% 0%, rgba(34,197,94,.14), transparent 55%);
+      pointer-events:none;
+    }
+
+    .hero-inner{
+      position:relative;
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 16px;
+      align-items: center;
+    }
+    @media (max-width: 860px){
+      .hero-inner{grid-template-columns: 1fr}
+    }
+
+    h1{
+      margin: 8px 0 10px;
+      font-size: 34px;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    .lead{
+      margin:0;
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.6;
+      max-width: 72ch;
+    }
+
+    .hero-cards{
+      display:grid;
+      gap: 10px;
+    }
+
+    .mini{
+      padding: 14px 14px;
+      border-radius: 16px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.04);
+    }
+
+    .mini .t{
+      font-weight: 700;
+      font-size: 13px;
+      color: rgba(234,240,255,.92);
+      margin-bottom: 6px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .mini .d{
+      font-size: 12.8px;
+      color: var(--muted2);
+      line-height: 1.55;
+      margin:0;
+    }
+
+    section.section{
+      margin-top: 14px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    .card{
+      padding: 18px 18px;
+    }
+
+    h2{
+      font-size: 18px;
+      margin:0 0 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .p{
+      margin:0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 14.5px;
+    }
+
+    /* Callout (ważna zmiana / ostrzeżenie) */
+    .callout{
+      position: relative;
+      padding: 18px;
+      border-radius: 16px;
+      background:
+        radial-gradient(900px 230px at 10% 0%, rgba(245,158,11,.22), transparent 55%),
+        radial-gradient(700px 260px at 100% 30%, rgba(239,68,68,.14), transparent 55%),
+        linear-gradient(180deg, rgba(245,158,11,.14), rgba(12,16,32,.72));
+      border: 1px solid rgba(245,158,11,.38);
+      box-shadow:
+        0 22px 60px rgba(0,0,0,.55),
+        0 0 0 1px rgba(245,158,11,.12) inset,
+        0 0 40px rgba(245,158,11,.14);
+      overflow: hidden;
+    }
+    .callout::after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      pointer-events:none;
+      background:
+        radial-gradient(700px 260px at 30% 20%, rgba(245,158,11,.12), transparent 60%),
+        radial-gradient(600px 240px at 80% 60%, rgba(239,68,68,.10), transparent 62%);
+      opacity: .95;
+    }
+    .callout .head{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      font-weight: 800;
+      margin:0 0 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .list{
+      margin: 10px 0 0;
+      padding: 0;
+      list-style: none;
+      display:grid;
+      gap: 10px;
+    }
+
+    .li{
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.035);
+    }
+
+    .icon{
+      width: 36px;
+      height: 36px;
+      flex: 0 0 36px;
+      border-radius: 12px;
+      display:grid;
+      place-items:center;
+      border: 1px solid rgba(124,58,237,.35);
+      background: linear-gradient(180deg, rgba(124,58,237,.20), rgba(124,58,237,.08));
+      color: rgba(234,240,255,.95);
+      margin-top: 1px;
+    }
+    .icon i{font-size: 15px;}
+
+    .li .txt b{
+      display:block;
+      margin-bottom: 3px;
+      font-size: 13.8px;
+      letter-spacing: -0.01em;
+    }
+
+    .li .txt span{
+      display:block;
+      color: var(--muted2);
+      font-size: 12.8px;
+      line-height: 1.55;
+    }
+
+    .cta{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items:center;
+      justify-content: space-between;
+      padding: 18px;
+      margin-top: 12px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      border-radius: 999px;
+      padding: 11px 14px;
+      border: 1px solid rgba(124,58,237,.35);
+      background: linear-gradient(180deg, rgba(124,58,237,.18), rgba(124,58,237,.10));
+      color: rgba(234,240,255,.95);
+      font-weight: 650;
+      font-size: 13.5px;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn.secondary{
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .btn-wrap{
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ZALECENIA / RAMKA (jeśli chcesz tu też, możesz użyć w kolejnych wpisach) */
+    .reco{
+      position: relative;
+      padding: 22px;
+      border-radius: 18px;
+      margin-top: 14px;
+      border: 1px solid rgba(124,58,237,.65);
+      outline: 1px solid rgba(124,58,237,.22);
+      outline-offset: -10px;
+      background:
+        radial-gradient(1000px 280px at 0% 0%, rgba(124,58,237,.28), transparent 58%),
+        linear-gradient(180deg, rgba(124,58,237,.10), rgba(10,16,32,.82));
+      box-shadow:
+        0 26px 70px rgba(0,0,0,.62),
+        0 0 0 1px rgba(124,58,237,.20) inset,
+        0 0 70px rgba(124,58,237,.18);
+    }
+
+    /* link w stopce bez zmiany stylu */
+    .link-reset{
+      color: inherit;
+      text-decoration: none;
+    }
+    .link-reset:hover{
+      color: inherit;
+      text-decoration: none;
+      opacity: 1;
+      text-shadow: 0 0 10px rgba(124,58,237,.35);
+    }
+
+    footer{
+      margin-top: 18px;
+  	text-align: center;
+ 	 color: rgba(234,240,255,.55);
+ 	 font-size: 12.5px;
+ 	 margin-top: 48px;
+    }
+
+
+    /* MOBILE FIXES */
+    @media (max-width: 640px){
+      body{ padding: 18px 12px 60px; }
+
+      .topbar{
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+
+      .topbar .back-link,
+      .topbar .pill{
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .back-link{
+        padding: 12px 14px;
+        border-radius: 16px;
+      }
+
+      .topbar .pill{
+        white-space: normal;
+        line-height: 1.35;
+        padding: 10px 12px;
+        border-radius: 16px;
+      }
+
+      .hero .pill{
+        max-width: 100%;
+        white-space: normal;
+        line-height: 1.25;
+        text-align: left;
+      }
+
+      h1{font-size: 28px;}
+    }
+
+
+
+header.hero .pill{
+  transform: translateY(-26px);
+}
+
+
+@media (max-width: 640px){
+  header.hero .pill{
+    transform: translateY(-6px); /* albo 0px jeśli dalej źle */
+  }
+}
+
+
+
+h1 .sub{
+  display:block;   /* wymusza nową linię */
+}
+
+/* animowana linia */
+.timeline-progress{
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  animation: drawLine 2s ease forwards;
+}
+
+@keyframes drawLine{
+  to{
+    stroke-dashoffset: 0;
+  }
+}
+
+/* punkty */
+.point circle{
+  fill:#7C3AED;
+  opacity:0;
+  transform:scale(0.6);
+  transform-origin:center;
+  animation: pop 0.4s ease forwards;
+}
+
+/* tekst */
+.point text{
+  fill:#EAF0FF;
+  font-size:12px;
+  opacity:0;
+  animation: fadeText .5s ease forwards;
+}
+
+/* animacja punktów (delay) */
+.p1 circle{ animation-delay:0.6s;}
+.p2 circle{ animation-delay:0.9s;}
+.p3 circle{ animation-delay:1.2s;}
+.p4 circle{ animation-delay:1.5s;}
+
+.p1 text{ animation-delay:0.7s;}
+.p2 text{ animation-delay:1s;}
+.p3 text{ animation-delay:1.3s;}
+.p4 text{ animation-delay:1.6s;}
+
+@keyframes pop{
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+@keyframes fadeText{
+  to{
+    opacity:1;
+  }
+}
+
+/* glow dot */
+.glow-dot{
+  filter:
+    drop-shadow(0 0 6px #7C3AED)
+    drop-shadow(0 0 12px #22C55E)
+    drop-shadow(0 0 20px #7C3AED);
+}
+
+  </style>
+
+</head>
+
+<body>
+<div class="container">
+
+        <!-- Top -->
+    <div class="topbar">
+      <a class="back-link" href="../index.html" aria-label="Powrót do Security Hub">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Powrót do Security Hub</span>
+      </a>
+
+      <span class="pill">
+        <i class="fa-solid fa-shield-halved"></i>
+        Valcreon • Microsoft 365 Security
+      </span>
+      </div>
+ 
+      
+  <!-- Hero -->
+  <header class="hero glass">
+    <div class="hero-inner">
+      
+      <div>
+        <div class="pill">
+          <i class="fa-solid fa-envelope"></i>
+          High Volume Email (HVE) • Microsoft 365 • 2026
+        </div>
+
+        
+        <h1>
+        Masowa wysyłka e-mail w Microsoft 365 przez SMTP?<br>
+        <span class="sub">Tylko pozornie proste</span>
+        </h1>
+
+
+        <p class="lead">
+          Microsoft wprowadził usługę <b>High Volume Email (HVE)</b>, ale w praktyce 
+          <b>nie jest to gotowe rozwiązanie dla małych i średnich firm</b>.  
+          Wymaga dodatkowej konfiguracji, płatności i ma poważne ograniczenia.
+        </p>
+      </div>
+
+      <div class="hero-cards">
+        <div class="mini">
+          <div class="t"><i class="fa-solid fa-credit-card"></i> Płatność Azure</div>
+          <p class="d">Wymagana subskrypcja Azure i rozliczenie "pay‑as‑you‑go".</p>
+        </div>
+
+        <div class="mini">
+          <div class="t"><i class="fa-solid fa-triangle-exclamation"></i> Przestaje działać</div>
+          <p class="d">Bez konfiguracji płatności maile po prostu nie będą wysyłane.</p>
+        </div>
+
+        <div class="mini">
+          <div class="t"><i class="fa-solid fa-lock"></i> Tylko wewnętrzne</div>
+          <p class="d">Brak możliwości wysyłki poza Twoją domenę.</p>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Callout -->
+  <section class="section">
+    <div class="callout">
+      <p class="head">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        Kluczowa informacja
+      </p>
+      <p class="p">
+        <b>Jeśli nie skonfigurujesz płatności w Azure – usługa High Volume Email przestaje działać.</b>  
+        Maile nie są kolejkowane ani opóźniane – <b>po prostu nie są wysyłane</b>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Co to jest -->
+  <section class="section grid">
+    <div class="glass card">
+      <h2>Co to właściwie jest HVE?</h2>
+      <p class="p">
+        To nowy mechanizm w Microsoft 365 do wysyłki dużej liczby wiadomości przez SMTP, 
+        rozliczany wg liczby odbiorców.
+      </p>
+      <p class="p" style="margin-top:10px">
+        Od <b>1 czerwca 2026</b> usługa jest płatna (~42 USD za 1 mln odbiorców).
+      </p>
+    </div>
+
+    <div class="glass card">
+      <h2>Brzmi dobrze? Jest haczyk</h2>
+      <p class="p">
+        Usługa nie zastępuje klasycznego SMTP i 
+        <b>nie została zaprojektowana do wysyłki na zewnątrz</b>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Problemy -->
+  <section class="section glass card">
+    <h2>Dlaczego to problem dla małych i średnich firm?</h2>
+
+    <ul class="list">
+
+      <li class="li">
+        <div class="icon"><i class="fa-solid fa-cloud"></i></div>
+        <div class="txt">
+          <b>Wymagana subskrypcja Azure</b>
+          <span>
+            Aby działało HVE trzeba utworzyć i skonfigurować subskrypcję Azure – 
+            nawet jeśli opłaty są niewielkie, oznacza to dodatkową administrację.
+          </span>
+        </div>
+      </li>
+
+      <li class="li">
+        <div class="icon"><i class="fa-solid fa-gear"></i></div>
+        <div class="txt">
+          <b>Dodatkowa konfiguracja techniczna</b>
+          <span>
+            Endpoint SMTP, konta HVE, raportowanie – to nie jest gotowe rozwiązanie „kliknij i działa”.
+          </span>
+        </div>
+      </li>
+
+      <li class="li">
+        <div class="icon"><i class="fa-solid fa-ban"></i></div>
+        <div class="txt">
+          <b>Brak wysyłki na zewnątrz</b>
+          <span>
+            HVE działa wyłącznie <b>w obrębie Twojej domeny</b> – nie wyślesz maila do klientów.
+          </span>
+        </div>
+      </li>
+
+      <li class="li">
+        <div class="icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+        <div class="txt">
+          <b>Brak skrzynki i odpowiedzi</b>
+          <span>
+            Konto HVE nie odbiera maili – trzeba dodatkowo konfigurować adres Reply‑To.
+          </span>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+
+   <section class="section glass card">
+
+  <h2>Dlaczego Microsoft zmienia sposób wysyłki e‑mail?</h2>
+
+  <p class="p">
+    Wysyłka przez SMTP to najprostszy sposób wysyłania e‑maili – wystarczy login i hasło.
+    Jednocześnie jest to metoda mniej bezpieczna, dlatego Microsoft stopniowo ogranicza jej użycie w skrzynkach użytkowników.
+  </p>
+
+  <p class="p" style="margin-top:10px;">
+    W zamian pojawia się osobny mechanizm – <b>High Volume Email (HVE)</b>,
+    który działa niezależnie od standardowej poczty i wymaga dodatkowej konfiguracji oraz rozliczenia.
+  </p>
+
+  <div class="callout" style="margin-top:14px;">
+    <p class="head">
+      <i class="fa-solid fa-lightbulb"></i>
+      Warto wiedzieć
+    </p>
+
+    <p class="p" style="margin:0;">
+      <b>Efekt:</b> coś, co kiedyś działało prostym login + hasło,
+dziś wymaga osobnej usługi, konfiguracji Azure i rozliczeń.
+    </p>
+  </div>
+
+</section>
+
+
+  <!-- SMTP przyszłość -->
+  <section class="section grid">
+    <div class="glass card">
+      <h2>Microsoft odchodzi od SMTP</h2>
+      <p class="p">
+        Microsoft stopniowo ogranicza klasyczne scenariusze SMTP.  
+        Coraz więcej funkcji wymaga alternatywnych metod wysyłki.
+      </p>
+    </div>
+
+    <div class="glass card">
+      <h2>Co to oznacza dla firm?</h2>
+      <p class="p">
+        Każda firma powinna mieć <b>strategię wysyłania maili</b> – 
+        szczególnie dla urządzeń, skanerów i aplikacji.
+      </p>
+    </div>
+  </section>
+
+
+  <section class="section glass card">
+
+  <h2 style="text-align:center;">Jak Microsoft wyłącza SMTP</h2>
+
+  <svg viewBox="0 0 900 220" width="100%" height="220" class="timeline">
+
+    <!-- linia bazowa -->
+    <line x1="60" y1="110" x2="840" y2="110"
+          stroke="rgba(255,255,255,.15)" stroke-width="2"/>
+
+<!-- animowana linia -->
+    <line x1="60" y1="110" x2="840" y2="110"
+        stroke="url(#grad)"
+        stroke-width="3"
+        class="timeline-progress"/>
+
+    <!-- glow moving -->
+    <circle r="6" fill="#fff" class="glow-dot">
+    <animateMotion dur="18s" repeatCount="indefinite">
+        <mpath href="#timelinePath"/>
+    </animateMotion>
+    </circle>
+
+<!-- ścieżka dla animacji -->
+<path id="timelinePath"
+      d="M60,110 L840,110"
+      fill="none"/>
+
+
+    <!-- gradient -->
+    <defs>
+      <linearGradient id="grad" x1="0%" x2="100%">
+        <stop offset="0%" stop-color="#7C3AED"/>
+        <stop offset="50%" stop-color="#22C55E"/>
+        <stop offset="100%" stop-color="#EF4444"/>
+      </linearGradient>
+    </defs>
+
+    <!-- punkt 1 -->
+    <g class="point p1">
+      <circle cx="100" cy="110" r="6"/>
+      <text x="100" y="80" text-anchor="middle">Teraz</text>
+      <text x="100" y="140" text-anchor="middle">SMTP działa</text>
+    </g>
+
+    <!-- punkt 2 -->
+    <g class="point p2">
+      <circle cx="300" cy="110" r="6"/>
+      <text x="300" y="80" text-anchor="middle">Grudzień 2026</text>
+      <text x="300" y="140" text-anchor="middle">Wyłączone domyślnie</text>
+    </g>
+
+    <!-- punkt 3 -->
+    <g class="point p3">
+      <circle cx="500" cy="110" r="6"/>
+      <text x="500" y="80" text-anchor="middle">Nowe dzierżawy</text>
+      <text x="500" y="140" text-anchor="middle">OAuth only</text>
+    </g>
+
+    <!-- punkt 4 -->
+    <g class="point p4">
+      <circle cx="700" cy="110" r="6"/>
+      <text x="700" y="80" text-anchor="middle">2027</text>
+      <text x="700" y="140" text-anchor="middle">Koniec SMTP</text>
+    </g>
+
+  </svg>
+
+  <p class="p" style="text-align:center; margin-top:6px;">
+  <b>Wniosek:</b> proste wysyłanie SMTP znika – pojawia się większa złożoność i nowe rozwiązania.
+</p>
+
+
+</section>
+
+
+  <!-- CTA -->
+  <section class="section reco">
+    <h2>Prostsze rozwiązanie dla firm</h2>
+
+    <p class="p">
+      Jeśli chcesz po prostu <b>wysyłać maile ze skanera, aplikacji lub systemu</b>,  
+      konfiguracja HVE i Azure to zbędna komplikacja.
+    </p>
+
+    <p class="p" style="margin-top:10px">
+      Zamiast tego możesz użyć gotowego rozwiązania:
+    </p>
+
+    <div class="cta glass" style="box-shadow:none;">
+      <div>
+        <div style="font-weight:800;margin-bottom:5px;">Wyślij skan bez komplikacji</div>
+        <div style="color:var(--muted2); font-size:13px;">
+          Gotowe rozwiązanie SMTP dla firm • działa od razu
+        </div>
+      </div>
+
+
+        <div>
+        <a href="https://wyslijskan.pl" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            title="Przejdź do wyslijskan.pl"
+            class="btn">
+            
+            Przejdź do wyslijskan.pl
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            
+
+        </a>
+        </div>
+
+    </div>
+   
+
+  </section>
+
+      <br><br>
+
+
+    <div class="btn-wrap">
+      <a class="btn" href="../index.html">
+        <i class="fa-solid fa-house"></i>
+        Wróć do Security Hub
+      </a>
+    </div>
+
+    <footer>
+      <div class="text-center text-gray-500 text-xs mt-12">
+        © <span id="year"></span>
+        <a href="https://valcreon.com" class="link-reset">valcreon.com</a> • Microsoft 365 Security
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // auto-year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
