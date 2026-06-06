@@ -385,6 +385,23 @@ header.hero .pill{
   box-shadow:0 14px 40px rgba(79,70,229,.45);
 }
 
+  @media (max-width:640px){
+
+  .topbar{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    align-items:stretch;
+  }
+
+  .pill{
+    align-self:flex-end; /* badge w prawo */
+    white-space:nowrap;  /* nie łamie się */
+  }
+
+}
+
+
 </style>
 </head>
 
