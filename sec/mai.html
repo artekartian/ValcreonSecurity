@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microsoft MAI – modele AI dla firm</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+
+
+<style>
+:root{
+  --bg:#050b18;
+  --card:#0b1324;
+  --border:rgba(255,255,255,.12);
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --accent:#6f42c1;
+}
+
+body{
+  margin:0;
+  font-family:system-ui,Segoe UI,Arial;
+  background:linear-gradient(180deg,#050b18,#020617);
+  color:var(--text);
+}
+
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:16px 20px 32px;
+
+}
+
+h1{
+  font-size:52px;
+  text-align:center;
+  margin-bottom:10px;
+  background:linear-gradient(90deg,#a78bfa,#22d3ee);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+  text-align:center;
+  color:var(--muted);
+  max-width:800px;
+  margin:0 auto 40px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:linear-gradient(180deg,#0b1324,#050b18);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:22px;
+  transition:.25s;
+    display:flex;
+  flex-direction:column;
+
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(255,255,255,.25);
+}
+
+.model{
+  font-size:20px;
+  font-weight:600;
+  margin-bottom:6px;
+}
+
+.desc{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.5;
+  margin-top:10px;
+  min-height:60px;
+}
+
+.cta-wrap{
+  text-align:center;
+  margin-top:40px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 22px;
+  border-radius:14px;
+  text-decoration:none;
+  color:white;
+  font-weight:600;
+  background:linear-gradient(90deg,#6f42c1,#4f46e5);
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+  opacity:.9;
+}
+
+.back-link-wrap{
+  text-align:center;
+  margin-top:40px;
+}
+
+.back-link{
+  color:var(--muted);
+  text-decoration:none;
+  font-size:14px;
+}
+
+footer{
+  text-align:center;
+  margin-top:40px;
+  font-size:13px;
+  color:#6b7280;
+}
+
+header.hero .pill{
+  transform: translateY(-26px);
+}
+
+
+@media (max-width: 640px){
+  header.hero .pill{
+    transform: translateY(-6px);
+  }
+}
+
+/* TOPBAR */
+.topbar{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  align-items:center;
+  margin-bottom:30px;
+}
+
+
+/* BACK BUTTON */
+.topbar .back-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:10px;
+  color:#9ca3af;
+  text-decoration:none;
+  font-size:14px;
+  transition:.2s;
+  justify-self:start;
+  width:fit-content; 
+
+}
+
+
+.topbar .back-link:hover{
+  color:#e5e7eb;
+  background:rgba(255,255,255,0.06);
+  box-shadow:0 0 0 1px rgba(111,66,193,.25);
+}
+
+
+.topbar .pill{
+  justify-self:end;
+}
+
+
+/* ARROW */
+.topbar .back-link i{
+  font-size:13px;
+}
+
+/* BADGE (Valcreon) */
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:13px;
+  color:#c7d2fe;
+  background:rgba(79,70,229,.12);
+  border:1px solid rgba(79,70,229,.2);
+}
+
+/* MOBILE */
+@media (max-width: 640px){
+  .topbar{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  
+  }
+
+  .pill{
+    margin-left:2px;
+  }
+
+  .smb{
+  padding:16px 12px 12px;
+  border-radius:10px;
+  background:rgba(111,66,193,0.15);
+  border:1px solid rgba(111,66,193,0.25);
+  font-size:13px;
+  color:#c7d2fe;
+  position:relative;
+  margin-top:30px;
+}
+
+
+.smb::before{
+  content:"Dla firm";
+  position:absolute;
+  top:-14px;
+  left:12px;
+  background:#6f42c1;
+  color:#fff;
+  font-size:11px;
+  padding:4px 8px;
+  border-radius:8px;
+  box-shadow:0 4px 12px rgba(111,66,193,.4);
+}
+
+
+.smb strong{
+    color:#a78bfa;
+  font-weight:600;
+}
+
+
+.card:hover .smb{
+  border-color:rgba(111,66,193,.45);
+  box-shadow:0 10px 30px rgba(111,66,193,.15);
+}
+
+    /* link w stopce bez zmiany stylu */
+    .link-reset{
+      color: inherit;
+      text-decoration: none;
+    }
+    .link-reset:hover{
+      color: inherit;
+      text-decoration: none;
+      opacity: 1;
+      text-shadow: 0 0 10px rgba(124,58,237,.35);
+    }
+
+    footer{
+      margin-top: 18px;
+  	text-align: center;
+ 	 color: rgba(234,240,255,.55);
+ 	 font-size: 12.5px;
+ 	 margin-top: 48px;
+    }
+
+    .flow{
+  margin-top:70px;
+  text-align:center;
+}
+
+.flow h2{
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.flow-sub{
+  color:#9ca3af;
+  max-width:700px;
+  margin:0 auto 40px;
+}
+
+/* DIAGRAM */
+.flow-diagram{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  margin-bottom:40px;
+}
+
+.flow-step{
+  background:linear-gradient(180deg,#0b1324,#050b18);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:14px;
+  padding:14px 18px;
+  font-size:14px;
+  min-width:140px;
+}
+
+.flow-step .icon{
+  font-size:16px;
+  margin-bottom:6px;
+  color:#a78bfa;
+}
+
+.arrow{
+  color:#6b7280;
+  font-size:18px;
+}
+
+/* CARDS */
+.flow-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+
+.flow-card{
+  background:rgba(255,255,255,0.03);
+  border-radius:14px;
+  padding:16px;
+  border:1px solid rgba(255,255,255,.08);
+  text-align:left;
+}
+
+.flow-card p{
+  margin-top:6px;
+  font-size:13px;
+  color:#9ca3af;
+}
+
+.cta-wrap{
+  margin:70px 0 40px;
+  display:flex;
+  justify-content:center;
+}
+
+/* główny box */
+.cta-box{
+  background:linear-gradient(180deg,rgba(79,70,229,.12),rgba(79,70,229,.05));
+  border:1px solid rgba(79,70,229,.25);
+  border-radius:20px;
+  padding:28px;
+  text-align:center;
+  max-width:700px;
+  width:100%;
+}
+
+/* tekst */
+.cta-text strong{
+  display:block;
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.cta-text p{
+  color:#9ca3af;
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+/* button – upgrade */
+.btn{
+  padding:16px 28px;
+  border-radius:16px;
+  background:linear-gradient(90deg,#6f42c1,#4f46e5);
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  display:inline-block;
+  box-shadow:0 10px 30px rgba(79,70,229,.35);
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 40px rgba(79,70,229,.45);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  
+
+<div class="topbar">
+
+  <a class="back-link" href="../index.html">
+    <i class="fa-solid fa-arrow-left"></i>
+    Powrót do Security Hub
+  </a>
+
+  <div class="pill">
+    <i class="fa-solid fa-shield-halved"></i>
+    Valcreon • Microsoft 365 Security
+  </div>
+
+</div>
+
+
+
+<h1>Microsoft MAI</h1>
+
+<p class="subtitle">
+Nowa generacja modeli AI od Microsoft – gotowa do realnej pracy w firmie.
+Pisanie, grafika, kod, rozmowy i analiza – w jednym ekosystemie.
+</p>
+
+<div class="grid">
+
+<div class="card">
+  <div class="model">MAI-Thinking-1</div>
+
+    <div class="desc">
+    Model do analizy i podejmowania decyzji.
+    Pomaga szybko rozwiązywać problemy w firmie.
+  
+<div class="smb">
+<strong>Dla małych firm:</strong>
+lepsze decyzje szybciej – bez analityka i bez chaosu w danych.
+</div>
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="model">MAI-Code-1-Flash</div>
+      <div class="desc">
+    Model do tworzenia kodu i automatyzacji procesów.
+    Upraszcza zadania techniczne i oszczędza czas.
+
+  
+<div class="smb">
+<strong>Dla małych firm:</strong>
+automatyzujesz powtarzalne zadania i oszczędzasz czas bez zatrudniania programisty.
+</div>
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="model">MAI-Image-2.5</div>
+      <div class="desc">
+    Model do tworzenia grafiki i materiałów wizualnych.
+    Generuje obrazy wysokiej jakości do biznesu.
+
+  
+<div class="smb">
+<strong>Dla małych firm:</strong>
+tworzysz profesjonalne grafiki i oferty bez agencji i grafika.
+</div>
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="model">MAI-Image-2.5-Flash</div>
+      <div class="desc">
+    Szybki model do generowania grafik na co dzień.
+    Idealny do dużej liczby materiałów marketingowych.
+
+  
+<div class="smb">
+<strong>Dla małych firm:</strong>
+generujesz dużo materiałów marketingowych szybko i tanio – idealne do codziennej pracy.
+</div>
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="model">MAI-Transcribe-1.5</div>
+  
+    <div class="desc">
+    Zamienia rozmowy i nagrania na dokładny tekst.
+    Ułatwia pracę z notatkami i dokumentacją.
+
+
+<div class="smb">
+<strong>Dla małych firm:</strong>
+masz notatki ze spotkań i rozmów bez ręcznego pisania.
+</div>
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="model">MAI-Voice-2</div>
+  
+<div class="desc">
+Model do tworzenia naturalnego głosu AI.
+Pozwala generować profesjonalne nagrania audio.
+
+  
+<div class="smb">
+<strong>Dla małych firm:</strong>
+tworzysz profesjonalną komunikację głosową bez studia i lektora.
+</div>
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="model">MAI-Voice-2-Flash</div>
+ 
+<div class="desc">
+Szybka i tańsza wersja generowania głosu AI.
+Nadaje się do skalowania komunikacji w firmie.
+
+  
+<div class="smb">
+<strong>Dla małych firm:</strong>
+skalujesz obsługę klienta, automatyzując odpowiedzi i obsługując klientów 24/7.
+
+</div>
+
+  </div>
+</div>
+
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="flow">
+
+  <h2>Jak działa Microsoft Copilot i AI?</h2>
+
+  <p class="flow-sub">
+    Copilot nie jest jednym modelem AI. To system, który łączy Twoje dane z AI,
+    aby generować odpowiedzi dopasowane do Twojej firmy.
+  </p>
+
+  <div class="flow-diagram">
+
+    <div class="flow-step">
+      <div class="icon"><i class="fa-solid fa-user"></i></div>
+      <div>Użytkownik</div>
+    </div>
+
+    <div class="arrow">→</div>
+
+    <div class="flow-step">
+      <div class="icon"><i class="fa-solid fa-robot"></i></div>
+      <div>Copilot</div>
+    </div>
+
+    <div class="arrow">→</div>
+
+    <div class="flow-step">
+      <div class="icon"><i class="fa-solid fa-database"></i></div>
+      <div>Microsoft Graph</div>
+    </div>
+
+    <div class="arrow">→</div>
+
+    <div class="flow-step">
+      <div class="icon"><i class="fa-solid fa-brain"></i></div>
+      <div>Model AI</div>
+    </div>
+
+    <div class="arrow">→</div>
+
+    <div class="flow-step">
+      <div class="icon"><i class="fa-solid fa-check"></i></div>
+      <div>Odpowiedź</div>
+    </div>
+
+  </div>
+
+  <div class="flow-cards">
+
+    <div class="flow-card">
+      <strong>1. Zadajesz pytanie</strong>
+      <p>np. „Podsumuj spotkanie” lub „Przygotuj ofertę”.</p>
+    </div>
+
+    <div class="flow-card">
+      <strong>2. Copilot rozumie kontekst</strong>
+      <p>działa w Word, Teams, OneDrive i innych aplikacjach.</p>
+    </div>
+
+    <div class="flow-card">
+      <strong>3. Pobierane są dane z firmy</strong>
+      <p>Copilot korzysta z plików, maili i spotkań przez Microsoft Graph.</p>
+    </div>
+
+    <div class="flow-card">
+      <strong>4. AI generuje odpowiedź</strong>
+      <p>model MAI / GPT działa w chmurze Microsoft (Azure).</p>
+    </div>
+
+    <div class="flow-card">
+      <strong>5. Wynik trafia do Ciebie</strong>
+      <p>z zachowaniem uprawnień i bezpieczeństwa danych.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<div class="cta-wrap">
+
+  <div class="cta-box">
+
+    <div class="cta-text">
+      <strong>Wdrożenie AI w firmie zaczyna się od jednego kliknięcia</strong>
+      <p>Sprawdź, jak Microsoft 365 Copilot może automatyzować pracę Twojego zespołu.</p>
+    </div>
+
+    <a href="https://copilotbusiness.pl/" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="btn">
+       Sprawdź, co AI może zrobić dla Twojej firmy
+    </a>
+
+  </div>
+
+</div>
+
+<div class="back-link-wrap">
+  <a href="../index.html" class="back-link">
+    <i class="fa-solid fa-arrow-left"></i> Powrót do Security Hub
+  </a>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div>
+    © <span id="year"></span>
+    <a href="https://valcreon.com" class="link-reset">valcreon.com</a> • Microsoft 365 Security
+  </div>
+</footer>
+</div>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script>
+  // Auto-year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Reveal on scroll (IntersectionObserver)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+
+
+</body>
+</html>
