@@ -277,13 +277,17 @@
 
     .card{
       position:relative;
-      padding:22px;
+      padding:28px;
       border-radius:20px;
       border:1px solid var(--stroke);
       background:
         linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
       box-shadow:var(--shadow);
       overflow:hidden;
+      justify-content:space-between;
+      display:flex;
+      flex-direction:column;
+
     }
 
     .card::after{
@@ -295,6 +299,7 @@
       border-radius:999px;
       background:radial-gradient(circle, rgba(109,74,255,.18), transparent 65%);
       pointer-events:none;
+      
     }
 
     .card .icon{
@@ -564,6 +569,54 @@
         font-size:26px;
       }
     }
+
+    .why-box{
+  margin-top:20px;
+  padding:20px 22px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.03);
+  }
+
+.why-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#a78bfa;
+  margin-bottom:16px;
+}
+
+/* 🔥 ZAMIANA grid 2 kolumn → 1 kolumna */
+.why-grid{
+  display:flex;
+  flex-direction:column;
+  gap: 10px;px;
+}
+
+.why-item{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:2px 0;
+  font-size:15px;
+  line-height:1.45;
+  color:#cbd5f5;
+}
+
+/* 🔥 bardziej widoczna kropka */
+.why-dot{
+  margin-top:7px;
+  width:6px;
+  height:6px;
+  border-radius:999px;
+  background:#7c3aed;
+  flex-shrink:0;
+}
+
   </style>
 </head>
 <body>
@@ -654,25 +707,31 @@
     <p class="p" style="margin-top:8px;">
       Ustawienie Web Search pozwala Copilot pobierać aktualne informacje z internetu.
       Na podstawie zapytań użytkownika generowane są wyszukiwania (np. Bing),
-      a wyniki są łączone z danymi firmy.
+      a wyniki są łączone z danymi firmy. Firma może zdecydować, czy wyłączyć tę funkcję, biorąc pod uwagę ryzyko związane z udostępnianiem danych AI i potencjalne naruszenia zasad DLP dla danych organizacji.
     </p>
 
     <p class="p" style="margin-top:10px;">
       Copilot łączy dane publiczne z danymi organizacji,
-      jednocześnie zachowując kontrolę administracyjną i zasady bezpieczeństwa.
+      jednocześnie zachowując kontrolę administracyjną i zasady bezpieczeństwa, jednak może naruszać to zasady lokalizacji przetwarzania danych, compliance i DLP, dlatego ważne jest zrozumienie, jak działa ta funkcja i jakie są jej implikacje.
     </p>
 
-    <div style="margin-top:16px;">
-      <b>Dlaczego to jest ważne:</b>
-      
-      <ul style="margin-top:8px; color:var(--muted); padding-left:18px;">
-        <li>pobiera aktualne informacje z internetu</li>
-        <li>zmniejsza zależność od przestarzałych danych AI</li>
-        <li>łączy wiedzę z firmy z danymi z sieci</li>
-      </ul>
-    </div>
+<div class="why-box">
+  <div class="why-title">
+    <i class="fa-solid fa-globe"></i>
+    Dlaczego to ma znaczenie
+  </div>
+
+  <div class="why-grid">
+    <div class="why-item"><span class="why-dot"></span><span>Copilot korzysta z aktualnych informacji z internetu</span></div>
+    <div class="why-item"><span class="why-dot"></span><span>odpowiedzi są bardziej trafne i aktualne</span></div>
+    <div class="why-item"><span class="why-dot"></span><span>AI łączy dane firmy i dane publiczne</span></div>
+  </div>
+</div>
 
   </div>
+
+    
+
 </section>
 
     
@@ -691,6 +750,41 @@
           <p>
             Przypięcie Copilot do paska systemu ułatwia dostęp i zwiększa szansę, że użytkownicy będą korzystać z AI regularnie, a nie okazjonalnie.
           </p>
+
+        <div class="mt-4 p-4 rounded-2xl border border-white/10 bg-white/5">
+
+
+          <div class="why-box">
+
+  <div class="why-title">
+    <i class="fa-solid fa-circle-info"></i>
+    Dlaczego to ma znaczenie
+  </div>
+
+  <div class="why-grid">
+
+    <div class="why-item">
+      <span class="why-dot"></span>
+      <span>szybki dostęp do Copilot z każdego miejsca</span>
+    </div>
+
+    <div class="why-item">
+      <span class="why-dot"></span>
+      <span>użytkownicy częściej korzystają z AI</span>
+    </div>
+
+    <div class="why-item">
+      <span class="why-dot"></span>
+      <span>spójne doświadczenie w całej firmie</span>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+</div>
         </article>
 
         <article class="card">
@@ -700,6 +794,20 @@
           <p>
             Wbudowani agenci Microsoft w aplikacjach takich jak Outlook, Teams czy Word działają bezpośrednio na danych firmowych i wymagają uporządkowanego środowiska.
           </p>
+
+            <div class="why-box">
+  <div class="why-title">
+    <i class="fa-solid fa-robot"></i>
+    Dlaczego to ma znaczenie
+  </div>
+
+  <div class="why-grid">
+    <div class="why-item"><span class="why-dot"></span><span>Copilot daje bardziej zaawansowane odpowiedzi</span></div>
+    <div class="why-item"><span class="why-dot"></span><span>lepsza analiza danych z wielu źródeł</span></div>
+    <div class="why-item"><span class="why-dot"></span><span>większe zaufanie do wyników AI</span></div>
+  </div>
+</div>
+
         </article>
 
         <article class="card">
@@ -709,7 +817,23 @@
           <p>
             Bez transkrypcji Copilot nie ma pełnego materiału do podsumowań spotkań, list działań i analizy tego, co zostało ustalone.
           </p>
+
+          <div class="why-box">
+  <div class="why-title">
+    <i class="fa-solid fa-microphone"></i>
+    Dlaczego to ma znaczenie
+  </div>
+
+  <div class="why-grid">
+    <div class="why-item"><span class="why-dot"></span><span>Copilot tworzy podsumowania spotkań</span></div>
+    <div class="why-item"><span class="why-dot"></span><span>AI generuje zadania i wnioski</span></div>
+    <div class="why-item"><span class="why-dot"></span><span>wiedza ze spotkań nie znika</span></div>
+  </div>
+</div>
+
+
         </article>
+        
       </div>
     </section>
 
@@ -747,6 +871,72 @@
               </div>
             </div>
           </div>
+
+<div class="why-box">
+  <div class="why-title">
+    <i class="fa-solid fa-arrows-rotate"></i>
+    Dlaczego to ma znaczenie
+  </div>
+
+  <div class="why-grid">
+    <div class="why-item"><span class="why-dot"></span><span>Copilot działa stabilnie i bez błędów</span></div>
+    <div class="why-item"><span class="why-dot"></span><span>użytkownicy mają dostęp do nowych funkcji</span></div>
+    <div class="why-item"><span class="why-dot"></span><span>lepsza wydajność i bezpieczeństwo</span></div>
+  </div>
+</div>
+
+<svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- gradient -->
+  <defs>
+    <linearGradient id="line" x1="0" x2="1">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- osie -->
+  <line x1="60" y1="220" x2="540" y2="220" stroke="#444" stroke-width="1"/>
+  <line x1="60" y1="40" x2="60" y2="220" stroke="#444" stroke-width="1"/>
+
+  <!-- linia trendu -->
+  <polyline 
+    fill="none" 
+    stroke="url(#line)" 
+    stroke-width="3"
+    points="
+      80,200
+      160,180
+      240,150
+      320,120
+      400,90
+      480,60
+    "
+  />
+
+  <!-- punkty -->
+  <circle cx="80" cy="200" r="4" fill="#7c3aed"/>
+  <circle cx="160" cy="180" r="4" fill="#7c3aed"/>
+  <circle cx="240" cy="150" r="4" fill="#7c3aed"/>
+  <circle cx="320" cy="120" r="4" fill="#7c3aed"/>
+  <circle cx="400" cy="90" r="4" fill="#7c3aed"/>
+  <circle cx="480" cy="60" r="5" fill="#7c3aed"/>
+
+  <!-- podpisy osi -->
+  <text x="60" y="235" font-size="10" fill="#aaa">nieaktualne wersje</text>
+  <text x="440" y="235" font-size="10" fill="#aaa">aktualne</text>
+
+  <text x="10" y="60" font-size="10" fill="#aaa" transform="rotate(-90 10,60)">
+    
+  </text>
+
+  <!-- highlight końcowy -->
+  <text x="500" y="55" font-size="11" fill="#a78bfa">
+    Copilot ✅
+  </text>
+
+</svg>
+
         </article>
 
         <div class="feature-stack">
@@ -757,6 +947,21 @@
             <p>
               Connectors pozwalają rozszerzyć Copilot o dane spoza Microsoft 365, na przykład z CRM lub innych systemów firmowych.
             </p>
+
+            <div class="why-box">
+  <div class="why-title">
+    <i class="fa-solid fa-plug"></i>
+    Dlaczego to ma znaczenie
+  </div>
+
+  <div class="why-grid">
+    <div class="why-item"><span class="why-dot"></span><span>Copilot widzi dane spoza Microsoft 365</span></div>
+    <div class="why-item"><span class="why-dot"></span><span>odpowiedzi są bardziej dopasowane do firmy</span></div>
+    <div class="why-item"><span class="why-dot"></span><span>wykorzystujesz dane z CRM i innych systemów</span></div>
+  </div>
+</div>
+
+
           </article>
 
           <article class="card">
@@ -766,6 +971,20 @@
             <p>
               Feedback i logi pozwalają sprawdzić, jak Copilot jest używany, które scenariusze działają najlepiej i gdzie potrzebne są korekty.
             </p>
+
+<div class="why-box">
+  <div class="why-title">
+    <i class="fa-solid fa-chart-line"></i>
+    Dlaczego to ma znaczenie
+  </div>
+
+  <div class="why-grid">
+    <div class="why-item"><span class="why-dot"></span><span>Copilot poprawia się dzięki danym z użycia</span></div>
+    <div class="why-item"><span class="why-dot"></span><span>szybciej wykrywasz problemy</span></div>
+    <div class="why-item"><span class="why-dot"></span><span>widzisz realną wartość AI w firmie</span></div>
+  </div>
+</div>
+
           </article>
         </div>
       </div>
@@ -786,6 +1005,21 @@
           <p>
             Microsoft komunikuje wykorzystanie Anthropic jako podprocesora w określonych scenariuszach związanych z Copilot.
           </p>
+
+          <div class="why-box">
+  <div class="why-title">
+    <i class="fa-solid fa-circle-nodes"></i>
+    Dlaczego to ma znaczenie
+  </div>
+
+  <div class="why-grid">
+    <div class="why-item"><span class="why-dot"></span><span>Copilot może korzystać z wielu modeli AI</span></div>
+    <div class="why-item"><span class="why-dot"></span><span>lepsze wyniki w trudnych scenariuszach</span></div>
+    <div class="why-item"><span class="why-dot"></span><span>zgodność z GDPR / RODO</span></div>
+  </div>
+</div>
+
+
         </article>
 
         <article class="card">
@@ -795,6 +1029,23 @@
           <p>
             W części przypadków Copilot w aplikacjach Microsoft 365 może korzystać z modeli Anthropic, co ma znaczenie dla oceny sposobu przetwarzania danych.
           </p>
+
+          <div class="why-box">
+  <div class="why-title">
+    <i class="fa-solid fa-brain"></i>
+    Dlaczego to ma znaczenie
+  </div>
+
+  <div class="why-grid">
+    <div class="why-item"><span class="why-dot"></span><span>AI dobiera najlepszy model do zadania</span></div>
+    <div class="why-item"><span class="why-dot"></span><span>lepsza jakość dokumentów i analiz</span></div>
+    <div class="why-item"><span class="why-dot"></span><span>sprawniejsze rozwiązywanie złożonych problemów</span></div>
+  </div>
+</div>
+
+
+
+
         </article>
 
         <article class="card">
@@ -804,6 +1055,20 @@
           <p>
             Frontier obejmuje nowe i rozwijane funkcje Copilot, które pojawiają się stopniowo i mogą wpływać na dalsze planowanie wdrożenia.
           </p>
+
+          <div class="why-box">
+  <div class="why-title">
+    <i class="fa-solid fa-rocket"></i>
+    Dlaczego to ma znaczenie
+  </div>
+
+  <div class="why-grid">
+    <div class="why-item"><span class="why-dot"></span><span>masz dostęp do nowych funkcji wcześniej</span></div>
+    <div class="why-item"><span class="why-dot"></span><span>możesz testować AI bez ryzyka</span></div>
+    <div class="why-item"><span class="why-dot"></span><span>przygotowujesz firmę na przyszłe zmiany</span></div>
+  </div>
+</div>
+
         </article>
       </div>
     </section>
@@ -811,12 +1076,54 @@
     <!-- IMPACT -->
     <section class="section">
       <div class="highlight">
-        <h2>Impact for admins</h2>
+        <h2>Znaczenie optymalizacji dla administratorów</h2>
         <p>
-          Copilot nie tworzy nowych uprawnień – korzysta z tych, które już istnieją w środowisku.
-          Dlatego administrator odpowiada przede wszystkim za porządek w dostępie do danych, bezpieczeństwo kont,
-          gotowość Teams i SharePoint oraz monitorowanie sposobu użycia AI.
+          Te ustawienia pozwalają administratorowi:
         </p>
+<div class="why-box">
+
+  <div class="why-title">
+    <i class="fa-solid fa-chart-simple"></i>
+    Dlaczego to ma znaczenie
+  </div>
+
+  <div class="why-grid">
+
+    <div class="why-item">
+      <span class="why-dot"></span>
+      <span>większe wykorzystanie Copilot w całej firmie</span>
+    </div>
+
+    <div class="why-item">
+      <span class="why-dot"></span>
+      <span>lepsza jakość pracy i efektywność zespołu</span>
+    </div>
+
+    <div class="why-item">
+      <span class="why-dot"></span>
+      <span>zgodność z bezpieczeństwem danych i wymaganiami</span>
+    </div>
+
+    <div class="why-item">
+      <span class="why-dot"></span>
+      <span>szybsze wykrywanie błędów konfiguracji</span>
+    </div>
+
+    <div class="why-item">
+      <span class="why-dot"></span>
+      <span>skupienie na zmianach o największym wpływie</span>
+    </div>
+
+    <div class="why-item">
+      <span class="why-dot"></span>
+      <span>ciągłe ulepszanie dzięki analizie i danym</span>
+    </div>
+
+  </div>
+
+</div>
+
+
       </div>
     </section>
 
