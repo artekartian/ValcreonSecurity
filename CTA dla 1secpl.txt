@@ -101,7 +101,7 @@
       </div>
 
       <div class="cta-desc">
-        Wskażemy, co działa dobrze, gdzie są ryzyka i co można usprawnić.
+        Wskażemy, co działa dobrze, gdzie jest ryzyko i co można usprawnić.
       </div>
     </div>
 
