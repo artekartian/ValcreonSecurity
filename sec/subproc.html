@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Microsoft 365 Copilot – konfiguracja w firmie – Valcreon Security</title>
+
+  <link rel="icon" href="../fav.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root{
+      --bg0:#050816;
+      --bg1:#0a1020;
+      --bg2:#0d1430;
+      --card:rgba(255,255,255,.05);
+      --card2:rgba(255,255,255,.08);
+      --stroke:rgba(255,255,255,.12);
+      --stroke-strong:rgba(255,255,255,.18);
+      --text:#eef2ff;
+      --muted:rgba(238,242,255,.72);
+      --muted2:rgba(238,242,255,.56);
+      --brand:#6d4aff;
+      --brand2:#8b5cf6;
+      --brand3:#22c55e;
+      --brand4:#38bdf8;
+      --shadow:0 18px 60px rgba(0,0,0,.45);
+      --radius:22px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1000px 700px at 10% -10%, rgba(109,74,255,.22), transparent 60%),
+        radial-gradient(900px 700px at 100% 0%, rgba(56,189,248,.12), transparent 60%),
+        radial-gradient(900px 700px at 50% 120%, rgba(34,197,94,.08), transparent 60%),
+        linear-gradient(180deg,var(--bg0),var(--bg1) 45%, #040814);
+      min-height:100vh;
+      padding:28px 16px 72px;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container{
+      max-width:1180px;
+      margin:0 auto;
+    }
+
+    .glass{
+      background:linear-gradient(180deg,var(--card2),var(--card));
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(8px);
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:18px;
+    }
+
+    .back-link{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px;
+      border:1px solid var(--stroke);
+      border-radius:999px;
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      font-weight:600;
+      transition:all .18s ease;
+    }
+    .back-link:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.06);
+      border-color:var(--stroke-strong);
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 18px;
+      border-radius:999px;
+      border:1px solid rgba(109,74,255,.18);
+      background:linear-gradient(180deg, rgba(109,74,255,.30), rgba(109,74,255,.18));
+      color:var(--text);
+      font-weight:600;
+      white-space:nowrap;
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      padding:34px 34px;
+      margin-bottom:22px;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background:
+        radial-gradient(600px 260px at 8% 12%, rgba(109,74,255,.18), transparent 55%),
+        radial-gradient(580px 250px at 92% 15%, rgba(56,189,248,.10), transparent 55%);
+      pointer-events:none;
+    }
+
+    .hero-grid{
+      position:relative;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:24px;
+      align-items:center;
+    }
+
+    .hero-label{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:700;
+      color:rgba(255,255,255,.96);
+      background:rgba(109,74,255,.24);
+      border:1px solid rgba(255,255,255,.08);
+      margin-bottom:16px;
+    }
+
+    h1{
+      margin:0 0 16px;
+      font-size:clamp(34px, 5vw, 62px);
+      line-height:1.03;
+      letter-spacing:-.035em;
+    }
+
+    .lead{
+      margin:0;
+      max-width:64ch;
+      color:var(--muted);
+      font-size:19px;
+      line-height:1.65;
+    }
+
+    .hero-side{
+      display:grid;
+      gap:12px;
+    }
+
+    .signal{
+      padding:16px;
+      border-radius:18px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.04);
+    }
+
+    .signal-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:12px;
+    }
+
+    .signal-title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:13px;
+      font-weight:700;
+      color:rgba(255,255,255,.94);
+      letter-spacing:.01em;
+    }
+
+    .dot{
+      width:10px;height:10px;border-radius:999px;background:#22c55e;
+      box-shadow:0 0 12px rgba(34,197,94,.55);
+    }
+
+    .mini-chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .mini-chip{
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.03);
+      border-radius:999px;
+      padding:8px 10px;
+    }
+
+    .bars{
+      display:grid;
+      gap:10px;
+    }
+
+    .bar{
+      display:grid;
+      gap:6px;
+    }
+
+    .bar label{
+      font-size:12px;
+      color:var(--muted2);
+      font-weight:600;
+    }
+
+    .bar-track{
+      height:10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.06);
+    }
+
+    .bar-fill{
+      height:100%;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--brand),#9f7aea);
+    }
+
+    .section{
+      margin-top:24px;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:14px;
+      margin-top:80px;
+    }
+
+    .section-head h2{
+      margin:0;
+      font-size:30px;
+      letter-spacing:-.03em;
+      margin-bottom:20px;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted2);
+      font-size:14px;
+      max-width:56ch;
+      text-align:right;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+    }
+
+    .card{
+      position:relative;
+      padding:28px;
+      border-radius:20px;
+      border:1px solid var(--stroke);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      justify-content:space-between;
+      display:flex;
+      flex-direction:column;
+
+    }
+
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:auto -30% -45% auto;
+      width:180px;
+      height:180px;
+      border-radius:999px;
+      background:radial-gradient(circle, rgba(109,74,255,.18), transparent 65%);
+      pointer-events:none;
+      
+    }
+
+    .card .icon{
+      width:52px;
+      height:52px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(180deg, rgba(109,74,255,.28), rgba(109,74,255,.14));
+      border:1px solid rgba(109,74,255,.25);
+      color:rgba(255,255,255,.95);
+      font-size:21px;
+      margin-bottom:16px;
+    }
+
+    .eyebrow{
+      font-size:12px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:#a78bfa;
+      margin-bottom:8px;
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      font-size:28px;
+      line-height:1.08;
+      letter-spacing:-.03em;
+    }
+
+    .card p{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.7;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:14px;
+    }
+
+    .feature-stack{
+      display:grid;
+      gap:12px;
+    }
+
+    .feature-line{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:14px 14px;
+      border-radius:16px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.03);
+    }
+
+    .feature-line .icon-sm{
+      width:40px;height:40px;border-radius:12px;
+      display:grid;place-items:center;
+      font-size:15px;
+      background:rgba(109,74,255,.18);
+      border:1px solid rgba(109,74,255,.22);
+      flex:0 0 40px;
+    }
+
+    .feature-line b{
+      display:block;
+      margin-bottom:4px;
+      font-size:15px;
+      letter-spacing:-.01em;
+    }
+
+    .feature-line span{
+      color:var(--muted2);
+      font-size:13.5px;
+      line-height:1.55;
+    }
+
+    .highlight{
+      padding:24px;
+      border-radius:22px;
+      border:1px solid rgba(109,74,255,.24);
+      background:
+        radial-gradient(700px 220px at 10% 0%, rgba(109,74,255,.20), transparent 56%),
+        linear-gradient(180deg, rgba(109,74,255,.12), rgba(255,255,255,.03));
+      box-shadow:var(--shadow);
+    }
+
+    .highlight h2{
+      margin:0 0 10px;
+      font-size:28px;
+      letter-spacing:-.03em;
+    }
+
+    .highlight p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:16px;
+    }
+
+    .timeline{
+      display:grid;
+      gap:12px;
+      margin-top:10px;
+    }
+
+    .step{
+      display:grid;
+      grid-template-columns:64px 1fr;
+      gap:14px;
+      align-items:start;
+      padding:16px;
+      border-radius:18px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.035);
+    }
+
+    .step-no{
+      width:48px;
+      height:48px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      font-size:18px;
+      font-weight:800;
+      color:#fff;
+      background:linear-gradient(180deg, var(--brand), var(--brand2));
+      box-shadow:0 10px 24px rgba(109,74,255,.28);
+    }
+
+    .step h3{
+      margin:2px 0 6px;
+      font-size:18px;
+      letter-spacing:-.02em;
+    }
+
+    .step p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:15px;
+    }
+
+    .cta{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      padding:20px 22px;
+      border-radius:20px;
+      border:1px solid var(--stroke);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      box-shadow:var(--shadow);
+    }
+
+    .cta-copy h3{
+      margin:0 0 6px;
+      font-size:20px;
+      letter-spacing:-.02em;
+    }
+
+    .cta-copy p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:14px;
+      transition:transform .18s ease, background .18s ease, border-color .18s ease;
+      border:1px solid rgba(109,74,255,.35);
+      background:linear-gradient(180deg, rgba(109,74,255,.28), rgba(109,74,255,.18));
+      color:#fff;
+      text-decoration:none;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+      border-color:rgba(109,74,255,.56);
+    }
+
+    .btn.secondary{
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+    }
+
+    .back-home{
+      display:flex;
+      justify-content:center;
+      margin-top:24px;
+    }
+
+    footer{
+      margin-top:42px;
+      text-align:center;
+      color:rgba(255,255,255,.50);
+      font-size:12.5px;
+    }
+
+    .footer-link{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .footer-link:hover{
+      color:#fff;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,
+      .split{
+        grid-template-columns:1fr;
+      }
+      .section-head{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .section-head p{
+        text-align:left;
+      }
+    }
+
+    @media (max-width: 820px){
+      .grid-3,
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+      .topbar{
+        flex-direction:column;
+        align-items:stretch;
+      }
+      .topbar .pill,
+      .topbar .back-link{
+        justify-content:center;
+      }
+      .hero{
+        padding:26px 22px;
+      }
+    }
+
+    @media (max-width: 560px){
+      body{
+        padding:18px 12px 56px;
+      }
+      h1{
+        font-size:40px;
+      }
+      .lead{
+        font-size:17px;
+      }
+      .card h3{
+        font-size:24px;
+      }
+      .section-head h2{
+        font-size:26px;
+      }
+    }
+
+    .why-box{
+  margin-top:20px;
+  padding:20px 22px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.03);
+  }
+
+.why-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#a78bfa;
+  margin-bottom:16px;
+}
+
+/* 🔥 ZAMIANA grid 2 kolumn → 1 kolumna */
+.why-grid{
+  display:flex;
+  flex-direction:column;
+  gap: 10px;px;
+}
+
+.why-item{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:2px 0;
+  font-size:15px;
+  line-height:1.45;
+  color:#cbd5f5;
+}
+
+/* 🔥 bardziej widoczna kropka */
+.why-dot{
+  margin-top:7px;
+  width:6px;
+  height:6px;
+  border-radius:999px;
+  background:#7c3aed;
+  flex-shrink:0;
+}
+
+.section-desc{
+  margin-top:8px;
+  max-width:540px;
+  font-size:14px;
+  line-height:1.5;
+  color:rgba(234,240,255,.6);
+}
+
+.section-desc strong{
+  color:#fff;
+  font-weight:600;
+}
+
+.cta-contact{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:22px 24px;
+
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.1);
+  background:linear-gradient(180deg, rgba(124,58,237,.12), rgba(255,255,255,.04));
+}
+
+.cta-left{
+  max-width:520px;
+}
+
+.cta-title{
+  font-size:18px;
+  font-weight:700;
+  line-height:1.3;
+}
+
+.cta-desc{
+  margin-top:6px;
+  font-size:14px;
+  color:rgba(234,240,255,.6);
+}
+
+.cta-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.cta-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+
+  border-radius:999px;
+  font-size:14px;
+  font-weight:600;
+  text-decoration:none;
+
+  transition:all .15s ease;
+}
+
+.cta-btn.primary{
+  background:#7c3aed;
+  color:#fff;
+}
+
+.cta-btn.primary:hover{
+  background:#6d28d9;
+  transform:translateY(-1px);
+}
+
+.cta-btn.secondary{
+  border:1px solid rgba(255,255,255,.15);
+  color:#cbd5f5;
+}
+
+.cta-btn.secondary:hover{
+  background:rgba(255,255,255,.05);
+}
+	  @media (max-width: 640px){
+
+  .cta-contact{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .cta-actions{
+    width:100%;
+    margin-top:14px;
+
+    flex-direction:column;
+  }
+
+  .cta-btn{
+    width:100%;
+    justify-content:center;
+    white-space:nowrap;
+  }
+
+}
+
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+        <!-- TOPBAR -->
+    <div class="topbar">
+      <a class="back-link" href="../index.html" aria-label="Powrót do Security Hub">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Powrót do Security Hub</span>
+      </a>
+
+      <span class="pill">
+        <i class="fa-solid fa-scale-balanced"></i>
+        Microsoft 365 Compliance RODO
+      </span>
+    </div>
+
+  <!-- HERO -->
+  <section class="hero glass">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-label">Microsoft • zgodność i RODO</div>
+        <h1>Podmioty współprzetwarzające Microsoft</h1>
+        <p class="lead">
+          Lista firm, które mogą przetwarzać dane klientów w ramach usług Microsoft 365, Azure i innych usług chmurowych.
+          Transparentność wymagana przez RODO – każda organizacja powinna wiedzieć, kto ma dostęp do jej danych.
+        </p>
+      </div>
+
+      <div class="hero-side">
+        <div class="signal">
+          <div class="signal-top">
+            <div class="signal-title">
+              <span class="dot"></span> Status zgodności
+            </div>
+          </div>
+          <div class="mini-chips">
+            <div class="mini-chip">GDPR / RODO</div>
+            <div class="mini-chip">Microsoft DPA</div>
+            <div class="mini-chip">Subprocessors</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="section">
+    <div class="highlight">
+      <h2>Dlaczego to ma znaczenie</h2>
+      <p>
+        Microsoft korzysta z firm trzecich (subprocesorów), które pomagają utrzymać i rozwijać usługi chmurowe. 
+        Te podmioty mogą przetwarzać dane klientów tylko w zakresie zleconym przez Microsoft i nie mogą używać ich w innym celu.
+      </p>
+    </div>
+
+    <div class="why-box">
+      <div class="why-title">co to oznacza dla Twojej firmy</div>
+      <div class="why-grid">
+        <div class="why-item"><div class="why-dot"></div>Dane nie są przetwarzane tylko przez Microsoft</div>
+        <div class="why-item"><div class="why-dot"></div>Lista podmiotów musi być jawna (RODO)</div>
+        <div class="why-item"><div class="why-dot"></div>Każdy subprocesor ma ograniczony zakres dostępu</div>
+        <div class="why-item"><div class="why-dot"></div>Lokalizacja przetwarzania zależy od regionu usług</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOUD TECHNOLOGIES -->
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <h2>Technologie chmurowe</h2>
+        <p class="section-desc">
+          Subprocesorzy obsługujący kluczowe elementy infrastruktury Azure i usług Microsoft.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="eyebrow">Infrastructure</div>
+        <h3>Accenture</h3>
+        <p>SAP HANA on Azure – instalacja i operacje sprzętu</p>
+      </div>
+
+      <div class="card">
+        <div class="eyebrow">Network</div>
+        <h3>Akamai</h3>
+        <p>CDN i zarządzanie ruchem sieciowym dla usług Microsoft</p>
+      </div>
+
+      <div class="card">
+        <div class="eyebrow">Data / AI</div>
+        <h3>Databricks</h3>
+        <p>Obsługa Azure Databricks – wdrożenia i troubleshooting</p>
+      </div>
+
+      <div class="card">
+        <div class="eyebrow">Storage</div>
+        <h3>NetApp</h3>
+        <p>Azure NetApp Files – storage enterprise</p>
+      </div>
+
+      <div class="card">
+        <div class="eyebrow">Containers</div>
+        <h3>Red Hat</h3>
+        <p>Azure Red Hat OpenShift – platforma Kubernetes</p>
+      </div>
+
+      <div class="card">
+        <div class="eyebrow">Caching</div>
+        <h3>Redis</h3>
+        <p>Azure Managed Redis – cache i wydajność aplikacji</p>
+      </div>
+
+      <div class="card">
+        <div class="eyebrow">Maps</div>
+        <h3>TomTom</h3>
+        <p>Azure Maps – dane map i API lokalizacji</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANCILLARY -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Usługi wspierające</h2>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>AWS</h3>
+        <p>Microsoft Purview – integracje multicloud</p>
+      </div>
+
+      <div class="card">
+        <h3>Amplitude</h3>
+        <p>Analiza doświadczeń użytkownika (CX)</p>
+      </div>
+
+      <div class="card">
+        <h3>Arkose Labs</h3>
+        <p>Ochrona przed fraudem (CAPTCHA)</p>
+      </div>
+
+      <div class="card">
+        <h3>Intercom</h3>
+        <p>System wsparcia i czatu</p>
+      </div>
+
+      <div class="card">
+        <h3>Scuba Analytics</h3>
+        <p>Analiza CX w Teams / SharePoint</p>
+      </div>
+
+      <div class="card">
+        <h3>Snowflake</h3>
+        <p>Data warehousing (Viva Engage)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Sztuczna inteligencja</h2>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="eyebrow">AI</div>
+        <h3>Anthropic</h3>
+        <p>Dostawca modeli AI</p>
+      </div>
+
+      <div class="card">
+        <div class="eyebrow">AI</div>
+        <h3>GitHub</h3>
+        <p>Modele i usługi AI</p>
+      </div>
+
+      <div class="card">
+        <div class="eyebrow">AI</div>
+        <h3>Fireworks AI</h3>
+        <p>Hosting i trening modeli</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAFFING -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Firmy współpracujące (personel)</h2>
+      <p class="section-desc">
+        Podmioty dostarczające specjalistów pracujących przy usługach Microsoft.
+      </p>
+    </div>
+
+    <div class="grid-2">
+
+      <div class="card"><h3>Accenture</h3></div>
+      <div class="card"><h3>Akvelon</h3></div>
+      <div class="card"><h3>Allegis Group</h3></div>
+      <div class="card"><h3>Apex Systems</h3></div>
+      <div class="card"><h3>Capgemini</h3></div>
+      <div class="card"><h3>Cognizant</h3></div>
+      <div class="card"><h3>DXC Technology</h3></div>
+      <div class="card"><h3>Ernst & Young</h3></div>
+      <div class="card"><h3>Infosys</h3></div>
+      <div class="card"><h3>Tata Consultancy Services</h3></div>
+      <div class="card"><h3>Wipro</h3></div>
+      <div class="card"><h3>Telus AI</h3></div>
+
+    </div>
+  </section>
+
+<!-- CTA -->
+    <section class="section">
+      <div class="cta">
+        <div class="cta-copy">
+          <h3>Dokumentacja Microsoft</h3>
+          <p>Pełna lista podmiotów podprzetwarzających - stan na 26 maja 2026.</p>
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn" href="https://servicetrust.microsoft.com/DocumentPage/3d489486-a7cd-41c7-befe-77b773784e57" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            Otwórz Microsoft Trust Portal
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CTA -->
+<section class="section">
+
+  <div class="cta-contact">
+
+    <div class="cta-left">
+      <div class="cta-title">
+        Sprawdź, jak działa Twoje środowisko Microsoft 365
+      </div>
+
+      <div class="cta-desc">
+        Wskażemy, co działa dobrze, gdzie są ryzyka i co można usprawnić.
+      </div>
+    </div>
+
+    <div class="cta-actions">
+
+	<a href="mailto:msp@valcreon.com?subject=Kontakt%20ze%20strony%201sec.pl%20–%20zapytanie&body=Dzień%20dobry%2C%0A%0Akontaktuję%20się%20ze%20strony%201sec.pl.%0AJesteśmy%20zainteresowani%20%5Bwpisz%20treść%20swojego%20zapytania%5D%3A%0A%0ALiczba%20użytkowników%3A%0APlan%20bazowy%20M365%3A%0A%0AFirma%3A%0ANIP%3A%0A%0AZ%20góry%20dziękuję" class="cta-btn primary">
+  <i class="fa-solid fa-envelope"></i>
+  Napisz e‑mail
+	</a>
+
+
+      <a class="cta-btn secondary"
+         href="tel:+48221525060"
+      >
+        <i class="fa-solid fa-phone"></i>
+        Zadzwoń
+      </a>
+
+    </div>
+
+  </div>
+  </div>
+
+</section>
+
+    <!-- BACK -->
+    <div class="back-home">
+      <a class="btn secondary" href="../index.html">
+        <i class="fa-solid fa-house"></i>
+        Wróć do Security Hub
+      </a>
+    </div>
+
+    <footer>
+      © <span id="year"></span>
+      <a href="https://valcreon.com" class="footer-link">valcreon.com</a>
+      • Microsoft 365 Security
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
