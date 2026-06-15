@@ -16,6 +16,18 @@
 <body>
 <div class="container">
 
+            <!-- TOPBAR -->
+    <div class="topbar">
+      <a class="back-link" href="../index.html" aria-label="Powrót do Security Hub">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Powrót do Security Hub</span>
+      </a>
+
+      <span class="pill">
+        <i class="fa-solid fa-scale-balanced"></i>
+        Copilot Legal Agent 
+      </span>
+    </div>
 
 
 <!-- HERO -->
@@ -298,15 +310,24 @@
   </div>
 </section>
 
-<footer>
-  © <span id="year"></span> valcreon.com • Copilot
-</footer>
+    <!-- BACK -->
+    <div class="back-home">
+      <a class="btn secondary" href="../index.html">
+        <i class="fa-solid fa-house"></i>
+        Wróć do Security Hub
+      </a>
+    </div>
 
-</div>
+    <footer>
+      © <span id="year"></span>
+      <a href="https://valcreon.com" class="footer-link">valcreon.com</a>
+      • Microsoft 365 Security
+    </footer>
+  </div>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
