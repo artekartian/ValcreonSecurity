@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ograniczenie Web Search w Microsoft 365 Copilot – 1sec.pl</title>
+  <link rel="icon" href="../fav.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+<div class="container">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <a class="back-link" href="../index.html" aria-label="Powrót do Security Hub">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span>Powrót do Security Hub</span>
+    </a>
+    <span class="pill">
+      <i class="fa-solid fa-scale-balanced"></i>
+      Microsoft 365 – kontrola źródeł AI
+    </span>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero glass">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-label">
+          <i class="fa-solid fa-shield-halved"></i>
+          Cloud Policy · Allow web search in Copilot
+        </span>
+        <h1>Ograniczenie Web Search w Microsoft 365 Copilot</h1>
+        <p class="lead">
+          Jak centralnie sterować domyślnym trybem pracy Copilot, żeby publiczny Web Search
+          był wyłączony w kontekście danych firmowych – a użytkownik nadal mógł korzystać
+          z Copilot Chat i trybu Web do pytań ogólnych.
+        </p>
+      </div>
+
+      <aside class="hero-side">
+        <div class="signal">
+          <div class="signal-top">
+            <div class="signal-title">
+              <span class="dot"></span> Status polityki
+            </div>
+            <span class="mini-chip">Cloud Policy</span>
+          </div>
+          <div class="bars">
+            <div class="bar">
+              <label>Copilot Work mode</label>
+              <div class="bar-track"><div class="bar-fill" style="width:18%;background:linear-gradient(90deg,#ef4444,#f97316)"></div></div>
+            </div>
+            <div class="bar">
+              <label>Copilot Web mode</label>
+              <div class="bar-track"><div class="bar-fill" style="width:88%;background:linear-gradient(90deg,#22c55e,#38bdf8)"></div></div>
+            </div>
+            <div class="bar">
+              <label>Copilot Chat</label>
+              <div class="bar-track"><div class="bar-fill" style="width:88%;background:linear-gradient(90deg,#22c55e,#38bdf8)"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="signal">
+          <div class="signal-top">
+            <div class="signal-title">
+              <i class="fa-solid fa-list-check"></i> Zakres
+            </div>
+          </div>
+          <div class="mini-chips">
+            <span class="mini-chip">Windows</span>
+            <span class="mini-chip">Mac</span>
+            <span class="mini-chip">iOS</span>
+            <span class="mini-chip">Android</span>
+            <span class="mini-chip">Office on the web</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <!-- TL;DR -->
+  <section class="card tldr">
+    <div class="eyebrow"><i class="fa-solid fa-bolt"></i> TL;DR</div>
+    <h3>Trzy rzeczy, które musisz wiedzieć</h3>
+    <div class="why-grid" style="margin-top:14px">
+      <div class="why-item">
+        <span class="why-dot"></span>
+        <span><strong>Web Search w Copilot można ograniczyć centralnie</strong> – zasada <em>Allow web search in Copilot</em> w Cloud Policy (config.office.com).</span>
+      </div>
+      <div class="why-item">
+        <span class="why-dot"></span>
+        <span><strong>Rekomendowany wariant:</strong> wyłączony w Microsoft 365 Copilot (Work mode), włączony w Copilot Web mode i Copilot Chat – praca na danych firmowych bez mieszania z publicznym Internetem.</span>
+      </div>
+      <div class="why-item">
+        <span class="why-dot"></span>
+        <span><strong>Wdrażaj etapami</strong> – najpierw grupa testowa, potem rozszerzenie. Dla użytkowników bez licencji Microsoft 365 Copilot globalne wyłączenie może mocno ograniczyć Copilot Chat.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Problem</h2>
+      <p>Centralne sterowanie domyślnym trybem Copilot bez ingerencji w preferencje użytkownika.</p>
+    </div>
+    <div class="highlight">
+      <h2>Czy można domyślnie wyłączyć Web Search w Copilot?</h2>
+      <p>
+        Najbliżej celu jest opcja Cloud Policy <strong>Allow web search in Copilot</strong>.
+        Polityka nie blokuje całkowicie Web Search – decyduje, w którym trybie Copilot
+        publiczny Internet jest dozwolony, a w którym nie. Administrator nie ustawia
+        preferencji użytkownika „domyślnie bez Web Search”, tylko określa dostępność
+        funkcji w poszczególnych trybach.
+      </p>
+    </div>
+  </section>
+
+  <!-- TRYBY -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Trzy dostępne tryby polityki</h2>
+      <p>Po włączeniu zasady <em>Allow web search in Copilot</em> administrator ma do wyboru trzy warianty.</p>
+    </div>
+
+    <div class="grid-3">
+      <article class="card">
+        <div class="icon"><i class="fa-solid fa-globe"></i></div>
+        <div class="eyebrow">Wariant 1</div>
+        <h3>Enabled</h3>
+        <p>Web Search włączony zarówno w Microsoft 365 Copilot, jak i w Microsoft 365 Copilot Chat. Pełny dostęp do publicznego Internetu z poziomu Copilot.</p>
+      </article>
+
+      <article class="card">
+        <div class="icon"><i class="fa-solid fa-ban"></i></div>
+        <div class="eyebrow">Wariant 2</div>
+        <h3>Disabled</h3>
+        <p>Web Search wyłączony zarówno w Microsoft 365 Copilot, jak i w Microsoft 365 Copilot Chat. Najbardziej restrykcyjny tryb.</p>
+      </article>
+
+      <article class="card">
+        <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <div class="eyebrow">Wariant 3 – rekomendowany</div>
+        <h3>Disabled w Work mode, Enabled w Web mode i Chat</h3>
+        <p>Praca na danych firmowych bez Internetu, ale Copilot Web mode i Copilot Chat dalej mogą sięgać do Bing dla pytań ogólnych.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- CO TO REALNIE OZNACZA -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Co oznacza „Disabled in Work mode”</h2>
+      <p>Rozróżnienie kontekstu pracy i kontekstu ogólnego w Copilot.</p>
+    </div>
+
+    <div class="split">
+      <div class="feature-stack">
+        <div class="feature-line">
+          <div class="icon-sm"><i class="fa-solid fa-briefcase"></i></div>
+          <div>
+            <b>Microsoft 365 Copilot – kontekst pracy</b>
+            <span>Web Search wyłączony. Copilot pracujący na plikach, poczcie, spotkaniach i Teams nie powinien pobierać informacji z publicznego Internetu przez Bing.</span>
+          </div>
+        </div>
+        <div class="feature-line">
+          <div class="icon-sm"><i class="fa-solid fa-globe"></i></div>
+          <div>
+            <b>Microsoft 365 Copilot – Web mode</b>
+            <span>Web Search włączony. Użytkownik nadal może używać Copilot do pytań ogólnych, researchu i tematów internetowych – poza kontekstem pracy na danych Microsoft 365.</span>
+          </div>
+        </div>
+        <div class="feature-line">
+          <div class="icon-sm"><i class="fa-solid fa-comments"></i></div>
+          <div>
+            <b>Microsoft 365 Copilot Chat</b>
+            <span>Web Search pozostaje włączony zgodnie z tą polityką. Microsoft rozróżnia Microsoft 365 Copilot i Microsoft 365 Copilot Chat jako odrębne doświadczenia objęte kontrolą Web Search.</span>
+          </div>
+        </div>
+        <div class="feature-line">
+          <div class="icon-sm"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <div>
+            <b>Work IQ – uwaga interpretacyjna</b>
+            <span>Nie zakładaj, że „Work IQ = brak Internetu”. Work IQ to warstwa inteligencji kontekstowej dla danych organizacji, agentów i narzędzi – nie sama blokada Web Search.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight">
+        <h2>Gdzie skonfigurować</h2>
+        <p>
+          <strong>Microsoft 365 Apps admin center</strong><br>
+          config.office.com/officeSettings → polityka <em>Copilot: Allow web search in Copilot</em>.
+        </p>
+        <p style="margin-top:14px">
+          <strong>Tworzenie polityk Cloud Policy</strong><br>
+          config.office.com/officeSettings/officePolicy/createv2
+        </p>
+        <p style="margin-top:14px">
+          <strong>Platformy</strong><br>
+          Windows, Mac, iOS, Android, Office on the web.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KIEDY STOSOWAĆ -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Kiedy warto zastosować</h2>
+      <p>Scenariusze, w których ograniczenie Web Search ma realny sens biznesowy.</p>
+    </div>
+    <div class="why-box">
+      <div class="why-title"><i class="fa-solid fa-circle-check"></i> Scenariusze biznesowe</div>
+      <div class="why-grid">
+        <div class="why-item"><span class="why-dot"></span><span>Organizacja przetwarza dane poufne, regulowane lub objęte dodatkowymi wymogami compliance.</span></div>
+        <div class="why-item"><span class="why-dot"></span><span>Użytkownicy mają korzystać z Copilot Chat wyłącznie w oparciu o dane Microsoft 365 – pliki, wiadomości, spotkania.</span></div>
+        <div class="why-item"><span class="why-dot"></span><span>Firma chce ograniczyć ryzyko mieszania odpowiedzi opartych na danych wewnętrznych z informacjami z publicznego Internetu.</span></div>
+        <div class="why-item"><span class="why-dot"></span><span>Wdrożenie Copilot jest prowadzone etapami i Web Search ma być udostępniony dopiero po przeszkoleniu użytkowników.</span></div>
+        <div class="why-item"><span class="why-dot"></span><span>Polityka bezpieczeństwa wymaga centralnej kontroli nad źródłami, z których korzystają narzędzia AI.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODEL OPERACYJNY -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Rekomendowany model wdrożenia</h2>
+      <p>Sześć kroków, które porządkują wdrożenie polityki bez ryzyka „zablokowania” użytkowników.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="step">
+        <div class="step-no">1</div>
+        <div>
+          <h3>Grupa zabezpieczeń</h3>
+          <p>Utwórz w Entra ID grupę zabezpieczeń dla użytkowników, którym Web Search ma być wyłączony w kontekście pracy.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-no">2</div>
+        <div>
+          <h3>Przypisanie licencji</h3>
+          <p>Dodaj do grupy użytkowników z licencją Microsoft 365 Copilot – polityka pełną wartość dostarcza dla licencjonowanych użytkowników.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-no">3</div>
+        <div>
+          <h3>Konfiguracja Cloud Policy</h3>
+          <p>Skonfiguruj zasadę <em>Allow web search in Copilot</em> w wariancie „Disabled in Work mode, Enabled in Web mode and Chat”.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-no">4</div>
+        <div>
+          <h3>Test na kontach pilotażowych</h3>
+          <p>Zweryfikuj działanie ustawienia – Copilot Chat, Copilot w Word, Excel, Outlook, Teams. Sprawdź, czy odpowiedzi w trybie pracy nie zawierają treści z publicznego Internetu.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-no">5</div>
+        <div>
+          <h3>Rozszerzenie zasięgu</h3>
+          <p>Dołącz kolejne grupy lub całą organizację. Komunikuj zmianę użytkownikom – co dalej działa, a co się zmieniło.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-no">6</div>
+        <div>
+          <h3>Wyjątki i dokumentacja</h3>
+          <p>Udokumentuj użytkowników, którym Web Search jest potrzebny do pracy analitycznej, researchu lub komunikacji z klientami.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UWAGA -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Uwaga przed wdrożeniem globalnym</h2>
+      <p>Dwa wątki, które łatwo przeoczyć.</p>
+    </div>
+
+    <div class="grid-2">
+      <article class="card">
+        <div class="icon"><i class="fa-solid fa-user-slash"></i></div>
+        <h3>Użytkownicy bez licencji Copilot</h3>
+        <p>Wyłączenie Web Search może istotnie ograniczyć możliwość korzystania z Microsoft 365 Copilot Chat, bo użytkownik nie ma dostępu do pełnego trybu pracy opartego na danych Microsoft 365. Przetestuj na różnych typach licencji.</p>
+      </article>
+      <article class="card">
+        <div class="icon"><i class="fa-solid fa-rotate"></i></div>
+        <h3>Zmieniające się nazewnictwo</h3>
+        <p>Interfejs Copilot Chat i nazwy trybów (Work IQ, Work mode, Web mode) mogą się zmieniać. Weryfikuj realne zachowanie Copilot Chat na kontach testowych, nie tylko samą konfigurację zasady.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- EFEKT -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Efekt dla użytkownika i organizacji</h2>
+      <p>Czego można się spodziewać po prawidłowo wdrożonej polityce.</p>
+    </div>
+    <div class="highlight">
+      <h2>Copilot pozostaje narzędziem do pracy z danymi firmowymi</h2>
+      <p>
+        Użytkownik nadal korzysta z Copilot Chat w kontekście pracy, ale odpowiedzi nie są
+        wzbogacane wynikami z publicznego Internetu. Copilot działa na dokumentach,
+        wiadomościach, spotkaniach i innych zasobach dostępnych zgodnie z uprawnieniami.
+        Organizacja zachowuje większą kontrolę nad źródłami informacji wykorzystywanymi przez AI.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="cta-contact">
+      <div class="cta-left">
+        <div class="cta-title">Potrzebujesz wsparcia we wdrożeniu polityki Cloud Policy?</div>
+        <div class="cta-desc">Pomożemy zaprojektować zasadę, przetestować ją na grupie pilotażowej i wdrożyć dla całej organizacji – razem z dokumentacją i komunikacją do użytkowników.</div>
+      </div>
+      <div class="cta-actions">
+        <a class="cta-btn primary" href="https://redflag.tech" target="_blank" rel="noopener">
+          <i class="fa-solid fa-envelope"></i> Skontaktuj się z RedFlag
+        </a>
+        <a class="cta-btn secondary" href="../index.html">
+          <i class="fa-solid fa-arrow-left"></i> Wróć do Security Hub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERENCJE -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Referencje Microsoft Learn</h2>
+      <p>Oficjalna dokumentacja do dalszej lektury.</p>
+    </div>
+    <div class="grid-2">
+      <a class="card" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/manage-public-web-access" target="_blank" rel="noopener">
+        <div class="icon"><i class="fa-solid fa-book"></i></div>
+        <h3>Manage public web access for Microsoft 365 Copilot</h3>
+        <p>Pełna dokumentacja Microsoft Learn dotycząca kontroli publicznego Internetu w Copilot.</p>
+      </a>
+      <a class="card" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/manage-public-web-access#controls-available-to-manage-web-search" target="_blank" rel="noopener">
+        <div class="icon"><i class="fa-solid fa-sliders"></i></div>
+        <h3>Controls available to manage web search</h3>
+        <p>Sekcja opisująca dostępne wartości polityki i wpływ na poszczególne tryby Copilot.</p>
+      </a>
+      <a class="card" href="https://learn.microsoft.com/en-us/microsoft-365-apps/admin-center/overview-cloud-policy" target="_blank" rel="noopener">
+        <div class="icon"><i class="fa-solid fa-cloud"></i></div>
+        <h3>Overview of Cloud Policy service for Microsoft 365</h3>
+        <p>Wprowadzenie do Cloud Policy – mechanizmu, w którym konfiguruje się zasadę.</p>
+      </a>
+      <a class="card" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/" target="_blank" rel="noopener">
+        <div class="icon"><i class="fa-solid fa-brain"></i></div>
+        <h3>Work IQ – warstwa kontekstowa</h3>
+        <p>Wyjaśnienie, czym jest Work IQ i jak działa razem z politykami Copilot.</p>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span>
+    <a href="https://valcreon.com" class="footer-link">valcreon.com</a>
+    • Microsoft 365 Security
+  </footer>
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
