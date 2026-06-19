@@ -712,3 +712,12 @@
   margin: 0 auto;
   padding: 0 16px;
 }
+
+.card.tldr {
+  background: linear-gradient(180deg, rgba(56,189,248,.10), rgba(255,255,255,.03));
+  border-left: 4px solid #38bdf8;
+}
+.card.tldr .eyebrow { color: #38bdf8; }
+.card.tldr h3 { color: #fff; }
+.card.tldr strong { color: #fff; }
+.card.tldr em { color: #cbd5e1; font-style: italic; }
