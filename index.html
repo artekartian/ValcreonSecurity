@@ -9,7 +9,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
-<!-- Google Consent Mode v2 - domyślnie DENIED, ładowane przed GA -->
+<!-- Google Consent Mode v2 --->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -24,7 +24,7 @@
   });
   gtag('set', 'ads_data_redaction', true);
   gtag('set', 'url_passthrough', false);
-</script>	
+</script>
 	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9FJMZWK2D1"></script>
 <script>
@@ -212,25 +212,33 @@ html {
 
 
 	  /* COOKIE */
-.cookie-banner { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999; background: #0b0d12; color: #fff; border-top: 1px solid rgba(255,255,255,0.08); box-shadow: 0 -8px 24px rgba(0,0,0,0.25); padding: 16px; }
-.cookie-inner { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; max-width: 1180px; margin: 0 auto; }
-.cookie-text { flex: 1 1 100%; font-size: 14px; line-height: 1.5; }
+.cookie-banner { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999; background: #0b0d12; color: #fff; border-top: 1px solid rgba(255,255,255,0.08); box-shadow: 0 -8px 24px rgba(0,0,0,0.35); padding: 16px; }
+.cookie-inner { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; flex-wrap: wrap; gap: 12px; }
 .cookie-text strong { display: block; font-size: 15px; margin-bottom: 4px; }
-.cookie-text p { margin: 0; color: #cfd3dc; }
+.cookie-text p { margin: 0; font-size: 14px; line-height: 1.5; color: #cfd3dc; }
 .cookie-text a { color: #8ab4ff; text-decoration: underline; }
+.cookie-panel { display: flex; flex-direction: column; gap: 10px; padding: 12px; border: 1px solid rgba(255,255,255,0.10); border-radius: 10px; background: rgba(255,255,255,0.03); }
+.cookie-row { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+.cookie-row input { margin-top: 3px; flex: 0 0 auto; }
+.cookie-row span { display: flex; flex-direction: column; font-size: 14px; }
+.cookie-row strong { font-size: 14px; }
+.cookie-row em { font-style: normal; font-size: 12px; color: #9aa1ad; }
 .cookie-actions { display: flex; flex-wrap: wrap; gap: 8px; width: 100%; }
 .cookie-actions .btn { flex: 1 1 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid transparent; font-weight: 600; cursor: pointer; font-size: 14px; }
 .cookie-actions .btn-primary { background: #2563eb; color: #fff; }
 .cookie-actions .btn-secondary { background: transparent; color: #fff; border-color: rgba(255,255,255,0.25); }
+.cookie-actions .btn-ghost { background: transparent; color: #cfd3dc; border-color: rgba(255,255,255,0.15); }
 .cookie-actions .btn-primary:hover { background: #1d4ed8; }
 .cookie-actions .btn-secondary:hover { background: rgba(255,255,255,0.06); }
+.cookie-actions .btn-ghost:hover { background: rgba(255,255,255,0.06); color: #fff; }
 
 @media (min-width: 768px) {
-  .cookie-inner { flex-wrap: nowrap; }
-  .cookie-text { flex: 1 1 auto; }
-  .cookie-actions { width: auto; }
+  .cookie-inner { flex-direction: row; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+  .cookie-text { flex: 1 1 420px; }
+  .cookie-panel { flex: 1 1 100%; order: 3; }
+  .cookie-actions { flex: 0 0 auto; width: auto; }
   .cookie-actions .btn { flex: 0 0 auto; }
-}	  
+}
     
   </style>
 </head>
@@ -924,16 +932,35 @@ html {
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 
+
 	  <!-- Cookie banner 1sec.pl -->
-<div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Informacja o plikach cookie" hidden>
+<div id="cookieBanner" class="cookie-banner" role="dialog" aria-modal="false" aria-labelledby="cookieTitle" hidden>
   <div class="cookie-inner">
     <div class="cookie-text">
-      <strong>Używamy plików cookie</strong>
-      <p>Na 1sec.pl używamy plików cookie do analizy ruchu (Google Analytics). Możesz zaakceptować wszystkie lub korzystać tylko z niezbędnych. Szczegóły w <a href="/polityka-prywatnosci.html">Polityce prywatności</a>.</p>
+      <strong id="cookieTitle">Ciasteczka i prywatność</strong>
+      <p>Używamy plików cookies, aby strona działała prawidłowo, mierzyć ruch (Google Analytics) i ulepszać treści. Możesz wybrać, na co się zgadzasz. Szczegóły w <a href="/polityka-prywatnosci.html">polityce prywatności</a>.</p>
     </div>
+
+    <div class="cookie-panel" id="cookiePanel" hidden>
+      <label class="cookie-row">
+        <input type="checkbox" checked disabled>
+        <span><strong>Niezbędne</strong><em>Konieczne do działania strony. Zawsze włączone.</em></span>
+      </label>
+      <label class="cookie-row">
+        <input type="checkbox" id="optAnalytics">
+        <span><strong>Analityczne</strong><em>Google Analytics 4 – pomiar ruchu i optymalizacja treści.</em></span>
+      </label>
+      <label class="cookie-row">
+        <input type="checkbox" id="optMarketing">
+        <span><strong>Marketingowe</strong><em>Personalizacja reklam i pomiar konwersji (Google Ads).</em></span>
+      </label>
+    </div>
+
     <div class="cookie-actions">
+      <button type="button" class="btn btn-ghost" id="cookieSettings">Ustawienia</button>
       <button type="button" class="btn btn-secondary" id="cookieReject">Tylko niezbędne</button>
-      <button type="button" class="btn btn-primary" id="cookieAccept">Akceptuję wszystkie</button>
+      <button type="button" class="btn btn-primary" id="cookieAccept">Akceptuj wszystkie</button>
+      <button type="button" class="btn btn-primary" id="cookieSave" hidden>Zapisz wybór</button>
     </div>
   </div>
 </div>
@@ -942,35 +969,64 @@ html {
 (function(){
   var KEY = '1sec_consent_v1';
   var banner = document.getElementById('cookieBanner');
-  var saved = null;
-  try { saved = localStorage.getItem(KEY); } catch(e){}
+  var panel = document.getElementById('cookiePanel');
+  var optA = document.getElementById('optAnalytics');
+  var optM = document.getElementById('optMarketing');
+  var btnSettings = document.getElementById('cookieSettings');
+  var btnReject = document.getElementById('cookieReject');
+  var btnAccept = document.getElementById('cookieAccept');
+  var btnSave = document.getElementById('cookieSave');
 
-  function apply(consent){
+  function readSaved(){
+    try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch(e){ return null; }
+  }
+  function writeSaved(obj){
+    try { localStorage.setItem(KEY, JSON.stringify(obj)); } catch(e){}
+  }
+  function apply(c){
     gtag('consent', 'update', {
-      'analytics_storage': consent === 'all' ? 'granted' : 'denied',
-      'ad_storage': consent === 'all' ? 'granted' : 'denied',
-      'ad_user_data': consent === 'all' ? 'granted' : 'denied',
-      'ad_personalization': consent === 'all' ? 'granted' : 'denied'
+      'analytics_storage': c.analytics ? 'granted' : 'denied',
+      'ad_storage': c.marketing ? 'granted' : 'denied',
+      'ad_user_data': c.marketing ? 'granted' : 'denied',
+      'ad_personalization': c.marketing ? 'granted' : 'denied'
     });
   }
-
-  function save(consent){
-    try { localStorage.setItem(KEY, consent); } catch(e){}
-    apply(consent);
-    banner.hidden = true;
+  function close(){ banner.hidden = true; }
+  function openSettings(){
+    panel.hidden = false;
+    btnSettings.hidden = true;
+    btnAccept.hidden = false;
+    btnReject.hidden = false;
+    btnSave.hidden = false;
+    var s = readSaved();
+    if (s) { optA.checked = !!s.analytics; optM.checked = !!s.marketing; }
   }
 
-  if (saved === 'all' || saved === 'necessary') {
+  var saved = readSaved();
+  if (saved && (saved.analytics !== undefined)) {
     apply(saved);
   } else {
     banner.hidden = false;
   }
 
-  document.getElementById('cookieAccept').addEventListener('click', function(){ save('all'); });
-  document.getElementById('cookieReject').addEventListener('click', function(){ save('necessary'); });
+  btnSettings.addEventListener('click', openSettings);
+  btnAccept.addEventListener('click', function(){
+    var c = { analytics: true, marketing: true, ts: Date.now() };
+    writeSaved(c); apply(c); close();
+  });
+  btnReject.addEventListener('click', function(){
+    var c = { analytics: false, marketing: false, ts: Date.now() };
+    writeSaved(c); apply(c); close();
+  });
+  btnSave.addEventListener('click', function(){
+    var c = { analytics: !!optA.checked, marketing: !!optM.checked, ts: Date.now() };
+    writeSaved(c); apply(c); close();
+  });
 
-  // Opcjonalnie: globalna funkcja do otwierania bannera ze stopki / linku „Ustawienia cookie"
-  window.openCookieSettings = function(){ banner.hidden = false; };
+  window.openCookieSettings = function(){
+    banner.hidden = false;
+    openSettings();
+  };
 })();
 </script>
     
