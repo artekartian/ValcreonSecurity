@@ -9,6 +9,22 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
+<!-- Google Consent Mode v2 - domyślnie DENIED, ładowane przed GA -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'functionality_storage': 'granted',
+    'security_storage': 'granted',
+    'wait_for_update': 500
+  });
+  gtag('set', 'ads_data_redaction', true);
+  gtag('set', 'url_passthrough', false);
+</script>	
 	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9FJMZWK2D1"></script>
 <script>
@@ -193,6 +209,28 @@ html {
   }
 
 }
+
+
+	  /* COOKIE */
+.cookie-banner { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999; background: #0b0d12; color: #fff; border-top: 1px solid rgba(255,255,255,0.08); box-shadow: 0 -8px 24px rgba(0,0,0,0.25); padding: 16px; }
+.cookie-inner { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; max-width: 1180px; margin: 0 auto; }
+.cookie-text { flex: 1 1 100%; font-size: 14px; line-height: 1.5; }
+.cookie-text strong { display: block; font-size: 15px; margin-bottom: 4px; }
+.cookie-text p { margin: 0; color: #cfd3dc; }
+.cookie-text a { color: #8ab4ff; text-decoration: underline; }
+.cookie-actions { display: flex; flex-wrap: wrap; gap: 8px; width: 100%; }
+.cookie-actions .btn { flex: 1 1 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid transparent; font-weight: 600; cursor: pointer; font-size: 14px; }
+.cookie-actions .btn-primary { background: #2563eb; color: #fff; }
+.cookie-actions .btn-secondary { background: transparent; color: #fff; border-color: rgba(255,255,255,0.25); }
+.cookie-actions .btn-primary:hover { background: #1d4ed8; }
+.cookie-actions .btn-secondary:hover { background: rgba(255,255,255,0.06); }
+
+@media (min-width: 768px) {
+  .cookie-inner { flex-wrap: nowrap; }
+  .cookie-text { flex: 1 1 auto; }
+  .cookie-actions { width: auto; }
+  .cookie-actions .btn { flex: 0 0 auto; }
+}	  
     
   </style>
 </head>
@@ -886,6 +924,55 @@ html {
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 
+	  <!-- Cookie banner 1sec.pl -->
+<div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Informacja o plikach cookie" hidden>
+  <div class="cookie-inner">
+    <div class="cookie-text">
+      <strong>Używamy plików cookie</strong>
+      <p>Na 1sec.pl używamy plików cookie do analizy ruchu (Google Analytics). Możesz zaakceptować wszystkie lub korzystać tylko z niezbędnych. Szczegóły w <a href="/polityka-prywatnosci.html">Polityce prywatności</a>.</p>
+    </div>
+    <div class="cookie-actions">
+      <button type="button" class="btn btn-secondary" id="cookieReject">Tylko niezbędne</button>
+      <button type="button" class="btn btn-primary" id="cookieAccept">Akceptuję wszystkie</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var KEY = '1sec_consent_v1';
+  var banner = document.getElementById('cookieBanner');
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch(e){}
+
+  function apply(consent){
+    gtag('consent', 'update', {
+      'analytics_storage': consent === 'all' ? 'granted' : 'denied',
+      'ad_storage': consent === 'all' ? 'granted' : 'denied',
+      'ad_user_data': consent === 'all' ? 'granted' : 'denied',
+      'ad_personalization': consent === 'all' ? 'granted' : 'denied'
+    });
+  }
+
+  function save(consent){
+    try { localStorage.setItem(KEY, consent); } catch(e){}
+    apply(consent);
+    banner.hidden = true;
+  }
+
+  if (saved === 'all' || saved === 'necessary') {
+    apply(saved);
+  } else {
+    banner.hidden = false;
+  }
+
+  document.getElementById('cookieAccept').addEventListener('click', function(){ save('all'); });
+  document.getElementById('cookieReject').addEventListener('click', function(){ save('necessary'); });
+
+  // Opcjonalnie: globalna funkcja do otwierania bannera ze stopki / linku „Ustawienia cookie"
+  window.openCookieSettings = function(){ banner.hidden = false; };
+})();
+</script>
     
   </body>
 </html>
