@@ -754,3 +754,8 @@
 .offer-card .offer-badge{position:static;align-self:flex-start;margin-bottom:4px;}
 .offer-card.promo h3{padding-right:0;}
 }
+
+.card{display:flex;flex-direction:column;height:100%;}
+.card-top{display:flex;flex-direction:column;gap:10px;min-height:160px;}
+.card-bottom{margin-top:14px;}
+.card .why-box{min-height:150px;}
