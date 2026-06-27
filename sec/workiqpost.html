@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Microsoft 365 Copilot – Work IQ i wizualizacja pracy w firmie | Valcreon</title>
+
+  <link rel="icon" href="../fav.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+<div class="container">
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a class="back-link" href="../index.html">
+    <i class="fa-solid fa-arrow-left"></i>
+    <span>Powrót do Security Hub</span>
+  </a>
+
+<span class="pill">
+  <i class="fa-solid fa-brain"></i>
+  Copilot Work IQ
+</span>
+
+</div>
+
+<!-- POST: Work IQ visualisation -->
+<section class="section">
+  <div class="section-head">
+    <h2>Twoje życie zawodowe jako wizualizacja AI</h2>
+    <p class="section-desc">
+      Copilot z Work IQ widzi więcej niż pojedyncze prompt – rozumie kontekst Twojej pracy.
+    </p>
+  </div>
+
+  <div class="grid-2">
+
+    <!-- post -->
+    <article class="card">
+      <div class="icon"><i class="fa-solid fa-brain"></i></div>
+      <div class="eyebrow">WORK IQ</div>
+      <h3>Twoja praca jako obraz</h3>
+      <p>
+        Mając Microsoft 365 Copilot z Work IQ możesz tworzyć nie tylko dokumenty czy analizy,
+        ale też wizualizacje swojego życia zawodowego.
+        <br><br>
+        Copilot łączy dane z maili, spotkań, plików i współpracy – i buduje pełny obraz:
+        kim jesteś w organizacji, z kim pracujesz i co jest dla Ciebie ważne.
+      </p>
+    </article>
+
+    <!-- efekt -->
+    <article class="card">
+      <div class="icon"><i class="fa-solid fa-image"></i></div>
+      <div class="eyebrow">EFEKT</div>
+      <h3>Nie grafika – tylko kontekst</h3>
+      <p>
+        To nie jest losowy obraz wygenerowany przez AI.
+        <br><br>
+        To wizualizacja Twojej realnej pracy:
+        relacji, ról, zadań i priorytetów – oparta o Work IQ i dane organizacyjne.
+      </p>
+    </article>
+
+  </div>
+
+  <!-- cta -->
+  <div class="cta" style="margin-top:16px;">
+    <div class="cta-copy">
+      <h3>Sprawdź sam</h3>
+      <p>
+        Wklej poniższy prompt do Copilota i zobacz, jak AI widzi Twoją pracę.
+      </p>
+    </div>
+    <a class="btn" href="#">
+      <i class="fa-solid fa-wand-magic-sparkles"></i>
+      Uruchom Copilot
+    </a>
+  </div>
+
+  <!-- prompt -->
+  <div class="card" style="margin-top:14px;">
+    <div class="eyebrow">PROMPT</div>
+    <h3>Gotowy do użycia</h3>
+    <p style="margin-bottom:12px;">
+      Skopiuj 1:1:
+    </p>
+    <pre style="white-space:pre-wrap;font-size:13px;line-height:1.5;">
+Create a photorealistic image in a clean cartoon whiteboard sketch style that visualises my work life. Include what I do, who I work with, my role, my values and what's important to me. I've attached a headshot so you can guide the sketch of me at the center. Ground your research in Work IQ and the public profile for me on LinkedIn. The graphic should be rich in information. For the avatars of the people I work with, avoid guessing and put a generic icon in place or find their actual profile pictures.
+    </pre>
+  </div>
+
+</section>
+
+<!-- PROFIL: wizualizacja -->
+<section class="section">
+  <div class="section-head">
+    <h2>Mój profil zawodowy przygotowany przez Copilot z Work IQ</h2>
+    <p class="section-desc">
+      Wizualizacja wygenerowana na podstawie realnego kontekstu pracy – relacji, zadań i danych organizacyjnych.
+    </p>
+  </div>
+
+  <div class="card">
+    
+    <div class="eyebrow">REALNY OUTPUT</div>
+    <h3>Jak Copilot widzi moją pracę</h3>
+    <p style="margin-bottom:16px;">
+      To przykład efektu działania Work IQ – zamiast opisu dostajemy pełną wizualizację życia zawodowego,
+      opartą o dane z Microsoft 365.
+    </p>
+
+    <div style="width:100%;border-radius:18px;overflow:hidden;border:1px solid var(--stroke);">
+      <img 
+        src="professional.png" 
+        alt="Profil zawodowy – wizualizacja Work IQ" 
+        style="width:100%;height:auto;display:block;"
+      />
+    </div>
+
+  </div>
+</section>
+
+<footer>
+      © <span id="year"></span>
+      <a href="https://valcreon.com" class="footer-link">valcreon.com</a>
+      • Microsoft 365 Security
+    </footer>
+  </div>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
