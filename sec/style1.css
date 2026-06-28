@@ -759,3 +759,9 @@
 .card-top{display:flex;flex-direction:column;gap:10px;min-height:160px;}
 .card-bottom{margin-top:14px;}
 .card .why-box{min-height:150px;}
+
+.code-block{font-family:monospace;font-size:13px;line-height:1.6;word-break:break-all}
+.problem-grid .card{justify-content:flex-start}
+.sku-grid .card h3{min-height:72px}
+
+.addon-note{margin-top:14px;padding:12px 14px;border-radius:12px;border:1px solid rgba(124,58,237,.25);background:rgba(124,58,237,.08);font-size:13.5px;line-height:1.5}
