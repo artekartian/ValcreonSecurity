@@ -373,7 +373,31 @@ To ten identyfikator faktycznie przypisuje licencję.
 </section>
 
 
-    
+    <section class="section">
+  <div class="section-head">
+    <h2>SKU ID, których nie ma w pliku Microsoft</h2>
+    <p class="section-lead">
+      Oficjalny plik Microsoft <strong>Product names and service plan identifiers for licensing</strong> jest bardzo przydatny jako punkt odniesienia, ale nie powinien być traktowany jako jedyne źródło prawdy przy automatyzacji przypisywania licencji.
+    </p>
+  </div>
+
+  
+
+  <div class="card">
+    <div class="eyebrow">Przykład z tenanta</div>
+    <h3>SKU widoczne w Microsoft Graph, których może brakować w pliku referencyjnym</h3>
+    <p>
+      Poniższa lista pochodzi z polecenia <strong>Get-MgSubscribedSku | Select SkuPartNumber,SkuId</strong>. To są realne SKU widoczne w tenantcie i właśnie tych identyfikatorów należy używać w poleceniach przypisywania licencji.
+    </p>
+
+<pre><code>SkuPartNumber                                        SkuId
+-------------                                        -----
+DEFENDER_AND_PURVIEW_SUITES_FOR_BUSINESS_PREMIUM_NEW 3c9fe495-e4c9-4e70-9669-6d0a4347aa38
+MICROSOFT_365_COPILOT_FOR_BUSINESS                   a69133fb-7e57-40ce-9a69-6c8551bb7854
+
+</code></pre>
+  </div>
+</section>
 
 
     <!-- BACK -->
