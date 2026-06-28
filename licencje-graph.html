@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Przypisywanie licencji Microsoft 365 przez Microsoft Graph (PowerShell) – Valcreon Security</title>
+
+  <link rel="icon" href="../fav.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style1.css">
+
+<style>
+</style>
+</head>
+<body>
+
+<div class="container">
+
+        <!-- TOPBAR -->
+    <div class="topbar">
+      <a class="back-link" href="../index.html" aria-label="Powrót do Security Hub">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Powrót do Security Hub</span>
+      </a>
+
+      
+<span class="pill">
+  <i class="fa-solid fa-network-wired"></i>
+  Microsoft Graph Licencje
+</span>
+
+    </div>
+
+
+<!-- HERO -->
+<section class="hero glass">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-label">
+        <i class="fa-solid fa-code"></i>
+        Microsoft Graph
+      </div>
+      <h1>Masowe przypisywanie licencji Microsoft 365 bez grup</h1>
+      <p class="lead">
+       Jeśli masz przypisania licencji per-user i nie możesz przejść od razu na Entra ID Security Groups – jedynym sensownym rozwiązaniem jest Microsoft Graph API, czyli masowe operacje przypisywania licencji wykonywane przez PowerShell.
+      </p>
+    </div>
+    <div class="hero-side">
+      
+<div class="signal">
+  <div class="signal-top">
+    <div class="signal-title">
+      <span class="dot"></span> TL;DR
+    </div>
+  </div>
+  <div class="mini-chips">
+    <div class="mini-chip">Microsoft Grapph</div>
+          <div class="mini-chip">GUID vs SkuId</div>
+          <div class="mini-chip">Usage Location</div>
+          <div class="mini-chip">Licencjonowanie</div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section">
+  <div class="section-head">
+    <h2>Dlaczego nie ma jednego źródła prawdy o licencjach</h2>
+    <p class="section-desc">
+      Problem nie wynika z narzędzia – tylko z modelu licencjonowania w Entra.
+    </p>
+  </div>
+
+
+  <div class="grid-3 problem-grid">
+    <article class="card">
+      <div class="eyebrow">Problem</div>
+        <h3>Mieszane przypisanie</h3>
+        <p>
+        Możesz jednocześnie przypisać licencję per-user i przez grupę – i nie zużyjesz jej podwójnie.
+        <br><br>
+        Możesz też:
+        <br>
+        – dodać przypisanie grupowe do użytkownika, który już ma licencję bezpośrednio<br>
+        – usunąć przypisanie per-user, jeśli licencja nadal jest przypisana przez grupę i per-user
+        
+        <br><br>
+        Problem polega na tym, że mieszanie obu metod wprowadza brak kontroli i utrudnia zarządzanie – nie masz jednego źródła prawdy o licencjach.
+        </p>
+        
+        <br><br>
+
+        <div class="addon-note">
+        <strong>Dodatki</strong><br>
+        Add-on przypisany przez grupę działa tylko wtedy, gdy licencja bazowa jest przypisana w tej samej grupie.<br>
+        Ten sam zestaw użytkowników w innej grupie nie wystarczy.
+        </div>
+
+
+
+
+    </article>
+
+<article class="card">
+  <div class="eyebrow">Problem</div>
+  <h3>Nieaktualne dane Microsoft</h3>
+  <p>
+    Dokumentacja Microsoft nie zawiera nowych SKU – 
+    <a href="https://learn.microsoft.com/en-us/entra/identity/users/licensing-service-plan-reference" target="_blank" rel="noopener noreferrer">
+      dokumentacja licencji
+    </a>
+    <br><br>
+
+    <span class="meta">
+      Aktualizacja: <strong>03.2025</strong> • Stan aktualny: <strong>07.2026</strong>
+    </span>
+
+    <br><br>
+
+    <span class="code-inline">MICROSOFT_365_COPILOT_FOR_BUSINESS</span>
+    nie istnieje w tym pliku, mimo że działa w Graph.
+  </p>
+</article>
+
+
+<article class="card">
+  <div class="eyebrow">Problem</div>
+  <h3>Niespójne identyfikatory licencji</h3>
+  <p>
+    Ta sama licencja ma różne identyfikatory w zależności od narzędzia:
+    <br><br>
+    <span class="meta">
+      Portal: Product name<br>
+      PowerShell v1: String ID<br>
+      Microsoft Graph: SkuPartNumber + SkuId (GUID)
+    </span>
+    <br><br>
+    Efekt: nie masz pewności, czy operujesz na tej samej licencji.
+    <br><br>
+    <strong>SkuId (GUID)</strong> to jedyny identyfikator,
+    którego używasz do przypisania licencji przez Microsoft Graph.
+  </p>
+</article>
+
+    </div>
+    </section>
+
+
+<!-- WNIOSEK -->
+<section class="section">
+  <div class="highlight">
+    <h2>Wniosek</h2>
+    <p>
+      Jedyną stabilną metodą masowego przypisywania licencji jest używanie <strong>SkuId</strong> w Microsoft Graph API.
+To ten identyfikator faktycznie przypisuje licencję.
+    </p>
+  </div>
+</section>
+
+
+
+<!-- FLOW -->
+<section class="section">
+  <div class="section-head">
+    <h2>Schemat działania</h2>
+    <p class="section-desc">
+      Zamiast skakać między komendami – trzymaj się jednego flow.
+    </p>
+  </div>
+
+  <div class="timeline">
+    <div class="step">
+      <div class="step-no">1</div>
+      <div>
+        <h3>Pobierz listę SKU</h3>
+        <p>Get-MgSubscribedSku</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-no">2</div>
+      <div>
+        <h3>Przygotuj CSV</h3>
+        <p>Lista UserPrincipalName – jedna kolumna</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-no">3</div>
+      <div>
+        <h3>Sprawdź Usage Location</h3>
+        <p>Bez tego licencja się nie przypisze</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-no">4</div>
+      <div>
+        <h3>Przypisz licencję</h3>
+        <p>Set-MgUserLicense</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-no">5</div>
+      <div>
+        <h3>Zweryfikuj przypisanie</h3>
+        <p>assignedLicenses/any(x:x/skuId eq ...)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>Przykładowe licencje (SKU i GUID)</h2>
+    <p class="section-desc">
+      Zawsze pracuj na SkuId z Twojego tenanta – nie z dokumentacji.
+    </p>
+  </div>
+
+  <div class="grid-3 sku-grid">
+
+<article class="card">
+  <div class="card-top">
+    <div class="eyebrow">Business</div>
+    <h3>Microsoft 365 Business Premium</h3>
+  </div>
+  <div class="card-body">
+    <p>
+      <span class="meta">SkuPartNumber:</span><br>
+      <strong style="font-family:monospace;">SPB</strong>
+      <br><br>
+      <span class="meta">SkuId (GUID):</span><br>
+      <strong style="font-family:monospace;">cbdc14ab-d96c-4c30-b9f4-6ada7cdc1d46</strong>
+    </p>
+  </div>
+</article>
+
+<article class="card">
+  <div class="card-top">
+    <div class="eyebrow">Add-on</div>
+    <h3>Microsoft 365 Copilot</h3>
+  </div>
+  <div class="card-body">
+    <p>
+      <span class="meta">SkuPartNumber:</span><br>
+      <strong style="font-family:monospace;">MICROSOFT_365_COPILOT_FOR_BUSINESS</strong>
+      <br><br>
+      <span class="meta">SkuId (GUID):</span><br>
+      <strong style="font-family:monospace;">a69133fb-7e57-40ce-9a69-6c8551bb7854</strong>
+          </p>
+  </div>
+</article>
+
+<article class="card">
+  <div class="card-top">
+    <div class="eyebrow">Enterprise</div>
+    <h3>Microsoft 365 E3</h3>
+  </div>
+  <div class="card-body">
+    <p>
+      <span class="meta">SkuPartNumber:</span><br>
+      <strong style="font-family:monospace;">SPE_E3</strong>
+      <br><br>
+      <span class="meta">SkuId (GUID):</span><br>
+      <strong style="font-family:monospace;">05e9a617-0261-4cee-bb44-138d3ef5d965</strong>
+    </p>
+  </div>
+</article>
+
+  </div>
+</section>
+
+<!-- CODE -->
+<section class="section">
+  <div class="section-head">
+    <h2>Najważniejsze komendy</h2>
+    <p class="section-desc">
+      Minimum potrzebne do działania – operacje w Microsoft Graph.
+
+    </p>
+  </div>
+
+  <div class="grid-2">
+
+    <article class="card">
+      <h3>Przypisanie licencji</h3>
+      <p style="margin-top:10px;font-family:monospace;font-size:13px;">
+        Import-Csv "C:\temp\users.csv" | % { Set-MgUserLicense -UserId $_.UserPrincipalName -AddLicenses @{SkuId="GUID"} -RemoveLicenses @() }
+      </p>
+    </article>
+
+    <article class="card">
+      <h3>Usunięcie licencji</h3>
+      <p style="margin-top:10px;font-family:monospace;font-size:13px;">
+        Import-Csv "C:\temp\users.csv" | % { Set-MgUserLicense -UserId $_.UserPrincipalName -AddLicenses @() -RemoveLicenses @("GUID") }
+      </p>
+    </article>
+
+    <article class="card">
+      <h3>Ustawienie Usage Location</h3>
+      <p style="margin-top:10px;font-family:monospace;font-size:13px;">
+        Update-MgUser -UserId user@domain.com -UsageLocation "PL"
+      </p>
+    </article>
+
+    <article class="card">
+      <h3>Sprawdzenie przypisania</h3>
+      <p style="margin-top:10px;font-family:monospace;font-size:13px;">
+        Get-MgUser -All -Filter "assignedLicenses/any(x:x/skuId eq GUID)"
+      </p>
+    </article>
+
+  </div>
+</section>
+
+<!-- BŁĘDY -->
+<section class="section">
+  <div class="grid-3">
+
+    <article class="card">
+      <div class="eyebrow">Błąd</div>
+      <h3>Brak Usage Location</h3>
+      <p>Skrypt zatrzyma się na pierwszym użytkowniku bez lokalizacji.</p>
+    </article>
+
+    <article class="card">
+      <div class="eyebrow">Błąd</div>
+      <h3>Pusty UPN</h3>
+      <p>CSV może zawierać puste lub błędne rekordy.</p>
+    </article>
+
+    <article class="card">
+      <div class="eyebrow">Błąd</div>
+      <h3>Zły GUID</h3>
+      <p>SkuId musi pochodzić z tenantu – nie z dokumentacji Microsoft.</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- TLDR -->
+<section class="section">
+  <div class="grid-2">
+    <article class="card tldr">
+      <div class="eyebrow">TL;DR</div>
+      <h3>Graph zamiast klików</h3>
+      <p>
+        Przy dużej liczbie użytkowników GUI przestaje działać.<br><br>
+        Graph daje pełną kontrolę nad:
+        <br><br>
+        <strong>– bulk operacjami</strong><br>
+        <strong>– kontrolą SKU</strong><br>
+        <strong>– powtarzalnością</strong>
+      </p>
+    </article>
+
+    <div class="highlight">
+      <h2>Co to oznacza dla admina</h2>
+      <p>
+        Jeśli robisz migrację lub cleanup licencji – Graph nie jest opcją.
+        To jedyne narzędzie, które działa przewidywalnie na dużą skalę.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+    
+
+
+    <!-- BACK -->
+    <div class="back-home">
+      <a class="btn secondary" href="../index.html">
+        <i class="fa-solid fa-house"></i>
+        Wróć do Security Hub
+      </a>
+    </div>
+
+    <footer>
+      © <span id="year"></span>
+      <a href="https://valcreon.com" class="footer-link">valcreon.com</a>
+      • Microsoft 365 Security
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
