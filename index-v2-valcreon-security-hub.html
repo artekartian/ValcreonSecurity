@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Valcreon • Microsoft 365 Security Hub - 1sec.pl</title>
+<meta name="author" content="Valcreon / Sebastian Pawłowski">
+<meta name="robots" content="index, follow">
+<meta name="language" content="pl">
+<meta name="theme-color" content="#0b0b14">
+<meta name="description" content="Praktyczny Microsoft 365 Security Hub: bezpieczeństwo, licencje, Copilot, Entra ID, Graph, Intune, Exchange, OneDrive i administracja Microsoft 365 dla firm.">
+<meta name="keywords" content="Microsoft 365, Security Hub, Entra ID, Conditional Access, Copilot, Microsoft Graph, licencje Microsoft 365, Intune, Exchange Online, OneDrive, RODO, Valcreon, 1sec.pl">
+<link rel="canonical" href="https://1sec.pl/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="1sec.pl">
+<meta property="og:title" content="Valcreon • Microsoft 365 Security Hub">
+<meta property="og:description" content="Praktyczne materiały o bezpieczeństwie, licencjach, Copilocie i administracji Microsoft 365.">
+<meta property="og:url" content="https://1sec.pl/">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:image" content="https://1sec.pl/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Valcreon • Microsoft 365 Security Hub">
+<meta name="twitter:description" content="Praktyczne materiały o bezpieczeństwie, licencjach, Copilocie i administracji Microsoft 365.">
+<meta name="twitter:image" content="https://1sec.pl/og.png">
+<link rel="icon" type="image/x-icon" href="/fav.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/fav.ico">
+<link rel="apple-touch-icon" href="/fav.ico">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZLWPMSH8RS"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-ZLWPMSH8RS',{'anonymize_ip':true});
+</script>
+<style>
+
+/*
+
+========================================================
+VALCREON SECURITY HUB
+
+JAK DODAĆ NOWY WPIS
+
+{
+  title:'',
+  url:'',
+  category:'',
+  audience:'',
+  featured:false,
+  description:'',
+  tags:[]
+}
+
+--------------------------------------------------------
+
+KATEGORIE
+
+security
+copilot
+licencje
+entra
+intune
+exchange
+onedrive
+compliance
+administracja
+valcreon
+
+--------------------------------------------------------
+
+AUDIENCE
+
+admin      = techniczny
+config     = instrukcja
+decision   = decyzja biznesowa
+alert      = ważna zmiana Microsoft
+trust      = certyfikaty i kompetencje
+
+--------------------------------------------------------
+
+FEATURED
+
+featured:true
+= pokaż w sekcji "Najważniejsze teraz"
+
+featured:false
+= tylko biblioteka wpisów
+
+========================================================
+
+Jeżeli dopisujesz nowy wpis na końcu Musisz dodać przecinek do poprzedniego ostatniego wpisu:
+*/
+
+:root{--bg:#070a12;--bg2:#0b1020;--panel:rgba(255,255,255,.065);--panel2:rgba(255,255,255,.045);--line:rgba(255,255,255,.11);--line2:rgba(139,92,246,.28);--text:#eef2ff;--muted:#a6afc3;--muted2:#798399;--violet:#8b5cf6;--violet2:#6f42c1;--blue:#3b82f6;--cyan:#22d3ee;--amber:#f59e0b;--green:#34d399;--red:#fb7185;--radius:24px;--font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;min-height:100vh;background:radial-gradient(900px 500px at 10% -10%,rgba(111,66,193,.34),transparent 60%),radial-gradient(900px 460px at 110% 0%,rgba(59,130,246,.22),transparent 58%),linear-gradient(135deg,#070a12 0%,#0b1020 52%,#111827 100%);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.55;}
+a{color:inherit;text-decoration:none;}
+button,input{font:inherit;}
+.page{width:min(1180px,100%);margin:0 auto;padding:22px 16px 42px;}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:12px 0 24px;}
+.brand{display:flex;align-items:center;gap:11px;min-width:0;}
+.brand-mark{width:38px;height:38px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--violet2),var(--blue));box-shadow:0 14px 34px rgba(111,66,193,.28);flex:0 0 auto;}
+.brand-mark i{font-size:16px;color:#fff;}
+.brand-text{display:flex;flex-direction:column;gap:1px;min-width:0;}
+.brand-name{font-size:15px;font-weight:850;letter-spacing:-.02em;}
+.brand-sub{font-size:12px;color:var(--muted2);}
+.nav-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;width:100%;}
+.nav-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.045);color:#dbe4ff;font-size:13px;font-weight:750;transition:background .16s,border-color .16s,transform .16s;width:100%;}
+.nav-link:hover{background:rgba(255,255,255,.075);border-color:rgba(139,92,246,.32);transform:translateY(-1px);}
+.nav-link.primary{background:linear-gradient(135deg,var(--violet2),var(--violet));border-color:rgba(255,255,255,.12);color:#fff;box-shadow:0 14px 34px rgba(111,66,193,.28);}
+.hero{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:28px;background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.038));box-shadow:0 24px 90px rgba(0,0,0,.36);}
+.hero:before{content:"";position:absolute;inset:-2px;background:radial-gradient(760px 320px at 0% 0%,rgba(139,92,246,.28),transparent 62%),radial-gradient(640px 260px at 100% 10%,rgba(34,211,238,.14),transparent 60%),linear-gradient(135deg,rgba(255,255,255,.06),transparent 52%);pointer-events:none;}
+.hero-inner{position:relative;z-index:1;padding:34px 18px;}
+.kicker{display:inline-flex;align-items:center;gap:8px;max-width:100%;padding:8px 12px;border-radius:999px;border:1px solid rgba(139,92,246,.28);background:rgba(139,92,246,.12);color:#ddd6fe;font-size:12px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;flex-wrap:wrap;}
+h1{margin:18px 0 0;font-size:clamp(34px,6vw,62px);line-height:1.02;letter-spacing:-.045em;font-weight:800;max-width:900px;}
+.hero-gradient{background:linear-gradient(135deg,#fff 0%,#dbeafe 38%,#c4b5fd 78%,#67e8f9 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.lead{max-width:780px;margin:20px 0 0;color:#c5cde0;font-size:clamp(16px,3.6vw,21px);line-height:1.5;}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 15px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.055);color:#edf2ff;font-size:14px;font-weight:800;transition:transform .16s,background .16s,border-color .16s;width:100%;}
+.btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.085);border-color:rgba(139,92,246,.32);}
+.btn.primary{background:linear-gradient(135deg,var(--violet2),var(--violet));border-color:rgba(255,255,255,.12);box-shadow:0 16px 38px rgba(111,66,193,.32);}
+.stats{display:grid;grid-template-columns:1fr;gap:10px;margin-top:28px;}
+.stat{padding:14px;border-radius:18px;border:1px solid var(--line);background:rgba(10,15,28,.55);}
+.stat-value{display:block;font-size:20px;line-height:1;font-weight:800;letter-spacing:-.03em;}
+.stat-label{display:block;margin-top:5px;color:var(--muted2);font-size:12px;font-weight:700;}
+.section{margin-top:26px;}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:14px;}
+.section-title{margin:0;font-size:22px;line-height:1.12;font-weight:800;letter-spacing:-.04em;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.section-title i{color:#a78bfa;font-size:.9em;}
+.section-desc{margin:6px 0 0;color:var(--muted);font-size:14px;max-width:680px;}
+.path-grid{display:grid;grid-template-columns:1fr;gap:12px;}
+.path-card{position:relative;overflow:hidden;padding:18px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.068),rgba(255,255,255,.038));transition:transform .16s,border-color .16s,background .16s;cursor:pointer;text-align:left;color:inherit;display:flex;flex-direction:column;}
+.path-card:hover{transform:translateY(-2px);border-color:rgba(139,92,246,.34);background:rgba(255,255,255,.075);}
+.path-icon{width:38px;height:38px;border-radius:15px;display:grid;place-items:center;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.24);color:#ddd6fe;margin-bottom:14px;}
+.path-title{display:block;font-size:16px;font-weight:800;letter-spacing:-.02em;margin-bottom:8px;}
+.path-desc{margin-top:7px;color:var(--muted);font-size:13px;line-height:1.45;}
+.featured-grid{display:grid;grid-template-columns:1fr;gap:14px;}
+.tools-panel{position:sticky;top:0;z-index:20;margin-top:24px;padding:14px;border-radius:24px;border:1px solid rgba(255,255,255,.10);background:rgba(7,10,18,.78);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 18px 45px rgba(0,0,0,.25);}
+.search-row{display:grid;grid-template-columns:1fr;gap:10px;}
+.search-box{position:relative;}
+.search-box i{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted2);font-size:14px;}
+.search-input{width:100%;height:46px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.06);color:#fff;outline:none;padding:0 14px 0 41px;font-size:14px;}
+.search-input:focus{border-color:rgba(139,92,246,.55);box-shadow:0 0 0 4px rgba(139,92,246,.12);}
+.filter-reset{height:46px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.045);color:#dbe4ff;font-size:13px;font-weight:850;cursor:pointer;width:100%;}
+.chips{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px;}
+.chip{border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.045);color:#cbd5e1;padding:9px 12px;font-size:12px;font-weight:850;cursor:pointer;transition:background .16s,border-color .16s,color .16s;}
+.chip:hover{background:rgba(255,255,255,.075);border-color:rgba(139,92,246,.30);}
+.chip.active{background:linear-gradient(135deg,rgba(111,66,193,.92),rgba(139,92,246,.82));border-color:rgba(255,255,255,.16);color:#fff;}
+.result-line{margin-top:12px;color:var(--muted2);font-size:12px;font-weight:750;}
+.posts-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px;}
+.post-card{display:flex;flex-direction:column;min-height:100%;padding:18px;border-radius:24px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.066),rgba(255,255,255,.035));transition:transform .16s,border-color .16s,background .16s;}
+.post-card:hover{transform:translateY(-2px);border-color:rgba(139,92,246,.36);background:rgba(255,255,255,.075);}
+.post-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;padding:6px 9px;border-radius:999px;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.24);color:#d8b4fe;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.045em;flex-wrap:wrap;}
+.external{color:var(--muted2);font-size:13px;}
+.post-title{margin:13px 0 0;font-size:18px;line-height:1.16;font-weight:800;letter-spacing:-.035em;}
+.post-desc{margin:10px 0 0;color:#c7d0e4;font-size:14px;line-height:1.48;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:72px;}
+.post-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;min-height:38px;}
+.meta-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.035);color:var(--muted);font-size:11px;font-weight:800;}
+.tag-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px;}
+.tag{display:inline-flex;align-items:center;gap:6px;padding:5px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.035);color:#cbd5e1;font-size:11px;font-weight:800;line-height:1.3;}
+.post-link{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:18px;color:#c4b5fd;font-size:13px;font-weight:800;}
+.empty{display:none;margin-top:16px;padding:24px;border-radius:24px;border:1px solid var(--line);background:rgba(255,255,255,.045);color:var(--muted);text-align:center;}
+.journey-grid{display:grid;grid-template-columns:1fr;gap:14px;}
+.journey-card{padding:20px;border-radius:24px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.064),rgba(255,255,255,.033));}
+.journey-card h3{margin:0;font-size:18px;line-height:1.2;font-weight:800;letter-spacing:-.03em;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.journey-card p{margin:10px 0 0;color:var(--muted);font-size:14px;}
+.journey-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.scenario-chip{border:1px solid rgba(139,92,246,.24);background:rgba(139,92,246,.10);color:#ddd6fe;border-radius:999px;padding:8px 10px;font-size:12px;font-weight:850;cursor:pointer;}
+.cta-contact{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:22px;border-radius:26px;border:1px solid rgba(255,255,255,.11);background:linear-gradient(135deg,rgba(111,66,193,.20),rgba(59,130,246,.10),rgba(255,255,255,.04));}
+.cta-left{max-width:650px;}
+.cta-title{font-size:22px;font-weight:950;line-height:1.1;letter-spacing:-.04em;}
+.cta-desc{margin-top:8px;font-size:14px;color:var(--muted);}
+.cta-actions{display:flex;gap:10px;flex-wrap:wrap;width:100%;}
+.cta-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 14px;border-radius:999px;font-size:14px;font-weight:800;text-decoration:none;transition:all .15s ease;width:100%;}
+.cta-btn.primary{background:linear-gradient(135deg,var(--violet2),var(--violet));color:#fff;border:1px solid rgba(255,255,255,.14);}
+.cta-btn.primary:hover{transform:translateY(-1px);filter:brightness(1.06);}
+.cta-btn.secondary{border:1px solid rgba(255,255,255,.15);color:#dbe4ff;background:rgba(255,255,255,.05);}
+.cta-btn.secondary:hover{background:rgba(255,255,255,.08);transform:translateY(-1px);}
+.footer{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);color:var(--muted2);font-size:12px;}
+.footer-links{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.footer a:hover{color:#dbe4ff;}
+#cookieBanner{position:fixed;bottom:14px;left:14px;right:14px;max-width:520px;margin:0 auto;z-index:9999;padding:20px;border-radius:20px;background:rgba(13,22,42,.96);border:1px solid rgba(124,92,255,.30);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 24px 60px rgba(0,0,0,.50),0 0 0 1px rgba(255,255,255,.04);color:var(--text);font-family:var(--font);display:none;}
+#cookieBanner.show{display:block;}
+.cookieHead{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px;}
+.cookieIco{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#7c5cff,#5aa7ff);display:grid;place-items:center;flex-shrink:0;}
+.cookieIco svg{width:22px;height:22px;stroke:#fff;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.cookieTitle{font-size:1.05rem;font-weight:800;letter-spacing:-.2px;margin:0 0 4px;}
+.cookieDesc{font-size:.85rem;line-height:1.55;color:var(--muted);margin:0;}
+.cookieDesc a{color:#93c5fd;text-decoration:underline;text-underline-offset:2px;}
+.cookieActions{display:grid;grid-template-columns:1fr;gap:8px;margin-top:16px;}
+.cookieBtn{padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(18,28,51,.50);color:var(--text);font-weight:800;font-size:13px;cursor:pointer;transition:border-color .15s,background .15s,transform .1s;}
+.cookieBtn:hover{border-color:rgba(232,238,252,.18);background:rgba(18,28,51,.70);}
+.cookieBtn:active{transform:scale(.98);}
+.cookieBtn.primary{border-color:rgba(90,167,255,.40);background:linear-gradient(135deg,rgba(90,167,255,.90),rgba(124,92,255,.75));color:#071022;}
+.cookieBtn.primary:hover{border-color:rgba(90,167,255,.60);background:linear-gradient(135deg,rgba(90,167,255,1),rgba(124,92,255,.85));}
+.cookieBtn.settings{font-size:11.5px;letter-spacing:.3px;color:var(--muted);background:transparent;border-color:rgba(232,238,252,.06);}
+#cookieModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);z-index:10000;align-items:center;justify-content:center;padding:16px;}
+#cookieModal.show{display:flex;}
+.cookieModalBox{max-width:580px;width:100%;max-height:90vh;overflow-y:auto;padding:22px;border-radius:24px;background:rgba(13,22,42,.98);border:1px solid rgba(124,92,255,.25);box-shadow:0 32px 80px rgba(0,0,0,.60);}
+.cookieModalBox h3{margin:0 0 8px;font-size:1.4rem;font-weight:800;letter-spacing:-.3px;}
+.cookieModalBox>p{margin:0 0 24px;color:var(--muted);font-size:.92rem;line-height:1.6;}
+.cookieCategory{padding:18px;border-radius:16px;background:rgba(18,28,51,.50);border:1px solid var(--line);margin-bottom:12px;}
+.cookieCategoryHead{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;}
+.cookieCategoryHead strong{display:block;font-size:.98rem;margin-bottom:4px;}
+.cookieCategoryHead p{margin:0;font-size:.82rem;color:var(--muted);line-height:1.5;}
+.cookieToggle{position:relative;flex-shrink:0;width:44px;height:24px;border-radius:99px;background:rgba(232,238,252,.10);border:1px solid var(--line);cursor:pointer;transition:background .2s;appearance:none;-webkit-appearance:none;}
+.cookieToggle:after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:99px;background:#fff;transition:transform .2s;}
+.cookieToggle:checked{background:linear-gradient(135deg,#7c5cff,#5aa7ff);border-color:transparent;}
+.cookieToggle:checked:after{transform:translateX(20px);}
+.cookieToggle:disabled{opacity:.7;cursor:not-allowed;}
+.cookieToggle:disabled:after{background:rgba(255,255,255,.7);}
+.cookieModalActions{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap;}
+.cookieModalActions .cookieBtn{flex:1 1 180px;}
+#cookieReopen{display:none;position:fixed;bottom:18px;left:18px;width:44px;height:44px;border-radius:14px;background:rgba(13,22,42,.85);border:1px solid rgba(124,92,255,.30);backdrop-filter:blur(12px);z-index:998;cursor:pointer;align-items:center;justify-content:center;color:#93c5fd;box-shadow:0 8px 20px rgba(0,0,0,.30);transition:transform .15s,border-color .15s;}
+#cookieReopen:hover{transform:scale(1.05);border-color:rgba(124,92,255,.50);}
+#cookieReopen.show{display:flex;}
+#cookieReopen svg{width:22px;height:22px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+@media (min-width:414px){.page{padding-left:18px;padding-right:18px;}.nav-actions{width:auto;}.nav-link{width:auto;}.btn{width:auto;}.stats{grid-template-columns:repeat(3,1fr);}.cookieActions{grid-template-columns:1fr 1fr;}.cookieBtn.primary{grid-column:1/-1;}.cta-btn{width:auto;}.cta-actions{width:auto;}}
+@media (min-width:768px){.page{padding:30px 24px 56px;}.hero-inner{padding:54px 42px;}.path-grid{grid-template-columns:repeat(4,1fr);}.featured-grid{grid-template-columns:repeat(2,1fr);}.posts-grid{grid-template-columns:repeat(2,1fr);}.journey-grid{grid-template-columns:repeat(3,1fr);}.search-row{grid-template-columns:1fr auto;}.filter-reset{width:auto;padding:0 16px;}.section{margin-top:34px;}.tools-panel{padding:16px;}.cta-contact{padding:26px;}}
+@media (min-width:1180px){.posts-grid{grid-template-columns:repeat(3,1fr);}.featured-grid{grid-template-columns:repeat(3,1fr);}.hero-inner{padding:64px 56px;}.post-card{padding:20px;}h1{max-width:960px;}}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="topbar">
+<a class="brand" href="https://1sec.pl/" aria-label="1sec.pl - Valcreon Microsoft 365 Security Hub">
+<span class="brand-mark"><i class="fa-solid fa-shield-halved"></i></span>
+<span class="brand-text"><span class="brand-name">Valcreon Security Hub</span><span class="brand-sub">Microsoft 365 • Copilot • Security</span></span>
+</a>
+<nav class="nav-actions" aria-label="Nawigacja główna">
+<a class="nav-link" href="#posts"><i class="fa-solid fa-layer-group"></i> Biblioteka</a>
+<a class="nav-link" href="https://valcreon.com/#firma" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i> valcreon.com</a>
+<a class="nav-link primary" href="mailto:msp@valcreon.com?subject=Kontakt%20ze%20strony%201sec.pl%20-%20zapytanie"><i class="fa-solid fa-envelope"></i> Kontakt</a>
+</nav>
+</header>
+<main>
+<section class="hero" aria-labelledby="heroTitle">
+<div class="hero-inner">
+<span class="kicker"><i class="fa-solid fa-sparkles"></i> M365 Security Hub</span>
+<h1 id="heroTitle"><span class="hero-gradient">Microsoft 365 Security Hub</span></h1>
+<p class="lead">Praktyczne materiały o bezpieczeństwie, licencjach, Copilocie i administracji Microsoft 365. Dla osób, które muszą podjąć decyzję albo coś skonfigurować.</p>
+<div class="hero-actions">
+<a class="btn primary" href="#posts"><i class="fa-solid fa-magnifying-glass"></i> Przeglądaj wpisy</a>
+<button class="btn" type="button" data-path="copilot"><i class="fa-solid fa-robot"></i> Copilot AI</button>
+<button class="btn" type="button" data-path="security"><i class="fa-solid fa-shield-virus"></i> Security</button>
+</div>
+<div class="stats" aria-label="Statystyki hubu">
+<div class="stat"><span class="stat-value" id="statPosts">0</span><span class="stat-label">publikacji</span></div>
+<div class="stat"><span class="stat-value" id="statCategories">0</span><span class="stat-label">kategorii</span></div>
+<div class="stat"><span class="stat-value">live</span><span class="stat-label">aktualizowane na bieżąco</span></div>
+</div>
+</div>
+</section>
+<section class="section" aria-labelledby="pathsTitle">
+<div class="section-head">
+<div><h2 class="section-title" id="pathsTitle"><i class="fa-solid fa-route"></i> Szybkie ścieżki</h2><p class="section-desc">Nie musisz znać nazwy wpisu. Wybierz obszar i zawęź bibliotekę do tego, czego faktycznie szukasz.</p></div>
+</div>
+<div class="path-grid">
+<button class="path-card" type="button" data-path="security"><span class="path-icon"><i class="fa-solid fa-shield-halved"></i></span><span class="path-title">Bezpieczeństwo M365</span><span class="path-desc">MFA, Conditional Access, BYOD, Zero Trust, Security Defaults.</span></button>
+<button class="path-card" type="button" data-path="copilot"><span class="path-icon"><i class="fa-solid fa-robot"></i></span><span class="path-title">Copilot i AI</span><span class="path-desc">Copilot, Work IQ, modele AI, agenci, konfiguracja.</span></button>
+<button class="path-card" type="button" data-path="licencje"><span class="path-icon"><i class="fa-solid fa-key"></i></span><span class="path-title">Licencje</span><span class="path-desc">Graph, SkuId, service plans, ceny, warianty Copilot.</span></button>
+<button class="path-card" type="button" data-path="administracja"><span class="path-icon"><i class="fa-solid fa-terminal"></i></span><span class="path-title">Administracja</span><span class="path-desc">Exchange, SMTP, OneDrive, PowerShell i operacje M365.</span></button>
+</div>
+</section>
+<section class="section" aria-labelledby="featuredTitle">
+<div class="section-head">
+<div><h2 class="section-title" id="featuredTitle"><i class="fa-solid fa-bolt"></i> Najważniejsze teraz</h2><p class="section-desc">Wyróżnione tematy, które najlepiej pokazują praktyczny charakter hubu.</p></div>
+</div>
+<div class="featured-grid" id="featuredGrid"></div>
+</section>
+<section class="section" id="posts" aria-labelledby="postsTitle">
+<div class="section-head">
+<div><h2 class="section-title" id="postsTitle"><i class="fa-solid fa-layer-group"></i> Biblioteka wpisów</h2><p class="section-desc">Filtruj po kategorii albo szukaj po tytule, opisie i tagach. Nowe wpisy dodajesz tylko w tablicy <strong>POSTS</strong>.</p></div>
+</div>
+<div class="tools-panel">
+<div class="search-row">
+<label class="search-box" for="searchInput"><i class="fa-solid fa-magnifying-glass"></i><input class="search-input" id="searchInput" type="search" placeholder="Szukaj: Copilot, Graph, MFA, OneDrive, licencje..."></label>
+<button class="filter-reset" type="button" id="resetFilters"><i class="fa-solid fa-rotate-left"></i> Reset</button>
+</div>
+<div class="chips" id="categoryChips" aria-label="Kategorie wpisów"></div>
+<div class="chips" id="audienceChips" aria-label="Typ materiału"></div>
+<div class="result-line" id="resultLine">0 wyników</div>
+</div>
+<div class="posts-grid" id="postsGrid"></div>
+<div class="empty" id="emptyState"><strong>Brak wyników.</strong><br>Zmień kategorię albo wyczyść wyszukiwanie.</div>
+</section>
+<section class="section" aria-labelledby="journeysTitle">
+<div class="section-head">
+<div><h2 class="section-title" id="journeysTitle"><i class="fa-solid fa-compass"></i> Od czego zacząć?</h2><p class="section-desc">Trzy scenariusze, które odpowiadają na realne rozmowy z klientami.</p></div>
+</div>
+<div class="journey-grid">
+<article class="journey-card"><h3><i class="fa-solid fa-triangle-exclamation"></i> Po incydencie</h3><p>Przejęte konto, MFA, Conditional Access, Zero Trust i analiza ryzyk.</p><div class="journey-actions"><button class="scenario-chip" data-query="MFA">MFA</button><button class="scenario-chip" data-query="Zero Trust">Zero Trust</button><button class="scenario-chip" data-query="przejęcie konta">Przejęcie konta</button></div></article>
+<article class="journey-card"><h3><i class="fa-solid fa-robot"></i> Przed wdrożeniem Copilot</h3><p>Licencje, konfiguracja, Work IQ, modele AI i kontrola źródeł.</p><div class="journey-actions"><button class="scenario-chip" data-query="Copilot">Copilot</button><button class="scenario-chip" data-query="Work IQ">Work IQ</button><button class="scenario-chip" data-query="Service Plan">Service Plan</button></div></article>
+<article class="journey-card"><h3><i class="fa-solid fa-file-invoice-dollar"></i> Przed odnowieniem licencji</h3><p>SkuId, Graph, ceny, service plans i dobór planów pod bezpieczeństwo.</p><div class="journey-actions"><button class="scenario-chip" data-query="Licencje">Licencje</button><button class="scenario-chip" data-query="Graph">Graph</button><button class="scenario-chip" data-query="Cennik">Cennik</button></div></article>
+</div>
+</section>
+<section class="section">
+<div class="cta-contact">
+<div class="cta-left"><div class="cta-title">Sprawdź, jak działa Twoje środowisko Microsoft 365</div><div class="cta-desc">Wskażemy, co działa dobrze, gdzie są ryzyka i co można usprawnić.</div></div>
+<div class="cta-actions"><a href="mailto:msp@valcreon.com?subject=Kontakt%20ze%20strony%201sec.pl%20-%20zapytanie&body=Dzień%20dobry%2C%0A%0Akontaktuję%20się%20ze%20strony%201sec.pl.%0AJesteśmy%20zainteresowani%20%5Bwpisz%20treść%20swojego%20zapytania%5D%3A%0A%0ALiczba%20użytkowników%3A%0APlan%20bazowy%20M365%3A%0A%0AFirma%3A%0ANIP%3A%0A%0AZ%20góry%20dziękuję" class="cta-btn primary"><i class="fa-solid fa-envelope"></i> Napisz e-mail</a><a class="cta-btn secondary" href="tel:+48221525060"><i class="fa-solid fa-phone"></i> Zadzwoń</a></div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div>© <span id="year"></span> <a href="https://valcreon.com">valcreon.com</a> • Microsoft 365 Security</div>
+<div class="footer-links"><a href="https://valcreon.com/politykaprywatnosci.html">Polityka prywatności</a><button class="scenario-chip" type="button" onclick="reopenCookieBanner()">Cookies</button></div>
+</footer>
+</div>
+<div id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieDesc">
+<div class="cookieHead"><div class="cookieIco"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10c0-.46-.03-.92-.1-1.36a4 4 0 0 1-5.54-5.54A10 10 0 0 0 12 2z"></path><circle cx="8.5" cy="10.5" r="1"></circle><circle cx="14" cy="14" r="1"></circle><circle cx="10" cy="16" r="1"></circle></svg></div><div><div id="cookieTitle" class="cookieTitle">Ciasteczka i prywatność</div><p id="cookieDesc" class="cookieDesc">Używamy plików cookies, aby strona działała prawidłowo, mierzyć ruch Google Analytics i ulepszać treści. Możesz wybrać, na co się zgadzasz. Szczegóły w <a href="https://valcreon.com/politykaprywatnosci.html">polityce prywatności</a>.</p></div></div>
+<div class="cookieActions"><button class="cookieBtn primary" onclick="acceptAllCookies()">Akceptuj wszystkie</button><button class="cookieBtn" onclick="acceptNecessaryCookies()">Tylko niezbędne</button><button class="cookieBtn" onclick="openCookieSettings()">Ustawienia</button><button class="cookieBtn settings" onclick="openCookieSettings()" style="display:none;">Dostosuj wybór</button></div>
+</div>
+<div id="cookieModal" role="dialog" aria-labelledby="cookieModalTitle">
+<div class="cookieModalBox">
+<h3 id="cookieModalTitle">Ustawienia ciasteczek</h3>
+<p>Wybierz, na które kategorie cookies wyrażasz zgodę. Możesz zmienić swój wybór w każdej chwili klikając ikonę w lewym dolnym rogu.</p>
+<div class="cookieCategory"><div class="cookieCategoryHead"><div><strong>Niezbędne</strong><p>Wymagane do działania strony. Nie można ich wyłączyć.</p></div><input type="checkbox" class="cookieToggle" checked disabled aria-label="Niezbędne - zawsze włączone"></div></div>
+<div class="cookieCategory"><div class="cookieCategoryHead"><div><strong>Analityczne Google Analytics 4</strong><p>Pomagają zrozumieć, jak korzystasz ze strony, anonimowo i bez identyfikacji osobowej.</p></div><input type="checkbox" class="cookieToggle" id="cookieAnalytics" aria-label="Analityczne"></div></div>
+<div class="cookieCategory"><div class="cookieCategoryHead"><div><strong>Marketingowe</strong><p>Wykorzystywane okazjonalnie do trafniejszych komunikatów Valcreon.</p></div><input type="checkbox" class="cookieToggle" id="cookieMarketing" aria-label="Marketingowe"></div></div>
+<div class="cookieModalActions"><button class="cookieBtn" onclick="closeCookieSettings()">Anuluj</button><button class="cookieBtn primary" onclick="saveCookieSettings()">Zapisz wybór</button></div>
+</div>
+</div>
+<button id="cookieReopen" onclick="reopenCookieBanner()" aria-label="Ustawienia ciasteczek" title="Ustawienia ciasteczek"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10c0-.46-.03-.92-.1-1.36a4 4 0 0 1-5.54-5.54A10 10 0 0 0 12 2z"></path><circle cx="8.5" cy="10.5" r="1"></circle><circle cx="14" cy="14" r="1"></circle><circle cx="10" cy="16" r="1"></circle></svg></button>
+<script>
+const CATEGORIES=[{id:'all',label:'Wszystkie',icon:'fa-layer-group'},{id:'security',label:'Security',icon:'fa-shield-halved'},{id:'copilot',label:'Copilot AI',icon:'fa-robot'},{id:'licencje',label:'Licencje',icon:'fa-key'},{id:'entra',label:'Entra ID',icon:'fa-id-badge'},{id:'intune',label:'Intune',icon:'fa-mobile-screen'},{id:'exchange',label:'Exchange',icon:'fa-envelope'},{id:'onedrive',label:'OneDrive',icon:'fa-cloud'},{id:'compliance',label:'Compliance',icon:'fa-scale-balanced'},{id:'administracja',label:'Administracja',icon:'fa-terminal'},{id:'valcreon',label:'Valcreon',icon:'fa-certificate'}];
+const AUDIENCES=[{id:'all',label:'Wszystkie typy'},{id:'admin',label:'Dla admina'},{id:'decision',label:'Decyzja'},{id:'config',label:'Konfiguracja'},{id:'alert',label:'Alert'},{id:'trust',label:'Zaufanie'}];
+const POSTS=[
+{title:'Certyfikaty Microsoft 365',url:'./sec/certyfikaty.html',category:'valcreon',audience:'trust',featured:false,description:'Firmy RedFlag i Valcreon posiadają certyfikaty Microsoft 365 Certified: Administrator Expert oraz Endpoint Administrator Associate.',tags:['Microsoft 365','Certyfikaty','Admin Expert','MCT']},
+{title:'Certyfikaty AI Heroes 2026',url:'./sec/aiheroes.html',category:'valcreon',audience:'trust',featured:false,description:'Kompetencje w zakresie wdrażania agentów AI, Copilot Studio, Azure AI Foundry i GitHub Copilot.',tags:['Agenci AI','Copilot Studio','Azure AI Foundry','GitHub Copilot']},
+{title:'Copilot Work IQ - wizualizacja pracy i kontekst organizacji',url:'./sec/workiqpost.html',category:'copilot',audience:'decision',featured:true,description:'Copilot z Work IQ wykorzystuje kontekst organizacji, aby lepiej rozumieć pracę, relacje, spotkania i dokumenty.',tags:['Copilot','Work IQ','AI']},
+{title:'Copilot Service Plan - kontrola trybów Copilot',url:'./sec/copilotplan.html',category:'copilot',audience:'config',featured:true,description:'Service plan staje się głównym mechanizmem sterującym doświadczeniem Copilot i wariantem dostępnym dla użytkownika.',tags:['Copilot','Service Plan','Licencje']},
+{title:'Microsoft 365 - przypisywanie licencji przez Graph API',url:'./sec/licencje-graph.html',category:'licencje',audience:'admin',featured:true,description:'Gdy GUI, PowerShell i Microsoft Graph pokazują różne nazwy, wiarygodnym punktem odniesienia zostaje tenant i SkuId.',tags:['Microsoft Graph','Licencje','SkuId','PowerShell']},
+{title:'Model choice - wybór modeli AI w Copilot',url:'./sec/multimodel.html',category:'copilot',audience:'decision',featured:false,description:'Microsoft 365 Copilot działa na wielu modelach AI, co pozwala dopasować tryb pracy do konkretnego zadania.',tags:['Copilot','AI Models','Multi-model']},
+{title:'Copilot Cowork - AI, które wykonuje pracę',url:'./sec/cowork.html',category:'copilot',audience:'decision',featured:false,description:'Agent AI w Microsoft 365 wykonujący złożone zadania end-to-end, rozliczany dodatkowo za użycie.',tags:['Copilot','Cowork','Copilot Credits','M365 Copilot']},
+{title:'Ograniczenie Web Search w Microsoft 365 Copilot',url:'https://1sec.pl/sec/copilotwebsearch.html',category:'copilot',audience:'config',featured:false,description:'Kontrola źródeł AI przez Cloud Policy: osobne podejście do Work mode, Copilot Web mode i Chat.',tags:['Microsoft 365 Copilot','Cloud Policy','Kontrola źródeł AI']},
+{title:'AI zmienia model pracy - nie tylko narzędzia',url:'./sec/wti2026.html',category:'copilot',audience:'decision',featured:false,description:'Work Trend Index 2026 pokazuje, że efekty AI zależą od organizacji pracy, kultury i mierników, a nie tylko od zakupu narzędzia.',tags:['Copilot','AI','WTI 2026','Raport']},
+{title:'OneDrive bez licencji - dane mogą zniknąć',url:'./sec/onedrivearchive.html',category:'onedrive',audience:'alert',featured:true,description:'Brak reakcji na zmiany w zarządzaniu danymi po byłych pracownikach może oznaczać utratę plików.',tags:['OneDrive','Storage','Lifecycle','Data Loss']},
+{title:'Microsoft 365 - nowe modele MAI',url:'./sec/mai.html',category:'copilot',audience:'decision',featured:false,description:'Nowa generacja modeli AI od Microsoft wspiera codzienne zadania od maili i dokumentów po analizę danych.',tags:['Modele MAI','AI','Microsoft 365','Copilot']},
+{title:'Copilot w Wordzie sprawdza umowy i wskazuje ryzyka',url:'./sec/copilotlegal.html',category:'copilot',audience:'decision',featured:false,description:'Legal Agent w Microsoft 365 Copilot analizuje kontrakty, wskazuje ryzyka i proponuje poprawki w Wordzie.',tags:['Copilot','Word','Legal Agent','AI']},
+{title:'Legal Agent w Word - jak zacząć krok po kroku',url:'./sec/copilotlegalinstrukcje.html',category:'copilot',audience:'config',featured:false,description:'Wymagania, uruchomienie i sposób pracy z Legal Agent w Word oraz firmowym playbookiem.',tags:['Legal Agent','Copilot','Word','AI']},
+{title:'SMTP znika z Microsoft 365',url:'./sec/hve.html',category:'exchange',audience:'alert',featured:false,description:'Microsoft stopniowo wyłącza klasyczną wysyłkę SMTP. Sprawdź zmiany, terminy i alternatywy.',tags:['Microsoft 365','SMTP','HVE','Bezpieczeństwo']},
+{title:'Microsoft 365 - podwyżki cen 2026',url:'./sec/pricing.html',category:'licencje',audience:'decision',featured:false,description:'Przegląd licencji, planowanych zmian cen i funkcji wpływających na wartość planów Microsoft 365.',tags:['Microsoft 365','Licencje','Cennik','Copilot']},
+{title:'Microsoft 365 - ceny przed podwyżką',url:'./sec/june.html',category:'licencje',audience:'decision',featured:false,description:'Przegląd planów Business Basic, Standard, Premium oraz Copilot dla firm przed zmianami cen.',tags:['Microsoft 365','Copilot','Cennik','Promocje']},
+{title:'Microsoft 365 Copilot zalecenia konfiguracji',url:'./sec/copilotguide.html',category:'copilot',audience:'config',featured:false,description:'Kluczowe ustawienia wpływające na bezpieczeństwo danych, jakość odpowiedzi AI i realne wykorzystanie Copilot.',tags:['Copilot','AI','Microsoft 365','Optymalizacja AI']},
+{title:'Microsoft 365 Copilot - realne zastosowania w firmie MŚP',url:'https://copilotbusiness.pl',category:'copilot',audience:'decision',featured:false,description:'Praktyczne zastosowania Copilot w firmie: e-maile, oferty, Excel, spotkania i codzienne procesy.',tags:['Sprzedaż','Licencje','Automatyzacja','AI']},
+{title:'Od Basic do Zero Trust - proces przejścia po incydencie przejęcia konta',url:'https://onesecurity.pl',category:'security',audience:'alert',featured:false,description:'Ścieżka od minimalnej ochrony do pełniejszej kontroli po incydencie: dostęp warunkowy, logowania, sesje i segmentacja.',tags:['Zero Trust','Dostęp warunkowy','Przejęcie konta']},
+{title:'Podmioty współprzetwarzające Microsoft',url:'./sec/subprocessors.html',category:'compliance',audience:'decision',featured:false,description:'Kto może przetwarzać dane klientów w usługach Microsoft 365 i Azure oraz jak patrzeć na zgodność z RODO.',tags:['RODO','GDPR','Data Processing','Microsoft 365']},
+{title:'Microsoft 365 - jak dobrać licencję pod bezpieczeństwo',url:'./sec/licencje.html',category:'licencje',audience:'decision',featured:false,description:'Wybór licencji jako decyzja o poziomie bezpieczeństwa: co możesz zabezpieczyć i gdzie plan Cię ogranicza.',tags:['Licencje','Bezpieczeństwo','Basic','Standard','Premium']},
+{title:'Ochrona danych służbowych na telefonach prywatnych BYOD 2026',url:'./sec/mam.html',category:'intune',audience:'config',featured:true,description:'Jak chronić dane firmowe na prywatnych telefonach bez zarządzania całym urządzeniem.',tags:['BYOD','Intune','APP','Conditional Access','DLP']},
+{title:'Microsoft 365 - Security Defaults',url:'./sec/securitydefaults.html',category:'security',audience:'admin',featured:false,description:'Jak działają domyślne zabezpieczenia, co chronią i dlaczego nie wystarczają w obliczu współczesnych ataków.',tags:['Security','Entra ID','MFA','Zero Trust']},
+{title:'Entra ID - Registered vs Joined',url:'./sec/mfa.html',category:'entra',audience:'admin',featured:false,description:'Dlaczego jedno logowanie pokazuje MFA, a drugie Single Factor oraz jak czytać to w logach.',tags:['MFA','Windows Hello','Logi','Entra ID']},
+{title:'Exchange Online - Archiwum i AutoExpanding',url:'./sec/ArchiveAutoExpanding.html',category:'exchange',audience:'admin',featured:false,description:'Włączenie archiwum i AutoExpanding, sprawdzenie holdów oraz uruchomienie przetwarzania MRM.',tags:['Exchange','Archive','PowerShell','MRM']}
+];
+const state={category:'all',audience:'all',query:''};
+const categoryMap=Object.fromEntries(CATEGORIES.map(c=>[c.id,c]));
+const postsGrid=document.getElementById('postsGrid');
+const featuredGrid=document.getElementById('featuredGrid');
+const categoryChips=document.getElementById('categoryChips');
+const audienceChips=document.getElementById('audienceChips');
+const searchInput=document.getElementById('searchInput');
+const resultLine=document.getElementById('resultLine');
+const emptyState=document.getElementById('emptyState');
+function escapeHtml(value){return String(value).replace(/[&<>'"]/g,function(char){return {'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char];});}
+function postCard(post){const cat=categoryMap[post.category]||categoryMap.all;const external=/^https?:\/\//.test(post.url);const tags=post.tags.map(tag=>`<span class="tag">${escapeHtml(tag)}</span>`).join('');return `<a class="post-card" href="${escapeHtml(post.url)}" ${external?'target="_blank" rel="noopener"':''}><div class="post-top"><span class="eyebrow"><i class="fa-solid ${cat.icon}"></i>${escapeHtml(cat.label)}</span><span class="external"><i class="fa-solid ${external?'fa-arrow-up-right-from-square':'fa-arrow-right'}"></i></span></div><h3 class="post-title">${escapeHtml(post.title)}</h3><p class="post-desc">${escapeHtml(post.description)}</p><div class="post-meta"><span class="meta-pill"><i class="fa-solid fa-user-check"></i>${escapeHtml((AUDIENCES.find(a=>a.id===post.audience)||AUDIENCES[0]).label)}</span></div><div class="tag-row">${tags}</div><span class="post-link">Czytaj <i class="fa-solid fa-arrow-right"></i></span></a>`;}
+function renderChips(){categoryChips.innerHTML=CATEGORIES.map(c=>`<button class="chip ${state.category===c.id?'active':''}" type="button" data-category="${c.id}"><i class="fa-solid ${c.icon}"></i> ${c.label}</button>`).join('');audienceChips.innerHTML=AUDIENCES.map(a=>`<button class="chip ${state.audience===a.id?'active':''}" type="button" data-audience="${a.id}">${a.label}</button>`).join('');}
+function getFilteredPosts(){const q=state.query.trim().toLowerCase();return POSTS.filter(post=>{const inCategory=state.category==='all'||post.category===state.category;const inAudience=state.audience==='all'||post.audience===state.audience;const haystack=[post.title,post.description,post.category,post.audience,...post.tags].join(' ').toLowerCase();const inQuery=!q||haystack.includes(q);return inCategory&&inAudience&&inQuery;});}
+function renderPosts(){const filtered=getFilteredPosts();postsGrid.innerHTML=filtered.map(postCard).join('');resultLine.textContent=`${filtered.length} ${filtered.length===1?'wynik':'wyników'} z ${POSTS.length} publikacji`;emptyState.style.display=filtered.length?'none':'block';renderChips();}
+function renderFeatured(){featuredGrid.innerHTML=POSTS.filter(p=>p.featured).slice(0,3).map(postCard).join('');}
+function applyCategory(category){state.category=category;state.audience='all';state.query='';searchInput.value='';renderPosts();document.getElementById('posts').scrollIntoView({behavior:'smooth',block:'start'});}
+categoryChips.addEventListener('click',e=>{const btn=e.target.closest('[data-category]');if(!btn)return;state.category=btn.dataset.category;renderPosts();});
+audienceChips.addEventListener('click',e=>{const btn=e.target.closest('[data-audience]');if(!btn)return;state.audience=btn.dataset.audience;renderPosts();});
+searchInput.addEventListener('input',e=>{state.query=e.target.value;renderPosts();});
+document.getElementById('resetFilters').addEventListener('click',()=>{state.category='all';state.audience='all';state.query='';searchInput.value='';renderPosts();});
+document.querySelectorAll('[data-path]').forEach(btn=>btn.addEventListener('click',()=>applyCategory(btn.dataset.path)));
+document.querySelectorAll('[data-query]').forEach(btn=>btn.addEventListener('click',()=>{state.category='all';state.audience='all';state.query=btn.dataset.query;searchInput.value=btn.dataset.query;renderPosts();document.getElementById('posts').scrollIntoView({behavior:'smooth',block:'start'});}));
+document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('statPosts').textContent=POSTS.length;
+document.getElementById('statCategories').textContent=new Set(POSTS.map(p=>p.category)).size;
+renderFeatured();
+renderPosts();
+</script>
+<script>
+(function(){
+const CONSENT_KEY='valcreon_cookie_consent';
+const CONSENT_VERSION='1';
+const CONSENT_DAYS=365;
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+window.gtag=gtag;
+gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','functionality_storage':'granted','security_storage':'granted'});
+function getStoredConsent(){try{const raw=localStorage.getItem(CONSENT_KEY);if(!raw)return null;const data=JSON.parse(raw);if(data.v!==CONSENT_VERSION)return null;if(Date.now()-data.t>CONSENT_DAYS*24*60*60*1000)return null;return data;}catch(e){return null;}}
+function saveConsent(analytics,marketing){const data={v:CONSENT_VERSION,t:Date.now(),analytics:analytics,marketing:marketing};localStorage.setItem(CONSENT_KEY,JSON.stringify(data));applyConsent(analytics,marketing);document.getElementById('cookieBanner').classList.remove('show');document.getElementById('cookieModal').classList.remove('show');document.getElementById('cookieReopen').classList.add('show');}
+function applyConsent(analytics,marketing){gtag('consent','update',{'analytics_storage':analytics?'granted':'denied','ad_storage':marketing?'granted':'denied','ad_user_data':marketing?'granted':'denied','ad_personalization':marketing?'granted':'denied'});}
+window.acceptAllCookies=function(){saveConsent(true,true);};
+window.acceptNecessaryCookies=function(){saveConsent(false,false);};
+window.openCookieSettings=function(){const stored=getStoredConsent();document.getElementById('cookieAnalytics').checked=stored?stored.analytics:false;document.getElementById('cookieMarketing').checked=stored?stored.marketing:false;document.getElementById('cookieModal').classList.add('show');};
+window.closeCookieSettings=function(){document.getElementById('cookieModal').classList.remove('show');};
+window.saveCookieSettings=function(){const a=document.getElementById('cookieAnalytics').checked;const m=document.getElementById('cookieMarketing').checked;saveConsent(a,m);};
+window.reopenCookieBanner=function(){document.getElementById('cookieReopen').classList.remove('show');document.getElementById('cookieBanner').classList.add('show');};
+document.addEventListener('DOMContentLoaded',function(){const stored=getStoredConsent();if(stored){applyConsent(stored.analytics,stored.marketing);document.getElementById('cookieReopen').classList.add('show');}else{setTimeout(function(){document.getElementById('cookieBanner').classList.add('show');},800);}});
+document.getElementById('cookieModal').addEventListener('click',function(e){if(e.target===this)closeCookieSettings();});
+})();
+</script>
+</body>
+</html>
