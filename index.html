@@ -224,6 +224,7 @@ h1{margin:18px 0 0;font-size:clamp(34px,6vw,62px);line-height:1.02;letter-spacin
 @media (min-width:414px){.page{padding-left:18px;padding-right:18px;}.nav-actions{width:auto;}.nav-link{width:auto;}.btn{width:auto;}.stats{grid-template-columns:repeat(3,1fr);}.cookieActions{grid-template-columns:1fr 1fr;}.cookieBtn.primary{grid-column:1/-1;}.cta-btn{width:auto;}.cta-actions{width:auto;}}
 @media (min-width:768px){.page{padding:30px 24px 56px;}.hero-inner{padding:54px 42px;}.path-grid{grid-template-columns:repeat(4,1fr);}.featured-grid{grid-template-columns:repeat(2,1fr);}.posts-grid{grid-template-columns:repeat(2,1fr);}.journey-grid{grid-template-columns:repeat(3,1fr);}.search-row{grid-template-columns:1fr auto;}.filter-reset{width:auto;padding:0 16px;}.section{margin-top:34px;}.tools-panel{padding:16px;}.cta-contact{padding:26px;}}
 @media (min-width:1180px){.posts-grid{grid-template-columns:repeat(3,1fr);}.featured-grid{grid-template-columns:repeat(3,1fr);}.hero-inner{padding:64px 56px;}.post-card{padding:20px;}h1{max-width:960px;}}
+@media (max-width:767px){.tools-panel.compact #audienceChips{display:none;}.tools-panel.compact #categoryChips{display:none;}.tools-panel.compact{padding:10px;}}
 </style>
 </head>
 <body>
@@ -231,7 +232,7 @@ h1{margin:18px 0 0;font-size:clamp(34px,6vw,62px);line-height:1.02;letter-spacin
 <header class="topbar">
 <a class="brand" href="https://1sec.pl/" aria-label="1sec.pl - Valcreon Microsoft 365 Security Hub">
 <span class="brand-mark"><img src="Logo-32.png" alt="Valcreon Security Hub"></span>
-<span class="brand-text"><span class="brand-name">Valcreon Security Hub</span><span class="brand-sub">Microsoft 365 • Copilot • Security</span></span>
+<span class="brand-text"><span class="brand-name">Valcreon • Security Hub</span><span class="brand-sub">Microsoft 365 • Copilot • Security</span></span>
 </a>
 <nav class="nav-actions" aria-label="Nawigacja główna">
 <a class="nav-link" href="#posts"><i class="fa-solid fa-layer-group"></i> Biblioteka</a>
@@ -371,9 +372,10 @@ function escapeHtml(value){return String(value).replace(/[&<>'"]/g,function(char
 function postCard(post){const cat=categoryMap[post.category]||categoryMap.all;const external=/^https?:\/\//.test(post.url);const tags=post.tags.map(tag=>`<span class="tag">${escapeHtml(tag)}</span>`).join('');return `<a class="post-card" href="${escapeHtml(post.url)}" ${external?'target="_blank" rel="noopener"':''}><div class="post-top"><span class="eyebrow"><i class="fa-solid ${cat.icon}"></i>${escapeHtml(cat.label)}</span><span class="external"><i class="fa-solid ${external?'fa-arrow-up-right-from-square':'fa-arrow-right'}"></i></span></div><h3 class="post-title">${escapeHtml(post.title)}</h3><p class="post-desc">${escapeHtml(post.description)}</p><div class="post-meta"><span class="meta-pill"><i class="fa-solid fa-user-check"></i>${escapeHtml((AUDIENCES.find(a=>a.id===post.audience)||AUDIENCES[0]).label)}</span></div><div class="tag-row">${tags}</div><span class="post-link">Czytaj <i class="fa-solid fa-arrow-right"></i></span></a>`;}
 function renderChips(){categoryChips.innerHTML=CATEGORIES.map(c=>`<button class="chip ${state.category===c.id?'active':''}" type="button" data-category="${c.id}"><i class="fa-solid ${c.icon}"></i> ${c.label}</button>`).join('');audienceChips.innerHTML=AUDIENCES.map(a=>`<button class="chip ${state.audience===a.id?'active':''}" type="button" data-audience="${a.id}">${a.label}</button>`).join('');}
 function getFilteredPosts(){const q=state.query.trim().toLowerCase();return POSTS.filter(post=>{const inCategory=state.category==='all'||post.category===state.category;const inAudience=state.audience==='all'||post.audience===state.audience;const haystack=[post.title,post.description,post.category,post.audience,...post.tags].join(' ').toLowerCase();const inQuery=!q||haystack.includes(q);return inCategory&&inAudience&&inQuery;});}
-function renderPosts(){const filtered=getFilteredPosts();postsGrid.innerHTML=filtered.map(postCard).join('');resultLine.textContent=`${filtered.length} ${filtered.length===1?'wynik':'wyników'} z ${POSTS.length} publikacji`;emptyState.style.display=filtered.length?'none':'block';renderChips();}
+function updateMobileFilterState(){const compact=state.category!=='all'||state.audience!=='all'||state.query.trim()!=='';document.querySelector('.tools-panel').classList.toggle('compact',compact);}
+function renderPosts(){const filtered=getFilteredPosts();postsGrid.innerHTML=filtered.map(postCard).join('');resultLine.textContent=`${filtered.length} ${filtered.length===1?'wynik':'wyników'} z ${POSTS.length} publikacji`;emptyState.style.display=filtered.length?'none':'block';renderChips();updateMobileFilterState();}
 function renderFeatured(){featuredGrid.innerHTML=POSTS.filter(p=>p.featured).slice(0,3).map(postCard).join('');}
-function applyCategory(category){state.category=category;state.audience='all';state.query='';searchInput.value='';renderPosts();document.getElementById('posts').scrollIntoView({behavior:'smooth',block:'start'});}
+function applyCategory(category){state.category=category;state.audience='all';state.query='';searchInput.value='';renderPosts();window.scrollTo({top:document.getElementById('postsGrid').offsetTop-20,behavior:'smooth'});}
 categoryChips.addEventListener('click',e=>{const btn=e.target.closest('[data-category]');if(!btn)return;state.category=btn.dataset.category;renderPosts();});
 audienceChips.addEventListener('click',e=>{const btn=e.target.closest('[data-audience]');if(!btn)return;state.audience=btn.dataset.audience;renderPosts();});
 searchInput.addEventListener('input',e=>{state.query=e.target.value;renderPosts();});
