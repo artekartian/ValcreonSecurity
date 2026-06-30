@@ -382,7 +382,6 @@ document.querySelectorAll('[data-path]').forEach(btn=>btn.addEventListener('clic
 document.querySelectorAll('[data-query]').forEach(btn=>btn.addEventListener('click',()=>{state.category='all';state.audience='all';state.query=btn.dataset.query;searchInput.value=btn.dataset.query;renderPosts();document.getElementById('posts').scrollIntoView({behavior:'smooth',block:'start'});}));
 document.getElementById('year').textContent=new Date().getFullYear();
 document.getElementById('statPosts').textContent=POSTS.length;
-document.getElementById('statCategories').textContent=new Set(POSTS.map(p=>p.category)).size;
 renderFeatured();
 renderPosts();
 </script>
