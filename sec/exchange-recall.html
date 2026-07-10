@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Cross-Tenant Message Recall w Exchange Online | Valcreon Security</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="style1.css">
+</head>
+<body>
+<div class="container">
+
+<div class="topbar">
+<a class="back-link" href="../index.html" aria-label="Powrót do Security Hub">
+<i class="fa-solid fa-arrow-left"></i>
+<span>Powrót do Security Hub</span>
+</a>
+<span class="pill">
+<i class="fa-solid fa-envelope-circle-check"></i>
+Exchange Online
+</span>
+</div>
+
+<section class="hero glass">
+<div class="hero-grid">
+<div>
+<div class="hero-label">
+<i class="fa-solid fa-envelope-open-text"></i>
+Exchange Online Message Recall
+</div>
+<h1>Microsoft 365 pozwoli odwoływać wiadomości między organizacjami</h1>
+<p class="lead">
+Microsoft rozszerza funkcję Message Recall w Exchange Online. Administratorzy będą mogli wskazać zaufane tenanty Microsoft 365, z których użytkownicy mogą odwoływać wiadomości wysłane do organizacji odbierającej.
+</p>
+</div>
+<div class="hero-side">
+<div class="signal">
+<div class="signal-top">
+<div class="signal-title">
+<span class="dot"></span> TL;DR
+</div>
+</div>
+<div class="mini-chips">
+<div class="mini-chip">Exchange Online</div>
+<div class="mini-chip">Message Recall</div>
+<div class="mini-chip">Cross-Tenant</div>
+<div class="mini-chip">Allow list</div>
+<div class="mini-chip">PowerShell</div>
+<div class="mini-chip">Admin control</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head">
+<h2>Co się zmienia</h2>
+<p class="section-desc">
+Message Recall przestaje być funkcją ograniczoną wyłącznie do jednej organizacji.
+</p>
+</div>
+<div class="grid-3">
+<article class="card">
+<div class="card-top">
+<div class="eyebrow">Problem</div>
+<h3>Recall działał tylko w jednym tenancie</h3>
+<p>
+Do tej pory odwołanie wiadomości działało tylko wtedy, gdy nadawca i odbiorca należeli do tego samego tenanta Microsoft 365.
+</p>
+</div>
+<div class="why-box">
+<div class="why-grid">
+<div class="why-item"><span class="why-dot"></span><span>brak obsługi partnerów biznesowych</span></div>
+<div class="why-item"><span class="why-dot"></span><span>problem dla grup kapitałowych</span></div>
+<div class="why-item"><span class="why-dot"></span><span>oddzielne tenanty nie mogły korzystać z Recall</span></div>
+</div>
+</div>
+<div class="card-bottom">
+<p>
+Nawet blisko współpracujące organizacje nie mogły wzajemnie odwoływać błędnie wysłanych wiadomości.
+</p>
+</div>
+</article>
+
+<article class="card">
+<div class="card-top">
+<div class="eyebrow">Zmiana</div>
+<h3>Cross-Tenant Message Recall</h3>
+<p>
+Microsoft dodaje możliwość odwoływania wiadomości pomiędzy różnymi tenantami Microsoft 365.
+</p>
+</div>
+<div class="why-box">
+<div class="why-grid">
+<div class="why-item"><span class="why-dot"></span><span>obsługa wielu organizacji</span></div>
+<div class="why-item"><span class="why-dot"></span><span>lista zaufanych tenantów</span></div>
+<div class="why-item"><span class="why-dot"></span><span>znany mechanizm Recall</span></div>
+</div>
+</div>
+<div class="card-bottom">
+<p>
+Funkcja rozszerza istniejący proces Recall, ale nadal działa w kontrolowany sposób.
+</p>
+</div>
+</article>
+
+<article class="card">
+<div class="card-top">
+<div class="eyebrow">Kontrola</div>
+<h3>Decyzja należy do odbiorcy</h3>
+<p>
+To organizacja odbierająca wiadomość decyduje, czy zewnętrzny tenant może odwoływać wiadomości ze skrzynek jej użytkowników.
+</p>
+</div>
+<div class="why-box">
+<div class="why-grid">
+<div class="why-item"><span class="why-dot"></span><span>funkcja domyślnie wyłączona</span></div>
+<div class="why-item"><span class="why-dot"></span><span>wymaga jawnej konfiguracji</span></div>
+<div class="why-item"><span class="why-dot"></span><span>działa tylko dla tenantów z allow listy</span></div>
+</div>
+</div>
+<div class="card-bottom">
+<p>
+Organizacja zachowuje kontrolę nad tym, kto może wykonać Recall wobec jej użytkowników.
+</p>
+</div>
+</article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head">
+<h2>Jak działa Cross-Tenant Message Recall</h2>
+<p class="section-desc">
+Mechanizm opiera się na zaufaniu skonfigurowanym po stronie organizacji odbierającej wiadomości.
+</p>
+</div>
+<div class="grid-2">
+<article class="card">
+<div class="icon"><i class="fa-solid fa-building-shield"></i></div>
+<div class="eyebrow">Tenant odbierający</div>
+<h3>Administrator wskazuje komu ufa</h3>
+<div class="why-box">
+<div class="why-grid">
+<div class="why-item"><span class="why-dot"></span><span>włącza funkcję Cross-Tenant Recall</span></div>
+<div class="why-item"><span class="why-dot"></span><span>dodaje identyfikatory zaufanych tenantów</span></div>
+<div class="why-item"><span class="why-dot"></span><span>zarządza listą organizacji zewnętrznych</span></div>
+</div>
+</div>
+<p>
+Bez dodania tenanta do listy zaufanych organizacji odwołanie wiadomości z zewnątrz nie zostanie wykonane.
+</p>
+</article>
+
+<article class="card">
+<div class="icon"><i class="fa-solid fa-envelope-circle-check"></i></div>
+<div class="eyebrow">Tenant wysyłający</div>
+<h3>Użytkownik uruchamia Recall</h3>
+<div class="why-box">
+<div class="why-grid">
+<div class="why-item"><span class="why-dot"></span><span>Exchange Online sprawdza allow listę</span></div>
+<div class="why-item"><span class="why-dot"></span><span>tenant nadawcy jest weryfikowany</span></div>
+<div class="why-item"><span class="why-dot"></span><span>Recall zostaje zaakceptowany albo odrzucony</span></div>
+</div>
+</div>
+<p>
+Jeżeli tenant nadawcy nie jest dozwolony, nadawca zobaczy informację, że wiadomości nie można odwołać między organizacjami.
+</p>
+</article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head">
+<h2>Przykład działania</h2>
+<p class="section-desc">
+Najprościej wyobrazić to sobie na przykładzie dwóch firm pracujących w oddzielnych tenantach Microsoft 365.
+</p>
+</div>
+<div class="grid-3">
+<article class="card">
+<div class="eyebrow">Krok 1</div>
+<h3>Contoso dodaje Fabrikam</h3>
+<p>
+Administrator Contoso dodaje tenant Fabrikam do listy zaufanych organizacji dla Cross-Tenant Message Recall.
+</p>
+</article>
+<article class="card">
+<div class="eyebrow">Krok 2</div>
+<h3>Fabrikam odwołuje wiadomość</h3>
+<p>
+Użytkownik Fabrikam wysyła wiadomość do Contoso, a następnie uruchamia Message Recall.
+</p>
+</article>
+<article class="card">
+<div class="eyebrow">Krok 3</div>
+<h3>Exchange Online sprawdza zaufanie</h3>
+<p>
+Jeżeli Fabrikam znajduje się na allow liście Contoso, odwołanie wiadomości zostaje wykonane jak standardowy Recall.
+</p>
+</article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head">
+<h2>Konfiguracja przez Exchange Online PowerShell</h2>
+<p class="section-desc">
+Funkcję konfiguruje administrator Exchange Online.
+</p>
+</div>
+<div class="grid-2">
+<article class="card">
+<div class="eyebrow">Włączenie funkcji</div>
+<h3>CrossTenantRecallEnabled</h3>
+<p>
+Aby włączyć możliwość obsługi Recall między tenantami, administrator ustawia parametr na wartość true.
+<br><br>
+<code>Set-CrossTenantRecallConfiguration -CrossTenantRecallEnabled $true</code>
+</p>
+</article>
+<article class="card">
+<div class="eyebrow">Wyłączenie funkcji</div>
+<h3>Domyślnie wyłączone</h3>
+<p>
+Funkcja jest domyślnie wyłączona. Można ją również wyłączyć ręcznie.
+<br><br>
+<code>Set-CrossTenantRecallConfiguration -CrossTenantRecallEnabled $false</code>
+</p>
+</article>
+<article class="card">
+<div class="eyebrow">Dodanie tenantów</div>
+<h3>AllowedSenderTenantIds</h3>
+<p>
+Do listy dodaje się identyfikatory tenantów organizacji, którym ufamy.
+<br><br>
+<code>Set-CrossTenantRecallConfiguration -AllowedSenderTenantIds @{Add="&lt;tenantId&gt;"}</code>
+</p>
+</article>
+<article class="card">
+<div class="eyebrow">Usunięcie tenantów</div>
+<h3>Zmiana listy zaufania</h3>
+<p>
+Tenant można usunąć z listy, jeżeli organizacja nie powinna już mieć możliwości odwoływania wiadomości.
+<br><br>
+<code>Set-CrossTenantRecallConfiguration -AllowedSenderTenantIds @{Remove="&lt;tenantId&gt;"}</code>
+</p>
+</article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head">
+<h2>Co zobaczą użytkownicy</h2>
+<p class="section-desc">
+Z perspektywy użytkownika funkcja zachowuje się podobnie do klasycznego Message Recall.
+</p>
+</div>
+<div class="grid-3">
+<article class="card">
+<div class="eyebrow">Nadawca</div>
+<h3>Raport Recall</h3>
+<p>
+Nadawca otrzyma informację, czy odwołanie wiadomości zostało wykonane, czy zostało zablokowane z powodu braku zaufania między tenantami.
+</p>
+</article>
+<article class="card">
+<div class="eyebrow">Odbiorca</div>
+<h3>Powiadomienia</h3>
+<p>
+Jeżeli organizacja ma włączone powiadomienia Recall dla odbiorców, będą one stosowane również dla odwołań między tenantami.
+</p>
+</article>
+<article class="card">
+<div class="eyebrow">Brak zaufania</div>
+<h3>Recall się nie wykona</h3>
+<p>
+Jeżeli tenant nadawcy nie znajduje się na allow liście organizacji odbierającej, odwołanie wiadomości nie zostanie zrealizowane.
+</p>
+</article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head">
+<h2>Co powinien zrobić administrator</h2>
+<p class="section-desc">
+Przed włączeniem funkcji warto świadomie ustalić, które organizacje powinny znaleźć się na liście zaufanych tenantów.
+</p>
+</div>
+<div class="grid-2">
+<article class="card">
+<h3>Zweryfikuj relacje organizacyjne</h3>
+<p>
+Sprawdź, z którymi firmami, spółkami lub partnerami organizacja faktycznie współpracuje na tyle blisko, aby dopuścić Recall między tenantami.
+</p>
+</article>
+<article class="card">
+<h3>Ustal zasady zaufania</h3>
+<p>
+Allow lista powinna być świadomą decyzją administracyjną, a nie automatycznym rozszerzeniem dla wszystkich zewnętrznych organizacji.
+</p>
+</article>
+<article class="card">
+<h3>Udokumentuj tenant ID</h3>
+<p>
+Przygotuj i zweryfikuj identyfikatory tenantów organizacji, które mają zostać dodane do konfiguracji.
+</p>
+</article>
+<article class="card">
+<h3>Poinformuj helpdesk</h3>
+<p>
+Zespół wsparcia powinien wiedzieć, że Recall może działać również między organizacjami, ale wyłącznie dla tenantów z allow listy.
+</p>
+</article>
+</div>
+</section>
+
+<section class="section">
+<div class="highlight">
+<h2>Dlaczego to jest ważne</h2>
+<p>
+W wielu firmach współpraca nie kończy się na jednym tenancie Microsoft 365.
+<br><br>
+Grupy kapitałowe, spółki zależne, partnerzy biznesowi i organizacje połączone procesami często pracują na osobnych środowiskach Microsoft 365.
+<br><br>
+Cross-Tenant Message Recall pozwala ograniczyć skutki błędnie wysłanych wiadomości również w takich scenariuszach, ale bez oddawania kontroli nad skrzynkami użytkowników zewnętrznym organizacjom.
+</p>
+</div>
+</section>
+
+<section class="section">
+<div class="grid-2">
+<article class="card tldr">
+<div class="eyebrow">TL;DR</div>
+<h3>Message Recall może działać między tenantami</h3>
+<p>
+Microsoft wprowadza Cross-Tenant Message Recall w Exchange Online.
+<br><br>
+<strong>– funkcja jest domyślnie wyłączona</strong><br>
+<strong>– wymaga allow listy po stronie odbiorcy</strong><br>
+<strong>– dotyczy zaufanych tenantów Microsoft 365</strong>
+<br><br>
+<em>To praktyczna zmiana dla organizacji, które współpracują poza granicą jednego tenanta.</em>
+</p>
+</article>
+
+<article class="highlight">
+<h2>Co to oznacza dla firmy</h2>
+<p>
+Firmy z wieloma tenantami lub stałymi partnerami biznesowymi zyskują większą elastyczność w zarządzaniu błędnie wysłaną pocztą.
+<br><br>
+– mniej ograniczeń przy współpracy z partnerami<br>
+– większa kontrola po stronie administratora<br>
+– bezpieczniejszy model oparty o jawne zaufanie
+<br><br>
+To nie jest automatyczne otwarcie skrzynek dla zewnętrznych organizacji. To kontrolowana funkcja zarządzana przez administratora.
+</p>
+</article>
+</div>
+</section>
+
+<section class="section">
+<div class="grid-2">
+<article class="card">
+<div class="eyebrow">Źródło</div>
+<h3>Microsoft Exchange Team</h3>
+<p>
+Microsoft opisuje Cross-Tenant Message Recall jako rozszerzenie chmurowej funkcji Message Recall w Exchange Online, zarządzane przez allow listę tenantów.
+</p>
+<div class="cta-actions" style="margin-top:16px;">
+<a class="btn" href="https://techcommunity.microsoft.com/" target="_blank" rel="noopener noreferrer">
+Przeczytaj artykuł
+<i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+</div>
+</article>
+
+<div class="highlight">
+<h2>Dlaczego warto to przeczytać</h2>
+<p>
+To jedna z bardziej praktycznych zmian dla administratorów Exchange Online.
+<br><br>
+– znosi ograniczenie jednego tenanta<br>
+– wspiera współpracę między organizacjami<br>
+– zachowuje kontrolę po stronie odbiorcy
+<br><br>
+Szczególnie istotne dla grup kapitałowych, partnerów i firm pracujących w wielu środowiskach Microsoft 365.
+</p>
+</div>
+</div>
+</section>
+
+<div class="back-home">
+<a class="btn secondary" href="../index.html">
+<i class="fa-solid fa-house"></i>
+Wróć do Security Hub
+</a>
+</div>
+
+<footer>
+© <span id="year"></span>
+<a href="https://valcreon.com" class="footer-link">valcreon.com</a>
+• Microsoft 365 Security
+</footer>
+
+</div>
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
