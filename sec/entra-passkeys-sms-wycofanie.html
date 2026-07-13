@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Microsoft Entra przechodzi na&nbsp;passkeys jako domyślną metodę uwierzytelniania. Sprawdź daty, wpływ na użytkowników i działania administratora." />
+<title>Passkeys domyślnie w Microsoft Entra. Koniec SMS i połączeń głosowych | Valcreon Security</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="style1.css">
+</head>
+<body>
+<div class="container">
+<div class="topbar">
+<a class="back-link" href="../index.html" aria-label="Powrót do Security Hub"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
+<span class="pill"><i class="fa-solid fa-bullhorn"></i>Ogłoszenie Microsoft: MC1426371</span>
+</div>
+<section class="hero glass">
+<div class="hero-grid">
+<div>
+<div class="hero-label"><i class="fa-solid fa-shield-halved"></i>Microsoft&nbsp;Entra ID&nbsp;· ogłoszenie MC1426371</div>
+<h1>Passkeys domyślnie. Microsoft wycofuje własną obsługę SMS i&nbsp;połączeń głosowych</h1>
+<p class="lead">Od 1&nbsp;września&nbsp;2026&nbsp;r. Microsoft&nbsp;Entra zacznie automatycznie włączać passkeys użytkownikom korzystającym z&nbsp;SMS lub połączeń głosowych. Od 1&nbsp;lutego&nbsp;2027&nbsp;r. Microsoft przestanie natywnie dostarczać te metody uwierzytelniania.</p>
+</div>
+<div class="hero-side">
+<div class="signal"><div class="signal-top"><div class="signal-title"><span class="dot"></span>TL;DR</div></div>
+<div class="mini-chips"><div class="mini-chip">Passkeys</div><div class="mini-chip">MFA</div><div class="mini-chip">Bez haseł</div><div class="mini-chip">Odporność na phishing</div><div class="mini-chip">SMS i voice</div><div class="mini-chip">Microsoft&nbsp;Entra</div></div>
+</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Co się zmienia</h2><p class="section-desc">Microsoft przenosi domyślne uwierzytelnianie z&nbsp;metod podatnych na phishing na&nbsp;passkeys.</p></div>
+<div class="grid-3">
+<article class="card"><div class="card-top"><div class="eyebrow">Dzisiaj</div><h3>SMS i połączenie głosowe nadal działają</h3><p>W wielu organizacjach kod SMS lub połączenie telefoniczne pozostają metodą drugiego składnika uwierzytelniania.</p></div><div class="why-box"><div class="why-grid"><div class="why-item"><span class="why-dot"></span><span>podatność na phishing</span></div><div class="why-item"><span class="why-dot"></span><span>ryzyko przejęcia numeru</span></div><div class="why-item"><span class="why-dot"></span><span>zależność od sieci telekomunikacyjnej</span></div></div></div><div class="card-bottom"><p>Samo MFA nie oznacza jeszcze uwierzytelniania odpornego na phishing.</p></div></article>
+<article class="card"><div class="card-top"><div class="eyebrow">Zmiana</div><h3>Passkeys staną się metodą domyślną</h3><p>Microsoft&nbsp;Entra automatycznie włączy passkeys użytkownikom, którzy mają obecnie włączone uwierzytelnianie przez SMS lub połączenie głosowe.</p></div><div class="why-box"><div class="why-grid"><div class="why-item"><span class="why-dot"></span><span>klucze kryptograficzne zamiast kodów</span></div><div class="why-item"><span class="why-dot"></span><span>odporność na phishing</span></div><div class="why-item"><span class="why-dot"></span><span>bez dodatkowej opłaty za passkeys</span></div></div></div><div class="card-bottom"><p>Użytkownik będzie zachęcany do&nbsp;rejestracji passkey podczas logowania z MFA.</p></div></article>
+<article class="card"><div class="card-top"><div class="eyebrow">Wycofanie</div><h3>Microsoft przestanie dostarczać SMS i voice</h3><p>Po zakończeniu okresu przejściowego SMS i połączenia głosowe będą dostępne wyłącznie przez dostawcę skonfigurowanego przez organizację.</p></div><div class="why-box"><div class="why-grid"><div class="why-item"><span class="why-dot"></span><span>koniec natywnej usługi Microsoft</span></div><div class="why-item"><span class="why-dot"></span><span>dostawcy z&nbsp;Microsoft&nbsp;Security Store</span></div><div class="why-item"><span class="why-dot"></span><span>możliwe koszty telekomunikacyjne</span></div></div></div><div class="card-bottom"><p>Brak migracji może zakłócić logowanie użytkowników zależnych wyłącznie od telefonu.</p></div></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Najważniejsze daty</h2><p class="section-desc">Zmiana będzie wdrażana etapami, aby organizacje mogły przygotować użytkowników i polityki.</p></div>
+<div class="grid-2">
+<article class="card"><div class="eyebrow">1 września 2026</div><h3>Start przejścia na&nbsp;passkeys</h3><p>Użytkownicy z&nbsp;włączonym SMS lub voice zostaną objęci passkeys w&nbsp;Authentication Methods Policy. Registration Campaign przejdzie w stan Microsoft Managed i zacznie zachęcać ich do&nbsp;rejestracji passkey podczas logowania z MFA. Monit będzie można odłożyć.</p></article>
+<article class="card"><div class="eyebrow">18 września 2026</div><h3>Informacje o dostawcach telekomunikacyjnych</h3><p>Microsoft zapowiada publikację informacji o dostawcach, opcjach i warunkach dostępnych przez Microsoft&nbsp;Security Store.</p></article>
+<article class="card"><div class="eyebrow">30 października 2026</div><h3>Możliwość konfiguracji dostawcy</h3><p>Organizacje, które nadal potrzebują SMS lub połączeń głosowych, będą mogły wybrać i skonfigurować własnego dostawcę telekomunikacyjnego.</p></article>
+<article class="card"><div class="eyebrow">1 lutego 2027</div><h3>Koniec natywnego SMS i voice</h3><p>Microsoft wycofa własną obsługę SMS i&nbsp;połączeń głosowych. Użytkownik mający wyłącznie te metody otrzyma blokujący monit rejestracji passkey i nie będzie mógł go pominąć.</p></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Kogo dotyczy zmiana</h2><p class="section-desc">W pierwszej kolejności organizacji i użytkowników, którzy nadal mają włączone metody telefoniczne.</p></div>
+<div class="grid-3">
+<article class="card"><div class="icon"><i class="fa-solid fa-building-shield"></i></div><div class="eyebrow">Organizacje</div><h3>Dzierżawy Microsoft&nbsp;Entra ID</h3><p>Zakres obejmuje dzierżawy chmury publicznej, w których użytkownicy mają włączony SMS lub uwierzytelnianie głosowe.</p></article>
+<article class="card"><div class="icon"><i class="fa-solid fa-user-lock"></i></div><div class="eyebrow">Użytkownicy</div><h3>Osoby korzystające z telefonu</h3><p>Największą zmianę odczują użytkownicy, dla których SMS lub połączenie głosowe jest jedyną dostępną metodą MFA.</p></article>
+<article class="card"><div class="icon"><i class="fa-solid fa-gears"></i></div><div class="eyebrow">Administratorzy</div><h3>Zespół odpowiedzialny za tożsamość</h3><p>Administratorzy muszą sprawdzić zakres, zaplanować rejestrację passkeys, komunikację i ewentualny wyjątek telekomunikacyjny.</p></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Co powinien zrobić administrator</h2><p class="section-desc">Nie czekaj na wymuszenie. Najpierw ustal, kto nadal korzysta z&nbsp;SMS i voice, a następnie przygotuj kontrolowaną migrację.</p></div>
+<div class="grid-2">
+<article class="card"><div class="eyebrow">Krok 1</div><h3>Zidentyfikuj użytkowników</h3><p>Sprawdź, które konta mają włączony SMS lub połączenie głosowe oraz dla ilu osób są to jedyne dostępne metody uwierzytelniania.</p></article>
+<article class="card"><div class="eyebrow">Krok 2</div><h3>Włącz i przetestuj passkeys</h3><p>Przygotuj politykę metod uwierzytelniania, grupę pilotażową i scenariusze rejestracji na&nbsp;urządzeniach używanych w&nbsp;organizacji.</p></article>
+<article class="card"><div class="eyebrow">Krok 3</div><h3>Przeprowadź kampanię rejestracji</h3><p>Poinformuj użytkowników, dlaczego metoda się zmienia, jak zarejestrować passkey i gdzie uzyskać pomoc. Wdrażaj zmianę etapami.</p></article>
+<article class="card"><div class="eyebrow">Krok 4</div><h3>Oceń potrzebę utrzymania telefonu</h3><p>Jeżeli istnieje rzeczywista potrzeba biznesowa, regulacyjna lub operacyjna, oceń dostawców z&nbsp;Microsoft&nbsp;Security Store i przetestuj rozwiązanie przed wycofaniem usługi Microsoft.</p></article>
+</div>
+</section>
+<section class="section">
+<div class="highlight"><h2>Dlaczego passkeys są bezpieczniejsze</h2><p>Passkey wykorzystuje kryptografię klucza publicznego i jest powiązany z urządzeniem lub bezpiecznym magazynem poświadczeń.<br><br>W odróżnieniu od hasła czy kodu SMS użytkownik nie przekazuje sekretu, który można wpisać na fałszywej stronie logowania. Ogranicza to skuteczność phishingu, przejęcia numeru telefonu i ponownego wykorzystania przechwyconego kodu.</p></div>
+</section>
+<section class="section">
+<div class="grid-2">
+<article class="card tldr"><div class="eyebrow">TL;DR</div><h3>Telefon przestaje być domyślną drogą do MFA</h3><p><strong>– od 1&nbsp;września&nbsp;2026&nbsp;r. zaczyna się automatyczne włączanie passkeys</strong><br><strong>– od 1&nbsp;lutego&nbsp;2027&nbsp;r. Microsoft nie będzie natywnie dostarczał SMS i voice</strong><br><strong>– dalsze używanie telefonu będzie wymagało własnego dostawcy</strong><br><br><em>Najbezpieczniejszym kierunkiem jest migracja użytkowników do metod odpornych na phishing.</em></p></article>
+<article class="highlight"><h2>Co to oznacza dla&nbsp;firmy</h2><p>To nie jest tylko zmiana techniczna w&nbsp;ekranie logowania.<br><br>– trzeba wskazać użytkowników zależnych od telefonu<br>– przygotować rejestrację passkeys i komunikację<br>– zabezpieczyć konta awaryjne i proces odzyskiwania dostępu<br>– zdecydować, czy istnieje uzasadnienie dla dalszego używania SMS lub voice<br><br>Brak przygotowania może przełożyć się na problemy z logowaniem po zakończeniu okresu przejściowego.</p></article>
+</div>
+</section>
+<section class="section">
+<div class="grid-2">
+<article class="card"><div class="eyebrow">Źródło</div><h3>Microsoft Learn</h3><p>Aktualny harmonogram i zalecenia dotyczące przejścia z&nbsp;SMS i&nbsp;połączeń głosowych na&nbsp;passkeys są opisane w&nbsp;dokumentacji Microsoft&nbsp;Entra.</p><div class="cta-actions" style="margin-top:16px;"><a class="btn" href="https://learn.microsoft.com/en-us/entra/identity/authentication/concept-sms-voice-retirement" target="_blank" rel="noopener noreferrer">Przeczytaj dokumentację<i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></article>
+<div class="highlight"><h2>Ważna uwaga o&nbsp;terminie</h2><p>Wiadomość MC1426371 wskazywała 28 stycznia 2027 r. Aktualna dokumentacja Microsoft Learn, zaktualizowana&nbsp;13&nbsp;lipca&nbsp;2026&nbsp;r., wskazuje 1&nbsp;lutego&nbsp;2027&nbsp;r. jako termin wycofania natywnej obsługi SMS i voice. Wpis wykorzystuje nowszą datę z dokumentacji.</p></div>
+</div>
+</section>
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://valcreon.com" class="footer-link">valcreon.com</a> • Microsoft&nbsp;365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
