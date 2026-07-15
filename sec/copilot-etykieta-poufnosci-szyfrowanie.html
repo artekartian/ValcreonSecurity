@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Copilot może poprawić dokument Word, ale nowo utworzony plik nie musi zachować szyfrującej etykiety poufności Microsoft Purview. Sprawdź, jak bezpiecznie procesować chronione dokumenty.">
+<title>Copilot poprawił dokument Word, ale nowy plik utracił szyfrowanie | 1SEC</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="style1.css">
+<style>
+.flow{display:grid;grid-template-columns:1fr;gap:12px;margin-top:20px;}
+.flow-box{padding:18px;border:1px solid var(--stroke);border-radius:18px;background:rgba(255,255,255,.04);min-width:0;}
+.flow-box.risk{border-color:rgba(239,68,68,.32);background:linear-gradient(180deg,rgba(239,68,68,.11),rgba(255,255,255,.03));}
+.flow-label{display:flex;align-items:center;gap:8px;margin-bottom:9px;color:var(--muted2);font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;flex-wrap:wrap;}
+.flow-value{font-size:clamp(16px,2vw,22px);font-weight:800;line-height:1.3;letter-spacing:-.025em;overflow-wrap:anywhere;}
+.flow-arrow{display:flex;align-items:center;justify-content:center;color:#a78bfa;font-size:22px;transform:rotate(90deg);padding:2px 0;}
+.hero-label,.pill,.back-link,.section-head h2{flex-wrap:wrap;white-space:normal;}
+.section-head h2{display:flex;align-items:flex-start;gap:10px;}
+.fact-list{display:flex;flex-direction:column;gap:10px;margin-top:18px;}
+.fact-item{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.07);}
+.fact-item:last-child{border-bottom:0;}
+.fact-item i{width:28px;height:28px;display:grid;place-items:center;flex:0 0 28px;border-radius:9px;color:#c4b5fd;background:rgba(109,74,255,.18);font-size:12px;}
+.fact-item span{color:var(--muted);font-size:14px;line-height:1.55;}
+.action-list{display:grid;grid-template-columns:1fr;gap:12px;counter-reset:actions;}
+.action{display:flex;align-items:flex-start;gap:14px;padding:18px;border:1px solid var(--stroke);border-radius:18px;background:rgba(255,255,255,.035);counter-increment:actions;}
+.action::before{content:counter(actions);display:grid;place-items:center;width:42px;height:42px;flex:0 0 42px;border-radius:13px;color:#fff;font-weight:800;background:linear-gradient(180deg,var(--brand),var(--brand2));box-shadow:0 10px 24px rgba(109,74,255,.22);}
+.action h3{margin:1px 0 5px;font-size:18px;line-height:1.25;}
+.action p{margin:0;color:var(--muted);font-size:14px;line-height:1.6;}
+.notice{display:flex;align-items:flex-start;gap:14px;padding:20px;border:1px solid rgba(239,68,68,.28);border-radius:20px;background:linear-gradient(180deg,rgba(239,68,68,.1),rgba(255,255,255,.03));}
+.notice i{margin-top:2px;color:#fca5a5;font-size:22px;}
+.notice h3{margin:0 0 7px;font-size:18px;}
+.notice p{margin:0;color:var(--muted);font-size:14px;line-height:1.65;}
+.quote{padding:24px;border:1px solid rgba(56,189,248,.28);border-radius:20px;background:linear-gradient(180deg,rgba(56,189,248,.1),rgba(255,255,255,.03));}
+.quote p{margin:0;color:#e0f2fe;font-size:17px;font-weight:700;line-height:1.65;}
+.card-top,.card .why-box{min-height:auto;}
+@media (min-width:768px){.hero-grid{grid-template-columns:1fr;}.hero-side{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:0;}.flow{grid-template-columns:minmax(0,1fr) 42px minmax(0,1fr);align-items:stretch;}.flow-arrow{transform:none;padding:0;}.action-list{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:980px){.card-top,.card .why-box{min-height:auto;}.section-head{margin-top:56px;}}
+@media (max-width:767px){.flow{gap:8px;}.flow-box{padding:15px;}.hero-side{margin-top:4px;}}
+@media (max-width:480px){body{padding:16px 10px 48px;}.hero{padding:22px 18px;}.card,.highlight{padding:20px;}.hero-label{font-size:12px;padding:10px 12px;}.hero-label i,.pill i,.back-link i,.section-head h2 i{font-size:.75em;}.btn,.back-link{width:100%;justify-content:center;}.topbar{align-items:stretch;}.pill{justify-content:center;text-align:center;}.section-head{margin-top:44px;}.section-head h2{margin-bottom:8px;}.cta-actions{width:100%;}.cta-actions .btn{width:100%;justify-content:center;}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9FJMZWK2D1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9FJMZWK2D1');
+</script>  
+</head>
+<body>
+<div class="container">
+<header class="topbar">
+<a class="back-link" href="../index.html" aria-label="Powrót do 1SEC"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i><span>Powrót do 1SEC</span></a>
+<span class="pill"><i class="fa-solid fa-file-shield" aria-hidden="true"></i><span>Copilot · Word · Microsoft Purview</span></span>
+</header>
+<main>
+<section class="hero glass">
+<div class="hero-grid">
+<div>
+<div class="hero-label"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i><span>Praktyczny przypadek procesowania dokumentu przez Copilot</span></div>
+<h1>Copilot poprawił dokument Word, ale nowy plik utracił szyfrowanie</h1>
+<p class="lead">Nowa wersja zachowała treść, układ i widoczną stopkę klasyfikacyjną. Nie zachowała jednak aktywnej etykiety Microsoft Purview ani wynikającego z niej szyfrowania.</p>
+<div class="flow">
+<div class="flow-box"><div class="flow-label"><i class="fa-solid fa-lock" aria-hidden="true"></i>Dokument źródłowy</div><div class="flow-value">Etykieta poufności i szyfrowanie</div></div>
+<div class="flow-arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
+<div class="flow-box risk"><div class="flow-label"><i class="fa-solid fa-lock-open" aria-hidden="true"></i>Nowy dokument</div><div class="flow-value">Treść i stopka bez aktywnej ochrony</div></div>
+</div>
+</div>
+<aside class="hero-side">
+<div class="signal"><div class="signal-top"><div class="signal-title"><span class="dot"></span>W skrócie</div></div><div class="mini-chips"><div class="mini-chip">Microsoft 365 Copilot</div><div class="mini-chip">Word</div><div class="mini-chip">Purview</div><div class="mini-chip">Etykiety poufności</div><div class="mini-chip">Szyfrowanie</div><div class="mini-chip">DLP</div></div></div>
+<div class="notice"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i><div><h3>Stopka to nie zabezpieczenie</h3><p>Widoczny tekst klasyfikacji może zostać odtworzony w nowym pliku, ale sam nie szyfruje dokumentu i nie ogranicza dostępu.</p></div></div>
+</aside>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span>Co wydarzyło się w praktyce</span></h2><p class="section-desc">Copilot otrzymał chroniony dokument Word, odczytał jego treść i przygotował poprawioną wersję jako nowy plik.</p></div>
+<div class="grid-3">
+<article class="card"><div class="icon"><i class="fa-solid fa-file-shield" aria-hidden="true"></i></div><div class="eyebrow">Punkt wyjścia</div><h3>Oryginał był zaszyfrowany</h3><p>Dokument źródłowy miał aktywną etykietę poufności Microsoft Purview, oznaczenie wizualne oraz ograniczenia dostępu wynikające z polityki organizacji.</p></article>
+<article class="card"><div class="icon"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i></div><div class="eyebrow">Procesowanie</div><h3>Copilot utworzył nową wersję</h3><p>Treść została uporządkowana, formatowanie poprawione, a powtarzające się fragmenty usunięte. Nowy dokument nie był jednak bezpośrednio edytowaną kopią chronionego oryginału.</p></article>
+<article class="card"><div class="icon"><i class="fa-solid fa-unlock-keyhole" aria-hidden="true"></i></div><div class="eyebrow">Rezultat</div><h3>Ochrona nie została zachowana</h3><p>Nowy plik wyglądał jak dokument chroniony, ale nie miał aktywnej etykiety i szyfrowania odpowiadającego dokumentowi źródłowemu.</p></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2><i class="fa-solid fa-layer-group" aria-hidden="true"></i><span>Treść, oznaczenie i ochrona to trzy różne warstwy</span></h2><p class="section-desc">Prawidłowy wygląd dokumentu nie potwierdza, że zachowano jego zabezpieczenia.</p></div>
+<div class="grid-3">
+<article class="card"><div class="eyebrow">Warstwa 1</div><h3>Treść dokumentu</h3><p>Tekst, nagłówki, listy, tabele i dane mogą zostać skopiowane lub odtworzone w nowym pliku.</p><div class="fact-list"><div class="fact-item"><i class="fa-solid fa-check" aria-hidden="true"></i><span>możliwa do odczytania i poprawienia</span></div><div class="fact-item"><i class="fa-solid fa-check" aria-hidden="true"></i><span>nie przenosi automatycznie ochrony</span></div></div></article>
+<article class="card"><div class="eyebrow">Warstwa 2</div><h3>Oznaczenie wizualne</h3><p>Stopka, nagłówek lub znak wodny informują o klasyfikacji, ale są tylko widocznym elementem dokumentu.</p><div class="fact-list"><div class="fact-item"><i class="fa-solid fa-eye" aria-hidden="true"></i><span>może wyglądać identycznie jak w oryginale</span></div><div class="fact-item"><i class="fa-solid fa-xmark" aria-hidden="true"></i><span>nie szyfruje i nie kontroluje dostępu</span></div></div></article>
+<article class="card"><div class="eyebrow">Warstwa 3</div><h3>Aktywna ochrona</h3><p>Etykieta Microsoft Purview może stosować szyfrowanie, prawa użycia oraz dostęp ograniczony do wskazanych użytkowników lub organizacji.</p><div class="fact-list"><div class="fact-item"><i class="fa-solid fa-key" aria-hidden="true"></i><span>wymaga faktycznego zastosowania polityki</span></div><div class="fact-item"><i class="fa-solid fa-user-shield" aria-hidden="true"></i><span>musi zostać zweryfikowana oddzielnie</span></div></div></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2><i class="fa-solid fa-gears" aria-hidden="true"></i><span>Dlaczego nowy plik mógł utracić etykietę</span></h2><p class="section-desc">Utworzenie dokumentu na podstawie odczytanej treści nie jest tym samym co bezpośrednia edycja chronionego pliku.</p></div>
+<div class="grid-2">
+<article class="highlight"><h2>Copilot pracował na odszyfrowanej treści</h2><p>Uprawniony użytkownik mógł przekazać dokument do procesowania, więc jego zawartość była dostępna w bieżącym kontekście. Nie oznaczało to jednak automatycznego przeniesienia szyfrowania do nowo utworzonego pliku.</p></article>
+<article class="card"><div class="eyebrow">Kluczowa różnica</div><h3>Edycja oryginału a rekonstrukcja</h3><p><strong>Edycja chronionej kopii</strong> może zachować istniejące elementy ochrony, choć nadal wymaga kontroli.<br><br><strong>Rekonstrukcja nowego pliku</strong> przenosi głównie treść i formatowanie, ale nie daje gwarancji zachowania etykiety, praw dostępu i szyfrowania.</p></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2><i class="fa-solid fa-list-check" aria-hidden="true"></i><span>Bezpieczny proces pracy z Copilotem</span></h2><p class="section-desc">Zachowanie ochrony trzeba potraktować jako osobny warunek wykonania zadania.</p></div>
+<div class="action-list">
+<article class="action"><div><h3>Sprawdź ochronę przed rozpoczęciem</h3><p>Ustal, czy dokument ma etykietę poufności, czy stosuje ona szyfrowanie i czy wynikowy plik musi zachować identyczne ograniczenia.</p></div></article>
+<article class="action"><div><h3>Preferuj edycję chronionej kopii</h3><p>Jeżeli proces na to pozwala, modyfikuj kopię dokumentu źródłowego zamiast budować nowy plik wyłącznie na podstawie odczytanej treści.</p></div></article>
+<article class="action"><div><h3>Oddziel wygląd od ochrony</h3><p>Nie uznawaj stopki, nagłówka, koloru ani identyfikatora w metadanych za wystarczające potwierdzenie aktywnego szyfrowania.</p></div></article>
+<article class="action"><div><h3>Zweryfikuj wynik w Wordzie</h3><p>Sprawdź aktywną etykietę, prawa dostępu i możliwość otwarcia pliku przez właściwe konta. W razie potrzeby ponownie zastosuj etykietę.</p></div></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><span>Co zrobić, gdy powstała niechroniona wersja</span></h2><p class="section-desc">Do chwili ponownego zastosowania etykiety taki plik należy traktować jako pozbawiony ochrony dokumentu źródłowego.</p></div>
+<div class="grid-3">
+<article class="card"><div class="eyebrow">01</div><h3>Nie rozpowszechniaj</h3><p>Nie wysyłaj pliku dalej i przechowuj go wyłącznie w kontrolowanej lokalizacji.</p></article>
+<article class="card"><div class="eyebrow">02</div><h3>Ponownie zastosuj etykietę</h3><p>Otwórz dokument w Wordzie na uprawnionym koncie i wybierz właściwą etykietę poufności.</p></article>
+<article class="card"><div class="eyebrow">03</div><h3>Sprawdź i usuń kopie</h3><p>Zweryfikuj szyfrowanie oraz prawa dostępu, a zbędne niechronione wersje usuń.</p></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2><i class="fa-solid fa-shield-check" aria-hidden="true"></i><span>Jak Copilot powinien raportować zachowanie etykiety</span></h2><p class="section-desc">Po utworzeniu dokumentu wynikowego Copilot powinien oddzielnie poinformować o zachowaniu metadanych etykiety i o zakresie możliwej weryfikacji ochrony.</p></div>
+<div class="quote"><p>W pliku zachowano metadane oryginalnej etykiety Microsoft Purview: identyfikator etykiety, status aktywny, informację, że etykieta nie została usunięta, oraz jej oznaczenie wizualne.</p></div>
+<div class="notice" style="margin-top:14px;"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><div><h3>Ważne ograniczenie weryfikacji</h3><p>Obecność metadanych etykiety można sprawdzić technicznie, ale skutecznego szyfrowania i praw dostępu nie da się ostatecznie potwierdzić poza kontekstem Microsoft Purview. Po pobraniu plik należy otworzyć w Wordzie na uprawnionym koncie i sprawdzić, czy aplikacja pokazuje właściwą etykietę oraz ochronę. Do tego momentu nie należy uznawać szyfrowania dokumentu wynikowego za ostatecznie zweryfikowane.</p></div></div>
+</section>
+<section class="section">
+<div class="grid-2">
+<article class="highlight"><h2>Stosuj polecenie dla Copilota</h2><p>Pracuj na chronionej kopii dokumentu źródłowego zamiast tworzyć pusty plik od podstaw. Zachowaj metadane szyfrującej etykiety poufności i osobno zweryfikuj ich obecność w dokumencie wynikowym. Nie traktuj odtworzonej stopki ani skopiowanej treści jako potwierdzenia zachowania ochrony. Jeżeli nie możesz potwierdzić skutecznego szyfrowania i praw dostępu w kontekście Microsoft Purview, wyraźnie poinformuj, że plik wymaga weryfikacji w Wordzie na uprawnionym koncie.</p></article>
+<article class="card tldr"><div class="eyebrow">TL;DR</div><h3>Nowy plik wymaga osobnej kontroli</h3><p><strong>Copilot może zachować:</strong> treść, strukturę i widoczne oznaczenia.<br><br><strong>Nie musi zachować:</strong> aktywnej etykiety, szyfrowania i praw dostępu.<br><br><em>Stopka informuje o klasyfikacji, ale sama nie zabezpiecza dokumentu.</em></p></article>
+</div>
+</section>
+</main>
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house" aria-hidden="true"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://valcreon.com" class="footer-link">valcreon.com</a> • Microsoft&nbsp;365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>
