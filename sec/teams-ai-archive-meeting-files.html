@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Microsoft Teams wprowadza pliki .meeting, czyli archiwa AI spotkań używane przez Copilot i Facilitator. Sprawdź wpływ na retencję, zgodność, prywatność i działania administratora." />
+<title>Microsoft Teams: archiwa AI spotkań dla Copilot i Facilitator | Valcreon Security</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="style1.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9FJMZWK2D1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9FJMZWK2D1');
+</script>  
+</head>
+<body>
+<div class="container">
+<div class="topbar">
+<a class="back-link" href="../index.html" aria-label="Powrót do Security Hub"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
+<span class="pill"><i class="fa-solid fa-bullhorn"></i>Ogłoszenie Microsoft: MC1429018</span>
+</div>
+
+<section class="hero glass">
+<div class="hero-grid">
+<div>
+<div class="hero-label"><i class="fa-brands fa-microsoft"></i>Microsoft Teams · Copilot · ogłoszenie MC1429018</div>
+<h1>Teams utworzy archiwa AI spotkań. Copilot zyska lepszy kontekst</h1>
+<p class="lead">Microsoft Teams wprowadza generowane przez AI pliki archiwum spotkań <strong>.meeting</strong>. Mają one pomagać Copilot i Facilitator odpowiadać na pytania o spotkania dokładniej, bez przechowywania surowej treści transkrypcji.</p>
+</div>
+<div class="hero-side">
+<div class="signal"><div class="signal-top"><div class="signal-title"><span class="dot"></span>TL;DR</div></div>
+<div class="mini-chips"><div class="mini-chip">Microsoft Teams</div><div class="mini-chip">.meeting</div><div class="mini-chip">Copilot</div><div class="mini-chip">Facilitator</div><div class="mini-chip">SharePoint Embedded</div><div class="mini-chip">Retencja 5 lat</div></div>
+</div>
+<div class="signal">
+<div class="signal-top"><div class="signal-title"><span class="dot"></span>Najważniejszy wpływ</div></div>
+<p style="margin:0;color:var(--muted);line-height:1.65;font-size:14px;">Pojawia się nowy typ danych organizacyjnych tworzonych przez AI. Administratorzy powinni sprawdzić ustawienia w Teams Admin Center i dopasować retencję do polityk firmy.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Co się zmienia</h2><p class="section-desc">Teams będzie tworzył dodatkową warstwę wiedzy o spotkaniach, wykorzystywaną przez narzędzia AI w Microsoft 365.</p></div>
+<div class="grid-3">
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-file-lines"></i></div><div class="eyebrow">Nowy plik</div><h3>Archiwum .meeting</h3><p>Microsoft Teams będzie generował pliki <strong>.meeting</strong> dla spotkań spełniających określone warunki. Pliki mają zawierać ustrukturyzowane informacje wygenerowane przez AI.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-brain"></i></div><div class="eyebrow">Lepszy kontekst</div><h3>Wsparcie dla Copilot i Facilitator</h3><p>Archiwa mają pomóc Copilot i Facilitator udzielać bardziej kontekstowych odpowiedzi na podstawie wiedzy ze spotkań.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-lock"></i></div><div class="eyebrow">Prywatność</div><h3>Bez surowych fragmentów transkrypcji</h3><p>Microsoft wskazuje, że archiwum zawiera treść wygenerowaną przez AI, a nie surowe fragmenty transkrypcji spotkania.</p></div></article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Kiedy powstanie archiwum</h2><p class="section-desc">Plik .meeting zostanie utworzony tylko wtedy, gdy spotkanie spełni wszystkie wymagania.</p></div>
+<div class="timeline">
+<div class="step"><div class="step-no">1</div><div><h3>Transkrypcja jest utworzona i zapisana</h3><p>Dla spotkania musi zostać utworzona oraz zapisana transkrypcja.</p></div></div>
+<div class="step"><div class="step-no">2</div><div><h3>Zaproszono uczestnika z licencją Copilot</h3><p>Co najmniej jedna zaproszona osoba musi mieć licencję Microsoft 365 Copilot.</p></div></div>
+<div class="step"><div class="step-no">3</div><div><h3>Copilot i Facilitator są dozwolone w trakcie i po spotkaniu</h3><p>Opcja spotkania <strong>Allow Copilot and Facilitator</strong> musi być ustawiona na <strong>During and after the meeting</strong>.</p></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Gdzie będą przechowywane dane</h2><p class="section-desc">To nie jest zwykły plik użytkownika w OneDrive. Microsoft opisuje osobny model przechowywania.</p></div>
+<div class="grid-2">
+<article class="highlight"><h2>SharePoint Embedded</h2><p>Pliki archiwum mają być przechowywane w kontenerze <strong>SharePoint Embedded</strong> należącym do tenant’a organizacji. Nie będą przechowywane w magazynie użytkownika.</p></article>
+<article class="card tldr"><div class="eyebrow">Retencja</div><h3>Domyślnie 5 lat</h3><p>Domyślny czas wygaśnięcia wynosi <strong>1825 dni</strong>, czyli około pięciu lat. Administratorzy mogą kontrolować domyślny okres przechowywania tych plików w organizacji.</p></article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Kiedy archiwum nie zostanie utworzone</h2><p class="section-desc">Microsoft wyklucza wybrane scenariusze związane z silniejszą ochroną spotkań.</p></div>
+<div class="grid-3">
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-tag"></i></div><div class="eyebrow">Etykiety poufności</div><h3>Etykiety z szyfrowaniem</h3><p>Archiwa nie będą tworzone dla spotkań z etykietami poufności, które obejmują szyfrowanie.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-key"></i></div><div class="eyebrow">Szyfrowanie</div><h3>Spotkania E2EE</h3><p>Mechanizm nie obejmie spotkań szyfrowanych end-to-end.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-ban"></i></div><div class="eyebrow">Ograniczenia</div><h3>Zakaz kopiowania lub przekazywania</h3><p>Archiwa nie będą tworzone dla spotkań z ograniczonym kopiowaniem lub przekazywaniem treści.</p></div></article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Kontrola dostępu i bezpieczeństwo</h2><p class="section-desc">Użytkownicy nie będą pracować bezpośrednio na pliku .meeting, ale Copilot i Facilitator mogą korzystać z jego wiedzy.</p></div>
+<div class="grid-3">
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-user-lock"></i></div><div class="eyebrow">Dostęp</div><h3>Tylko osoby z dostępem do spotkania</h3><p>Odpowiedzi ugruntowane w archiwum mogą otrzymać tylko użytkownicy, którzy mają dostęp do danego spotkania.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-building-circle-check"></i></div><div class="eyebrow">Tenant</div><h3>Tylko ta sama organizacja</h3><p>Wiedza z archiwum ma być udostępniana tylko użytkownikom z tego samego tenant’a co organizator spotkania.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-eye-slash"></i></div><div class="eyebrow">Brak podglądu</div><h3>Użytkownik nie otworzy pliku</h3><p>Pliki .meeting nie mogą być bezpośrednio przeglądane, modyfikowane, zmieniane nazwą ani przenoszone przez użytkowników.</p></div></article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Harmonogram wdrożenia</h2><p class="section-desc">Ustawienia administracyjne mają pojawić się około dwa tygodnie przed rozpoczęciem generowania archiwów.</p></div>
+<div class="grid-2">
+<article class="card"><div class="eyebrow">Targeted Release</div><h3>Początek sierpnia 2026</h3><p>Wdrażanie w programie Targeted Release ma rozpocząć się na początku sierpnia 2026 roku i zakończyć pod koniec sierpnia 2026 roku.</p></article>
+<article class="card"><div class="eyebrow">Worldwide</div><h3>Koniec sierpnia 2026</h3><p>Ogólna dostępność dla środowisk Worldwide ma rozpocząć się pod koniec sierpnia 2026 roku i zakończyć pod koniec września 2026 roku.</p></article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Co powinien zrobić administrator</h2><p class="section-desc">Zmiana jest domyślnie włączona, dlatego warto sprawdzić ustawienia wcześniej.</p></div>
+<div class="grid-2">
+<article class="card"><div class="eyebrow">Krok 1</div><h3>Sprawdź ustawienie w Teams Admin Center</h3><p>Ścieżka wskazana w ogłoszeniu: <strong>Meeting Policies &gt; AI Memory and Archive &gt; Allow AI to archive meetings with .meeting file generation</strong>.</p></article>
+<article class="card"><div class="eyebrow">Krok 2</div><h3>Zweryfikuj retencję</h3><p>Domyślny okres 1825 dni może być zbyt długi dla części organizacji. Warto dopasować go do polityk retencji, zgodności i wymagań prawnych.</p></article>
+<article class="card"><div class="eyebrow">Krok 3</div><h3>Poinformuj helpdesk i compliance</h3><p>Zespoły obsługi i zgodności powinny wiedzieć, czym są archiwa AI, gdzie są przechowywane i jak wpływają na odpowiedzi Copilot i Facilitator.</p></article>
+<article class="card"><div class="eyebrow">Krok 4</div><h3>Monitoruj dostępność ustawień</h3><p>Generowanie archiwów ma rozpocząć się około dwa tygodnie po udostępnieniu ustawienia w organizacji.</p></article>
+</div>
+</section>
+
+<section class="section">
+<div class="grid-2">
+<article class="card tldr"><div class="eyebrow">TL;DR</div><h3>Teams dostaje pamięć AI o spotkaniach</h3><p><strong>– powstaną pliki .meeting dla wybranych spotkań Teams</strong><br><strong>– pliki będą przechowywane w SharePoint Embedded</strong><br><strong>– funkcja jest domyślnie włączona</strong><br><strong>– domyślna retencja wynosi 1825 dni</strong><br><strong>– archiwa nie zawierają surowych fragmentów transkrypcji</strong><br><br><em>Najważniejsze zadanie administratora to sprawdzić ustawienie AI Archive i dopasować retencję do polityk organizacji.</em></p></article>
+<article class="highlight"><h2>Co to oznacza dla firmy</h2><p>To nie jest tylko funkcja wygody dla Copilot. To nowy rodzaj danych wygenerowanych przez AI na podstawie spotkań Teams.<br><br>W praktyce warto potraktować ten temat jak element ładu danych: sprawdzić retencję, dostęp, zgodność z etykietami poufności oraz komunikację do osób odpowiedzialnych za bezpieczeństwo i compliance.</p></article>
+</div>
+</section>
+
+<section class="section">
+<div class="grid-2">
+<article class="card"><div class="eyebrow">Źródło</div><h3>Microsoft Learn</h3><p>Microsoft zapowiada szczegóły funkcji w dokumentacji dotyczącej AI Archives for Microsoft Teams Meetings.</p><div class="cta-actions" style="margin-top:16px;"><a class="btn" href="https://learn.microsoft.com/en-us/microsoftteams/ai-archive" target="_blank" rel="noopener noreferrer">Przeczytaj dokumentację<i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></article>
+<div class="highlight"><h2>Numer ogłoszenia</h2><p>Ten wpis powstał na podstawie komunikatu Microsoft 365 Message Center <strong>MC1429018</strong>, powiązanego z Microsoft 365 Roadmap ID <strong>558933</strong>.</p></div>
+</div>
+</section>
+
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://valcreon.com" class="footer-link">valcreon.com</a> • Microsoft 365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
