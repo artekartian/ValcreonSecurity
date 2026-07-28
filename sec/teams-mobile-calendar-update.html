@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -16,7 +17,6 @@
 <a class="back-link" href="../index.html" aria-label="Powrót do Security Hub"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
 <span class="pill"><i class="fa-solid fa-bullhorn"></i>Ogłoszenie Microsoft: MC1440980</span>
 </div>
-
 <section class="hero glass">
 <div class="hero-grid">
 <div>
@@ -36,7 +36,6 @@
 </div>
 </div>
 </section>
-
 <section class="section">
 <div class="grid-2">
 <article class="highlight">
@@ -46,11 +45,10 @@
 <article class="card tldr">
 <div class="eyebrow">W skrócie</div>
 <h3>Co zrobić</h3>
-<p><strong>– zaktualizuj Teams na iOS i Android do najnowszej wersji</strong><br><strong>– zrób to przed końcem października 2026</strong><br><strong>– włącz automatyczne aktualizacje aplikacji</strong><br><strong>– dla urządzeń zarządzanych: sprawdź, czy MDM/MAM wypycha najnowszą wersję</strong><br><strong>– poinformuj użytkowników i helpdesk</strong><br><br><em>Zmiana obejmuje tylko aplikację mobilną. Teams na web i desktop działa bez zmian.</em></p>
+<p><strong>– zaktualizuj Teams na iOS i Android do najnowszej wersji</strong><br><strong>– zrób to przed końcem października 2026</strong><br><strong>– włącz automatyczne aktualizacje aplikacji</strong><br><strong>– na urządzeniach MDM (np. Intune, VPP / Managed Google Play) przypisz Teams i włącz automatyczną aktualizację</strong><br><strong>– poinformuj użytkowników i helpdesk</strong><br><br><em>Zmiana obejmuje tylko aplikację mobilną. Teams na web i desktop działa bez zmian.</em></p>
 </article>
 </div>
 </section>
-
 <section class="section">
 <div class="section-head"><h2>Kogo dotyczy i harmonogram</h2><p class="section-desc">Zmiana jest ogłaszana z wyprzedzeniem, aby zdążyć z aktualizacją floty mobilnej.</p></div>
 <div class="grid-3">
@@ -59,24 +57,21 @@
 <article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-clock"></i></div><div class="eyebrow">Termin</div><h3>Koniec października 2026</h3><p>Wdrożenie na całym świecie oraz w środowiskach GCC, GCC High i DoD rozpoczyna się i kończy pod koniec października 2026.</p></div></article>
 </div>
 </section>
-
 <section class="section">
 <div class="section-head"><h2>Co powinien zrobić administrator</h2><p class="section-desc">Kilka kroków, które warto zamknąć przed końcem października 2026.</p></div>
 <div class="timeline">
 <div class="step"><div class="step-no">1</div><div><h3>Zaktualizuj aplikację mobilną</h3><p>Upewnij się, że użytkownicy mają najnowszą wersję Teams z Apple App Store i Google Play.</p></div></div>
 <div class="step"><div class="step-no">2</div><div><h3>Włącz automatyczne aktualizacje</h3><p>Zachęć użytkowników do włączenia automatycznych aktualizacji na telefonach, aby uniknąć powrotu do starej wersji.</p></div></div>
-<div class="step"><div class="step-no">3</div><div><h3>Sprawdź urządzenia zarządzane</h3><p>Zweryfikuj, czy zasady MDM/MAM (np. Intune) rzeczywiście wypychają najnowszą wersję aplikacji i nie blokują aktualizacji.</p></div></div>
+<div class="step"><div class="step-no">3</div><div><h3>Sprawdź urządzenia zarządzane</h3><p>Na urządzeniach zarządzanych przez MDM (np. Intune z enrollmentem, VPP dla iOS lub Managed Google Play dla Android) zweryfikuj, że Teams jest przypisany i ustawiony na automatyczną aktualizację do najnowszej wersji. Uwaga: sam MAM (App Protection Policies) nie wdraża ani nie aktualizuje aplikacji, więc przy scenariuszu BYOD / MAM-only zadbaj o komunikację do użytkowników, aby sami zaktualizowali Teams ze sklepu.</p></div></div>
 <div class="step"><div class="step-no">4</div><div><h3>Poinformuj zespół</h3><p>Zakomunikuj zmianę użytkownikom mobilnym i zespołom wsparcia, aby uniknąć zgłoszeń po terminie.</p></div></div>
 </div>
 </section>
-
 <section class="section">
 <div class="grid-2">
 <article class="card"><div class="eyebrow">Numer ogłoszenia</div><h3>MC1440980</h3><p>Wpis powstał na podstawie komunikatu Microsoft 365 Message Center <strong>MC1440980</strong> (Major change, Microsoft Teams).</p></article>
 <div class="highlight"><h2>Dokumentacja</h2><p>Szczegóły dotyczące wycofania protokołu EWS w Exchange Online opisuje oficjalna dokumentacja Microsoft.</p><div class="cta-actions" style="margin-top:16px;"><a class="btn" href="https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/deprecation-of-ews-exchange-online" target="_blank" rel="noreferrer">Deprecation of Exchange Web Services in Exchange Online<i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
 </div>
 </section>
-
 <div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
 <footer>© <span id="year"></span> <a href="https://valcreon.com" class="footer-link">valcreon.com</a> • Microsoft 365 Security</footer>
 </div>
