@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Microsoft Teams mobile: aktualizacja aplikacji na iOS i Android wymagana do końca października 2026, aby zachować dostęp do Kalendarza. Powód: wycofanie protokołu Exchange Web Services (EWS) w Exchange Online. Ogłoszenie MC1440980." />
+<title>Microsoft Teams mobile: zaktualizuj aplikację, aby zachować Kalendarz | Valcreon Security</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style2.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+<div class="container">
+<div class="topbar">
+<a class="back-link" href="../index.html" aria-label="Powrót do Security Hub"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
+<span class="pill"><i class="fa-solid fa-bullhorn"></i>Ogłoszenie Microsoft: MC1440980</span>
+</div>
+
+<section class="hero glass">
+<div class="hero-grid">
+<div>
+<div class="hero-label"><i class="fa-brands fa-microsoft"></i>Microsoft Teams · mobile · ogłoszenie MC1440980</div>
+<h1>Zaktualizuj Teams na telefonie, aby nie stracić Kalendarza</h1>
+<p class="lead">Od końca października 2026 dostęp do Kalendarza w aplikacji mobilnej Microsoft Teams (iOS i Android) będzie wymagał najnowszej wersji aplikacji. Starsze wersje przestaną obsługiwać widok Kalendarza. Zmiana dotyczy wyłącznie klienta mobilnego, wersje web i desktop pozostają bez zmian.</p>
+</div>
+<div class="hero-side">
+<div class="signal">
+<div class="signal-top"><div class="signal-title"><span class="dot"></span>Najważniejsze</div></div>
+<div class="mini-chips"><div class="mini-chip">Teams mobile</div><div class="mini-chip">iOS + Android</div><div class="mini-chip">Kalendarz</div><div class="mini-chip">koniec X 2026</div><div class="mini-chip">wycofanie EWS</div></div>
+</div>
+<div class="signal">
+<div class="signal-top"><div class="signal-title"><span class="dot"></span>Powód zmiany</div></div>
+<p style="margin:0;color:var(--muted);line-height:1.65;font-size:14px;">Kalendarz w Teams mobile korzystał dotąd z protokołu <strong>Exchange Web Services (EWS)</strong>. EWS jest wycofywany w Exchange Online od 1 października 2026, dlatego Teams przechodzi na nowoczesne API. Bez aktualizacji aplikacja straci połączenie z Kalendarzem.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="grid-2">
+<article class="highlight">
+<h2>Dlaczego to się dzieje</h2>
+<p>Microsoft wycofuje protokół <strong>Exchange Web Services (EWS)</strong> w Exchange Online. Od 1 października 2026 EWS zaczyna być blokowany domyślnie, a całkowite wyłączenie planowane jest na 1 kwietnia 2027. Kalendarz w mobilnym Teams opierał się na tym starym protokole, dlatego aplikacja musi przejść na Microsoft Graph. Najnowsza wersja klienta mobilnego zawiera już tę zmianę, a wersje starsze po terminie stracą dostęp do Kalendarza.</p>
+</article>
+<article class="card tldr">
+<div class="eyebrow">W skrócie</div>
+<h3>Co zrobić</h3>
+<p><strong>– zaktualizuj Teams na iOS i Android do najnowszej wersji</strong><br><strong>– zrób to przed końcem października 2026</strong><br><strong>– włącz automatyczne aktualizacje aplikacji</strong><br><strong>– dla urządzeń zarządzanych: sprawdź, czy MDM/MAM wypycha najnowszą wersję</strong><br><strong>– poinformuj użytkowników i helpdesk</strong><br><br><em>Zmiana obejmuje tylko aplikację mobilną. Teams na web i desktop działa bez zmian.</em></p>
+</article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Kogo dotyczy i harmonogram</h2><p class="section-desc">Zmiana jest ogłaszana z wyprzedzeniem, aby zdążyć z aktualizacją floty mobilnej.</p></div>
+<div class="grid-3">
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-mobile-screen"></i></div><div class="eyebrow">Kogo dotyczy</div><h3>Użytkownicy mobilni</h3><p>Wszyscy, którzy korzystają z Microsoft Teams na urządzeniach iOS i Android. Web i desktop nie są objęte zmianą.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-calendar-days"></i></div><div class="eyebrow">Skutek</div><h3>Utrata Kalendarza</h3><p>Bez najnowszej wersji aplikacji użytkownik straci dostęp do funkcji Kalendarza w Teams mobile: podgląd i dołączanie do spotkań oraz ich tworzenie.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-clock"></i></div><div class="eyebrow">Termin</div><h3>Koniec października 2026</h3><p>Wdrożenie na całym świecie oraz w środowiskach GCC, GCC High i DoD rozpoczyna się i kończy pod koniec października 2026.</p></div></article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Co powinien zrobić administrator</h2><p class="section-desc">Kilka kroków, które warto zamknąć przed końcem października 2026.</p></div>
+<div class="timeline">
+<div class="step"><div class="step-no">1</div><div><h3>Zaktualizuj aplikację mobilną</h3><p>Upewnij się, że użytkownicy mają najnowszą wersję Teams z Apple App Store i Google Play.</p></div></div>
+<div class="step"><div class="step-no">2</div><div><h3>Włącz automatyczne aktualizacje</h3><p>Zachęć użytkowników do włączenia automatycznych aktualizacji na telefonach, aby uniknąć powrotu do starej wersji.</p></div></div>
+<div class="step"><div class="step-no">3</div><div><h3>Sprawdź urządzenia zarządzane</h3><p>Zweryfikuj, czy zasady MDM/MAM (np. Intune) rzeczywiście wypychają najnowszą wersję aplikacji i nie blokują aktualizacji.</p></div></div>
+<div class="step"><div class="step-no">4</div><div><h3>Poinformuj zespół</h3><p>Zakomunikuj zmianę użytkownikom mobilnym i zespołom wsparcia, aby uniknąć zgłoszeń po terminie.</p></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="grid-2">
+<article class="card"><div class="eyebrow">Numer ogłoszenia</div><h3>MC1440980</h3><p>Wpis powstał na podstawie komunikatu Microsoft 365 Message Center <strong>MC1440980</strong> (Major change, Microsoft Teams).</p></article>
+<div class="highlight"><h2>Dokumentacja</h2><p>Szczegóły dotyczące wycofania protokołu EWS w Exchange Online opisuje oficjalna dokumentacja Microsoft.</p><div class="cta-actions" style="margin-top:16px;"><a class="btn" href="https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/deprecation-of-ews-exchange-online" target="_blank" rel="noreferrer">Deprecation of Exchange Web Services in Exchange Online<i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+</div>
+</section>
+
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://valcreon.com" class="footer-link">valcreon.com</a> • Microsoft 365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
