@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Microsoft Intune (wydanie 2607): inwentaryzacja rejestru Windows w katalogu właściwości i widoku Device inventory. Zbieraj dane z HKLM w sposób deklaratywny, bez własnych skryptów. Limity: 6 KB na wartość, 100 kluczy na urządzenie, tylko HKLM." />
+<title>Microsoft Intune: inwentaryzacja rejestru Windows w katalogu właściwości | Valcreon Security</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+<div class="container">
+<div class="topbar">
+<a class="back-link" href="../index.html" aria-label="Powrót do Security Hub"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
+<span class="pill"><i class="fa-solid fa-bullhorn"></i>Microsoft Intune · wydanie 2607</span>
+</div>
+<section class="hero glass">
+<div class="hero-grid">
+<div>
+<div class="hero-label"><i class="fa-brands fa-microsoft"></i>Microsoft Intune · Windows · Device inventory</div>
+<h1>Inwentaryzacja rejestru Windows w Microsoft Intune</h1>
+<p class="lead">Wraz z lipcowym wydaniem Intune (2607) inwentaryzacja urządzeń obejmie dane z rejestru Windows. W katalogu właściwości definiujesz klucze, na których Ci zależy, a Intune zbiera je za Ciebie i pokazuje w widoku Device inventory. Nie musisz budować ani utrzymywać własnych skryptów zbierających dane, a weryfikujesz rzeczywistą konfigurację urządzenia, a nie tylko przypisaną politykę.</p>
+</div>
+<div class="hero-side">
+<div class="signal">
+<div class="signal-top"><div class="signal-title"><span class="dot"></span>Najważniejsze</div></div>
+<div class="mini-chips"><div class="mini-chip">Intune 2607</div><div class="mini-chip">Device inventory</div><div class="mini-chip">Rejestr Windows</div><div class="mini-chip">tylko HKLM</div><div class="mini-chip">Plan 1</div></div>
+</div>
+<div class="signal">
+<div class="signal-top"><div class="signal-title"><span class="dot"></span>Co to daje</div></div>
+<p style="margin:0;color:var(--muted);line-height:1.65;font-size:14px;">Weryfikacja stanu faktycznego urządzenia: czy ustawienie jest realnie włączone, jaka wersja lub konfiguracja aplikacji jest zainstalowana, czy polityka zadziałała poprawnie. Wszystko w sposób <strong>deklaratywny</strong>, bez skryptów discovery i remediation.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="grid-2">
+<article class="highlight">
+<h2>Po co to jest</h2>
+<p>Administratorzy potrzebują pewnego sposobu na potwierdzenie, jak faktycznie skonfigurowane są urządzenia z Windows: przy rozwiązywaniu problemów, weryfikacji zgodności czy badaniu stanu bezpieczeństwa. Samo przypisanie polityki nie zawsze pokazuje, co jest realnie na urządzeniu, a uzyskanie wglądu w rejestr na skalę zwykle wymagało własnych skryptów, które trzeba budować, testować i utrzymywać. Inwentaryzacja rejestru w Intune sprawia, że kontrole oparte na rejestrze da się łatwo zoperacjonalizować na wszystkich zarządzanych urządzeniach Windows.</p>
+</article>
+<article class="card tldr">
+<div class="eyebrow">W skrócie</div>
+<h3>Co daje</h3>
+<p><strong>– definiujesz klucze rejestru w katalogu właściwości</strong><br><strong>– Intune zbiera je automatycznie z urządzeń</strong><br><strong>– dane widzisz w Device inventory per urządzenie</strong><br><strong>– brak własnych skryptów do budowy i utrzymania</strong><br><strong>– funkcja jest w ramach Microsoft Intune Plan 1</strong><br><br><em>Zbieranie ograniczone jest do gałęzi HKEY_LOCAL_MACHINE (HKLM), czyli konfiguracji na poziomie urządzenia.</em></p>
+</article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Jakie dane zbierasz</h2><p class="section-desc">Zbieranie konfigurujesz w istniejącym katalogu właściwości. Dla każdego wpisu podajesz ścieżkę klucza rejestru oraz, gdy trzeba, nazwę wartości.</p></div>
+<div class="grid-2">
+<article class="highlight">
+<h2>Cztery pola raportowane per urządzenie</h2>
+<p>Dla każdego docelowego urządzenia agent próbuje zebrać dane i raportuje:</p>
+<ul style="margin:12px 0 0;padding-left:20px;color:var(--muted);line-height:1.8;">
+<li>Ścieżka klucza rejestru</li>
+<li>Nazwa wartości</li>
+<li>Typ wartości</li>
+<li>Dane wartości</li>
+</ul>
+</article>
+<article class="card">
+<div class="card-top"><div class="icon"><i class="fa-solid fa-database"></i></div><div class="eyebrow">Gdzie widać dane</div><h3>Device inventory</h3><p>Po zebraniu dane rejestru będą dostępne w widoku <strong>Device inventory</strong> już na starcie. W kolejnych miesiącach Microsoft zapowiada rozszerzenie dostępu o dodatkowe raporty i doświadczenia eksploracyjne.</p></div>
+</article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Wzorce zbierania</h2><p class="section-desc">Pierwsze wydanie wspiera trzy wzorce zaprojektowane pod typowe scenariusze administracyjne, korzystające ze ścieżek HKLM.</p></div>
+<div class="grid-3">
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-key"></i></div><div class="eyebrow">Wzorzec 1</div><h3>Pojedyncza wartość</h3><p>Podajesz ścieżkę i nazwę wartości, aby pobrać jedną wartość. Przykład: status serwisowania certyfikatu Secure Boot z HKLM\SYSTEM\CurrentControlSet\Control\SecureBoot (np. UEFICA2023Status, UEFICA2023Error, UEFICA2023ErrorEvent).</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-layer-group"></i></div><div class="eyebrow">Wzorzec 2</div><h3>Wszystkie wartości pod ścieżką</h3><p>Podajesz ścieżkę, aby pobrać wszystkie wartości bezpośrednio pod nią. Wzorzec nie obejmuje podkluczy. Przykład: wartości pod ścieżką konfiguracji Windows Update, aby zweryfikować oczekiwane ustawienia.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-sitemap"></i></div><div class="eyebrow">Wzorzec 3</div><h3>Ta sama wartość w podkluczach</h3><p>Podajesz bazową ścieżkę i nazwę wartości, aby pobrać ją z każdego bezpośredniego podklucza. Przykład: status DHCP dla interfejsów sieciowych pod HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces.</p></div></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Jak zacząć</h2><p class="section-desc">Kilka kroków, aby zoperacjonalizować zbieranie danych z rejestru na flocie Windows.</p></div>
+<div class="timeline">
+<div class="step"><div class="step-no">1</div><div><h3>Zdefiniuj klucze w katalogu właściwości</h3><p>Utwórz profil Properties catalog (Platform: Windows 10 and later) i wskaż interesujące Cię ścieżki kluczy oraz nazwy wartości do zebrania.</p></div></div>
+<div class="step"><div class="step-no">2</div><div><h3>Przypisz profil do urządzeń</h3><p>Przypisz profil do urządzeń firmowych, zarządzanych przez Intune, dołączonych do Microsoft Entra lub w trybie Entra Hybrid. Agent zbierze wskazane dane.</p></div></div>
+<div class="step"><div class="step-no">3</div><div><h3>Sprawdź dane w Device inventory</h3><p>Otwórz widok Device inventory dla urządzenia i zweryfikuj rzeczywistą konfigurację obok pozostałych sygnałów inwentaryzacji.</p></div></div>
+<div class="step"><div class="step-no">4</div><div><h3>Zaplanuj strategię zbierania</h3><p>Skup się na danych HKLM na poziomie urządzenia, unikaj wartości wrażliwych i pamiętaj o limitach, aby inwentaryzacja była celowana i zarządzalna.</p></div></div>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Wyniki i limity</h2><p class="section-desc">Zabezpieczenia, które utrzymują zbieranie danych w ryzach.</p></div>
+<div class="grid-3">
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-ruler-combined"></i></div><div class="eyebrow">Limity</div><h3>6 KB i 100 kluczy</h3><p>Każda zebrana wartość jest ograniczona do <strong>6 KB</strong>, a każde urządzenie może zebrać do <strong>100 kluczy rejestru</strong>. Nadmiar jest pomijany, a urządzenie raportuje odpowiedni wynik.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-circle-question"></i></div><div class="eyebrow">Wyniki zbierania</div><h3>Empty i Not found</h3><p>Jeśli wartość istnieje, ale nie ma danych, zbieranie kończy się sukcesem i pokazuje pustą wartość. Jeśli ścieżka lub nazwa wartości nie istnieje, urządzenie raportuje <strong>Not found</strong>. Brak jednej wartości nie blokuje pozostałych urządzeń.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-shield-halved"></i></div><div class="eyebrow">Bezpieczeństwo</div><h3>Ochrona danych wrażliwych</h3><p>Wbudowana heurystyka wykrywa i blokuje pobieranie wartości mogących zawierać sekrety, poświadczenia, tokeny, certyfikaty, klucze prywatne czy connection stringi. Wartość oznaczona jako potencjalnie wrażliwa <strong>nie jest</strong> zbierana.</p></div></article>
+</div>
+</section>
+<section class="section">
+<div class="grid-2">
+<article class="card"><div class="eyebrow">Licencjonowanie i dostępność</div><h3>Microsoft Intune Plan 1</h3><p>Zbieranie danych rejestru w Device inventory jest dostępne w ramach <strong>Microsoft Intune Plan 1</strong>. Funkcja pojawia się wraz z wydaniem Intune <strong>2607</strong> (lipiec 2026) i będzie sukcesywnie rozszerzana o kolejne doświadczenia raportowe.</p></article>
+<div class="highlight"><h2>Dokumentacja</h2><p>Konfigurację zbierania danych przez katalog właściwości opisuje oficjalna dokumentacja Microsoft, a zapowiedź funkcji pochodzi z bloga Intune Customer Success.</p><div class="cta-actions" style="margin-top:16px;"><a class="btn" href="https://learn.microsoft.com/en-us/intune/device-configuration/collect-device-properties" target="_blank" rel="noreferrer">Collect device properties with the Intune properties catalog<i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+</div>
+</section>
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://valcreon.com" class="footer-link">valcreon.com</a> • Microsoft 365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
