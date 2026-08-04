@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="MC1446796: migracja Free/Busy, MailTips i udostępniania kalendarzy na Microsoft 365 Cross-Tenant Access Policy przed wyłączeniem EWS. Rollout od sierpnia 2026, wygaszanie EWS od 1 października 2026, ostateczne wyłączenie 1 kwietnia 2027. Komendy PowerShell do weryfikacji tenanta." />
+<title>MC1446796: migracja Free/Busy, MailTips i kalendarzy przed wyłączeniem EWS | Valcreon Security</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+.ps-block{margin:16px 0 0;border-radius:16px;border:1px solid rgba(109,74,255,.28);background:linear-gradient(180deg, rgba(9,12,28,.92), rgba(13,20,48,.86));box-shadow:0 12px 32px rgba(0,0,0,.35);overflow:hidden;}
+.ps-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(109,74,255,.14);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#c4b5fd;}
+.ps-head i{font-size:13px;}
+.ps-tag{margin-left:auto;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:none;color:rgba(238,242,255,.7);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:4px 10px;background:rgba(255,255,255,.04);}
+.ps-code{margin:0;padding:14px;font-family:"Cascadia Code",Consolas,ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;line-height:1.7;color:#e9e6ff;white-space:pre-wrap;overflow-wrap:anywhere;}
+.ps-code .ps-cmd{color:#7dd3fc;font-weight:700;}
+.ps-code .ps-pipe{color:#f0abfc;font-weight:700;}
+.ps-code .ps-param{color:#fcd34d;}
+.ps-verdict{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap;padding:14px;border-top:1px solid rgba(255,255,255,.08);background:rgba(34,197,94,.06);font-size:14px;line-height:1.65;color:var(--muted);}
+.ps-verdict i{margin-top:3px;color:#22c55e;}
+.ps-verdict strong{color:#fff;}
+.ps-note{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap;padding:12px 14px;border-top:1px solid rgba(255,255,255,.08);background:rgba(56,189,248,.07);font-size:13.5px;line-height:1.6;color:var(--muted2);}
+.ps-note i{margin-top:3px;color:#38bdf8;}
+.alert-box{margin-top:20px;padding:18px 20px;border-radius:18px;border:1px solid rgba(239,68,68,.32);background:linear-gradient(180deg, rgba(239,68,68,.12), rgba(255,255,255,.03));}
+.alert-box .alert-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fca5a5;margin-bottom:10px;}
+.alert-box p{margin:0;color:var(--muted);font-size:15px;line-height:1.7;}
+.date-grid{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
+.date-item{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap;padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);}
+.date-badge{flex:0 0 auto;font-size:12px;font-weight:700;color:#fff;background:linear-gradient(180deg, var(--brand), var(--brand2));border-radius:999px;padding:6px 12px;}
+.date-text{min-width:0;flex:1 1 220px;font-size:14.5px;line-height:1.6;color:var(--muted);}
+.date-text strong{color:#fff;}
+.chk-list{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;}
+.chk-list li{display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap;font-size:15px;line-height:1.65;color:var(--muted);}
+.chk-list li i{margin-top:5px;color:#a78bfa;font-size:12px;}
+.chk-list li strong{color:#fff;}
+.mc-code{font-family:"Cascadia Code",Consolas,ui-monospace,monospace;font-weight:700;color:#fff;}
+@media (max-width:820px){.ps-code{font-size:12.5px;padding:12px;}.alert-box{padding:13px 14px;}.date-item{padding:9px 10px;}}
+@media (max-width:480px){.ps-tag{margin-left:0;}.cta-actions .btn{width:100%;justify-content:center;}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="topbar">
+<a class="back-link" href="../index.html" aria-label="Powrót do Security Hub"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
+<span class="pill"><i class="fa-solid fa-bullhorn"></i>Message Center · MC1446796</span>
+</div>
+
+<section class="hero glass">
+<div class="hero-grid">
+<div>
+<div class="hero-label"><i class="fa-brands fa-microsoft"></i>Exchange Online · EWS · Cross-Tenant Access Policy</div>
+<h1>Migracja Free/Busy, MailTips i kalendarzy przed wyłączeniem EWS</h1>
+<p class="lead">Wygaszanie Exchange Web Services rusza <strong>1 października 2026</strong>. Współpraca między tenantami, czyli Free/Busy, MailTips i udostępnianie kalendarzy, opiera się dziś na EWS. Zastępuje ją <strong>Microsoft 365 Cross-Tenant Access Policy</strong>, dostępna od <strong>września 2026</strong>. Jeśli Twoja organizacja korzysta z Organization Relationship, Availability Address Space albo Sharing Policy w relacji z innym tenantem Microsoft 365, musisz przejść migrację.</p>
+</div>
+<div class="hero-side">
+<div class="signal">
+<div class="signal-top"><div class="signal-title"><span class="dot"></span>Najważniejsze</div></div>
+<div class="mini-chips"><div class="mini-chip">MC1446796</div><div class="mini-chip">Exchange Online</div><div class="mini-chip">EWS deprecation</div><div class="mini-chip">M365 XTAP</div><div class="mini-chip">Free/Busy</div><div class="mini-chip">MailTips</div><div class="mini-chip">Calendar Sharing</div></div>
+</div>
+<div class="signal">
+<div class="signal-top"><div class="signal-title"><span class="dot"></span>Co trzeba zrobić</div></div>
+<p style="margin:0;color:var(--muted);line-height:1.65;font-size:14px;">Sprawdzić trzema komendami PowerShell, czy tenant jest w zakresie, a następnie zmigrować konfiguracje udostępniania na <strong>Microsoft 365 Cross-Tenant Access Policy</strong>, zanim wygaszanie EWS dotrze do Twojego tenanta.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="grid-2">
+<article class="highlight">
+<h2>O co dokładnie chodzi</h2>
+<p>Udostępnianie Free/Busy, kalendarzy i MailTips (na przykład komunikatu o nieobecności) innej organizacji Microsoft 365 poprzez <strong>Organization Relationship</strong>, <strong>Availability Address Space</strong> lub <strong>Sharing Policy</strong> działa na Exchange Web Services. EWS jest wycofywane, więc te scenariusze przestaną działać, jeśli nie zostaną przeniesione na Microsoft 365 Cross-Tenant Access Policy. Nowy mechanizm nie wymaga wysokouprawnionego dostępu aplikacyjnego i wpisuje się w szerszy kierunek Microsoftu, czyli eliminację high-privilege access w Microsoft 365.</p>
+</article>
+<article class="card tldr">
+<div class="eyebrow">W skrócie</div>
+<h3>Numer wiadomości: <span class="mc-code">MC1446796</span></h3>
+<p><strong>– EWS wygaszane od 1 października 2026</strong><br><strong>– zamiennik: Microsoft 365 Cross-Tenant Access Policy</strong><br><strong>– zamiennik dostępny od września 2026</strong><br><strong>– dotyczy Free/Busy, MailTips i udostępniania kalendarzy między tenantami</strong><br><strong>– scenariusze hybrydowe i on-premises są poza zakresem</strong><br><br><em>Ostateczne wyłączenie EWS następuje 1 kwietnia 2027, także dla tenantów, które przedłużą dostęp przez EWSEnabled.</em></p>
+</article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Harmonogram wdrożenia</h2><p class="section-desc">Nowa funkcja Cross-Tenant Access Policy dla Free/Busy, MailTips i kalendarzy pojawia się falami, zależnie od chmury.</p></div>
+<div class="date-grid">
+<div class="date-item"><span class="date-badge">Worldwide</span><span class="date-text">Start wdrożenia w <strong>sierpniu 2026</strong>, zakończenie planowane na <strong>1 września 2026</strong>.</span></div>
+<div class="date-item"><span class="date-badge">GCC</span><span class="date-text">Start w <strong>połowie sierpnia 2026</strong>, zakończenie w <strong>połowie września 2026</strong>.</span></div>
+<div class="date-item"><span class="date-badge">GCC High</span><span class="date-text">Start na <strong>początku września 2026</strong>, zakończenie do <strong>końca września 2026</strong>.</span></div>
+<div class="date-item"><span class="date-badge">DoD</span><span class="date-text">Start na <strong>początku września 2026</strong>, zakończenie do <strong>końca września 2026</strong>.</span></div>
+</div>
+<div class="alert-box">
+<div class="alert-title"><i class="fa-solid fa-triangle-exclamation"></i>Okno migracji</div>
+<p>Migrację zaplanuj <strong>po tym, jak wdrożenie dotrze do Twojego tenanta</strong>, ale <strong>przed wygaszeniem EWS</strong>. To realnie oznacza okno od września 2026 do momentu, w którym wyłączanie EWS obejmie Twoją organizację po 1 października 2026.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Czy dotyczy Twojej organizacji</h2><p class="section-desc">Tenant jest w zakresie, jeśli używa którejkolwiek z trzech konfiguracji Exchange Online.</p></div>
+<div class="grid-3">
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-handshake"></i></div><div class="eyebrow">Konfiguracja 1</div><h3>Organization Relationships</h3><p>Udostępnianie <strong>Free/Busy</strong> lub <strong>MailTips</strong> innym tenantom Microsoft 365 na podstawie zdefiniowanej relacji organizacyjnej.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-address-book"></i></div><div class="eyebrow">Konfiguracja 2</div><h3>Availability Address Spaces</h3><p>Udostępnianie <strong>Free/Busy</strong> innym tenantom Microsoft 365 z metodą dostępu <strong>OrgWideFBToken</strong>.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-calendar-days"></i></div><div class="eyebrow">Konfiguracja 3</div><h3>Sharing Policies</h3><p>Udostępnianie kalendarzy na zewnątrz: przez zaproszenia wysyłane do odbiorców w innych organizacjach Microsoft 365 albo przez kalendarze publikowane anonimowo pod adresem URL.</p></div></article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Weryfikacja tenanta w Exchange Online PowerShell</h2><p class="section-desc">Uruchom poniższe komendy w sesji <strong>Exchange Online PowerShell</strong> i porównaj wynik z kryteriami pod każdym poleceniem.</p></div>
+
+<div class="ps-block">
+<div class="ps-head"><i class="fa-solid fa-terminal"></i>Krok 1 · Organization Relationships<span class="ps-tag">Exchange Online PowerShell</span></div>
+<pre class="ps-code"><span class="ps-cmd">Get-OrganizationRelationship</span> <span class="ps-pipe">|</span> <span class="ps-cmd">Format-List</span> <span class="ps-param">Name, DomainNames, Enabled, FreeBusyAccessEnabled, FreeBusyAccessLevel, FreeBusyAccessScope, MailTipsAccessEnabled, MailTipsAccessLevel, MailTipsAccessScope</span></pre>
+<div class="ps-verdict"><i class="fa-solid fa-circle-check"></i><span>Tenant jest <strong>w zakresie migracji</strong>, jeśli wynik pokazuje jednocześnie: (1) <strong>Enabled: True</strong>, (2) <strong>FreeBusyAccessEnabled: True</strong> lub <strong>MailTipsAccessEnabled: True</strong>, oraz (3) organizacja zewnętrzna jest hostowana w Microsoft 365. W przeciwnym razie żadne działanie nie jest wymagane.</span></div>
+</div>
+
+<div class="ps-block">
+<div class="ps-head"><i class="fa-solid fa-terminal"></i>Krok 2 · Availability Address Spaces<span class="ps-tag">Exchange Online PowerShell</span></div>
+<pre class="ps-code"><span class="ps-cmd">Get-AvailabilityAddressSpace</span> <span class="ps-pipe">|</span> <span class="ps-cmd">Format-List</span> <span class="ps-param">ForestName, AccessMethod</span></pre>
+<div class="ps-verdict"><i class="fa-solid fa-circle-check"></i><span>Tenant jest <strong>w zakresie migracji</strong>, jeśli wynik pokazuje: (1) <strong>AccessMethod: OrgWideFBToken</strong> oraz (2) organizacja zewnętrzna jest hostowana w Microsoft 365. W przeciwnym razie żadne działanie nie jest wymagane.</span></div>
+</div>
+
+<div class="ps-block">
+<div class="ps-head"><i class="fa-solid fa-terminal"></i>Krok 3 · Sharing Policies<span class="ps-tag">Exchange Online PowerShell</span></div>
+<pre class="ps-code"><span class="ps-cmd">Get-SharingPolicy</span> <span class="ps-pipe">|</span> <span class="ps-cmd">Format-List</span> <span class="ps-param">Name, Domains, Enabled, Default</span></pre>
+<div class="ps-verdict"><i class="fa-solid fa-circle-check"></i><span>Tenant jest <strong>w zakresie migracji</strong>, jeśli wynik pokazuje jednocześnie: (1) <strong>Enabled: True</strong>, (2) właściwość <strong>Domains</strong> zawiera co najmniej jedną regułę z poziomem dostępu <strong>CalendarSharingFreeBusy</strong> (Simple, Detail lub Reviewer), (3) docelowa organizacja zewnętrzna jest hostowana w Microsoft 365 oraz (4) polityka jest przypisana do co najmniej jednej skrzynki. W przeciwnym razie żadne działanie nie jest wymagane.</span></div>
+<div class="ps-note"><i class="fa-solid fa-circle-info"></i><span>Uwaga: reguły zaczynające się od <strong>Anonymous:</strong> oznaczają publikowanie kalendarza dla anonimowych odbiorców w internecie przez opublikowany adres URL. One również pojawiają się w tym wyniku.</span></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Co się stanie, jeśli nic nie zrobisz</h2><p class="section-desc">Scenariusz braku działania i sposób na przedłużenie dostępu do EWS.</p></div>
+<div class="grid-2">
+<article class="highlight">
+<h2>Utrata współpracy między tenantami</h2>
+<p>Od <strong>1 października 2026</strong> Exchange Web Services będzie stopniowo wyłączane, zgodnie z wcześniejszymi komunikatami powiązanymi z tą wiadomością. Kiedy wdrożenie dotrze do Twojego tenanta, oparte na EWS scenariusze Free/Busy, MailTips i udostępniania kalendarzy przestaną działać. Odbiorcy w organizacjach partnerskich mogą przestać widzieć Free/Busy, MailTips oraz kalendarze udostępnione z Twojego tenanta.</p>
+</article>
+<article class="card">
+<div class="card-top"><div class="icon"><i class="fa-solid fa-hourglass-half"></i></div><div class="eyebrow">Furtka czasowa</div><h3>EWSEnabled ustawione na True</h3><p>Jeśli organizacja <strong>nie jest gotowa na migrację</strong>, można zachować dostęp do EWS zgodnie z wytycznymi z najnowszego wpisu na blogu Exchange (<strong>EWSEnabled</strong> ustawione na <strong>True</strong>) na czas przygotowania i wykonania migracji. Dostęp przez to przedłużenie działa do <strong>ostatecznego wyłączenia EWS 1 kwietnia 2027</strong>.</p></div>
+</article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Plan działania</h2><p class="section-desc">Rekomendowana kolejność prac dla administratora Exchange Online.</p></div>
+<div class="timeline">
+<div class="step"><div class="step-no">1</div><div><h3>Śledź wpis na Roadmapie</h3><p>Monitoruj aktualizacje harmonogramu wdrożenia. Aby uniknąć przerwy w działaniu, zaplanuj migrację po tym, jak wdrożenie dotrze do Twojego tenanta, i przed wygaszeniem EWS.</p></div></div>
+<div class="step"><div class="step-no">2</div><div><h3>Zinwentaryzuj obecne konfiguracje</h3><p>Uruchom trzy komendy z sekcji powyżej i spisz wszystkie relacje organizacyjne, przestrzenie adresowe dostępności oraz polityki udostępniania wraz z domenami partnerów i przypisaniami do skrzynek.</p></div></div>
+<div class="step"><div class="step-no">3</div><div><h3>Przejrzyj przewodnik migracji</h3><p>Postępuj według instrukcji krok po kroku: zrozumienie obecnej konfiguracji, utworzenie nowych polityk Microsoft 365 Cross-Tenant Access Policy, walidacja nowych ustawień i usunięcie nieużywanych konfiguracji.</p></div></div>
+<div class="step"><div class="step-no">4</div><div><h3>Skoordynuj pracę z partnerami</h3><p>Cross-Tenant Access Policy działa dwustronnie, więc uzgodnij terminy i konfigurację z administratorami organizacji, z którymi wymieniasz Free/Busy i kalendarze.</p></div></div>
+<div class="step"><div class="step-no">5</div><div><h3>Zwaliduj i posprzątaj</h3><p>Po potwierdzeniu, że Free/Busy, MailTips i udostępnianie kalendarzy działają na nowym mechanizmie, usuń stare, nieużywane konfiguracje oparte na EWS.</p></div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Czego to nie obejmuje</h2><p class="section-desc">Zakres zmiany jest ograniczony do scenariuszy w pełni chmurowych.</p></div>
+<div class="grid-2">
+<article class="card">
+<div class="card-top"><div class="icon"><i class="fa-solid fa-server"></i></div><div class="eyebrow">Poza zakresem</div><h3>Hybryda i on-premises</h3><p>Aktualizacja dotyczy wyłącznie konfiguracji w pełni chmurowych (Exchange Online do Exchange Online), także w scenariuszach cross-tenant i cross-cloud. Wdrożenia hybrydowe i lokalne <strong>nie są objęte</strong> tą zmianą.</p></div>
+</article>
+<article class="card">
+<div class="card-top"><div class="icon"><i class="fa-solid fa-diagram-project"></i></div><div class="eyebrow">Ścieżki alternatywne</div><h3>Dedicated Hybrid App i dalsze komunikaty</h3><p>Organizacje z Exchange lokalnym i Exchange Online w Hybrid Deployment powinny przejść na <strong>Dedicated Hybrid App</strong>. Organizacje w Exchange Online udostępniające dane organizacji z Exchange lokalnym powinny śledzić kolejne wpisy w Message Center, gdzie pojawią się ścieżki migracji.</p></div>
+</article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Szybka lista kontrolna</h2><p class="section-desc">Minimum, które warto odhaczyć w każdym tenancie przed październikiem 2026.</p></div>
+<div class="highlight">
+<ul class="chk-list">
+<li><i class="fa-solid fa-circle"></i><span>Uruchomiono <strong>Get-OrganizationRelationship</strong>, <strong>Get-AvailabilityAddressSpace</strong> i <strong>Get-SharingPolicy</strong>, a wyniki zapisano jako punkt odniesienia.</span></li>
+<li><i class="fa-solid fa-circle"></i><span>Zweryfikowano, czy organizacje partnerskie faktycznie są hostowane w <strong>Microsoft 365</strong>, bo to warunek objęcia migracją.</span></li>
+<li><i class="fa-solid fa-circle"></i><span>Sprawdzono, czy polityki udostępniania są <strong>przypisane do skrzynek</strong> i czy zawierają reguły <strong>CalendarSharingFreeBusy</strong>.</span></li>
+<li><i class="fa-solid fa-circle"></i><span>Zidentyfikowano reguły <strong>Anonymous:</strong>, czyli kalendarze publikowane pod publicznym adresem URL.</span></li>
+<li><i class="fa-solid fa-circle"></i><span>Podjęto decyzję, czy tenant migruje od razu, czy korzysta z przedłużenia <strong>EWSEnabled: True</strong> do <strong>1 kwietnia 2027</strong>.</span></li>
+<li><i class="fa-solid fa-circle"></i><span>Ustalono właściciela zadania i termin walidacji nowych polityk Cross-Tenant Access Policy.</span></li>
+</ul>
+</div>
+</section>
+
+<section class="section">
+<div class="grid-2">
+<article class="card"><div class="eyebrow">Kluczowe daty</div><h3>Od września 2026 do kwietnia 2027</h3><p><strong>Wrzesień 2026</strong> – dostępność Cross-Tenant Free/Busy, MailTips i Calendar Sharing przez Microsoft 365 Cross-Tenant Access Policy.<br><strong>1 października 2026</strong> – start wygaszania EWS.<br><strong>1 kwietnia 2027</strong> – ostateczne wyłączenie EWS, również dla tenantów z przedłużeniem.</p></article>
+<div class="highlight"><h2>Dokumentacja i źródła</h2><p>Pełny opis zmiany znajduje się w wiadomości <span class="mc-code">MC1446796</span> w Message Center. Poniżej oficjalne materiały Microsoft dotyczące migracji i wycofania EWS.</p>
+<div class="cta-actions" style="margin-top:16px;">
+<a class="btn" href="https://learn.microsoft.com/exchange/sharing/migrate-to-m365-xtap" target="_blank" rel="noreferrer">Przewodnik migracji do M365 XTAP<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+<a class="btn secondary" href="https://techcommunity.microsoft.com/blog/exchange/exchange-online-ews-your-time-is-almost-up/4492361" target="_blank" rel="noreferrer">Exchange Online EWS, Your Time is Almost Up<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+<a class="btn secondary" href="https://learn.microsoft.com/exchange/clients-and-mobile-in-exchange-online/deprecation-of-ews-exchange-online" target="_blank" rel="noreferrer">Deprecation of EWS in Exchange Online<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+<a class="btn secondary" href="https://learn.microsoft.com/exchange/hybrid-deployment/deploy-dedicated-hybrid-app" target="_blank" rel="noreferrer">Dedicated Hybrid App<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+<a class="btn secondary" href="https://techcommunity.microsoft.com/blog/microsoft-entra-blog/enhancing-microsoft-365-security-by-eliminating-high-privilege-access/4326671" target="_blank" rel="noreferrer">Eliminating high-privilege access<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+<a class="btn secondary" href="https://admin.microsoft.com/AdminPortal/home#/MessageCenter/:/messages/MC1446796" target="_blank" rel="noreferrer">Zobacz MC1446796 w centrum administracyjnym<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+</div>
+</div>
+</div>
+</section>
+
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://valcreon.com" class="footer-link">valcreon.com</a> • Microsoft 365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
