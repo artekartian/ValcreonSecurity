@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="MC1447678: wycofanie Exchange Web Services w Exchange Online. Nowa konfiguracja EWSAllowedAppIDs pozwala zbudować listę dozwolonych App ID. Od 1 października 2026 EWSEnabled=True bez listy dozwolonych oznacza blokadę całego ruchu EWS. Pełne wycofanie od 1 kwietnia 2027." />
+<title>Exchange Online: EWSAllowedAppIDs i wycofanie EWS (MC1447678) | Valcreon Security</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+.alert-critical{position:relative;padding:26px;border-radius:22px;border:1px solid rgba(239,68,68,.42);background:radial-gradient(700px 220px at 10% 0%, rgba(239,68,68,.22), transparent 58%), linear-gradient(180deg, rgba(239,68,68,.14), rgba(255,255,255,.03));box-shadow:0 18px 60px rgba(0,0,0,.45);}
+.alert-critical .eyebrow{color:#fca5a5;}
+.alert-critical h2{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0 0 12px;font-size:28px;letter-spacing:-.03em;}
+.alert-critical h2 i{font-size:22px;color:#f87171;}
+.alert-critical p{margin:0 0 12px;color:var(--muted);font-size:16px;line-height:1.75;}
+.alert-critical p:last-child{margin-bottom:0;}
+.alert-critical strong{color:#fff;}
+.code-wrap{margin-top:14px;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:rgba(0,0,0,.35);overflow-x:auto;}
+.code-wrap pre{margin:0;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;line-height:1.65;color:#e2e8f0;white-space:pre;}
+.code-label{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:8px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#a78bfa;}
+.code-note{margin:10px 0 0;font-size:13.5px;line-height:1.6;color:var(--muted2);}
+.matrix{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;margin-top:6px;}
+.matrix thead th{text-align:left;font-weight:600;font-size:12px;letter-spacing:.5px;text-transform:uppercase;opacity:.6;padding:0 10px 10px 0;border-bottom:1px solid rgba(255,255,255,.08);}
+.matrix tbody td{padding:12px 10px 12px 0;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top;line-height:1.55;color:var(--muted);}
+.matrix tbody tr:last-child td{border-bottom:none;}
+.matrix .m-key{font-weight:600;color:#fff;white-space:normal;}
+.matrix .m-block{color:#fca5a5;}
+.matrix .m-allow{color:#86efac;}
+.matrix .m-scoped{color:#93c5fd;}
+.qa-list{display:flex;flex-direction:column;gap:12px;margin-top:6px;}
+.qa-item{padding:16px 18px;border-radius:16px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);}
+.qa-q{display:block;margin-bottom:6px;font-size:15px;font-weight:700;color:#fff;line-height:1.45;}
+.qa-a{margin:0;font-size:14.5px;line-height:1.65;color:var(--muted);}
+.doc-links{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+.doc-links a{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);font-size:14.5px;font-weight:600;line-height:1.5;transition:all .18s ease;}
+.doc-links a:hover{background:rgba(255,255,255,.06);border-color:var(--stroke-strong);transform:translateY(-1px);}
+.doc-links a i{color:#a78bfa;}
+.chk{display:flex;flex-direction:column;gap:10px;margin:14px 0 0;padding:0;list-style:none;}
+.chk li{display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:1.55;color:var(--muted);}
+.chk li i{margin-top:4px;color:#a78bfa;font-size:13px;flex-shrink:0;}
+@media (max-width:768px){.matrix thead{display:none;}.matrix tbody tr{display:grid;grid-template-columns:1fr;gap:4px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);}.matrix tbody td{padding:0;border:none;}.alert-critical{padding:18px;}.code-wrap pre{font-size:12px;}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="topbar">
+<a class="back-link" href="../index.html" aria-label="Powrót do Security Hub"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
+<span class="pill"><i class="fa-solid fa-bullhorn"></i>Exchange Online · MC1447678</span>
+</div>
+
+<section class="hero glass">
+<div class="hero-grid">
+<div>
+<div class="hero-label"><i class="fa-brands fa-microsoft"></i>Microsoft 365 · Exchange Online · Plan for Change</div>
+<h1>EWSAllowedAppIDs: przygotuj się na wycofanie Exchange Web Services</h1>
+<p class="lead">Exchange Web Services w Exchange Online zaczyna być wycofywane 1 października 2026, a pełne wycofanie rusza 1 kwietnia 2027. Microsoft udostępnił nową konfigurację <strong>EWSAllowedAppIDs</strong>, czyli listę dozwolonych identyfikatorów aplikacji, które nadal mogą korzystać z EWS. To narzędzie do zidentyfikowania pozostałych zależności, ograniczenia dostępu wyłącznie do zatwierdzonych aplikacji i zmniejszenia ryzyka przerwania usług w momencie startu egzekwowania.</p>
+</div>
+<div class="hero-side">
+<div class="signal">
+<div class="signal-top"><div class="signal-title"><span class="dot"></span>Najważniejsze</div></div>
+<div class="mini-chips"><div class="mini-chip">MC1447678</div><div class="mini-chip">EWSAllowedAppIDs</div><div class="mini-chip">1.10.2026</div><div class="mini-chip">1.04.2027</div><div class="mini-chip">Exchange Online</div><div class="mini-chip">Dostępne dziś</div></div>
+</div>
+<div class="signal">
+<div class="signal-top"><div class="signal-title"><span class="dot"></span>Kto musi działać</div></div>
+<p style="margin:0;color:var(--muted);line-height:1.65;font-size:14px;">Administratorzy Exchange Online oraz organizacje, które nadal używają aplikacji lub usług zależnych od EWS. Jeśli po październiku 2026 EWS ma nadal działać, lista dozwolonych aplikacji musi być skonfigurowana i zweryfikowana <strong>zanim</strong> ruszy egzekwowanie.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="alert-critical">
+<div class="eyebrow">Najważniejsza zmiana</div>
+<h2><i class="fa-solid fa-triangle-exclamation"></i>EWSEnabled=True bez listy dozwolonych przestaje oznaczać „wszystko dozwolone”</h2>
+<p>Do października 2026 ustawienie <strong>EWSEnabled=True</strong> bez skonfigurowanej listy dozwolonych oznacza, że <strong>cały ruch EWS jest dozwolony</strong>. Od października 2026 ta sama konfiguracja oznacza, że <strong>cały ruch EWS zostanie zablokowany</strong>.</p>
+<p>Innymi słowy: od startu egzekwowania włączone EWS bez listy <strong>EWSAllowedAppIDs</strong> działa jak konfiguracja blokująca wszystko. Organizacje, które potrzebują EWS po październiku 2026, muszą mieć skonfigurowaną i przetestowaną listę dozwolonych aplikacji przed rozpoczęciem egzekwowania.</p>
+<p>Dodatkowo: organizacje, które mają <strong>EWSEnabled=True</strong> i skonfigurowaną listę <strong>EWSAllowedAppIDs</strong>, nie będą miały zmienionego ustawienia <strong>EWSEnabled</strong> przez Microsoft przed kwietniem 2027. Tenanty z <strong>EWSEnabled</strong> nieskonfigurowanym (Null) pozostają objęte fazowym procesem wycofania i EWS zostanie w nich wyłączone w ramach tego wdrożenia.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Co i dlaczego</h2><p class="section-desc">Komunikat <strong>MC1447678</strong> to zapowiedź kategorii Plan for Change dla usługi Exchange Online, oznaczona jako Major Change.</p></div>
+<div class="grid-2">
+<article class="highlight">
+<h2>Kontekst</h2>
+<p>EWS to interfejs, na którym przez lata opierały się integracje pocztowe, kalendarzowe i kontaktowe: narzędzia backupu, archiwizacji, migracji, systemy rezerwacji sal, aplikacje line of business, skrypty i produkty dostawców zewnętrznych. Microsoft wycofuje go w Exchange Online na rzecz nowoczesnych API. Aby proces był kontrolowany i przewidywalny, udostępniono <strong>EWSAllowedAppIDs</strong>, czyli konfigurację na poziomie tenanta pozwalającą jawnie wskazać, które aplikacje mogą nadal korzystać z EWS. Funkcja jest dostępna już teraz.</p>
+<ul class="chk">
+<li><i class="fa-solid fa-circle-check"></i>Identyfikacja pozostałych zależności od EWS</li>
+<li><i class="fa-solid fa-circle-check"></i>Ograniczenie dostępu do zatwierdzonych aplikacji</li>
+<li><i class="fa-solid fa-circle-check"></i>Zmniejszenie ryzyka przerwania działania usług</li>
+</ul>
+</article>
+<article class="card tldr">
+<div class="eyebrow">W skrócie</div>
+<h3>Co musisz zapamiętać</h3>
+<p><strong>– EWSAllowedAppIDs to lista dozwolonych App ID na poziomie tenanta</strong><br><strong>– funkcja jest dostępna dziś, GA Worldwide i GCC od końca lipca 2026</strong><br><strong>– 1 października 2026: start egzekwowania wycofania</strong><br><strong>– 1 kwietnia 2027: początek pełnego wycofania</strong><br><strong>– ustawienie listy zastępuje jej dotychczasową zawartość</strong><br><strong>– zmiany mogą propagować się do 24 godzin</strong><br><br><em>Termin działania wskazany w komunikacie Message Center: 30 września 2026.</em></p>
+</article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Harmonogram</h2><p class="section-desc">Dostępność funkcji oraz kamienie milowe wycofania EWS.</p></div>
+<div class="grid-2">
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-globe"></i></div><div class="eyebrow">General Availability</div><h3>Worldwide i GCC</h3><p>Funkcja <strong>EWSAllowedAppIDs</strong> jest dostępna w wersji ogólnej dla środowisk <strong>Worldwide</strong> oraz <strong>GCC</strong> od <strong>końca lipca 2026</strong>.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-calendar-xmark"></i></div><div class="eyebrow">Kamienie milowe wycofania</div><h3>1.10.2026 i 1.04.2027</h3><p><strong>1 października 2026:</strong> rozpoczyna się egzekwowanie wycofania w Exchange Online.<br><strong>1 kwietnia 2027:</strong> rozpoczyna się pełne wycofanie EWS.</p></div></article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Macierz zachowań</h2><p class="section-desc">Ta sama konfiguracja daje inny efekt przed i po starcie egzekwowania. To sedno komunikatu MC1447678.</p></div>
+<div class="grid-2">
+<article class="highlight">
+<h2>Przed październikiem 2026</h2>
+<table class="matrix">
+<thead><tr><th>Konfiguracja</th><th>Zachowanie</th></tr></thead>
+<tbody>
+<tr><td class="m-key">EWSEnabled nieskonfigurowane (Null)</td><td class="m-allow">cały ruch EWS jest dozwolony</td></tr>
+<tr><td class="m-key">EWSEnabled=True, brak listy dozwolonych</td><td class="m-allow">cały ruch EWS jest dozwolony</td></tr>
+<tr><td class="m-key">EWSEnabled=True, lista skonfigurowana</td><td class="m-scoped">tylko aplikacje z listy mogą korzystać z EWS</td></tr>
+<tr><td class="m-key">EWSEnabled=False</td><td class="m-block">cały ruch EWS jest zablokowany</td></tr>
+</tbody>
+</table>
+</article>
+<article class="highlight">
+<h2>Od października 2026</h2>
+<table class="matrix">
+<thead><tr><th>Konfiguracja</th><th>Zachowanie</th></tr></thead>
+<tbody>
+<tr><td class="m-key">EWSEnabled=True, brak listy dozwolonych</td><td class="m-block">cały ruch EWS zostanie zablokowany</td></tr>
+<tr><td class="m-key">EWSEnabled=True, lista skonfigurowana</td><td class="m-scoped">tylko aplikacje z listy mogą korzystać z EWS</td></tr>
+<tr><td class="m-key">EWSEnabled=False</td><td class="m-block">cały ruch EWS zostanie zablokowany</td></tr>
+<tr><td class="m-key">EWSEnabled nieskonfigurowane (Null)</td><td class="m-block">tenant pozostaje objęty fazowym procesem wycofania, EWS zostanie wyłączone w ramach wdrożenia</td></tr>
+</tbody>
+</table>
+</article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Wymagane działania</h2><p class="section-desc">Microsoft zdecydowanie zaleca administratorom Exchange Online rozpoczęcie przygotowań natychmiast.</p></div>
+<div class="timeline">
+
+<div class="step"><div class="step-no">1</div><div>
+<h3>Zinwentaryzuj użycie EWS</h3>
+<p>Zidentyfikuj aplikacje i usługi, które obecnie korzystają z EWS w Twojej organizacji:</p>
+<ul class="chk">
+<li><i class="fa-solid fa-angle-right"></i>przejrzyj raporty użycia EWS w swoim tenancie</li>
+<li><i class="fa-solid fa-angle-right"></i>przejrzyj komunikaty Message Center dotyczące użycia i wycofania EWS</li>
+<li><i class="fa-solid fa-angle-right"></i>skorzystaj ze wskazówek z artykułu „Notes From the Field: Finding and Remediating EWS App Usage Before Retirement”</li>
+</ul>
+</div></div>
+
+<div class="step"><div class="step-no">2</div><div>
+<h3>Utwórz i zweryfikuj listę dozwolonych</h3>
+<p>Zbuduj listę <strong>EWSAllowedAppIDs</strong> zawierającą aplikacje, które muszą nadal korzystać z EWS. Istotne uwagi:</p>
+<ul class="chk">
+<li><i class="fa-solid fa-angle-right"></i>aplikacje widoczne w raportach użycia EWS, z których zamierzasz nadal korzystać, powinny znaleźć się na liście</li>
+<li><i class="fa-solid fa-angle-right"></i>aplikacje first party Microsoft, które nadal opierają się na EWS, również muszą być dodane, jeśli pojawiają się w raportowaniu użycia</li>
+<li><i class="fa-solid fa-angle-right"></i>ustawienie <strong>EWSAllowedAppIDs</strong> zastępuje istniejącą listę, więc przy aktualizacji upewnij się, że podajesz wszystkie wymagane App ID</li>
+</ul>
+</div></div>
+
+<div class="step"><div class="step-no">3</div><div>
+<h3>Przygotuj się na egzekwowanie</h3>
+<p>Przed październikiem 2026:</p>
+<ul class="chk">
+<li><i class="fa-solid fa-angle-right"></i>zweryfikuj swoje zależności od EWS</li>
+<li><i class="fa-solid fa-angle-right"></i>potwierdź, że wymagane aplikacje znajdują się w <strong>EWSAllowedAppIDs</strong></li>
+<li><i class="fa-solid fa-angle-right"></i>włącz EWS tylko wtedy, gdy jest to wymagane przez zatwierdzone aplikacje</li>
+</ul>
+<p style="margin-top:12px;">Organizacje, które zakończą tę pracę przed startem egzekwowania, są mniej narażone na przerwy w działaniu usług.</p>
+</div></div>
+
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>PowerShell</h2><p class="section-desc">Komenda weryfikacyjna z komunikatu MC1447678 oraz przykłady zarządzania listą z bloga zespołu Exchange.</p></div>
+
+<div class="grid-2">
+<article class="card"><div class="card-top">
+<div class="eyebrow">Weryfikacja (z komunikatu MC1447678)</div>
+<h3>Sprawdzenie skonfigurowanej listy</h3>
+<div class="code-wrap"><pre>Get-OrganizationConfig -RetrieveEwsOperationAccessPolicy | Format-List EwsAllowedAppIDs</pre></div>
+<p class="code-note">Użycie parametru <strong>RetrieveEwsOperationAccessPolicy</strong> jest wymagane ze względów wydajnościowych. Lista <strong>EWSAllowedAppIDs</strong> jest pobierana wyłącznie wtedy, gdy zażądasz tego jawnie.</p>
+<p class="code-note">Zmiany w <strong>EWSAllowedAppIDs</strong> mogą wchodzić w życie do <strong>24 godzin</strong>. Po aktualizacji listy odczekaj odpowiednio długo przed weryfikacją dostępu aplikacji lub diagnozowaniem problemów z łącznością.</p>
+</div></article>
+
+<article class="card"><div class="card-top">
+<div class="eyebrow">Konfiguracja listy</div>
+<h3>Ustawienie dozwolonych App ID</h3>
+<div class="code-wrap"><pre>Set-OrganizationConfig -EwsAllowedAppIDs "11111111-2222-3333-4444-555555555555,aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"</pre></div>
+<p class="code-note">Polecenie zapisuje pełną wartość listy i zastępuje bieżącą zawartość wskazanym zestawem aplikacji. Cmdlet nie obsługuje dziś operacji przyrostowego dodawania ani usuwania pojedynczych wpisów.</p>
+</div></article>
+</div>
+
+<div class="grid-2" style="margin-top:14px;">
+<article class="card"><div class="card-top">
+<div class="eyebrow">Aktualizacja listy</div>
+<h3>Dodanie App ID</h3>
+<div class="code-wrap"><pre># Read the current allow list
+$current = (Get-OrganizationConfig -RetrieveEwsOperationAccessPolicy | Select-Object -ExpandProperty EwsAllowedAppIDs)
+
+# Define the new App ID to add
+$newAppId = "99999999-8888-7777-6666-555555555555"
+
+# Combine existing and new values
+$updated = @($current, $newAppId)
+
+# Write the updated allow list back
+Set-OrganizationConfig -EwsAllowedAppIDs ($updated -join ",")</pre></div>
+<p class="code-note">Wzorzec jest stały: odczytaj bieżącą listę, dołóż nowy App ID, zapisz pełną połączoną listę.</p>
+</div></article>
+
+<article class="card"><div class="card-top">
+<div class="eyebrow">Aktualizacja listy</div>
+<h3>Usunięcie App ID</h3>
+<div class="code-wrap"><pre># Read the current allow list
+$current = (Get-OrganizationConfig -RetrieveEwsOperationAccessPolicy | Select-Object -ExpandProperty EwsAllowedAppIDs)
+
+# Define the App ID to remove
+$removeAppId = "99999999-8888-7777-6666-555555555555"
+
+# Split the comma-separated list into individual App IDs
+$appIds = $current -split ","
+
+# Remove the specified App ID
+$updated = $appIds | Where-Object { $_ -ne $removeAppId }
+
+# Write the updated allow list back
+Set-OrganizationConfig -EwsAllowedAppIDs ($updated -join ",")</pre></div>
+<p class="code-note">Ponieważ nie ma operacji usuwania pojedynczego wpisu, usunięcie również wymaga przeliczenia i zapisania pełnej listy.</p>
+</div></article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Kogo to dotyczy</h2><p class="section-desc">Zakres komunikatu obejmuje administratorów oraz organizacje z pozostałymi zależnościami od EWS.</p></div>
+<div class="grid-2">
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-user-shield"></i></div><div class="eyebrow">Odbiorcy</div><h3>Kto jest objęty</h3><p>Administratorzy Exchange Online oraz organizacje, które nadal korzystają z aplikacji lub usług zależnych od EWS.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-server"></i></div><div class="eyebrow">Platformy i usługi</div><h3>Zakres techniczny</h3><p>Exchange Online oraz Exchange Web Services (EWS).</p></div></article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Kwestie zgodności</h2><p class="section-desc">Odpowiedzi na standardowe pytania compliance z komunikatu MC1447678.</p></div>
+<div class="qa-list">
+<div class="qa-item"><span class="qa-q">Czy zmiana obejmuje kontrolę administracyjną?</span><p class="qa-a">Tak. <strong>EWSAllowedAppIDs</strong> wprowadza nową kontrolę administracyjną na poziomie tenanta, która pozwala administratorom Exchange Online jawnie zdefiniować, które aplikacje mają dostęp do Exchange Web Services.</p></div>
+<div class="qa-item"><span class="qa-q">Czy zmiana wpływa na sposób dostępu do danych klienta?</span><p class="qa-a">Tak. Zmienia się sposób autoryzowania aplikacji do danych Exchange Online przez EWS: wraz ze startem egzekwowania wycofania wymagane jest jawne dopuszczenie zatwierdzonych identyfikatorów aplikacji.</p></div>
+<div class="qa-item"><span class="qa-q">Czy zmiana wpływa na monitorowanie, zarządzanie i wykazywanie zgodności?</span><p class="qa-a">Tak. Administratorzy muszą zidentyfikować zależności od EWS, skonfigurować i utrzymywać listę <strong>EWSAllowedAppIDs</strong> oraz weryfikować dostęp aplikacji w ramach przygotowań do wycofania EWS.</p></div>
+</div>
+</section>
+
+<section class="section">
+<div class="grid-2">
+<article class="card"><div class="card-top">
+<div class="eyebrow">Rekomendacja Valcreon</div>
+<h3>Zrób to przed wrześniem</h3>
+<p>Traktuj <strong>EWSAllowedAppIDs</strong> jako narzędzie okresu przygotowawczego, a nie awaryjny przełącznik na październik. Zbuduj rejestr App ID z właścicielem biznesowym i technicznym dla każdej pozycji, przetestuj listę na produkcji z odpowiednim wyprzedzeniem, pamiętając o propagacji do 24 godzin, i równolegle prowadź migrację integracji na Microsoft Graph. Lista dozwolonych to most na czas przejścia, a nie plan docelowy.</p>
+</div></article>
+<div class="highlight">
+<h2>Dokumentacja Microsoft</h2>
+<p>Źródła oficjalne dotyczące wycofania EWS, listy dozwolonych aplikacji i inwentaryzacji zależności.</p>
+<div class="doc-links">
+<a href="https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/deprecation-of-ews-exchange-online" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>Deprecation of Exchange Web Services in Exchange Online (Microsoft Learn)</a>
+<a href="https://learn.microsoft.com/en-us/powershell/module/exchangepowershell/set-organizationconfig?view=exchange-ps" target="_blank" rel="noreferrer"><i class="fa-solid fa-terminal"></i>Set-OrganizationConfig (Exchange PowerShell)</a>
+<a href="https://techcommunity.microsoft.com/blog/exchange/exchange-online-ews-your-time-is-almost-up/4492361" target="_blank" rel="noreferrer"><i class="fa-solid fa-rss"></i>Exchange Online EWS, Your Time is Almost Up (Exchange Team Blog)</a>
+<a href="https://techcommunity.microsoft.com/blog/exchange/notes-from-the-field-finding-and-remediating-ews-app-usage-before-retirement/4496469" target="_blank" rel="noreferrer"><i class="fa-solid fa-magnifying-glass"></i>Notes From the Field: Finding and Remediating EWS App Usage Before Retirement</a>
+<a href="https://techcommunity.microsoft.com/category/Exchange/blog/Exchange/all-posts" target="_blank" rel="noreferrer"><i class="fa-solid fa-list"></i>Introducing EWSAllowedAppIDs: Preparing for the Final Phase of EWS Retirement (Exchange Team Blog)</a>
+<a href="https://admin.microsoft.com/AdminPortal/home#/MessageCenter/:/messages/MC1447678" target="_blank" rel="noreferrer"><i class="fa-solid fa-envelope-open-text"></i>MC1447678 w centrum administracyjnym Microsoft 365</a>
+</div>
+</div>
+</div>
+</section>
+
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://valcreon.com" class="footer-link">valcreon.com</a> • Microsoft 365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
