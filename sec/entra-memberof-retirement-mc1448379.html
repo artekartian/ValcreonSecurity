@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="MC1448379: kończy się publiczna wersja zapoznawcza operatora MemberOf w Microsoft Entra ID. Do 3 listopada 2026 zastąp reguły MemberOf w grupach dynamicznych, dynamicznych jednostkach administracyjnych i politykach automatycznego przypisania entitlement management. Po tej dacie konfiguracje przestają się aktualizować i zostają w ostatnim znanym stanie." />
+<title>Microsoft Entra ID: koniec operatora MemberOf (MC1448379) | Valcreon Security</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+.alert-critical{position:relative;padding:26px;border-radius:22px;border:1px solid rgba(239,68,68,.42);background:radial-gradient(700px 220px at 10% 0%, rgba(239,68,68,.22), transparent 58%), linear-gradient(180deg, rgba(239,68,68,.14), rgba(255,255,255,.03));box-shadow:0 18px 60px rgba(0,0,0,.45);}
+.alert-critical .eyebrow{color:#fca5a5;}
+.alert-critical h2{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0 0 12px;font-size:28px;letter-spacing:-.03em;}
+.alert-critical h2 i{font-size:22px;color:#f87171;}
+.alert-critical p{margin:0 0 12px;color:var(--muted);font-size:16px;line-height:1.75;}
+.alert-critical p:last-child{margin-bottom:0;}
+.alert-critical strong{color:#fff;}
+.code-wrap{margin-top:14px;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:rgba(0,0,0,.35);overflow-x:auto;}
+.code-wrap pre{margin:0;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;line-height:1.65;color:#e2e8f0;white-space:pre;}
+.code-note{margin:10px 0 0;font-size:13.5px;line-height:1.6;color:var(--muted2);}
+.impact{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;margin-top:6px;}
+.impact thead th{text-align:left;font-weight:600;font-size:12px;letter-spacing:.5px;text-transform:uppercase;opacity:.6;padding:0 10px 10px 0;border-bottom:1px solid rgba(255,255,255,.08);}
+.impact tbody td{padding:12px 10px 12px 0;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top;line-height:1.55;color:var(--muted);}
+.impact tbody tr:last-child td{border-bottom:none;}
+.impact .i-key{font-weight:600;color:#fff;}
+.impact .i-risk{color:#fca5a5;}
+.chk{display:flex;flex-direction:column;gap:10px;margin:14px 0 0;padding:0;list-style:none;}
+.chk li{display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:1.55;color:var(--muted);}
+.chk li i{margin-top:4px;color:#a78bfa;font-size:13px;flex-shrink:0;}
+.doc-links{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+.doc-links a{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);font-size:14.5px;font-weight:600;line-height:1.5;transition:all .18s ease;}
+.doc-links a:hover{background:rgba(255,255,255,.06);border-color:var(--stroke-strong);transform:translateY(-1px);}
+.doc-links a i{color:#a78bfa;}
+@media (max-width:768px){.impact thead{display:none;}.impact tbody tr{display:grid;grid-template-columns:1fr;gap:4px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);}.impact tbody td{padding:0;border:none;}.alert-critical{padding:18px;}.code-wrap pre{font-size:12px;}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="topbar">
+<a class="back-link" href="../index.html" aria-label="Powrót do Security Hub"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
+<span class="pill"><i class="fa-solid fa-bullhorn"></i>Microsoft Entra ID · MC1448379</span>
+</div>
+
+<section class="hero glass">
+<div class="hero-grid">
+<div>
+<div class="hero-label"><i class="fa-brands fa-microsoft"></i>Microsoft Entra ID · Groups · Plan for Change</div>
+<h1>Koniec operatora MemberOf: zastąp reguły do 3 listopada 2026</h1>
+<p class="lead">Publiczna wersja zapoznawcza operatora <strong>MemberOf</strong> w Microsoft Entra ID kończy się. Organizacje, które używają MemberOf w grupach o członkostwie dynamicznym, w dynamicznych jednostkach administracyjnych lub w politykach automatycznego przypisania entitlement management, muszą zastąpić te konfiguracje do <strong>3 listopada 2026</strong>. Microsoft zaobserwował w wersji zapoznawczej, że użycie MemberOf potrafi wpłynąć na przetwarzanie członkostwa dynamicznego w całym tenancie, nawet przy jednej regule.</p>
+</div>
+<div class="hero-side">
+<div class="signal">
+<div class="signal-top"><div class="signal-title"><span class="dot"></span>Najważniejsze</div></div>
+<div class="mini-chips"><div class="mini-chip">MC1448379</div><div class="mini-chip">MemberOf</div><div class="mini-chip">3.11.2026</div><div class="mini-chip">Grupy dynamiczne</div><div class="mini-chip">Dynamiczne AU</div><div class="mini-chip">Entitlement Management</div></div>
+</div>
+<div class="signal">
+<div class="signal-top"><div class="signal-title"><span class="dot"></span>Dlaczego to znika</div></div>
+<p style="margin:0;color:var(--muted);line-height:1.65;font-size:14px;">Microsoft rozwija skalowalność i niezawodność przetwarzania członkostwa dynamicznego. Ze względu na opisane ograniczenie MemberOf <strong>nie jest zalecany do użycia produkcyjnego</strong> i zostanie wycofany.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="alert-critical">
+<div class="eyebrow">Najważniejsza zmiana</div>
+<h2><i class="fa-solid fa-triangle-exclamation"></i>Konfiguracje z MemberOf nie znikną, one zamarzną</h2>
+<p>Jeśli nie podejmiesz działania, konfiguracje używające operatora <strong>MemberOf przestaną się aktualizować po 3 listopada 2026</strong>. Dane członkostwa i przypisań pozostaną w <strong>ostatnim znanym stanie</strong>.</p>
+<p>To gorszy scenariusz niż zwykłe wyłączenie funkcji: grupa nadal istnieje, nadal ma członków i nadal nadaje dostęp, tylko przestaje odzwierciedlać rzeczywistość. Nowi użytkownicy nie dostaną dostępu, a usunięci mogą go zachować. Efektem jest <strong>przeterminowany dostęp i luki w egzekwowaniu zabezpieczeń</strong>, których nie zobaczysz w żadnym alercie, bo z perspektywy portalu wszystko wygląda poprawnie.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Co i dlaczego</h2><p class="section-desc">Komunikat <strong>MC1448379</strong> to zapowiedź kategorii Plan for Change dla Microsoft Entra ID, oznaczona jako Major Change.</p></div>
+<div class="grid-2">
+<article class="highlight">
+<h2>Kontekst</h2>
+<p>Operator MemberOf pozwalał zbudować grupę dynamiczną z bezpośrednich członków innych grup, czyli spłaszczyć zagnieżdżone członkostwo do jednej płaskiej grupy. Był to obejściowy sposób na aplikacje, które nie potrafią czytać zagnieżdżonych grup, a także wygodny mechanizm przy licencjonowaniu i przypisywaniu dostępu. Przez cały czas pozostawał jednak w publicznej wersji zapoznawczej. Microsoft kończy tę wersję zapoznawczą, ponieważ MemberOf potrafi spowolnić przetwarzanie członkostwa dynamicznego w całym tenancie, nawet jeśli reguła jest tylko jedna.</p>
+<ul class="chk">
+<li><i class="fa-solid fa-circle-check"></i>Przejrzyj wszystkie użycia operatora MemberOf</li>
+<li><i class="fa-solid fa-circle-check"></i>Usuń lub zastąp te konfiguracje</li>
+<li><i class="fa-solid fa-circle-check"></i>Zweryfikuj członkostwo i zakresy po zmianach</li>
+</ul>
+</article>
+<article class="card tldr">
+<div class="eyebrow">W skrócie</div>
+<h3>Co musisz zapamiętać</h3>
+<p><strong>– wycofanie Worldwide: początek listopada 2026</strong><br><strong>– termin działania: 3 listopada 2026</strong><br><strong>– dotyczy grup dynamicznych, dynamicznych AU i polityk auto-assignment</strong><br><strong>– brak działania oznacza zamrożenie członkostwa, nie jego wyczyszczenie</strong><br><strong>– zamrożone członkostwo to ryzyko przeterminowanego dostępu</strong><br><br><em>Alternatywa: reguły oparte na wspieranych operatorach albo konwersja na członkostwo przypisywane.</em></p>
+</article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Harmonogram</h2><p class="section-desc">Jedna data graniczna, jeden termin działania.</p></div>
+<div class="grid-2">
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-globe"></i></div><div class="eyebrow">Wycofanie (Worldwide)</div><h3>Początek listopada 2026</h3><p>Wycofanie operatora <strong>MemberOf</strong> rozpoczyna się na początku listopada 2026 we wszystkich środowiskach Worldwide.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-calendar-check"></i></div><div class="eyebrow">Termin działania</div><h3>3 listopada 2026</h3><p>Do tej daty należy przejrzeć wszystkie użycia MemberOf oraz usunąć lub zastąpić te konfiguracje.</p></div></article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Kogo to dotyczy</h2><p class="section-desc">Zakres komunikatu obejmuje trzy mechanizmy oparte na tym samym operatorze.</p></div>
+<div class="grid-3">
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-users-gear"></i></div><div class="eyebrow">Obszar 1</div><h3>Grupy dynamiczne</h3><p>Grupy o członkostwie dynamicznym, których reguła zawiera operator MemberOf.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-sitemap"></i></div><div class="eyebrow">Obszar 2</div><h3>Dynamiczne AU</h3><p>Dynamiczne jednostki administracyjne (administrative units) korzystające z reguł MemberOf.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-id-badge"></i></div><div class="eyebrow">Obszar 3</div><h3>Auto-assignment</h3><p>Polityki automatycznego przypisania w entitlement management oparte na MemberOf.</p></div></article>
+</div>
+<div class="grid-2" style="margin-top:14px;">
+<article class="card"><div class="card-top"><div class="eyebrow">Platformy i usługi</div><h3>Zakres techniczny</h3><p>Microsoft Entra ID, Microsoft Entra Groups, Microsoft Entra Administrative Units, Microsoft Entra Entitlement Management.</p></div></article>
+<article class="card"><div class="card-top"><div class="eyebrow">Odbiorcy</div><h3>Kto jest objęty</h3><p>Organizacje używające operatora MemberOf w którymkolwiek z trzech powyższych obszarów, wraz z administratorami tożsamości odpowiedzialnymi za dostęp i licencjonowanie.</p></div></article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Co się stanie, jeśli nic nie zrobisz</h2><p class="section-desc">Potencjalne skutki zamrożenia członkostwa po 3 listopada 2026.</p></div>
+<div class="highlight">
+<table class="impact">
+<thead><tr><th>Obszar</th><th>Ryzyko</th></tr></thead>
+<tbody>
+<tr><td class="i-key">Teams i SharePoint (grupy Microsoft 365)</td><td class="i-risk">dostęp może stać się nieaktualny: nowi członkowie mogą go nie otrzymać, a usunięci mogą go zachować</td></tr>
+<tr><td class="i-key">Dostęp warunkowy</td><td class="i-risk">zasady mogą przestać odzwierciedlać bieżące członkostwo użytkowników i urządzeń</td></tr>
+<tr><td class="i-key">Entitlement Management</td><td class="i-risk">polityki auto-assignment mogą przestać dodawać i usuwać przypisania pakietów dostępu zgodnie z zamierzeniem</td></tr>
+<tr><td class="i-key">Licencjonowanie grupowe</td><td class="i-risk">licencje mogą przestać być poprawnie przypisywane i odbierane, co daje użytkowników bez licencji lub nadmiarowo licencjonowanych</td></tr>
+<tr><td class="i-key">Dynamiczne jednostki administracyjne</td><td class="i-risk">członkostwo i zakres administracyjny mogą stać się nieaktualne</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Wymagane działania</h2><p class="section-desc">Przed 3 listopada 2026 przejrzyj wszystkie użycia operatora MemberOf i usuń lub zastąp te konfiguracje.</p></div>
+<div class="timeline">
+
+<div class="step"><div class="step-no">1</div><div>
+<h3>Grupy o członkostwie dynamicznym</h3>
+<ul class="chk">
+<li><i class="fa-solid fa-angle-right"></i>wyeksportuj grupy dynamiczne z centrum administracyjnego Microsoft Entra i znajdź reguły zawierające MemberOf</li>
+<li><i class="fa-solid fa-angle-right"></i>zastąp MemberOf wspieranymi operatorami reguł albo przekonwertuj grupę na członkostwo przypisywane</li>
+<li><i class="fa-solid fa-angle-right"></i>zweryfikuj członkostwo grupy po wprowadzeniu zmian</li>
+<li><i class="fa-solid fa-angle-right"></i>jeśli grupa nie jest już potrzebna, rozważ jej wstrzymanie lub usunięcie</li>
+</ul>
+</div></div>
+
+<div class="step"><div class="step-no">2</div><div>
+<h3>Dynamiczne jednostki administracyjne</h3>
+<ul class="chk">
+<li><i class="fa-solid fa-angle-right"></i>użyj Microsoft Graph PowerShell, aby zidentyfikować dynamiczne jednostki administracyjne używające reguł MemberOf</li>
+<li><i class="fa-solid fa-angle-right"></i>zastąp reguły oparte na MemberOf wspieranymi operatorami albo przekonwertuj jednostkę na członkostwo przypisywane</li>
+<li><i class="fa-solid fa-angle-right"></i>zweryfikuj zarówno członkostwo, jak i zakres administracyjny po zmianach</li>
+<li><i class="fa-solid fa-angle-right"></i>jeśli jednostka administracyjna nie jest już potrzebna, rozważ jej usunięcie</li>
+</ul>
+</div></div>
+
+<div class="step"><div class="step-no">3</div><div>
+<h3>Polityki auto-assignment w Entitlement Management</h3>
+<ul class="chk">
+<li><i class="fa-solid fa-angle-right"></i>użyj Microsoft Graph PowerShell, aby zidentyfikować polityki automatycznego przypisania używające MemberOf</li>
+<li><i class="fa-solid fa-angle-right"></i>zastąp polityki oparte na MemberOf wspieranymi operatorami tam, gdzie to możliwe</li>
+<li><i class="fa-solid fa-angle-right"></i>jeśli nie ma równoważnej reguły, zaplanuj alternatywną metodę przypisania przed wycofaniem</li>
+<li><i class="fa-solid fa-angle-right"></i>zweryfikuj przypisania pakietów dostępu po wprowadzeniu zmian</li>
+</ul>
+</div></div>
+
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Audyt w Microsoft Graph PowerShell</h2><p class="section-desc">Komunikat wskazuje Graph PowerShell jako narzędzie inwentaryzacji, ale nie podaje gotowych poleceń. Poniższe komendy przygotowaliśmy jako punkt startowy audytu.</p></div>
+
+<div class="grid-2">
+<article class="card"><div class="card-top">
+<div class="eyebrow">Krok 0</div>
+<h3>Połączenie i zakresy</h3>
+<div class="code-wrap"><pre>Connect-MgGraph -Scopes "Group.Read.All","AdministrativeUnit.Read.All","EntitlementManagement.Read.All"</pre></div>
+<p class="code-note">Do samego audytu wystarczają uprawnienia tylko do odczytu. Uprawnienia zapisu dodaj dopiero na etapie remediacji.</p>
+</div></article>
+
+<article class="card"><div class="card-top">
+<div class="eyebrow">Krok 1</div>
+<h3>Grupy dynamiczne z MemberOf</h3>
+<div class="code-wrap"><pre>Get-MgGroup -All -Property Id,DisplayName,GroupTypes,MembershipRule |
+  Where-Object { $_.MembershipRule -match "memberof" } |
+  Select-Object DisplayName, Id, MembershipRule |
+  Export-Csv .\memberof-groups.csv -NoTypeInformation -Encoding UTF8</pre></div>
+<p class="code-note">Eksport do CSV daje listę roboczą do przypisania właściciela i decyzji: zastąpić regułę, przekonwertować na członkostwo przypisywane czy usunąć grupę.</p>
+</div></article>
+</div>
+
+<div class="grid-2" style="margin-top:14px;">
+<article class="card"><div class="card-top">
+<div class="eyebrow">Krok 2</div>
+<h3>Dynamiczne jednostki administracyjne</h3>
+<div class="code-wrap"><pre>Get-MgDirectoryAdministrativeUnit -All -Property Id,DisplayName,MembershipRule,MembershipType |
+  Where-Object { $_.MembershipRule -match "memberof" } |
+  Select-Object DisplayName, Id, MembershipRule</pre></div>
+<p class="code-note">Tu ryzyko jest podwójne: nieaktualne członkostwo oraz nieaktualny zakres delegacji uprawnień administracyjnych.</p>
+</div></article>
+
+<article class="card"><div class="card-top">
+<div class="eyebrow">Krok 3</div>
+<h3>Polityki auto-assignment</h3>
+<div class="code-wrap"><pre>Get-MgEntitlementManagementAssignmentPolicy -All -ExpandProperty AccessPackage |
+  Where-Object { $_.SpecificAllowedTargets.Description -match "memberof" -or $_.AdditionalProperties.Values -match "memberof" } |
+  Select-Object DisplayName, Id</pre></div>
+<p class="code-note">Reguła polityki auto-assignment jest zapisana w filtrze użytkowników. Jeśli filtr korzysta z MemberOf, polityka wymaga przebudowy lub zastąpienia inną metodą przypisania.</p>
+</div></article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Kwestie zgodności</h2><p class="section-desc">Zakres compliance wskazany w komunikacie MC1448379.</p></div>
+<div class="highlight">
+<p>Konfiguracje, które opierają się na MemberOf w zarządzaniu dostępem, licencjonowaniu, entitlement management, targetowaniu dostępu warunkowego lub zakresach administracyjnych, mogą przestać się aktualizować po wycofaniu. Przejrzyj konfiguracje objęte zmianą, aby zapewnić ciągłość zgodności i nadzoru nad dostępem po <strong>3 listopada 2026</strong>.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="grid-2">
+<article class="card"><div class="card-top">
+<div class="eyebrow">Rekomendacja Valcreon</div>
+<h3>Audyt teraz, remediacja we wrześniu</h3>
+<p>Zrób inwentaryzację od razu, bo skala problemu bywa zaskakująca: MemberOf zwykle wchodzi do tenanta jako szybkie obejście przy jednym projekcie, a potem cicho zasila licencje i dostęp warunkowy. Dla każdej znalezionej reguły przypisz właściciela i decyzję, a remediację zaplanuj z zapasem przed 3 listopada, żeby zostawić sobie czas na weryfikację członkostwa po zmianie. Tam, gdzie reguła dynamiczna nie ma sensownego odpowiednika, prostszym i pewniejszym rozwiązaniem jest członkostwo przypisywane sterowane procesem onboardingu.</p>
+</div></article>
+<div class="highlight">
+<h2>Dokumentacja Microsoft</h2>
+<p>Oficjalne źródła dotyczące operatora MemberOf, migracji reguł i polityk automatycznego przypisania.</p>
+<div class="doc-links">
+<a href="https://learn.microsoft.com/entra/identity/users/groups-dynamic-rule-member-of" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>Configure dynamic membership groups with the memberOf attribute</a>
+<a href="https://learn.microsoft.com/entra/identity/users/groups-dynamic-rule-more-efficient" target="_blank" rel="noreferrer"><i class="fa-solid fa-gauge-high"></i>Create simpler, more efficient rules for dynamic membership groups</a>
+<a href="https://learn.microsoft.com/entra/identity/role-based-access-control/admin-units-members-dynamic?tabs=admin-center" target="_blank" rel="noreferrer"><i class="fa-solid fa-sitemap"></i>Manage users or devices for an administrative unit with dynamic rules</a>
+<a href="https://learn.microsoft.com/entra/id-governance/entitlement-management-access-package-auto-assignment-policy" target="_blank" rel="noreferrer"><i class="fa-solid fa-id-badge"></i>Configure an automatic assignment policy for an access package</a>
+<a href="https://learn.microsoft.com/entra/identity/users/groups-dynamic-membership" target="_blank" rel="noreferrer"><i class="fa-solid fa-list-check"></i>Manage rules for dynamic membership groups in Microsoft Entra ID</a>
+<a href="https://admin.microsoft.com/AdminPortal/home#/MessageCenter/:/messages/MC1448379" target="_blank" rel="noreferrer"><i class="fa-solid fa-envelope-open-text"></i>MC1448379 w centrum administracyjnym Microsoft 365</a>
+</div>
+</div>
+</div>
+</section>
+
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://valcreon.com" class="footer-link">valcreon.com</a> • Microsoft 365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
