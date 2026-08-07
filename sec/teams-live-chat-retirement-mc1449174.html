@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="MC1449174: Microsoft wycofuje czat na żywo Microsoft Teams. Od sierpnia 2026 nie da się założyć nowej integracji, od października 2026 widżet przestaje przekazywać wiadomości ze strony do Teams. Firma powinna usunąć widżet czatu ze strony do 5 października 2026." />
+<title>Microsoft Teams: koniec czatu na żywo (MC1449174) | Valcreon Security</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+.alert-critical{position:relative;padding:26px;border-radius:22px;border:1px solid rgba(239,68,68,.42);background:radial-gradient(700px 220px at 10% 0%, rgba(239,68,68,.22), transparent 58%), linear-gradient(180deg, rgba(239,68,68,.14), rgba(255,255,255,.03));box-shadow:0 18px 60px rgba(0,0,0,.45);}
+.alert-critical .eyebrow{color:#fca5a5;}
+.alert-critical h2{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0 0 12px;font-size:28px;letter-spacing:-.03em;}
+.alert-critical h2 i{font-size:22px;color:#f87171;}
+.alert-critical p{margin:0 0 12px;color:var(--muted);font-size:16px;line-height:1.75;}
+.alert-critical p:last-child{margin-bottom:0;}
+.alert-critical strong{color:#fff;}
+.code-wrap{margin-top:14px;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:rgba(0,0,0,.35);overflow-x:auto;}
+.code-wrap pre{margin:0;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;line-height:1.65;color:#e2e8f0;white-space:pre;}
+.code-note{margin:10px 0 0;font-size:13.5px;line-height:1.6;color:var(--muted2);}
+.chk{display:flex;flex-direction:column;gap:10px;margin:14px 0 0;padding:0;list-style:none;}
+.chk li{display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:1.55;color:var(--muted);}
+.chk li i{margin-top:4px;color:#a78bfa;font-size:13px;flex-shrink:0;}
+.chk li span{flex:1;min-width:0;}
+.chk li code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13.5px;padding:1px 6px;border-radius:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#e2e8f0;white-space:nowrap;}
+.doc-links{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+.doc-links a{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);font-size:14.5px;font-weight:600;line-height:1.5;transition:all .18s ease;}
+.doc-links a:hover{background:rgba(255,255,255,.06);border-color:var(--stroke-strong);transform:translateY(-1px);}
+.doc-links a i{color:#a78bfa;}
+@media (max-width:768px){.alert-critical{padding:18px;}.code-wrap pre{font-size:12px;}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="topbar">
+<a class="back-link" href="../index.html" aria-label="Powrót do Security Hub"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
+<span class="pill"><i class="fa-solid fa-bullhorn"></i>Microsoft Teams · MC1449174</span>
+</div>
+<section class="hero glass">
+<div class="hero-grid">
+<div>
+<div class="hero-label"><i class="fa-brands fa-microsoft"></i>Microsoft Teams · Live chat · Retirement</div>
+<h1>Koniec czatu na żywo w Teams: usuń widżet do 5 października 2026</h1>
+<p class="lead">Microsoft wycofuje <strong>czat na żywo Microsoft Teams</strong>, czyli okienko czatu na stronie www, które przekazywało wiadomości od klientów prosto do kanału Teams. Firmy, które mają taki czat na swojej stronie, powinny <strong>usunąć go do 5 października 2026</strong>. Po tej dacie okienko przestanie działać, a wiadomości klientów po prostu przestaną docierać do firmy.</p>
+</div>
+<div class="hero-side">
+<div class="signal">
+<div class="signal-top"><div class="signal-title"><span class="dot"></span>Najważniejsze</div></div>
+<div class="mini-chips"><div class="mini-chip">MC1449174</div><div class="mini-chip">Live chat</div><div class="mini-chip">Sierpień 2026</div><div class="mini-chip">Październik 2026</div><div class="mini-chip">Widżet www</div></div>
+</div>
+<div class="signal">
+<div class="signal-top"><div class="signal-title"><span class="dot"></span>Dlaczego to znika</div></div>
+<p style="margin:0;color:var(--muted);line-height:1.65;font-size:14px;">Microsoft przenosi inwestycje na nowsze narzędzia do kontaktu z klientem i komunikacji, dlatego czat na żywo w Teams zostaje wyłączony.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="alert-critical">
+<div class="eyebrow">Najważniejsza zmiana</div>
+<h2><i class="fa-solid fa-triangle-exclamation"></i>Wiadomości od klientów po prostu przestaną przychodzić</h2>
+<p>Od początku października 2026 widżet czatu <strong>przestanie przekazywać wiadomości ze strony do Teams</strong>. Okienko może dalej wyglądać poprawnie, ale klient napisze w próżnię, a firma tego nie zobaczy.</p>
+<p>Dobra wiadomość: <strong>dotychczasowa historia rozmów w kanale Teams zostaje</strong> i nic nie zostanie skasowane. Znika sam mechanizm odbierania nowych wiadomości ze strony www.</p>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Co i dlaczego</h2><p class="section-desc">Komunikat <strong>MC1449174</strong> zapowiada wycofanie czatu na żywo Microsoft Teams.</p></div>
+<div class="grid-2">
+<article class="highlight">
+<h2>Kontekst</h2>
+<p>Czat na żywo Teams pozwalał wstawić na stronę firmową małe okienko czatu, przez które klient pisał do firmy, a wiadomość trafiała do wybranego kanału w Teams. Wygodne dla małej firmy, bo obsługa szła w narzędziu, które i tak jest w codziennym użyciu. Microsoft kończy jednak z tą funkcją i kieruje uwagę na nowsze rozwiązania do kontaktu z klientem.</p>
+<ul class="chk">
+<li><i class="fa-solid fa-circle-check"></i>Firma sprawdza, czy ma widżet czatu Teams na stronie</li>
+<li><i class="fa-solid fa-circle-check"></i>Usuwa go do 5 października 2026</li>
+<li><i class="fa-solid fa-circle-check"></i>Planuje inny sposób kontaktu z klientem</li>
+</ul>
+</article>
+<article class="card tldr">
+<div class="eyebrow">W skrócie</div>
+<h3>Co trzeba zapamiętać</h3>
+<p><strong>– sierpień 2026: nie założysz już nowego czatu na żywo</strong><br><strong>– październik 2026: czat przestaje działać i przekazywać wiadomości</strong><br><strong>– zakończenie: połowa października 2026</strong><br><strong>– widżet trzeba usunąć ze strony do 5 października 2026</strong><br><strong>– historia rozmów w Teams zostaje, nic nie znika</strong><br><br><em>Alternatywa: formularz kontaktowy, e-mail, telefon albo inne narzędzie do czatu na stronie.</em></p>
+</article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Harmonogram</h2><p class="section-desc">Dwa kroki wyłączania i termin na usunięcie widżetu.</p></div>
+<div class="grid-3">
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-ban"></i></div><div class="eyebrow">Początek sierpnia 2026</div><h3>Koniec nowych integracji</h3><p>Nowi klienci nie mogą już skonfigurować czatu na żywo Microsoft Teams.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-plug-circle-xmark"></i></div><div class="eyebrow">Początek października 2026</div><h3>Koniec wsparcia</h3><p>Czat przestaje być wspierany i nie przekazuje już wiadomości ze strony do Teams.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-flag-checkered"></i></div><div class="eyebrow">Połowa października 2026</div><h3>Zakończenie</h3><p>Wdrożenie zmiany zostaje w pełni zakończone we wszystkich środowiskach.</p></div></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Kogo to dotyczy</h2><p class="section-desc">Zmiana dotyczy firm, które odbierają czat z własnej strony przez Teams.</p></div>
+
+<div class="grid-2">
+<article class="card"><div class="card-top"><div class="eyebrow">Odbiorcy</div><h3>Kto jest objęty</h3><p>Firmy, które używają czatu na żywo Microsoft Teams, żeby przekazywać rozmowy z klientami ze swojej strony www prosto do Teams.</p></div></article>
+<article class="card"><div class="card-top"><div class="eyebrow">Platformy i usługi</div><h3>Zakres</h3><p>Microsoft Teams oraz integracje na stronie www oparte na czacie na żywo Teams.</p></div></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Co powinna zrobić firma</h2><p class="section-desc">Przed 5 października 2026 firma usuwa widżet i planuje inny kanał kontaktu.</p></div>
+<div class="timeline">
+<div class="step"><div class="step-no">1</div><div>
+<h3>Usunięcie widżetu czatu ze strony</h3>
+<ul class="chk">
+<li><i class="fa-solid fa-angle-right"></i><span>na stronach, gdzie jest osadzony czat, należy znaleźć w kodzie znacznik <code>&lt;script&gt;</code> z atrybutem <code>id="chatbot"</code> i go usunąć</span></li>
+<li><i class="fa-solid fa-angle-right"></i><span>trzeba to zrobić do <strong>5 października 2026</strong>, na każdej podstronie z czatem</span></li>
+</ul>
+<div class="code-wrap"><pre>&lt;script id="chatbot" ...&gt;&lt;/script&gt;   &lt;!-- ten fragment do usunięcia --&gt;</pre></div>
+<p class="code-note">Jeśli stronę prowadzi ktoś z zewnątrz (agencja, webmaster), wystarczy przekazać mu to zadanie.</p>
+</div></div>
+<div class="step"><div class="step-no">2</div><div>
+<h3>Poinformowanie zespołu</h3>
+<ul class="chk">
+<li><i class="fa-solid fa-angle-right"></i>osoby obsługujące czat powinny wiedzieć, że po tej dacie wiadomości przestaną przychodzić</li>
+</ul>
+</div></div>
+<div class="step"><div class="step-no">3</div><div>
+<h3>Wybór następcy</h3>
+<ul class="chk">
+<li><i class="fa-solid fa-angle-right"></i>firma decyduje, jak klienci mają się z nią kontaktować: formularz, e-mail, telefon albo inne narzędzie do czatu</li>
+<li><i class="fa-solid fa-angle-right"></i>nowy kanał warto uruchomić, zanim czat Teams przestanie działać, żeby nie zgubić zapytań</li>
+</ul>
+</div></div>
+</div>
+</section>
+<section class="section">
+<div class="grid-2">
+<article class="card"><div class="card-top">
+<div class="eyebrow">Rekomendacja Valcreon</div>
+<h3>Warto działać wcześniej</h3>
+<p>Największe ryzyko to nie samo wyłączenie funkcji, tylko ciche zniknięcie zapytań od klientów. Widżet dalej się wyświetla, klient pisze, a wiadomość nie dochodzi. Lepiej usunąć czat wcześniej i od razu podstawić jasny kanał kontaktu, na przykład prosty formularz albo dobrze widoczny e-mail i telefon. Dzięki temu firma nie straci żadnego leada w trakcie zmiany.</p>
+</div></article>
+<div class="highlight">
+<h2>Dokumentacja Microsoft</h2>
+<p>Oficjalne źródła dotyczące czatu na żywo Microsoft Teams i komunikatu MC1449174.</p>
+<div class="doc-links">
+<a href="https://learn.microsoft.com/microsoftteams/set-up-live-chat" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>Set up and manage live chat | Microsoft Teams | Microsoft Learn</a>
+<a href="https://admin.microsoft.com/AdminPortal/home#/MessageCenter/:/messages/MC1449174" target="_blank" rel="noreferrer"><i class="fa-solid fa-envelope-open-text"></i>MC1449174 w centrum administracyjnym Microsoft 365</a>
+</div>
+</div>
+</div>
+</section>
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://valcreon.com" class="footer-link">valcreon.com</a> • Microsoft 365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
