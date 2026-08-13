@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="MC1454114: Microsoft Teams wprowadza obowiązkową zgodę uczestnika przed dołączeniem do spotkania. Administrator może skonfigurować własny komunikat, regulamin lub notę zgodności, którą każdy uczestnik musi zaakceptować. Zgody trafiają do dzienników audytu. Ogólna dostępność od września 2026." />
+<title>Microsoft Teams: obowiązkowa zgoda przed dołączeniem do spotkania (MC1454114) | Valcreon Security</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+.alert-critical{position:relative;padding:26px;border-radius:22px;border:1px solid rgba(239,68,68,.42);background:radial-gradient(700px 220px at 10% 0%, rgba(239,68,68,.22), transparent 58%), linear-gradient(180deg, rgba(239,68,68,.14), rgba(255,255,255,.03));box-shadow:0 18px 60px rgba(0,0,0,.45);}
+.alert-critical .eyebrow{color:#fca5a5;}
+.alert-critical h2{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0 0 12px;font-size:28px;letter-spacing:-.03em;}
+.alert-critical h2 i{font-size:22px;color:#f87171;}
+.alert-critical p{margin:0 0 12px;color:var(--muted);font-size:16px;line-height:1.75;}
+.alert-critical p:last-child{margin-bottom:0;}
+.alert-critical strong{color:#fff;}
+.code-wrap{margin-top:14px;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:rgba(0,0,0,.35);overflow-x:auto;}
+.code-wrap pre{margin:0;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;line-height:1.65;color:#e2e8f0;white-space:pre;}
+.code-note{margin:10px 0 0;font-size:13.5px;line-height:1.6;color:var(--muted2);}
+.chk{display:flex;flex-direction:column;gap:10px;margin:14px 0 0;padding:0;list-style:none;}
+.chk li{display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:1.55;color:var(--muted);}
+.chk li i{margin-top:4px;color:#a78bfa;font-size:13px;flex-shrink:0;}
+.chk li span{flex:1;min-width:0;}
+.chk li code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13.5px;padding:1px 6px;border-radius:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#e2e8f0;white-space:nowrap;}
+.doc-links{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+.doc-links a{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);font-size:14.5px;font-weight:600;line-height:1.5;transition:all .18s ease;}
+.doc-links a:hover{background:rgba(255,255,255,.06);border-color:var(--stroke-strong);transform:translateY(-1px);}
+.doc-links a i{color:#a78bfa;}
+.compliance-table{width:100%;border-collapse:separate;border-spacing:0;margin-top:6px;font-size:14.5px;}
+.compliance-table th{text-align:left;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#a78bfa;padding:0 14px 12px 0;border-bottom:1px solid rgba(255,255,255,.10);}
+.compliance-table td{padding:14px 14px 14px 0;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top;color:var(--muted);line-height:1.6;}
+.compliance-table td:first-child{width:46%;color:var(--text);font-weight:600;}
+.compliance-table tr:last-child td{border-bottom:none;}
+.compliance-table .yes{color:#22c55e;font-weight:700;}
+@media (max-width:768px){.alert-critical{padding:18px;}.code-wrap pre{font-size:12px;}.compliance-table th{display:none;}.compliance-table tr{display:grid;grid-template-columns:1fr;gap:2px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);}.compliance-table td{padding:0;border:none;}.compliance-table td:first-child{width:auto;margin-bottom:2px;}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="topbar">
+<a class="back-link" href="../index.html" aria-label="Powrót do Security Hub"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
+<span class="pill"><i class="fa-solid fa-bullhorn"></i>Microsoft Teams · MC1454114</span>
+</div>
+<section class="hero glass">
+<div class="hero-grid">
+<div>
+<div class="hero-label"><i class="fa-brands fa-microsoft"></i>Microsoft Teams · Zgoda uczestnika · Nowa funkcja</div>
+<h1>Obowiązkowa zgoda przed dołączeniem do spotkania Teams</h1>
+<p class="lead">Microsoft wprowadza w <strong>Microsoft Teams</strong> nową funkcję, która pozwala administratorowi wymusić <strong>obowiązkową zgodę uczestnika</strong> przed dołączeniem do spotkania. Przed wejściem na spotkanie każdy uczestnik musi zaakceptować przygotowany wcześniej komunikat, na przykład regulamin, notę o nagrywaniu albo zasady odpowiedzialnego korzystania z AI. Funkcja pomaga spełnić wymagania zgodności i przepisów, a wszystkie zgody są zapisywane w dziennikach audytu.</p>
+</div>
+<div class="hero-side">
+<div class="signal">
+<div class="signal-top"><div class="signal-title"><span class="dot"></span>Najważniejsze</div></div>
+<div class="mini-chips"><div class="mini-chip">MC1454114</div><div class="mini-chip">Roadmap 561914</div><div class="mini-chip">Zgoda uczestnika</div><div class="mini-chip">Wrzesień 2026</div><div class="mini-chip">Dzienniki audytu</div></div>
+</div>
+<div class="signal">
+<div class="signal-top"><div class="signal-title"><span class="dot"></span>Dlaczego to powstaje</div></div>
+<p style="margin:0;color:var(--muted);line-height:1.65;font-size:14px;">Organizacje coraz częściej muszą udowodnić, że uczestnik spotkania zapoznał się z regulaminem lub notą o nagrywaniu. Ta funkcja daje na to gotowe, audytowalne narzędzie.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="alert-critical">
+<div class="eyebrow">Najważniejsza zmiana</div>
+<h2><i class="fa-solid fa-triangle-exclamation"></i>Każdy uczestnik musi zaakceptować zgodę, nawet organizator</h2>
+<p>Po włączeniu polityki <strong>wszyscy uczestnicy</strong>, czyli organizatorzy, użytkownicy wewnętrzni, użytkownicy zewnętrzni oraz uczestnicy anonimowi, muszą zaakceptować skonfigurowaną zgodę, zanim dołączą do spotkania. <strong>Organizator nie jest zwolniony</strong> z tego wymogu i również musi zaakceptować komunikat.</p>
+<p>Funkcja jest <strong>domyślnie wyłączona i wymaga konfiguracji przez administratora</strong>. Dopóki nikt jej nie włączy, nie ma żadnego wpływu na użytkowników ani na spotkania.</p>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Co i dlaczego</h2><p class="section-desc">Komunikat <strong>MC1454114</strong> zapowiada nową możliwość wymuszenia zgody uczestnika przed dołączeniem do spotkania Teams. Powiązany z Microsoft 365 Roadmap ID <strong>561914</strong>.</p></div>
+<div class="grid-2">
+<article class="highlight">
+<h2>Kontekst</h2>
+<p>Administrator może w Centrum administracyjnym Teams zdefiniować własną treść zgody: regulamin, warunki korzystania albo notę zgodności. Zanim uczestnik dołączy do spotkania objętego polityką, zobaczy ten komunikat i musi go zaakceptować. Akceptacja zostaje zapisana w dziennikach audytu, co wspiera nadzór, postępowania wyjaśniające i przejrzystość.</p>
+<ul class="chk">
+<li><i class="fa-solid fa-circle-check"></i>Administrator konfiguruje treść zgody w Centrum administracyjnym Teams</li>
+<li><i class="fa-solid fa-circle-check"></i>Uczestnik akceptuje komunikat przed wejściem na spotkanie</li>
+<li><i class="fa-solid fa-circle-check"></i>Zgoda trafia do dzienników audytu do celów zgodności</li>
+</ul>
+</article>
+<article class="card tldr">
+<div class="eyebrow">W skrócie</div>
+<h3>Co trzeba zapamiętać</h3>
+<p><strong>– administrator włącza i konfiguruje własny komunikat zgody</strong><br><strong>– każdy uczestnik akceptuje go przed dołączeniem, także organizator</strong><br><strong>– obejmuje użytkowników wewnętrznych, zewnętrznych i anonimowych</strong><br><strong>– jeden język domyślny plus maksymalnie cztery dodatkowe</strong><br><strong>– zgody zapisują się w dziennikach audytu</strong><br><strong>– funkcja domyślnie wyłączona, bez konfiguracji nic się nie zmienia</strong><br><br><em>Typowe zastosowanie: nota o nagrywaniu, regulamin, zasady odpowiedzialnego AI.</em></p>
+</article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Harmonogram</h2><p class="section-desc">Ogólna dostępność (General Availability) w kolejnych chmurach i środowiskach.</p></div>
+<div class="grid-3">
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-flask"></i></div><div class="eyebrow">Targeted Release</div><h3>Od września 2026</h3><p>Funkcja pojawia się najpierw w pierścieniu Targeted Release do wczesnej weryfikacji.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-globe"></i></div><div class="eyebrow">Worldwide i GCC</div><h3>Połowa października 2026</h3><p>Start w połowie października 2026, zakończenie oczekiwane do połowy listopada 2026.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-shield-halved"></i></div><div class="eyebrow">GCC High i DoD</div><h3>Połowa listopada 2026</h3><p>Start w połowie listopada 2026, zakończenie oczekiwane do połowy grudnia 2026.</p></div></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Kogo to dotyczy</h2><p class="section-desc">Zmiana obejmuje administratorów Teams oraz wszystkich uczestników spotkań w organizacjach, które włączą funkcję.</p></div>
+<div class="grid-2">
+<article class="card"><div class="card-top"><div class="eyebrow">Odbiorcy</div><h3>Kto jest objęty</h3><p>Administratorzy zarządzający politykami Microsoft Teams oraz wszyscy uczestnicy spotkań, łącznie z organizatorami, w organizacjach, które włączą tę funkcję.</p></div></article>
+<article class="card"><div class="card-top"><div class="eyebrow">Platformy i usługi</div><h3>Zakres</h3><p>Microsoft Teams, Centrum administracyjne Teams (Teams admin center) oraz dzienniki audytu (audit logs).</p></div></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Co się zmieni</h2><p class="section-desc">Szczegóły działania nowej funkcji zgody uczestnika.</p></div>
+<div class="timeline">
+<div class="step"><div class="step-no"><i class="fa-solid fa-sliders"></i></div><div>
+<h3>Konfiguracja w Centrum administracyjnym Teams</h3>
+<ul class="chk">
+<li><i class="fa-solid fa-angle-right"></i><span>administrator konfiguruje obowiązkowy ekran zgody przed spotkaniem w <strong>Teams admin center</strong></span></li>
+<li><i class="fa-solid fa-angle-right"></i><span>można zdefiniować własną treść: zastrzeżenia, regulamin i warunki lub noty zgodności</span></li>
+<li><i class="fa-solid fa-angle-right"></i><span>przed włączeniem administrator może <strong>podejrzeć</strong>, jak zgoda będzie wyglądać dla uczestnika</span></li>
+</ul>
+</div></div>
+<div class="step"><div class="step-no"><i class="fa-solid fa-users"></i></div><div>
+<h3>Akceptacja przez uczestników</h3>
+<ul class="chk">
+<li><i class="fa-solid fa-angle-right"></i><span>wszyscy uczestnicy, czyli <strong>organizatorzy, użytkownicy wewnętrzni, użytkownicy zewnętrzni i uczestnicy anonimowi</strong>, muszą zaakceptować zgodę przed dołączeniem</span></li>
+<li><i class="fa-solid fa-angle-right"></i><span>organizator spotkania <strong>nie jest zwolniony</strong> z polityki i również musi zaakceptować komunikat</span></li>
+</ul>
+</div></div>
+<div class="step"><div class="step-no"><i class="fa-solid fa-language"></i></div><div>
+<h3>Języki i zapis zgody</h3>
+<ul class="chk">
+<li><i class="fa-solid fa-angle-right"></i><span>administrator ustawia <strong>jeden język domyślny</strong> oraz maksymalnie <strong>cztery dodatkowe języki</strong></span></li>
+<li><i class="fa-solid fa-angle-right"></i><span>uczestnik widzi treść w języku swojego urządzenia; jeśli jest niedostępny, wyświetla się język domyślny</span></li>
+<li><i class="fa-solid fa-angle-right"></i><span>zgoda użytkownika jest zapisywana w <strong>dziennikach audytu</strong> do celów zgodności i raportowania</span></li>
+<li><i class="fa-solid fa-angle-right"></i><span>brak wpływu na użytkowników i spotkania, dopóki administrator nie włączy funkcji</span></li>
+</ul>
+</div></div>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Co powinna zrobić firma</h2><p class="section-desc">Brak działań, jeśli nie planujesz korzystać z funkcji. Poniżej kroki, gdy chcesz ją włączyć.</p></div>
+<div class="timeline">
+<div class="step"><div class="step-no">1</div><div>
+<h3>Weryfikacja wymagań</h3>
+<ul class="chk"><li><i class="fa-solid fa-angle-right"></i>sprawdź wymagania prawne i zgodności obowiązujące Twoją organizację</li></ul>
+</div></div>
+<div class="step"><div class="step-no">2</div><div>
+<h3>Konfiguracja polityki</h3>
+<ul class="chk"><li><i class="fa-solid fa-angle-right"></i>skonfiguruj politykę zgody przed spotkaniem w Centrum administracyjnym Teams</li></ul>
+</div></div>
+<div class="step"><div class="step-no">3</div><div>
+<h3>Treść i języki</h3>
+<ul class="chk"><li><i class="fa-solid fa-angle-right"></i>zdefiniuj, sprawdź i podejrzyj treść zgody we wszystkich obsługiwanych językach</li></ul>
+</div></div>
+<div class="step"><div class="step-no">4</div><div>
+<h3>Komunikacja i dokumentacja</h3>
+<ul class="chk">
+<li><i class="fa-solid fa-angle-right"></i>poinformuj użytkowników o nowym wymogu akceptacji przed dołączeniem do spotkania</li>
+<li><i class="fa-solid fa-angle-right"></i>zaktualizuj wewnętrzną dokumentację i instrukcje helpdesku</li>
+</ul>
+</div></div>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Zgodność i nadzór</h2><p class="section-desc">Najważniejsze pytania o wpływ funkcji na dane i monitorowanie.</p></div>
+<article class="card">
+<div class="card-top">
+<table class="compliance-table">
+<thead><tr><th>Pytanie</th><th>Odpowiedź</th></tr></thead>
+<tbody>
+<tr><td>Czy zmiana przechowuje nowe dane klienta?</td><td><span class="yes">Tak.</span> Akceptacje zgody uczestników są przechowywane w dziennikach audytu do celów zgodności i audytu.</td></tr>
+<tr><td>Czy zmiana wpływa na monitorowanie lub raportowanie przez administratora?</td><td><span class="yes">Tak.</span> Dodaje widoczność zgód uczestników w dziennikach audytu, co wzmacnia monitorowanie zgodności.</td></tr>
+<tr><td>Czy zmiana zawiera element sterowania dla administratora?</td><td><span class="yes">Tak.</span> Administrator może włączyć i skonfigurować funkcję w Centrum administracyjnym Teams.</td></tr>
+</tbody>
+</table>
+</div>
+</article>
+</section>
+<section class="section">
+<div class="grid-2">
+<article class="card"><div class="card-top">
+<div class="eyebrow">Rekomendacja Valcreon</div>
+<h3>Przygotuj treść i komunikację wcześniej</h3>
+<p>Największa wartość tej funkcji to audytowalny dowód, że uczestnik zaakceptował regulamin lub notę o nagrywaniu. Zanim ją włączysz, uzgodnij treść zgody z osobą odpowiedzialną za zgodność i przygotuj wersje językowe. Pamiętaj, że zgodę zobaczy też organizator oraz goście zewnętrzni i anonimowi, więc komunikat powinien być krótki i jasny, a użytkownicy powinni wcześniej wiedzieć, że pojawi się dodatkowy krok przed dołączeniem.</p>
+</div></article>
+<div class="highlight">
+<h2>Dokumentacja Microsoft</h2>
+<p>Oficjalne źródła dotyczące komunikatu MC1454114 oraz mapy rozwoju Microsoft 365.</p>
+<div class="doc-links">
+<a href="https://www.microsoft.com/microsoft-365/roadmap?searchterms=561914" target="_blank" rel="noreferrer"><i class="fa-solid fa-map"></i>Microsoft 365 Roadmap ID 561914</a>
+<a href="https://admin.microsoft.com/AdminPortal/home#/MessageCenter/:/messages/MC1454114" target="_blank" rel="noreferrer"><i class="fa-solid fa-envelope-open-text"></i>MC1454114 w centrum administracyjnym Microsoft 365</a>
+</div>
+<p class="code-note">Dokumentacja Microsoft Learn ma pojawić się bliżej ogólnej dostępności (General Availability).</p>
+</div>
+</div>
+</section>
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://valcreon.com" class="footer-link">valcreon.com</a> • Microsoft 365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
