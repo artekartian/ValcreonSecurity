@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="MC1462915: przed przekierowaniem na nowy adres Copilota (copilot.cloud.microsoft) firma musi upewnić się, że sieć i zabezpieczenia nie blokują dostępu do tej domeny - dla żadnej aplikacji Microsoft 365 Copilot. Przekierowanie rusza od września 2026." />
+<title>Microsoft 365 Copilot: zezwól na copilot.cloud.microsoft przed przekierowaniem (MC1462915) | Valcreon Security</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+.alert-critical{position:relative;padding:26px;border-radius:22px;border:1px solid rgba(239,68,68,.42);background:radial-gradient(700px 220px at 10% 0%, rgba(239,68,68,.22), transparent 58%), linear-gradient(180deg, rgba(239,68,68,.14), rgba(255,255,255,.03));box-shadow:0 18px 60px rgba(0,0,0,.45);}
+.alert-critical .eyebrow{color:#fca5a5;}
+.alert-critical h2{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0 0 12px;font-size:28px;letter-spacing:-.03em;}
+.alert-critical h2 i{font-size:22px;color:#f87171;}
+.alert-critical p{margin:0 0 12px;color:var(--muted);font-size:16px;line-height:1.75;}
+.alert-critical p:last-child{margin-bottom:0;}
+.alert-critical strong{color:#fff;}
+.chk{display:flex;flex-direction:column;gap:10px;margin:14px 0 0;padding:0;list-style:none;}
+.chk li{display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:1.55;color:var(--muted);}
+.chk li i{margin-top:4px;color:#a78bfa;font-size:13px;flex-shrink:0;}
+.chk li span{flex:1;min-width:0;}
+.chk li code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13.5px;padding:1px 6px;border-radius:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#e2e8f0;white-space:normal;word-break:break-word;}
+.doc-links{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+.doc-links a{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);font-size:14.5px;font-weight:600;line-height:1.5;transition:all .18s ease;}
+.doc-links a:hover{background:rgba(255,255,255,.06);border-color:var(--stroke-strong);transform:translateY(-1px);}
+.doc-links a i{color:#a78bfa;}
+.compliance-table{width:100%;border-collapse:separate;border-spacing:0;margin-top:6px;font-size:14.5px;}
+.compliance-table th{text-align:left;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#a78bfa;padding:0 14px 12px 0;border-bottom:1px solid rgba(255,255,255,.10);}
+.compliance-table td{padding:14px 14px 14px 0;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top;color:var(--muted);line-height:1.6;}
+.compliance-table td:first-child{width:46%;color:var(--text);font-weight:600;}
+.compliance-table tr:last-child td{border-bottom:none;}
+.compliance-table .yes{color:#22c55e;font-weight:700;}
+@media (max-width:768px){.alert-critical{padding:18px;}.compliance-table th{display:none;}.compliance-table tr{display:grid;grid-template-columns:1fr;gap:2px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);}.compliance-table td{padding:0;border:none;}.compliance-table td:first-child{width:auto;margin-bottom:2px;}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="topbar">
+<a class="back-link" href="../index.html" aria-label="Powrót do Security Hub"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
+<span class="pill"><i class="fa-solid fa-bullhorn"></i>Microsoft 365 Copilot · MC1462915</span>
+</div>
+
+<section class="hero glass">
+<div class="hero-grid">
+<div>
+<div class="hero-label"><i class="fa-brands fa-microsoft"></i>Microsoft 365 Copilot · Zmiana adresu strony</div>
+<h1>Zezwól na copilot.cloud.microsoft, zanim Microsoft przekieruje tam cały ruch Copilota</h1>
+<p class="lead">Od września 2026 Microsoft zacznie przenosić ruch z adresu <strong>m365.cloud.microsoft</strong> na nowy adres <strong>copilot.cloud.microsoft</strong>. To ważna zmiana - dotyczy <strong>nie tylko przeglądarki</strong>, ale całego Copilota w Microsoft 365, bo Word, Excel, PowerPoint, Teams i Outlook korzystają z tej samej domeny do komunikacji z Copilotem. Jeśli firma blokuje ten adres - <strong>również świadomie, żeby uniemożliwić korzystanie z niezarządzanego, konsumenckiego Copilota</strong> - po przekierowaniu przestanie działać cały, legalny, firmowy Copilot. Adres trzeba odblokować, a dostęp do wersji konsumenckiej ograniczyć innym, celowanym mechanizmem.</p>
+</div>
+<div class="hero-side">
+<div class="signal">
+<div class="signal-top"><div class="signal-title"><span class="dot"></span>Najważniejsze</div></div>
+<div class="mini-chips"><div class="mini-chip">MC1462915</div><div class="mini-chip">copilot.cloud.microsoft</div><div class="mini-chip">Przekierowanie</div><div class="mini-chip">Wrzesień–październik 2026</div><div class="mini-chip">Firewall / proxy / allow list</div></div>
+</div>
+<div class="signal">
+<div class="signal-top"><div class="signal-title"><span class="dot"></span>Dlaczego to ważne</div></div>
+<p style="margin:0;color:var(--muted);line-height:1.65;font-size:14px;">To nie jest zmiana samego działania Copilota - to zmiana adresu, przez który przechodzi cały jego ruch. Jeśli ten adres jest zablokowany, po przekierowaniu przestanie działać Copilot we wszystkich aplikacjach, które z niego korzystają - nie tylko w przeglądarce.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="alert-critical">
+<div class="eyebrow">Najważniejsza zmiana</div>
+<h2><i class="fa-solid fa-triangle-exclamation"></i>Sprawdź dostęp do copilot.cloud.microsoft przed 10 września 2026</h2>
+<p>Jeśli Twoja firma blokuje dziś połączenia do <strong>copilot.cloud.microsoft</strong>, po przekierowaniu <strong>żaden ruch do Microsoft 365 Copilot nie będzie możliwy</strong> - dotyczy to Copilota w przeglądarce, ale też w Word, Excel, PowerPoint, Teams i Outlook, bo wszystkie te aplikacje korzystają z tej samej domeny. Adres pozostaje w rodzinie <strong>*.cloud.microsoft</strong>, więc zachowuje te same zasady bezpieczeństwa i zgodności co dotychczas - zmienia się tylko sam adres.</p>
+<p><strong>Uwaga na blokady „celowe”:</strong> jeśli ten adres był świadomie zablokowany, aby ograniczyć dostęp do niezarządzanego, konsumenckiego Copilota (np. przez regułę filtrującą po słowie „copilot”), taka reguła po scaleniu obu usług przez Microsoft <strong>zablokuje też legalnego, firmowego Copilota</strong>. Adres trzeba odblokować, a dostęp do konta prywatnego ograniczyć innym mechanizmem (patrz niżej).</p>
+<p>Jeśli po sprawdzeniu okaże się, że firma blokuje ten adres, warto <strong>skontaktować się z opiekunem konta Microsoft przed 10 września 2026</strong>, aby omówić dostępne opcje.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Co i dlaczego</h2><p class="section-desc">Komunikat <strong>MC1462915</strong> jest uzupełnieniem wcześniejszej zapowiedzi zmiany aplikacji Copilot (komunikat MC1454108) i dotyczy wyłącznie kwestii sieciowych.</p></div>
+<div class="grid-2">
+<article class="highlight">
+<h2>Kontekst</h2>
+<p>Microsoft ujednolica aplikację Copilot dla kont prywatnych i firmowych - zmienia się nazwa, ikona i adres strony internetowej. Ta sama domena obsługuje już dziś komunikację Copilota we wszystkich aplikacjach Microsoft 365 (Word, Excel, PowerPoint, Teams, Outlook), więc zmiana adresu z m365.cloud.microsoft na copilot.cloud.microsoft dotyczy całego ekosystemu Copilota, nie tylko samej strony w przeglądarce. W organizacjach, które już mają otwarty dostęp do tego adresu, przekierowanie zacznie się wcześniej. Tam, gdzie dostęp był ograniczony, przekierowanie nastąpi w drugiej turze, miesiąc później.</p>
+<ul class="chk">
+<li><i class="fa-solid fa-circle-check"></i><span>To zmiana adresu, przez który przechodzi ruch Copilota we wszystkich aplikacjach M365, nie tylko w przeglądarce</span></li>
+<li><i class="fa-solid fa-circle-check"></i><span>Nowy adres jest częścią tej samej, zaufanej domeny *.cloud.microsoft</span></li>
+<li><i class="fa-solid fa-circle-check"></i><span>Firmy, które już stosują zalecaną konfigurację sieci dla Copilota, zwykle nie muszą nic zmieniać</span></li>
+</ul>
+</article>
+<article class="card tldr">
+<div class="eyebrow">W skrócie</div>
+<h3>Co trzeba zapamiętać</h3>
+<p><strong>– Copilot zmienia adres na copilot.cloud.microsoft, we wszystkich aplikacjach M365</strong><br><strong>– przekierowanie rusza automatycznie, bez działania użytkownika</strong><br><strong>– jeśli sieć blokuje nowy adres, Copilot przestanie działać wszędzie, nie tylko w przeglądarce</strong><br><strong>– blokada „pod konsumencki Copilot” może teraz zablokować też firmowy</strong><br><strong>– najprościej sprawdzić to narzędziem do testu połączenia Microsoft 365</strong><br><strong>– w razie problemu zgłoś się do opiekuna konta przed 10 września 2026</strong><br><br><em>To działanie czysto sieciowe - dotyczy administratorów IT, nie użytkowników końcowych.</em></p>
+</article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Harmonogram</h2><p class="section-desc">Przekierowanie następuje w dwóch turach, w zależności od tego, czy firma już ma otwarty dostęp do nowego adresu.</p></div>
+<div class="grid-3">
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-door-open"></i></div><div class="eyebrow">Pierwsza tura</div><h3>Początek września 2026</h3><p>Przekierowanie na copilot.cloud.microsoft dla organizacji, które już mają do niego otwarty dostęp.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-clock-rotate-left"></i></div><div class="eyebrow">Druga tura</div><h3>Początek października 2026</h3><p>Przekierowanie dla pozostałych organizacji. Jeśli konfiguracja nie będzie gotowa, warto wcześniej skontaktować się z Microsoft.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-layer-group"></i></div><div class="eyebrow">Szerszy kontekst</div><h3>Sierpień–wrzesień 2026</h3><p>Równolegle trwa zmiana nazwy i wyglądu aplikacji Copilot (aplikacje mobilne, web, Windows i Mac) - MC1454108.</p></div></article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Kogo to dotyczy</h2><p class="section-desc">Zmiana jest techniczna i sieciowa - najbardziej dotyczy zespołów odpowiedzialnych za infrastrukturę.</p></div>
+<div class="grid-2">
+<article class="card"><div class="card-top"><div class="eyebrow">Odbiorcy</div><h3>Kto powinien zareagować</h3><p>Administratorzy sieci, zespoły bezpieczeństwa oraz osoby zarządzające firewallem, proxy lub listami dozwolonych adresów w organizacji.</p></div></article>
+<article class="card"><div class="card-top"><div class="eyebrow">Zakres</div><h3>Czego dotyczy</h3><p>Całego ruchu Microsoft 365 Copilot przechodzącego przez domenę *.cloud.microsoft - dotyczy to zarówno Copilota w przeglądarce, jak i Copilota wywoływanego z poziomu Word, Excel, PowerPoint, Teams i Outlook.</p></div></article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Co się zmieni</h2><p class="section-desc">Jak w praktyce wygląda to przekierowanie i co pozostaje bez zmian.</p></div>
+<div class="timeline">
+<div class="step"><div class="step-no"><i class="fa-solid fa-arrows-turn-right"></i></div><div>
+<h3>Automatyczne przekierowanie, dotyczy wszystkich aplikacji</h3>
+<ul class="chk">
+<li><i class="fa-solid fa-angle-right"></i><span>Ruch Copilota zostanie automatycznie przeniesiony z m365.cloud.microsoft na <strong>copilot.cloud.microsoft</strong> - dotyczy to przeglądarki, ale też Copilota wywoływanego z poziomu Word, Excel, PowerPoint, Teams i Outlook</span></li>
+<li><i class="fa-solid fa-angle-right"></i><span>Jeśli urządzenie, sieć, proxy lub firewall zablokuje nowy adres, żaden z tych sposobów korzystania z Copilota nie zadziała</span></li>
+</ul>
+</div></div>
+<div class="step"><div class="step-no"><i class="fa-solid fa-user-shield"></i></div><div>
+<h3>Uwaga na blokady „pod konsumencki Copilot”</h3>
+<ul class="chk">
+<li><i class="fa-solid fa-angle-right"></i><span>Część firm celowo blokowała ten adres (lub filtrowała ruch po słowie „copilot”), żeby uniemożliwić pracownikom korzystanie z niezarządzanego, prywatnego Copilota</span></li>
+<li><i class="fa-solid fa-angle-right"></i><span>Ponieważ Microsoft scalił teraz obie wersje pod tę samą domenę, taka reguła zablokuje po drodze <strong>również legalnego, firmowego Copilota</strong> - trzeba ją zweryfikować, a nie zostawiać bez zmian</span></li>
+</ul>
+</div></div>
+<div class="step"><div class="step-no"><i class="fa-solid fa-shield-halved"></i></div><div>
+<h3>Bezpieczeństwo bez zmian, jeśli odblokujesz właściwie</h3>
+<ul class="chk">
+<li><i class="fa-solid fa-angle-right"></i><span>Nowy adres pozostaje w tej samej domenie *.cloud.microsoft, więc zachowuje dotychczasowe zasady bezpieczeństwa i zgodności</span></li>
+<li><i class="fa-solid fa-angle-right"></i><span>Firmy, które wcześniej poprawnie skonfigurowały sieć pod Copilota (całą domenę, a nie pojedyncze adresy), zwykle nie muszą nic dodatkowo zmieniać</span></li>
+</ul>
+</div></div>
+<div class="step"><div class="step-no"><i class="fa-solid fa-magnifying-glass"></i></div><div>
+<h3>Jak to sprawdzić</h3>
+<ul class="chk">
+<li><i class="fa-solid fa-angle-right"></i><span>Microsoft udostępnia darmowe narzędzie do testu połączenia, które od razu pokazuje, czy sieć firmy przepuszcza ruch do copilot.cloud.microsoft</span></li>
+<li><i class="fa-solid fa-angle-right"></i><span>Microsoft zaleca przetestowanie połączenia z wyprzedzeniem, zamiast czekać na zgłoszenia od użytkowników</span></li>
+</ul>
+</div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Co powinna zrobić firma</h2><p class="section-desc">Proste kroki, które ograniczają ryzyko, że ktoś w firmie nagle nie będzie mógł korzystać z Copilota.</p></div>
+<div class="timeline">
+<div class="step"><div class="step-no">1</div><div>
+<h3>Sprawdź połączenie</h3>
+<ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>przetestuj dostęp do copilot.cloud.microsoft narzędziem Microsoft 365 Connectivity Test - zajmuje to kilka minut</span></li></ul>
+</div></div>
+<div class="step"><div class="step-no">2</div><div>
+<h3>Przejrzyj zabezpieczenia sieci</h3>
+<ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>upewnij się, że stare reguły firewalla, proxy lub filtrowania adresów nie blokują nowego adresu, w żadnej aplikacji Microsoft 365, nie tylko w przeglądarce</span></li></ul>
+</div></div>
+<div class="step"><div class="step-no">3</div><div>
+<h3>Dodaj całą domenę do listy dozwolonych</h3>
+<ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>zezwól na całą domenę *.cloud.microsoft - Microsoft nie wspiera odblokowywania tylko wybranych, pojedynczych adresów w jej obrębie</span></li></ul>
+</div></div>
+<div class="step"><div class="step-no">4</div><div>
+<h3>Rozdziel blokadę konta prywatnego od blokady adresu</h3>
+<ul class="chk">
+<li><i class="fa-solid fa-angle-right"></i><span>jeśli adres był świadomie zablokowany, aby ograniczyć logowanie na prywatne, konsumenckie konta Microsoft - <strong>odblokuj sam adres</strong>, a do blokowania kont prywatnych użyj funkcji <strong>Tenant Restrictions v2</strong>, która działa na poziomie logowania, a nie firewalla</span></li>
+<li><i class="fa-solid fa-angle-right"></i><span>jeśli siecią zarządza osobny zespół lub firma zewnętrzna, przekaż im tę informację z wyprzedzeniem</span></li>
+</ul>
+</div></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Zgodność i nadzór</h2><p class="section-desc">Najważniejsze pytania o wpływ zmiany na dane i kontrolę administracyjną.</p></div>
+<article class="card">
+<div class="card-top">
+<table class="compliance-table">
+<thead><tr><th>Pytanie</th><th>Odpowiedź</th></tr></thead>
+<tbody>
+<tr><td>Czy zmiana wymaga nowej zgody lub przechowuje nowe dane?</td><td>Nie. To wyłącznie zmiana adresu strony, dane i zasady bezpieczeństwa pozostają takie same.</td></tr>
+<tr><td>Czy zmiana wpływa na dotychczasowe reguły i polityki bezpieczeństwa?</td><td>Nie, o ile firma zezwoli na całą domenę *.cloud.microsoft. Istniejące polityki i Application ID pozostają bez zmian.</td></tr>
+<tr><td>Czy administrator ma na to wpływ?</td><td><span class="yes">Tak.</span> Administrator sieci decyduje, kiedy i jak odblokować nowy adres, a także może dalej ograniczać logowanie na konta prywatne przez Tenant Restrictions.</td></tr>
+<tr><td>Czy blokada „pod konsumencki Copilot” może teraz zaszkodzić firmie?</td><td><span class="yes">Tak.</span> Jeśli blokada opierała się na adresie lub słowie „copilot”, po scaleniu obu usług zablokuje też legalnego, firmowego Copilota - warto ją zamienić na Tenant Restrictions v2.</td></tr>
+</tbody>
+</table>
+</div>
+</article>
+</section>
+
+<section class="section">
+<div class="grid-2">
+<article class="card"><div class="card-top">
+<div class="eyebrow">Rekomendacja Valcreon</div>
+<h3>Przetestuj teraz, zanim zrobi to za Ciebie użytkownik</h3>
+<p>Najprostszy sposób, aby uniknąć zgłoszeń „Copilot mi się nie otwiera” - w przeglądarce, ale też w Wordzie, Excelu czy Teams - to sprawdzić dostęp do copilot.cloud.microsoft, zanim przekierowanie dotrze do Twojej organizacji. Jeśli w przeszłości adres był świadomie blokowany, żeby ograniczyć konsumencki Copilot, to dobry moment, żeby zamienić tę blokadę na Tenant Restrictions v2 - zamiast reagować pod presją, gdy cały firmowy Copilot nagle przestanie działać.</p>
+</div></article>
+<div class="highlight">
+<h2>Dokumentacja Microsoft</h2>
+<p>Oficjalne źródła dotyczące komunikatu MC1462915 oraz powiązanej zmiany aplikacji Copilot.</p>
+<div class="doc-links">
+<a href="https://connectivity.m365.cloud.microsoft/" target="_blank" rel="noreferrer"><i class="fa-solid fa-network-wired"></i>Microsoft 365 Connectivity Test tool</a>
+<a href="https://learn.microsoft.com/entra/external-id/tenant-restrictions-v2#step-2-block-consumer-account-or-microsoft-account-tenants" target="_blank" rel="noreferrer"><i class="fa-solid fa-user-lock"></i>Tenant Restrictions v2 - blokowanie kont prywatnych</a>
+<a href="https://admin.microsoft.com/AdminPortal/home#/MessageCenter/:/messages/MC1462915" target="_blank" rel="noreferrer"><i class="fa-solid fa-envelope-open-text"></i>MC1462915 w centrum administracyjnym Microsoft 365</a>
+<a href="https://admin.microsoft.com/AdminPortal/home#/MessageCenter/:/messages/MC1454108" target="_blank" rel="noreferrer"><i class="fa-solid fa-envelope-open-text"></i>MC1454108 - zmiana nazwy i adresu aplikacji Copilot</a>
+</div>
+<p class="code-note">Zalecana konfiguracja sieci dla Microsoft 365 Copilot dostępna jest w dokumentacji Microsoft Learn.</p>
+</div>
+</div>
+</section>
+
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://valcreon.com" class="footer-link">valcreon.com</a> • Microsoft 365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
