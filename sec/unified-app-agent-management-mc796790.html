@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="MC796790: Microsoft ujednolica zarządzanie dostępnością i instalacją aplikacji oraz agentów między Teams Admin Center i Microsoft 365 Admin Center." />
+<title>Microsoft 365: ujednolicone zarządzanie aplikacjami i agentami (MC796790) | Valcreon Security</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+.alert-info{position:relative;padding:26px;border-radius:22px;border:1px solid rgba(59,130,246,.42);background:radial-gradient(700px 220px at 10% 0%,rgba(59,130,246,.22),transparent 58%),linear-gradient(180deg,rgba(59,130,246,.14),rgba(255,255,255,.03));box-shadow:0 18px 60px rgba(0,0,0,.45);}
+.alert-info .eyebrow{color:#93c5fd;}
+.alert-info h2{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0 0 12px;font-size:28px;letter-spacing:-.03em;}
+.alert-info h2 i{font-size:22px;color:#60a5fa;}
+.alert-info p{margin:0 0 12px;color:var(--muted);font-size:16px;line-height:1.75;}
+.alert-info p:last-child{margin-bottom:0;}
+.alert-info strong{color:#fff;}
+.chk{display:flex;flex-direction:column;gap:10px;margin:14px 0 0;padding:0;list-style:none;}
+.chk li{display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:1.55;color:var(--muted);}
+.chk li i{margin-top:4px;color:#a78bfa;font-size:13px;flex-shrink:0;}
+.chk li span{flex:1;min-width:0;}
+.doc-links{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+.doc-links a{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);font-size:14.5px;font-weight:600;line-height:1.5;transition:all .18s ease;}
+.doc-links a:hover{background:rgba(255,255,255,.06);border-color:var(--stroke-strong);transform:translateY(-1px);}
+.doc-links a i{color:#a78bfa;}
+.comparison{width:100%;border-collapse:separate;border-spacing:0;margin-top:6px;font-size:14.5px;}
+.comparison th{text-align:left;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#a78bfa;padding:0 14px 12px 0;border-bottom:1px solid rgba(255,255,255,.10);}
+.comparison td{padding:14px 14px 14px 0;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top;color:var(--muted);line-height:1.6;}
+.comparison td:first-child{width:35%;color:var(--text);font-weight:600;}
+.comparison tr:last-child td{border-bottom:none;}
+.comparison .yes{color:#22c55e;font-weight:700;}
+.comparison .warn{color:#fbbf24;font-weight:700;}
+@media (max-width:980px){.alert-info{padding:18px;}.card-top,.highlight{min-height:auto;}}
+@media (max-width:768px){.comparison th{display:none;}.comparison tr{display:grid;grid-template-columns:1fr;gap:2px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);}.comparison td{padding:0;border:none;}.comparison td:first-child{width:auto;margin-bottom:2px;}.alert-info h2{font-size:23px;}.alert-info h2 i{font-size:17px;}}
+@media (max-width:480px){.btn{width:100%;justify-content:center;}}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div class="topbar">
+<a class="back-link" href="../index.html" aria-label="Powrót do Security Hub">
+<i class="fa-solid fa-arrow-left"></i>
+<span>Powrót do Security Hub</span>
+</a>
+<span class="pill">
+<i class="fa-solid fa-layer-group"></i>
+Microsoft 365 · MC796790
+</span>
+</div>
+
+<section class="hero glass">
+<div class="hero-grid">
+
+<div>
+<div class="hero-label">
+<i class="fa-brands fa-microsoft"></i>
+Microsoft 365 · Teams · Outlook · Copilot
+</div>
+
+<h1>Jedno zarządzanie aplikacjami i agentami w dwóch portalach</h1>
+
+<p class="lead">
+Microsoft ujednolica <strong>dostępność i instalację aplikacji oraz agentów</strong> w Teams Admin Center i Microsoft 365 Admin Center. Zmiana ustawienia w jednym portalu będzie synchronizowana z drugim oraz stosowana w obsługiwanych aplikacjach Microsoft 365.
+</p>
+</div>
+
+<div class="hero-side">
+
+<div class="signal">
+<div class="signal-top">
+<div class="signal-title">
+<span class="dot"></span>
+Najważniejsze
+</div>
+</div>
+
+<div class="mini-chips">
+<div class="mini-chip">MC796790</div>
+<div class="mini-chip">TAC + MAC</div>
+<div class="mini-chip">Teams</div>
+<div class="mini-chip">Outlook</div>
+<div class="mini-chip">Microsoft 365 Copilot</div>
+</div>
+</div>
+
+<div class="signal">
+<div class="signal-top">
+<div class="signal-title">
+<span class="dot"></span>
+O co chodzi
+</div>
+</div>
+
+<p style="margin:0;color:var(--muted);line-height:1.65;font-size:14px;">
+Administrator nie będzie musiał utrzymywać rozbieżnych ustawień tej samej aplikacji lub agenta osobno w Teams Admin Center i Microsoft 365 Admin Center.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="alert-info">
+
+<div class="eyebrow">Najważniejsza zmiana</div>
+
+<h2>
+<i class="fa-solid fa-arrows-rotate"></i>
+Ustawienia aplikacji i agentów będą synchronizowane
+</h2>
+
+<p>
+Dotychczas dostępność i instalacja aplikacji mogły być zarządzane osobno w Microsoft 365 Admin Center oraz Teams Admin Center. Mogło to prowadzić do różnych ustawień tej samej aplikacji w obu portalach.
+</p>
+
+<p>
+Po ujednoliceniu administrator będzie mógł zarządzać obsługiwanymi aplikacjami i agentami z obu portali. Zmiany będą synchronizowane i stosowane w Teams, Outlooku oraz aplikacji Microsoft 365 Copilot.
+</p>
+
+</div>
+</section>
+
+<section class="section">
+
+<div class="section-head">
+<h2>Co i dlaczego</h2>
+<p class="section-desc">
+Komunikat <strong>MC796790</strong> łączy zarządzanie dostępnością oraz instalacją aplikacji i agentów między portalami administracyjnymi Microsoft 365 i Teams.
+</p>
+</div>
+
+<div class="grid-2">
+
+<article class="highlight">
+<h2>Kontekst</h2>
+
+<p>
+Ta sama aplikacja lub agent może działać w Teams, Outlooku i Microsoft 365 Copilot. Oddzielne ustawienia w dwóch portalach mogły powodować różną dostępność dla użytkowników. Ujednolicenie ma zapewnić jeden spójny stan administracyjny.
+</p>
+
+<ul class="chk">
+<li>
+<i class="fa-solid fa-circle-check"></i>
+<span>ustawienia dostępności są synchronizowane między Teams Admin Center i Microsoft 365 Admin Center</span>
+</li>
+<li>
+<i class="fa-solid fa-circle-check"></i>
+<span>ustawienia organizacyjne obowiązują w obsługiwanych aplikacjach Microsoft 365</span>
+</li>
+<li>
+<i class="fa-solid fa-circle-check"></i>
+<span>administrator otrzymuje wspólny widok aplikacji oraz agentów</span>
+</li>
+</ul>
+</article>
+
+<article class="card tldr">
+<div class="eyebrow">W skrócie</div>
+<h3>Co trzeba zapamiętać</h3>
+
+<p>
+<strong>• TAC i MAC utrzymują wspólny stan ustawień</strong><br>
+<strong>• zmiany są synchronizowane między portalami</strong><br>
+<strong>• ustawienia obejmują Teams, Outlook i Microsoft 365 Copilot</strong><br>
+<strong>• instalacja przechodzi do wspólnego modelu zarządzania</strong><br>
+<strong>• rozbieżności można usunąć przez kreator w Teams Admin Center</strong><br>
+<strong>• nie jest wymagane natychmiastowe działanie administratora</strong>
+</p>
+</article>
+
+</div>
+</section>
+
+<section class="section">
+
+<div class="section-head">
+<h2>Co będzie ujednolicone</h2>
+<p class="section-desc">
+Zmiana obejmuje zarówno dostępność aplikacji i agentów, jak i obsługiwane przypisania instalacyjne.
+</p>
+</div>
+
+<article class="card">
+<div class="card-top">
+
+<table class="comparison">
+<thead>
+<tr>
+<th>Obszar</th>
+<th>Nowe zachowanie</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>Dostępność aplikacji</td>
+<td>
+Status aplikacji oraz możliwość korzystania z niej przez użytkowników będą synchronizowane pomiędzy portalami.
+</td>
+</tr>
+
+<tr>
+<td>Dostępność agentów</td>
+<td>
+Ustawienia agentów będą zarządzane według tego samego modelu co ustawienia aplikacji.
+</td>
+</tr>
+
+<tr>
+<td>Ustawienia organizacyjne</td>
+<td>
+Domyślne ustawienia obu centrów administracyjnych będą zsynchronizowane.
+</td>
+</tr>
+
+<tr>
+<td>Instalacja</td>
+<td>
+<span class="yes">Obsługiwane instalacje i przypisania</span> będzie można zarządzać z Teams Admin Center lub Microsoft 365 Admin Center.
+</td>
+</tr>
+
+<tr>
+<td>Rozbieżne ustawienia</td>
+<td>
+Kreator w Teams Admin Center pomoże wskazać aplikacje i agentów wymagających decyzji administratora.
+</td>
+</tr>
+
+</tbody>
+</table>
+
+</div>
+</article>
+</section>
+
+<section class="section">
+
+<div class="section-head">
+<h2>Etapy ujednolicenia dostępności</h2>
+<p class="section-desc">
+Sposób przejścia zależy od tego, czy ustawienia aplikacji i agentów były wcześniej modyfikowane.
+</p>
+</div>
+
+<div class="timeline">
+
+<div class="step">
+<div class="step-no">1</div>
+<div>
+<h3>Tenanty z ustawieniami domyślnymi</h3>
+
+<ul class="chk">
+<li>
+<i class="fa-solid fa-angle-right"></i>
+<span>tenanty, które nie zmieniały ustawień organizacyjnych ani dostępności aplikacji, są ujednolicane automatycznie</span>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="step">
+<div class="step-no">2</div>
+<div>
+<h3>Tenanty ze zmienionymi ustawieniami</h3>
+
+<ul class="chk">
+<li>
+<i class="fa-solid fa-angle-right"></i>
+<span>administrator może przejść do wspólnego modelu i użyć kreatora do rozwiązania różnic pomiędzy portalami</span>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="step">
+<div class="step-no">3</div>
+<div>
+<h3>Automatyczne ujednolicenie pozostałych tenantów</h3>
+
+<ul class="chk">
+<li>
+<i class="fa-solid fa-angle-right"></i>
+<span>pozostałe środowiska zostaną przeniesione w przyszłej fazie po wcześniejszym powiadomieniu przez Microsoft</span>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+
+<div class="section-head">
+<h2>Ujednolicenie instalacji</h2>
+<p class="section-desc">
+Druga część zmiany dotyczy instalowania aplikacji i agentów dla użytkowników.
+</p>
+</div>
+
+<div class="grid-2">
+
+<article class="card">
+<div class="card-top">
+
+<div class="icon">
+<i class="fa-solid fa-download"></i>
+</div>
+
+<div class="eyebrow">Nowy model</div>
+<h3>Instalacja z TAC lub MAC</h3>
+
+<p>
+Administrator może zarządzać obsługiwanymi instalacjami aplikacji i agentów z Teams Admin Center albo Microsoft 365 Admin Center. Kwalifikujące się przypisania pozostają zsynchronizowane.
+</p>
+
+</div>
+</article>
+
+<article class="card">
+<div class="card-top">
+
+<div class="icon">
+<i class="fa-solid fa-triangle-exclamation"></i>
+</div>
+
+<div class="eyebrow">Ważne ograniczenie</div>
+<h3>Teams app setup policies</h3>
+
+<p>
+Instalacje wykonane wcześniej przez Teams app setup policies nie są ujednolicane w ramach tej zmiany. Instalacja aplikacji nie jest już zarządzana za pomocą tych polityk.
+</p>
+
+</div>
+</article>
+
+</div>
+</section>
+
+<section class="section">
+
+<div class="section-head">
+<h2>Harmonogram</h2>
+<p class="section-desc">
+Komunikat został zaktualizowany 1 września 2026.
+</p>
+</div>
+
+<div class="grid-2">
+
+<article class="card">
+<div class="card-top">
+
+<div class="icon">
+<i class="fa-solid fa-toggle-on"></i>
+</div>
+
+<div class="eyebrow">Dostępność</div>
+<h3>Wrzesień 2025 do sierpnia 2026</h3>
+
+<p>
+Ujednolicanie dostępności rozpoczęło się pod koniec września 2025. Faza przeznaczona dla tenantów ze zmienionymi ustawieniami została udostępniona wszystkim tenantom.
+</p>
+
+</div>
+</article>
+
+<article class="card">
+<div class="card-top">
+
+<div class="icon">
+<i class="fa-solid fa-box-open"></i>
+</div>
+
+<div class="eyebrow">Instalacja</div>
+<h3>Sierpień i wrzesień 2026</h3>
+
+<p>
+Ujednolicanie instalacji rozpoczęło się pod koniec sierpnia 2026 i ma zakończyć się do połowy września 2026.
+</p>
+
+</div>
+</article>
+
+</div>
+</section>
+
+<section class="section">
+
+<div class="section-head">
+<h2>Co powinien zrobić administrator</h2>
+<p class="section-desc">
+Nie jest wymagane natychmiastowe działanie, ale warto sprawdzić zgodność konfiguracji w obu portalach.
+</p>
+</div>
+
+<div class="timeline">
+
+<div class="step">
+<div class="step-no">1</div>
+<div>
+<h3>Porównaj ustawienia</h3>
+
+<ul class="chk">
+<li>
+<i class="fa-solid fa-angle-right"></i>
+<span>przejrzyj ustawienia allow/block, dostępność oraz przypisania aplikacji i agentów w TAC oraz MAC</span>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="step">
+<div class="step-no">2</div>
+<div>
+<h3>Rozwiąż rozbieżności</h3>
+
+<ul class="chk">
+<li>
+<i class="fa-solid fa-angle-right"></i>
+<span>jeżeli ustawienia są różne, skorzystaj z kreatora ujednolicenia dostępnego w Teams Admin Center</span>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="step">
+<div class="step-no">3</div>
+<div>
+<h3>Sprawdź historyczne instalacje</h3>
+
+<ul class="chk">
+<li>
+<i class="fa-solid fa-angle-right"></i>
+<span>zidentyfikuj aplikacje instalowane wcześniej przez Teams app setup policies, ponieważ nie są objęte ujednoliceniem</span>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="step">
+<div class="step-no">4</div>
+<div>
+<h3>Zaktualizuj dokumentację</h3>
+
+<ul class="chk">
+<li>
+<i class="fa-solid fa-angle-right"></i>
+<span>usuń instrukcje zakładające niezależne zarządzanie tą samą aplikacją w obu portalach</span>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+
+<div class="grid-2">
+
+<article class="card">
+<div class="card-top">
+
+<div class="eyebrow">Rekomendacja Valcreon</div>
+<h3>Zweryfikuj wspólny stan przed zatwierdzeniem</h3>
+
+<p>
+Przed przejściem do ujednoliconego zarządzania warto sprawdzić aplikacje z różnymi ustawieniami, właścicieli procesu administracyjnego oraz historyczne instalacje wykonane przez Teams app setup policies.
+</p>
+
+</div>
+</article>
+
+<div class="highlight">
+
+<h2>Dokumentacja Microsoft</h2>
+
+<p>
+Oficjalne materiały dotyczące wspólnego zarządzania aplikacjami i agentami.
+</p>
+
+<div class="doc-links">
+
+<a href="https://learn.microsoft.com/microsoftteams/uam-tac-mac" target="_blank" rel="noreferrer">
+<i class="fa-solid fa-book"></i>
+Unified agent and app management
+</a>
+
+<a href="https://www.microsoft.com/en-US/microsoft-365/roadmap?filters=&searchterms=393931" target="_blank" rel="noreferrer">
+<i class="fa-solid fa-map"></i>
+Microsoft 365 Roadmap ID 393931
+</a>
+
+<a href="https://www.microsoft.com/en-US/microsoft-365/roadmap?filters=&searchterms=485712" target="_blank" rel="noreferrer">
+<i class="fa-solid fa-map"></i>
+Microsoft 365 Roadmap ID 485712
+</a>
+
+<a href="https://www.microsoft.com/en-US/microsoft-365/roadmap?filters=&searchterms=503105" target="_blank" rel="noreferrer">
+<i class="fa-solid fa-map"></i>
+Microsoft 365 Roadmap ID 503105
+</a>
+
+<a href="https://www.microsoft.com/en-US/microsoft-365/roadmap?filters=&searchterms=503105">
+<i class="fa-solid fa-map"></i>
+Microsoft 365 Roadmap ID 567883
+</a>
+
+https://admin.microsoft.com/AdminPortal/home#/MessageCenter/:/messages/MC796790
+<i class="fa-solid fa-envelope-open-text"></i>
+MC796790 w centrum administracyjnym Microsoft 365
+</a>
+
+</div>
+</div>
+
+</div>
+</section>
+
+<div class="back-home">
+<a class="btn secondary" href="../index.html">
+<i class="fa-solid fa-house"></i>
+Wróć do Security Hub
+</a>
+</div>
+
+<footer>
+© <span id="year"></span>
+<a href="https://valcreon.com" class="footer-link">valcreon.com</a>
+• Microsoft 365 Security
+</footer>
+
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
