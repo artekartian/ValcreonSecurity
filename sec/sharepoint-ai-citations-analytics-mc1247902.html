@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="MC1247902: SharePoint doda analitykę cytowań AI pokazującą, jak często dokumenty, strony i aktualności są wykorzystywane jako źródła odpowiedzi Microsoft 365 Copilot Chat." />
+<title>SharePoint: analityka cytowań AI w Microsoft 365 Copilot (MC1247902) | Valcreon Security</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+.alert-info{position:relative;padding:26px;border-radius:22px;border:1px solid rgba(59,130,246,.42);background:radial-gradient(700px 220px at 10% 0%,rgba(59,130,246,.22),transparent 58%),linear-gradient(180deg,rgba(59,130,246,.14),rgba(255,255,255,.03));box-shadow:0 18px 60px rgba(0,0,0,.45);}
+.alert-info .eyebrow{color:#93c5fd;}
+.alert-info h2{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0 0 12px;font-size:28px;letter-spacing:-.03em;}
+.alert-info h2 i{font-size:22px;color:#60a5fa;}
+.alert-info p{margin:0 0 12px;color:var(--muted);font-size:16px;line-height:1.75;}
+.alert-info p:last-child{margin-bottom:0;}
+.alert-info strong{color:#fff;}
+.chk{display:flex;flex-direction:column;gap:10px;margin:14px 0 0;padding:0;list-style:none;}
+.chk li{display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:1.55;color:var(--muted);}
+.chk li i{margin-top:4px;color:#a78bfa;font-size:13px;flex-shrink:0;}
+.chk li span{flex:1;min-width:0;}
+.doc-links{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+.doc-links a{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);font-size:14.5px;font-weight:600;line-height:1.5;transition:all .18s ease;}
+.doc-links a:hover{background:rgba(255,255,255,.06);border-color:var(--stroke-strong);transform:translateY(-1px);}
+.doc-links a i{color:#a78bfa;}
+.comparison{width:100%;border-collapse:separate;border-spacing:0;margin-top:6px;font-size:14.5px;}
+.comparison th{text-align:left;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#a78bfa;padding:0 14px 12px 0;border-bottom:1px solid rgba(255,255,255,.10);}
+.comparison td{padding:14px 14px 14px 0;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top;color:var(--muted);line-height:1.6;}
+.comparison td:first-child{width:35%;color:var(--text);font-weight:600;}
+.comparison tr:last-child td{border-bottom:none;}
+.comparison .yes{color:#22c55e;font-weight:700;}
+@media (max-width:980px){.alert-info{padding:18px;}.card-top,.highlight{min-height:auto;}}
+@media (max-width:768px){.comparison th{display:none;}.comparison tr{display:grid;grid-template-columns:1fr;gap:2px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);}.comparison td{padding:0;border:none;}.comparison td:first-child{width:auto;margin-bottom:2px;}.alert-info h2{font-size:23px;}.alert-info h2 i{font-size:17px;}}
+@media (max-width:480px){.btn{width:100%;justify-content:center;}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="topbar">
+<a class="back-link" href="../index.html" aria-label="Powrót do Security Hub"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
+<span class="pill"><i class="fa-solid fa-bullhorn"></i>SharePoint · MC1247902</span>
+</div>
+<section class="hero glass">
+<div class="hero-grid">
+<div>
+<div class="hero-label"><i class="fa-brands fa-microsoft"></i>SharePoint Online · Microsoft 365 Copilot · AI Citations</div>
+<h1>Które treści SharePoint są wykorzystywane przez Copilota?</h1>
+<p class="lead">SharePoint doda statystyki pokazujące, jak często <strong>dokumenty, strony i aktualności są cytowane w odpowiedziach Microsoft 365 Copilot Chat</strong>. Właściciele witryn otrzymają nowy sposób oceny wartości treści dla użytkowników korzystających z AI.</p>
+</div>
+<div class="hero-side">
+<div class="signal"><div class="signal-top"><div class="signal-title"><span class="dot"></span>Najważniejsze</div></div><div class="mini-chips"><div class="mini-chip">MC1247902</div><div class="mini-chip">Roadmap 480725</div><div class="mini-chip">SharePoint Online</div><div class="mini-chip">AI Citations</div><div class="mini-chip">Ponad 50 licencji Copilot</div></div></div>
+<div class="signal"><div class="signal-top"><div class="signal-title"><span class="dot"></span>Co będzie mierzone</div></div><p style="margin:0;color:var(--muted);line-height:1.65;font-size:14px;">Liczba cytowań treści w Microsoft 365 Copilot Chat, użytkownicy korzystający z treści przez cytowania oraz najczęściej cytowane materiały.</p></div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="alert-info">
+<div class="eyebrow">Najważniejsza zmiana</div>
+<h2><i class="fa-solid fa-chart-line"></i>SharePoint pokaże wpływ treści na odpowiedzi Copilota</h2>
+<p>Obok wyświetleń i liczby odbiorców pojawią się metryki <strong>AI citations</strong> i <strong>Total citations</strong>. Pozwolą sprawdzić, ile razy konkretna treść została wskazana jako źródło w odpowiedzi Microsoft 365 Copilot Chat.</p>
+<p>Funkcja będzie włączona domyślnie, bez działania administratora, ale pojawi się tylko w tenantach mających <strong>więcej niż 50 licencji Microsoft 365 Copilot</strong>.</p>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Co i dlaczego</h2><p class="section-desc">Komunikat <strong>MC1247902</strong>, powiązany z Microsoft 365 Roadmap ID <strong>480725</strong>, rozszerza analitykę SharePoint o wykorzystanie treści przez Microsoft 365 Copilot Chat.</p></div>
+<div class="grid-2">
+<article class="highlight"><h2>Kontekst</h2><p>Dotychczasowa analityka pokazuje głównie bezpośrednie korzystanie z treści. Nowe raporty dodadzą perspektywę AI: pokażą, które materiały są wykorzystywane jako źródła odpowiedzi Copilota.</p><ul class="chk"><li><i class="fa-solid fa-circle-check"></i><span>analizowane będą dokumenty, strony oraz wpisy aktualności</span></li><li><i class="fa-solid fa-circle-check"></i><span>treści będzie można porównywać według liczby cytowań</span></li><li><i class="fa-solid fa-circle-check"></i><span>wyniki mają wspierać governance, strategię treści i planowanie cyklu życia informacji</span></li></ul></article>
+<article class="card tldr"><div class="eyebrow">W skrócie</div><h3>Co trzeba zapamiętać</h3><p><strong>• funkcja wymaga ponad 50 licencji Microsoft 365 Copilot w tenantcie</strong><br><strong>• dane pojawią się w Site Usage, Page analytics i statystykach plików</strong><br><strong>• raport pokaże liczbę cytowań i najczęściej cytowane treści</strong><br><strong>• pierwsza wersja obejmuje tylko Microsoft 365 Copilot Chat na desktopie i w przeglądarce</strong><br><strong>• inni asystenci Copilot i agenci nie są jeszcze uwzględniani</strong><br><strong>• nie jest wymagane działanie administratora</strong></p></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Nowe metryki w SharePoint</h2><p class="section-desc">Analityka zostanie dodana w kilku miejscach, aby umożliwić ocenę całej witryny i pojedynczych elementów.</p></div>
+<article class="card"><div class="card-top"><table class="comparison"><thead><tr><th>Miejsce</th><th>Nowe informacje</th></tr></thead><tbody><tr><td>Popular content w Site Usage</td><td>Dokumenty, strony i aktualności uporządkowane według częstotliwości cytowania przez Copilot Chat.</td></tr><tr><td>Page analytics</td><td>Karta <strong>Total citations</strong> z liczbą cytowań strony lub wpisu aktualności.</td></tr><tr><td>File statistics</td><td>Metryka <strong>AI citations</strong> wyświetlana obok istniejących statystyk pliku.</td></tr><tr><td>Copilot citations analytics</td><td><span class="yes">Nowa strona raportowa</span> z liczbą użytkowników, łączną liczbą cytowań witryny oraz najczęściej cytowanymi treściami.</td></tr></tbody></table></div></article>
+</section>
+<section class="section">
+<div class="section-head"><h2>Zakres pierwszej wersji</h2><p class="section-desc">Nie każde wykorzystanie treści SharePoint przez AI zostanie uwzględnione w raporcie.</p></div>
+<div class="grid-2"><article class="card"><div class="card-top"><div class="eyebrow">Uwzględniane</div><h3>Microsoft 365 Copilot Chat</h3><p>Cytowania z czatu Microsoft 365 Copilot w aplikacji desktopowej oraz w przeglądarce.</p></div></article><article class="card"><div class="card-top"><div class="eyebrow">Poza zakresem</div><h3>Pozostałe środowiska i agenci</h3><p>Copilot w Word, Excel, PowerPoint i SharePoint, SharePoint Agents, Copilot Studio poza Copilot Chat, agenci z własnym silnikiem oraz własnym orkiestratorem.</p></div></article></div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Harmonogram</h2><p class="section-desc">Microsoft zaktualizował terminy 2 września 2026.</p></div>
+<div class="grid-2"><article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-play"></i></div><div class="eyebrow">Początek wdrożenia</div><h3>Koniec sierpnia 2026</h3><p>Rozpoczęcie ogólnoświatowego wdrożenia zaplanowano na koniec sierpnia 2026.</p></div></article><article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-flag-checkered"></i></div><div class="eyebrow">Zakończenie wdrożenia</div><h3>Koniec września 2026</h3><p>Microsoft oczekuje zakończenia wdrożenia do końca września 2026.</p></div></article></div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Kogo to dotyczy</h2><p class="section-desc">Nowa analityka jest przeznaczona dla organizacji korzystających z Microsoft 365 Copilot na odpowiednią skalę.</p></div>
+<div class="grid-2"><article class="card"><div class="card-top"><div class="eyebrow">Role</div><h3>Właściciele witryn, autorzy i administratorzy</h3><p>Nowe dane będą przydatne osobom odpowiedzialnym za jakość, utrzymanie i rozwój treści SharePoint Online.</p></div></article><article class="card"><div class="card-top"><div class="eyebrow">Wymaganie licencyjne</div><h3>Więcej niż 50 licencji Copilot</h3><p>Analityka cytowań będzie dostępna tylko w tenantach mających ponad 50 licencji Microsoft 365 Copilot.</p></div></article></div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Co powinna zrobić firma</h2><p class="section-desc">Funkcja nie wymaga konfiguracji, ale warto przygotować sposób wykorzystania nowych danych.</p></div>
+<div class="timeline"><div class="step"><div class="step-no">1</div><div><h3>Poinformuj właścicieli witryn</h3><ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>wyjaśnij znaczenie nowych metryk AI citations i Total citations</span></li></ul></div></div><div class="step"><div class="step-no">2</div><div><h3>Uwzględnij metryki w governance</h3><ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>oceń, czy cytowania AI mogą wspierać przeglądy jakości, aktualności i wartości treści</span></li></ul></div></div><div class="step"><div class="step-no">3</div><div><h3>Zaktualizuj dokumentację</h3><ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>uzupełnij instrukcje analityki witryn oraz materiały dla autorów i właścicieli SharePoint</span></li></ul></div></div></div>
+</section>
+<section class="section">
+<div class="grid-2"><article class="card"><div class="card-top"><div class="eyebrow">Rekomendacja Valcreon</div><h3>Traktuj cytowania AI jako dodatkową metrykę wartości</h3><p>AI citations nie zastępują oceny jakości i aktualności treści, ale pokazują, które materiały realnie wpływają na odpowiedzi Copilota. Warto analizować je razem z wyświetleniami, liczbą odbiorców, datą ostatniej aktualizacji i znaczeniem biznesowym informacji.</p></div></article><div class="highlight"><h2>Dokumentacja Microsoft</h2><p>Oficjalne odnośniki do komunikatu i pozycji na mapie rozwoju Microsoft 365.</p><div class="doc-links"><a href="https://www.microsoft.com/microsoft-365/roadmap?filters=&searchterms=480725#Roadmap" target="_blank" rel="noreferrer"><i class="fa-solid fa-map"></i>Microsoft 365 Roadmap ID 480725</a><a href="https://admin.microsoft.com/AdminPortal/home#/MessageCenter/:/messages/MC1247902" target="_blank" rel="noreferrer"><i class="fa-solid fa-envelope-open-text"></i>MC1247902 w centrum administracyjnym Microsoft 365</a></div></div></div>
+</section>
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://valcreon.com" class="footer-link">valcreon.com</a> • Microsoft 365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>
