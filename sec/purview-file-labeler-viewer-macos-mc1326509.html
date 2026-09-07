@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="MC1326509: Microsoft Purview udostępni aplikacje File Labeler i File Viewer dla macOS do etykietowania oraz otwierania chronionych plików." />
+<title>Microsoft Purview: File Labeler i File Viewer dla macOS (MC1326509) | Valcreon Security</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+.alert-info{position:relative;padding:26px;border-radius:22px;border:1px solid rgba(59,130,246,.42);background:radial-gradient(700px 220px at 10% 0%,rgba(59,130,246,.22),transparent 58%),linear-gradient(180deg,rgba(59,130,246,.14),rgba(255,255,255,.03));box-shadow:0 18px 60px rgba(0,0,0,.45);}
+.alert-info .eyebrow{color:#93c5fd;}
+.alert-info h2{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0 0 12px;font-size:28px;letter-spacing:-.03em;}
+.alert-info h2 i{font-size:22px;color:#60a5fa;}
+.alert-info p{margin:0 0 12px;color:var(--muted);font-size:16px;line-height:1.75;}
+.alert-info p:last-child{margin-bottom:0;}
+.alert-info strong{color:#fff;}
+.chk{display:flex;flex-direction:column;gap:10px;margin:14px 0 0;padding:0;list-style:none;}
+.chk li{display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:1.55;color:var(--muted);}
+.chk li i{margin-top:4px;color:#a78bfa;font-size:13px;flex-shrink:0;}
+.chk li span{flex:1;min-width:0;}
+.doc-links{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+.doc-links a{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);font-size:14.5px;font-weight:600;line-height:1.5;transition:all .18s ease;}
+.doc-links a:hover{background:rgba(255,255,255,.06);border-color:var(--stroke-strong);transform:translateY(-1px);}
+.doc-links a i{color:#a78bfa;}
+.comparison{width:100%;border-collapse:separate;border-spacing:0;margin-top:6px;font-size:14.5px;}
+.comparison th{text-align:left;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#a78bfa;padding:0 14px 12px 0;border-bottom:1px solid rgba(255,255,255,.10);}
+.comparison td{padding:14px 14px 14px 0;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top;color:var(--muted);line-height:1.6;}
+.comparison td:first-child{width:35%;color:var(--text);font-weight:600;}
+.comparison tr:last-child td{border-bottom:none;}
+.comparison .yes{color:#22c55e;font-weight:700;}
+.comparison .no{color:#f87171;font-weight:700;}
+@media (max-width:980px){.alert-info{padding:18px;}.card-top,.highlight{min-height:auto;}}
+@media (max-width:768px){.comparison th{display:none;}.comparison tr{display:grid;grid-template-columns:1fr;gap:2px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);}.comparison td{padding:0;border:none;}.comparison td:first-child{width:auto;margin-bottom:2px;}.alert-info h2{font-size:23px;}.alert-info h2 i{font-size:17px;}}
+@media (max-width:480px){.btn{width:100%;justify-content:center;}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="topbar">
+<a class="back-link" href="../index.html" aria-label="Powrót do Security Hub"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
+<span class="pill"><i class="fa-solid fa-tags"></i>Microsoft Purview · MC1326509</span>
+</div>
+<section class="hero glass">
+<div class="hero-grid">
+<div>
+<div class="hero-label"><i class="fa-brands fa-microsoft"></i>Microsoft Purview · Information Protection · macOS</div>
+<h1>Etykietowanie i otwieranie chronionych plików na Macu</h1>
+<p class="lead">Microsoft udostępni dla macOS dwie aplikacje: <strong>File Labeler</strong> do nadawania etykiet poufności i ochrony plikom oraz <strong>File Viewer</strong> do otwierania chronionych formatów, których nie obsługuje aplikacja źródłowa.</p>
+</div>
+<div class="hero-side">
+<div class="signal"><div class="signal-top"><div class="signal-title"><span class="dot"></span>Najważniejsze</div></div><div class="mini-chips"><div class="mini-chip">MC1326509</div><div class="mini-chip">Roadmap 561327</div><div class="mini-chip">macOS</div><div class="mini-chip">30 listopada 2026</div><div class="mini-chip">Osobna instalacja</div></div></div>
+<div class="signal"><div class="signal-top"><div class="signal-title"><span class="dot"></span>O co chodzi</div></div><p style="margin:0;color:var(--muted);line-height:1.65;font-size:14px;">Użytkownicy Maców otrzymają funkcje podobne do Windows: etykietowanie wielu typów plików oraz podgląd plików chronionych przez Microsoft Purview.</p></div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="alert-info">
+<div class="eyebrow">Najważniejsza zmiana</div>
+<h2><i class="fa-solid fa-file-shield"></i>Ochrona Purview wychodzi poza aplikacje Office na macOS</h2>
+<p><strong>File Labeler</strong> pozwoli zastosować, zmienić lub usunąć etykietę poufności dla obsługiwanych plików, w tym dokumentów Office, PDF, obrazów i plików tekstowych. Operację będzie można wykonać dla jednego lub wielu plików.</p>
+<p><strong>File Viewer</strong> umożliwi otwieranie chronionych plików, w tym formatów opartych na <strong>.pfile</strong>, gdy ich aplikacja źródłowa nie obsługuje ochrony.</p>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Co i dlaczego</h2><p class="section-desc">Komunikat <strong>MC1326509</strong>, powiązany z Microsoft 365 Roadmap ID <strong>561327</strong>, rozszerza Microsoft Purview Information Protection na komputery Mac.</p></div>
+<div class="grid-2">
+<article class="highlight"><h2>Kontekst</h2><p>Dotychczas porównywalne narzędzia File Labeler i File Viewer były dostępne na Windows. Klient dla macOS ma ujednolicić klasyfikację i ochronę plików w środowiskach korzystających z obu platform.</p><ul class="chk"><li><i class="fa-solid fa-circle-check"></i><span>etykiety i ochrona pozostają z plikiem po przeniesieniu lub udostępnieniu</span></li><li><i class="fa-solid fa-circle-check"></i><span>obowiązują istniejące polityki etykiet Microsoft Purview</span></li><li><i class="fa-solid fa-circle-check"></i><span>klient nie będzie preinstalowany i wymaga osobnego pobrania</span></li></ul></article>
+<article class="card tldr"><div class="eyebrow">W skrócie</div><h3>Co trzeba zapamiętać</h3><p><strong>• File Labeler służy do etykietowania i ochrony plików</strong><br><strong>• File Viewer otwiera chronione pliki nieobsługiwane przez aplikację źródłową</strong><br><strong>• obsługiwane są pojedyncze pliki i wiele plików</strong><br><strong>• istniejące polityki Purview nadal obowiązują</strong><br><strong>• klient trzeba pobrać i zainstalować osobno</strong><br><strong>• zaawansowana ochrona oparta na etykietach nie jest jeszcze obsługiwana</strong></p></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Zakres funkcji</h2><p class="section-desc">Pierwsze wydanie zapewnia podstawowe funkcje etykietowania i odczytu chronionych plików, ale nie pełną zgodność z Windows.</p></div>
+<article class="card"><div class="card-top"><table class="comparison"><thead><tr><th>Funkcja</th><th>Status na macOS</th></tr></thead><tbody><tr><td>Nadawanie, zmiana i usuwanie etykiet</td><td><span class="yes">Obsługiwane</span> dla wspieranych typów plików.</td></tr><tr><td>Etykietowanie pojedynczych i wielu plików</td><td><span class="yes">Obsługiwane</span> z możliwością zastosowania etykiety i ochrony.</td></tr><tr><td>Otwieranie chronionych plików</td><td><span class="yes">Obsługiwane</span>, również dla formatów opartych na .pfile.</td></tr><tr><td>Zaawansowana ochrona oparta na etykietach</td><td><span class="no">Nieobsługiwana</span> w pierwszym wydaniu.</td></tr><tr><td>Operacja po wskazaniu całego folderu</td><td><span class="no">Niedostępna</span> w pierwszym wydaniu.</td></tr></tbody></table></div></article>
+</section>
+<section class="section">
+<div class="section-head"><h2>Harmonogram</h2><p class="section-desc">Microsoft zaktualizował harmonogram 2 września 2026.</p></div>
+<div class="grid-2"><article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-flask"></i></div><div class="eyebrow">Public Preview</div><h3>Około 29 maja 2026</h3><p>Klient macOS został zapowiedziany do pobrania w wersji Public Preview około 29 maja 2026.</p></div></article><article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-globe"></i></div><div class="eyebrow">General Availability</div><h3>Około 30 listopada 2026</h3><p>Ogólnoświatowa dostępność klienta macOS jest planowana około 30 listopada 2026.</p></div></article></div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Co powinna zrobić firma</h2><p class="section-desc">Nie jest wymagane natychmiastowe działanie, ale klient trzeba wdrożyć osobno.</p></div>
+<div class="timeline"><div class="step"><div class="step-no">1</div><div><h3>Przejrzyj polityki etykiet</h3><ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>sprawdź, czy istniejące etykiety i ustawienia ochrony odpowiadają potrzebom użytkowników macOS</span></li></ul></div></div><div class="step"><div class="step-no">2</div><div><h3>Zaplanuj dystrybucję klienta</h3><ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>File Labeler i File Viewer nie będą preinstalowane, dlatego wymagają osobnego pobrania i instalacji</span></li></ul></div></div><div class="step"><div class="step-no">3</div><div><h3>Poinformuj użytkowników</h3><ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>wyjaśnij zastosowanie obu aplikacji oraz ograniczenia pierwszego wydania</span></li></ul></div></div></div>
+</section>
+<section class="section">
+<div class="grid-2"><article class="card"><div class="card-top"><div class="eyebrow">Rekomendacja Valcreon</div><h3>Przetestuj formaty i ochronę przed wdrożeniem</h3><p>Warto sprawdzić najczęściej używane typy plików, etykietowanie wielu plików oraz otwieranie materiałów chronionych. Procesy wymagające zaawansowanej ochrony opartej na etykietach lub pracy na całych folderach powinny pozostać poza pierwszym wdrożeniem.</p></div></article><div class="highlight"><h2>Dokumentacja Microsoft</h2><p>Oficjalne materiały dotyczące klienta Microsoft Purview Information Protection dla Mac.</p><div class="doc-links"><a href="https://www.microsoft.com/en-us/download/details.aspx?id=108701" target="_blank" rel="noreferrer"><i class="fa-solid fa-download"></i>Pobierz klienta Microsoft Purview dla Mac</a><a href="https://www.microsoft.com/en-US/microsoft-365/roadmap?filters=&searchterms=561327" target="_blank" rel="noreferrer"><i class="fa-solid fa-map"></i>Microsoft 365 Roadmap ID 561327</a><a href="https://admin.microsoft.com/AdminPortal/home#/MessageCenter/:/messages/MC1326509" target="_blank" rel="noreferrer"><i class="fa-solid fa-envelope-open-text"></i>MC1326509 w centrum administracyjnym Microsoft 365</a></div></div></div>
+</section>
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://valcreon.com" class="footer-link">valcreon.com</a> • Microsoft 365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>
