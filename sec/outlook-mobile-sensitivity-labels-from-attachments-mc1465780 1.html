@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="MC1465780: Outlook dla iOS i Android może automatycznie zastosować lub zasugerować etykietę poufności Microsoft Purview na podstawie etykiet załączonych plików." />
+<title>Outlook Mobile: etykiety poufności na podstawie załączników (MC1465780) | Valcreon Security</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+.alert-info{position:relative;padding:26px;border-radius:22px;border:1px solid rgba(59,130,246,.42);background:radial-gradient(700px 220px at 10% 0%,rgba(59,130,246,.22),transparent 58%),linear-gradient(180deg,rgba(59,130,246,.14),rgba(255,255,255,.03));box-shadow:0 18px 60px rgba(0,0,0,.45);}
+.alert-info .eyebrow{color:#93c5fd;}
+.alert-info h2{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0 0 12px;font-size:28px;letter-spacing:-.03em;}
+.alert-info h2 i{font-size:22px;color:#60a5fa;}
+.alert-info p{margin:0 0 12px;color:var(--muted);font-size:16px;line-height:1.75;}
+.alert-info p:last-child{margin-bottom:0;}
+.alert-info strong{color:#fff;}
+.chk{display:flex;flex-direction:column;gap:10px;margin:14px 0 0;padding:0;list-style:none;}
+.chk li{display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:1.55;color:var(--muted);}
+.chk li i{margin-top:4px;color:#a78bfa;font-size:13px;flex-shrink:0;}
+.chk li span{flex:1;min-width:0;}
+.doc-links{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+.doc-links a{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);font-size:14.5px;font-weight:600;line-height:1.5;transition:all .18s ease;}
+.doc-links a:hover{background:rgba(255,255,255,.06);border-color:var(--stroke-strong);transform:translateY(-1px);}
+.doc-links a i{color:#a78bfa;}
+.comparison{width:100%;border-collapse:separate;border-spacing:0;margin-top:6px;font-size:14.5px;}
+.comparison th{text-align:left;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#a78bfa;padding:0 14px 12px 0;border-bottom:1px solid rgba(255,255,255,.10);}
+.comparison td{padding:14px 14px 14px 0;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top;color:var(--muted);line-height:1.6;}
+.comparison td:first-child{width:35%;color:var(--text);font-weight:600;}
+.comparison tr:last-child td{border-bottom:none;}
+.comparison .yes{color:#22c55e;font-weight:700;}
+@media (max-width:980px){.alert-info{padding:18px;}.card-top,.highlight{min-height:auto;}}
+@media (max-width:768px){.comparison th{display:none;}.comparison tr{display:grid;grid-template-columns:1fr;gap:2px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);}.comparison td{padding:0;border:none;}.comparison td:first-child{width:auto;margin-bottom:2px;}.alert-info h2{font-size:23px;}.alert-info h2 i{font-size:17px;}}
+@media (max-width:480px){.btn{width:100%;justify-content:center;}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="topbar">
+<a class="back-link" href="../index.html" aria-label="Powrót do Security Hub"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
+<span class="pill"><i class="fa-solid fa-bullhorn"></i>Outlook Mobile · MC1465780</span>
+</div>
+<section class="hero glass">
+<div class="hero-grid">
+<div>
+<div class="hero-label"><i class="fa-brands fa-microsoft"></i>Outlook Mobile · iOS i Android · Microsoft Purview</div>
+<h1>Outlook Mobile: etykieta wiadomości dopasowana do poufności załącznika</h1>
+<p class="lead">Outlook dla iOS i Android będzie mógł <strong>automatycznie zastosować lub zasugerować etykietę poufności Microsoft Purview</strong> na podstawie etykiet przypisanych do załączonych plików. Klasyfikacja wiadomości będzie dzięki temu lepiej odpowiadać wrażliwości przesyłanej zawartości.</p>
+</div>
+<div class="hero-side">
+<div class="signal"><div class="signal-top"><div class="signal-title"><span class="dot"></span>Najważniejsze</div></div><div class="mini-chips"><div class="mini-chip">MC1465780</div><div class="mini-chip">iOS i Android</div><div class="mini-chip">Microsoft Purview</div><div class="mini-chip">Wrzesień 2026</div><div class="mini-chip">Bez działań administratora</div></div></div>
+<div class="signal"><div class="signal-top"><div class="signal-title"><span class="dot"></span>Cel zmiany</div></div><p style="margin:0;color:var(--muted);line-height:1.65;font-size:14px;">Ograniczenie ręcznego etykietowania i ryzyka wysłania wiadomości z klasyfikacją niższą niż klasyfikacja załączonego dokumentu.</p></div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="alert-info">
+<div class="eyebrow">Najważniejsza zmiana</div>
+<h2><i class="fa-solid fa-tags"></i>Załącznik może wpłynąć na etykietę całej wiadomości</h2>
+<p>Gdy użytkownik dołączy plik mający etykietę poufności Microsoft Purview, Outlook dla iOS i Android może <strong>zarekomendować odpowiednią etykietę wiadomości albo zastosować ją automatycznie</strong>.</p>
+<p>To, czy użytkownik zobaczy rekomendację, czy automatyczne etykietowanie, zależy od polityk etykiet skonfigurowanych w organizacji.</p>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Co i dlaczego</h2><p class="section-desc">Komunikat <strong>MC1465780</strong> rozszerza działanie Microsoft Purview Information Protection w Outlooku dla iOS i Android o uwzględnianie etykiet załączników podczas tworzenia wiadomości.</p></div>
+<div class="grid-2">
+<article class="highlight"><h2>Kontekst</h2><p>Pracownik może dołączyć chroniony lub sklasyfikowany dokument do wiadomości, która nie ma odpowiadającej mu etykiety. Nowa funkcja ma ułatwić zachowanie spójnej klasyfikacji wiadomości i przesyłanych plików.</p><ul class="chk"><li><i class="fa-solid fa-circle-check"></i><span>analizowana jest etykieta przypisana do załączonego pliku</span></li><li><i class="fa-solid fa-circle-check"></i><span>Outlook może zasugerować lub automatycznie zastosować etykietę wiadomości</span></li><li><i class="fa-solid fa-circle-check"></i><span>funkcja dotyczy organizacji korzystających z etykiet poufności Microsoft Purview</span></li></ul></article>
+<article class="card tldr"><div class="eyebrow">W skrócie</div><h3>Co trzeba zapamiętać</h3><p><strong>• funkcja działa podczas tworzenia wiadomości w Outlooku dla iOS i Android</strong><br><strong>• podstawą jest etykieta załączonego pliku</strong><br><strong>• Outlook może wyświetlić rekomendację lub nadać etykietę automatycznie</strong><br><strong>• zachowanie wynika z polityk etykiet organizacji</strong><br><strong>• wdrożenie nie wymaga działania administratora</strong><br><strong>• warto wcześniej zweryfikować polityki ochrony informacji</strong></p></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Jak zmieni się klasyfikacja wiadomości</h2><p class="section-desc">Mechanizm łączy klasyfikację poczty z klasyfikacją przesyłanych dokumentów.</p></div>
+<article class="card"><div class="card-top"><table class="comparison"><thead><tr><th>Element</th><th>Zachowanie</th></tr></thead><tbody><tr><td>Załączony plik</td><td>Plik ma już przypisaną etykietę poufności Microsoft Purview.</td></tr><tr><td>Tworzona wiadomość</td><td>Outlook mobilny może dobrać rekomendację etykiety na podstawie klasyfikacji załącznika.</td></tr><tr><td>Polityka automatycznego etykietowania</td><td><span class="yes">Może zastosować etykietę automatycznie</span>, jeżeli takie zachowanie wynika z polityk organizacji.</td></tr><tr><td>Polityka rekomendacji</td><td>Użytkownik może otrzymać sugestię zastosowania odpowiedniej etykiety podczas tworzenia wiadomości.</td></tr></tbody></table></div></article>
+</section>
+<section class="section">
+<div class="section-head"><h2>Kogo to dotyczy</h2><p class="section-desc">Zakres obejmuje użytkowników Outlooka na iOS i Androidzie oraz organizacje korzystające z Microsoft Purview Information Protection.</p></div>
+<div class="grid-2"><article class="card"><div class="card-top"><div class="eyebrow">Użytkownicy</div><h3>Osoby tworzące wiadomości na urządzeniu mobilnym</h3><p>Zmianę zobaczą użytkownicy Outlooka na iPhone, iPadzie i urządzeniach z Androidem, którzy dołączają do wiadomości pliki mające etykiety poufności Microsoft Purview.</p></div></article><article class="card"><div class="card-top"><div class="eyebrow">Administratorzy i compliance</div><h3>Zespoły odpowiedzialne za klasyfikację</h3><p>Istotne są istniejące polityki publikowania, rekomendowania, automatycznego stosowania i ochrony etykiet poufności.</p></div></article></div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Harmonogram</h2><p class="section-desc">Ogólna dostępność jest planowana globalnie na koniec września 2026.</p></div>
+<div class="grid-2"><article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-calendar-check"></i></div><div class="eyebrow">General Availability</div><h3>Koniec września 2026</h3><p>Microsoft planuje ogólną dostępność pod koniec września 2026.</p></div></article><article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-globe"></i></div><div class="eyebrow">Zakres chmur</div><h3>Worldwide, GCC, GCC High i DoD</h3><p>Zmiana obejmie środowiska komercyjne oraz wskazane chmury administracji publicznej.</p></div></article></div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Co powinna zrobić firma</h2><p class="section-desc">Wdrożenie nie wymaga włączenia funkcji, ale organizacja powinna sprawdzić oczekiwane zachowanie etykiet.</p></div>
+<div class="timeline"><div class="step"><div class="step-no">1</div><div><h3>Przejrzyj polityki etykiet</h3><ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>zweryfikuj publikowanie etykiet oraz reguły ochrony informacji w Microsoft Purview</span></li></ul></div></div><div class="step"><div class="step-no">2</div><div><h3>Sprawdź dziedziczenie z załączników</h3><ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>potwierdź, że rekomendacje i automatyczne etykietowanie odpowiadają wymaganiom klasyfikacji i zgodności</span></li></ul></div></div><div class="step"><div class="step-no">3</div><div><h3>Przygotuj wsparcie</h3><ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>poinformuj zespoły bezpieczeństwa, compliance i helpdesk o zmianie widocznej dla użytkowników mobilnych</span></li></ul></div></div></div>
+</section>
+<section class="section">
+<div class="grid-2"><article class="card"><div class="card-top"><div class="eyebrow">Rekomendacja Valcreon</div><h3>Przetestuj zachowanie na reprezentatywnych etykietach</h3><p>Warto sprawdzić na iOS i Androidzie wiadomości z załącznikami oznaczonymi najczęściej używanymi etykietami. Szczególną uwagę należy zwrócić na różnicę między rekomendacją a automatycznym zastosowaniem etykiety oraz na wynikającą z niej ochronę wiadomości.</p></div></article><div class="highlight"><h2>Dokumentacja Microsoft</h2><p>Oficjalny komunikat dotyczący zmiany w Outlooku dla iOS i Android.</p><div class="doc-links"><a href="https://admin.microsoft.com/AdminPortal/home#/MessageCenter/:/messages/MC1465780" target="_blank" rel="noreferrer"><i class="fa-solid fa-envelope-open-text"></i>MC1465780 w centrum administracyjnym Microsoft 365</a></div></div></div>
+</section>
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://valcreon.com" class="footer-link">valcreon.com</a> • Microsoft 365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>
