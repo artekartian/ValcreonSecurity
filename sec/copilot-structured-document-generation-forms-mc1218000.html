@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="MC1218000: Microsoft 365 Copilot umożliwi generowanie ustandaryzowanych dokumentów w SharePoint przez wypełnienie formularza połączonego z zatwierdzonym szablonem." />
+<title>Microsoft 365 Copilot: generowanie dokumentów z formularza w SharePoint (MC1218000) | Valcreon Security</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+.alert-info{position:relative;padding:26px;border-radius:22px;border:1px solid rgba(59,130,246,.42);background:radial-gradient(700px 220px at 10% 0%,rgba(59,130,246,.22),transparent 58%),linear-gradient(180deg,rgba(59,130,246,.14),rgba(255,255,255,.03));box-shadow:0 18px 60px rgba(0,0,0,.45);}
+.alert-info .eyebrow{color:#93c5fd;}
+.alert-info h2{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0 0 12px;font-size:28px;letter-spacing:-.03em;}
+.alert-info h2 i{font-size:22px;color:#60a5fa;}
+.alert-info p{margin:0 0 12px;color:var(--muted);font-size:16px;line-height:1.75;}
+.alert-info p:last-child{margin-bottom:0;}
+.alert-info strong{color:#fff;}
+.chk{display:flex;flex-direction:column;gap:10px;margin:14px 0 0;padding:0;list-style:none;}
+.chk li{display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:1.55;color:var(--muted);}
+.chk li i{margin-top:4px;color:#a78bfa;font-size:13px;flex-shrink:0;}
+.chk li span{flex:1;min-width:0;}
+.doc-links{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+.doc-links a{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);font-size:14.5px;font-weight:600;line-height:1.5;transition:all .18s ease;}
+.doc-links a:hover{background:rgba(255,255,255,.06);border-color:var(--stroke-strong);transform:translateY(-1px);}
+.doc-links a i{color:#a78bfa;}
+.comparison{width:100%;border-collapse:separate;border-spacing:0;margin-top:6px;font-size:14.5px;}
+.comparison th{text-align:left;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#a78bfa;padding:0 14px 12px 0;border-bottom:1px solid rgba(255,255,255,.10);}
+.comparison td{padding:14px 14px 14px 0;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top;color:var(--muted);line-height:1.6;}
+.comparison td:first-child{width:35%;color:var(--text);font-weight:600;}
+.comparison tr:last-child td{border-bottom:none;}
+.comparison .yes{color:#22c55e;font-weight:700;}
+@media (max-width:980px){.alert-info{padding:18px;}.card-top,.highlight{min-height:auto;}}
+@media (max-width:768px){.comparison th{display:none;}.comparison tr{display:grid;grid-template-columns:1fr;gap:2px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);}.comparison td{padding:0;border:none;}.comparison td:first-child{width:auto;margin-bottom:2px;}.alert-info h2{font-size:23px;}.alert-info h2 i{font-size:17px;}}
+@media (max-width:480px){.btn{width:100%;justify-content:center;}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="topbar">
+<a class="back-link" href="../index.html" aria-label="Powrót do Security Hub"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
+<span class="pill"><i class="fa-solid fa-bullhorn"></i>Microsoft 365 Copilot · MC1218000</span>
+</div>
+<section class="hero glass">
+<div class="hero-grid">
+<div>
+<div class="hero-label"><i class="fa-brands fa-microsoft"></i>Microsoft 365 Copilot · SharePoint · Forms</div>
+<h1>Generowanie dokumentów przez wypełnienie formularza</h1>
+<p class="lead">Microsoft 365 Copilot umożliwi tworzenie <strong>ustandaryzowanych dokumentów w SharePoint</strong> na podstawie formularza i zatwierdzonego szablonu. Użytkownik wypełnia pola, a system generuje gotowy dokument bez ręcznego kopiowania i formatowania treści.</p>
+</div>
+<div class="hero-side">
+<div class="signal"><div class="signal-top"><div class="signal-title"><span class="dot"></span>Najważniejsze</div></div><div class="mini-chips"><div class="mini-chip">MC1218000</div><div class="mini-chip">Roadmap 545896</div><div class="mini-chip">SharePoint Online</div><div class="mini-chip">Copilot License</div><div class="mini-chip">Październik 2026</div></div></div>
+<div class="signal"><div class="signal-top"><div class="signal-title"><span class="dot"></span>Co to robi</div></div><p style="margin:0;color:var(--muted);line-height:1.65;font-size:14px;">Łączy formularz ze wzorcem dokumentu. Odpowiedzi użytkownika są podstawą do wygenerowania nowego pliku zgodnego z zatwierdzonym szablonem.</p></div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="alert-info">
+<div class="eyebrow">Najważniejsza zmiana</div>
+<h2><i class="fa-solid fa-file-circle-plus"></i>Formularz zastępuje ręczne tworzenie powtarzalnego dokumentu</h2>
+<p>Osoba z licencją Microsoft 365 Copilot może przygotować formularz dokumentu i powiązać go z zatwierdzonym szablonem przechowywanym w SharePoint.</p>
+<p>Po opublikowaniu formularza uprawniony użytkownik wprowadza wymagane dane, a SharePoint generuje spójny dokument. Nadal obowiązują istniejące uprawnienia, zasady governance i mechanizmy zarządzania informacją.</p>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Co i dlaczego</h2><p class="section-desc">Komunikat <strong>MC1218000</strong>, powiązany z Microsoft 365 Roadmap ID <strong>545896</strong>, wprowadza formularzowe generowanie dokumentów w SharePoint.</p></div>
+<div class="grid-2">
+<article class="highlight"><h2>Kontekst</h2><p>Funkcja jest przeznaczona dla procesów, w których wiele dokumentów powstaje według jednego wzoru. Właściciel procesu utrzymuje zatwierdzony szablon, a użytkownicy generują kolejne dokumenty przez uzupełnienie formularza.</p><ul class="chk"><li><i class="fa-solid fa-circle-check"></i><span>formularz jest powiązany z zatwierdzonym szablonem SharePoint</span></li><li><i class="fa-solid fa-circle-check"></i><span>Copilot może zasugerować pola formularza do dalszej weryfikacji</span></li><li><i class="fa-solid fa-circle-check"></i><span>szablon może zawierać zaawansowane dostosowania i sekcje warunkowe w Wordzie</span></li></ul></article>
+<article class="card tldr"><div class="eyebrow">W skrócie</div><h3>Co trzeba zapamiętać</h3><p><strong>• użytkownik wypełnia formularz zamiast edytować wzór ręcznie</strong><br><strong>• system generuje dokument na podstawie zatwierdzonego szablonu</strong><br><strong>• utworzenie i konfiguracja formularza wymagają licencji Microsoft 365 Copilot</strong><br><strong>• dostęp do opublikowanych formularzy wynika ze standardowych uprawnień SharePoint</strong><br><strong>• istniejące zasady governance i ochrony informacji nadal obowiązują</strong><br><strong>• funkcja jest włączona domyślnie</strong></p></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Jak działa proces</h2><p class="section-desc">Proces oddziela zarządzanie szablonem od prostego generowania kolejnych dokumentów.</p></div>
+<article class="card"><div class="card-top"><table class="comparison"><thead><tr><th>Etap</th><th>Działanie</th></tr></thead><tbody><tr><td>Przygotowanie szablonu</td><td>Właściciel procesu utrzymuje zatwierdzony wzór dokumentu w SharePoint.</td></tr><tr><td>Konfiguracja formularza</td><td>Użytkownik z licencją Copilot tworzy formularz i weryfikuje pola sugerowane przez AI.</td></tr><tr><td>Publikacja</td><td>Formularz zostaje udostępniony zgodnie ze standardowymi uprawnieniami SharePoint.</td></tr><tr><td>Generowanie dokumentu</td><td><span class="yes">Użytkownik wypełnia formularz</span>, a system tworzy dokument zgodny z szablonem.</td></tr></tbody></table></div></article>
+</section>
+<section class="section">
+<div class="section-head"><h2>Licencje i uprawnienia</h2><p class="section-desc">Wymagania są inne dla osoby projektującej formularz i dla użytkownika korzystającego z opublikowanego procesu.</p></div>
+<div class="grid-2"><article class="card"><div class="card-top"><div class="eyebrow">Tworzenie rozwiązania</div><h3>Wymagana licencja Microsoft 365 Copilot</h3><p>Utworzenie i skonfigurowanie formularza dokumentu wymaga licencji Microsoft 365 Copilot.</p></div></article><article class="card"><div class="card-top"><div class="eyebrow">Korzystanie z formularza</div><h3>Standardowe uprawnienia SharePoint</h3><p>Generowanie dokumentów przez opublikowany formularz jest dostępne na podstawie standardowych uprawnień SharePoint.</p></div></article></div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Harmonogram</h2><p class="section-desc">Microsoft zaktualizował harmonogram 2 września 2026.</p></div>
+<div class="grid-2"><article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-flask"></i></div><div class="eyebrow">Public Preview</div><h3>Luty–marzec 2026</h3><p>Wdrożenie opt-in rozpoczęło się w połowie lutego 2026 i zakończyło do końca marca. Od 15 czerwca wersja preview jest włączona domyślnie.</p></div></article><article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-globe"></i></div><div class="eyebrow">General Availability</div><h3>Październik 2026</h3><p>Ogólnoświatowe wdrożenie rozpocznie się w październiku 2026 i ma zakończyć się do końca tego miesiąca.</p></div></article></div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Co powinna zrobić firma</h2><p class="section-desc">Nie jest wymagane działanie administratora, ale warto wskazać procesy nadające się do standaryzacji.</p></div>
+<div class="timeline"><div class="step"><div class="step-no">1</div><div><h3>Wskaż powtarzalne dokumenty</h3><ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>wybierz procesy wykorzystujące ten sam wzór i regularnie zmieniane dane</span></li></ul></div></div><div class="step"><div class="step-no">2</div><div><h3>Ustal właściciela szablonu</h3><ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>przypisz odpowiedzialność za treść, aktualność i zatwierdzanie wzorca</span></li></ul></div></div><div class="step"><div class="step-no">3</div><div><h3>Sprawdź uprawnienia i governance</h3><ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>potwierdź, kto może konfigurować formularz, korzystać z niego i uzyskiwać dostęp do wygenerowanych dokumentów</span></li></ul></div></div></div>
+</section>
+<section class="section">
+<div class="grid-2"><article class="card"><div class="card-top"><div class="eyebrow">Rekomendacja Valcreon</div><h3>Zacznij od jednego stabilnego szablonu</h3><p>Najlepszym kandydatem jest dokument o stałej strukturze, dużej liczbie powtórzeń i jasno określonym właścicielu. Przed publikacją warto zweryfikować pola sugerowane przez AI, sekcje warunkowe, uprawnienia oraz wynikowy dokument.</p></div></article><div class="highlight"><h2>Dokumentacja Microsoft</h2><p>Oficjalne odnośniki do komunikatu i pozycji na mapie rozwoju Microsoft 365.</p><div class="doc-links"><a href="https://www.microsoft.com/en-US/microsoft-365/roadmap?filters=&searchterms=545896" target="_blank" rel="noreferrer"><i class="fa-solid fa-map"></i>Microsoft 365 Roadmap ID 545896</a><a href="https://admin.microsoft.com/AdminPortal/home#/MessageCenter/:/messages/MC1218000" target="_blank" rel="noreferrer"><i class="fa-solid fa-envelope-open-text"></i>MC1218000 w centrum administracyjnym Microsoft 365</a></div></div></div>
+</section>
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://valcreon.com" class="footer-link">valcreon.com</a> • Microsoft 365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>
