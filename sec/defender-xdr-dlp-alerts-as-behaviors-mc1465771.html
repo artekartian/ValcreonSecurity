@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="MC1465771: Microsoft Defender XDR będzie domyślnie traktował alerty DLP jako zachowania zamiast standardowych alertów." />
+<title>Microsoft Defender XDR: alerty DLP jako zachowania (MC1465771) | Valcreon Security</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+.alert-info{padding:26px;border-radius:22px;border:1px solid rgba(59,130,246,.42);background:linear-gradient(180deg,rgba(59,130,246,.14),rgba(255,255,255,.03));}
+.chk{display:flex;flex-direction:column;gap:10px;padding:0;list-style:none;}
+.chk li{display:flex;gap:10px;color:var(--muted);}
+.chk i,.doc-links i{color:#a78bfa;}
+.doc-links{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+.doc-links a{display:flex;flex-wrap:wrap;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);}
+@media (max-width:980px){.card-top,.highlight{min-height:auto;}.alert-info{padding:18px;}}
+@media (max-width:480px){.btn{width:100%;justify-content:center;}}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div class="topbar">
+<a class="back-link" href="../index.html">
+<i class="fa-solid fa-arrow-left"></i>
+<span>Powrót do Security Hub</span>
+</a>
+<span class="pill">
+<i class="fa-solid fa-shield-halved"></i>
+Microsoft Defender XDR · MC1465771
+</span>
+</div>
+
+<section class="hero glass">
+<div class="hero-grid">
+
+<div>
+<div class="hero-label">
+<i class="fa-brands fa-microsoft"></i>
+Microsoft Defender XDR · Microsoft Purview DLP
+</div>
+
+<h1>Alerty DLP przestaną trafiać do kolejki incydentów</h1>
+
+<p class="lead">
+Microsoft Defender XDR będzie domyślnie traktował alerty <strong>Microsoft Purview DLP</strong> jako zachowania (Behaviors), co zmniejszy liczbę alertów w kolejce incydentów bez utraty danych dochodzeniowych.
+</p>
+</div>
+
+<div class="hero-side">
+<div class="signal">
+<div class="signal-title">
+<span class="dot"></span>
+Najważniejsze
+</div>
+
+<div class="mini-chips">
+<div class="mini-chip">MC1465771</div>
+<div class="mini-chip">Defender XDR</div>
+<div class="mini-chip">Purview DLP</div>
+<div class="mini-chip">Advanced Hunting</div>
+<div class="mini-chip">12 października 2026</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<div class="alert-info">
+
+<div class="eyebrow">Najważniejsza zmiana</div>
+
+<h2>
+<i class="fa-solid fa-filter-circle-xmark"></i>
+Mniej alertów w Defender XDR
+</h2>
+
+<p>
+Po aktywacji reguły alerty DLP nie będą już domyślnie tworzyć standardowych alertów i incydentów w Microsoft Defender XDR.
+</p>
+
+<p>
+Informacje o zdarzeniach pozostaną dostępne w Advanced Hunting oraz w portalu Microsoft Purview.
+</p>
+
+</div>
+</section>
+
+<section class="section">
+
+<div class="section-head">
+<h2>Co i dlaczego</h2>
+
+<p class="section-desc">
+Microsoft dodaje wbudowaną regułę strojenia alertów <strong>Set-As-Behavior - Data Loss Prevention (DLP) Alerts</strong>, która zamienia alerty DLP na zachowania. Dzięki temu SOC otrzyma mniej alertów wymagających triage.
+</p>
+
+</div>
+
+<div class="grid-2">
+
+<article class="highlight">
+<h2>Po zmianie</h2>
+
+<ul class="chk">
+<li><i class="fa-solid fa-circle-check"></i><span>alerty DLP nie pojawiają się domyślnie w kolejce incydentów Defender XDR</span></li>
+<li><i class="fa-solid fa-circle-check"></i><span>dane pozostają dostępne w Advanced Hunting</span></li>
+<li><i class="fa-solid fa-circle-check"></i><span>alerty nadal są widoczne w Microsoft Purview</span></li>
+<li><i class="fa-solid fa-circle-check"></i><span>zmiana jest kontrolowana pojedynczą regułą Alert Tuning</span></li>
+</ul>
+
+</article>
+
+<article class="card tldr">
+<div class="eyebrow">W skrócie</div>
+
+<h3>Co trzeba zapamiętać</h3>
+
+<p>
+<strong>• mniej alertów w Defender XDR</strong><br>
+<strong>• dane DLP pozostają dostępne</strong><br>
+<strong>• Purview nadal pokazuje alerty</strong><br>
+<strong>• działa przez Alert Tuning Rule</strong><br>
+<strong>• można wyłączyć nowy mechanizm</strong>
+</p>
+
+</article>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="section-head">
+<h2>Gdzie będą dostępne dane</h2>
+</div>
+
+<div class="grid-2">
+
+<article class="card">
+<div class="card-top">
+<div class="eyebrow">Advanced Hunting</div>
+<h3>BehaviorInfo i BehaviorEntities</h3>
+
+<p>
+Sygnały DLP pozostaną dostępne w tabelach BehaviorInfo oraz BehaviorEntities.
+</p>
+
+</div>
+</article>
+
+<article class="card">
+<div class="card-top">
+<div class="eyebrow">Microsoft Purview</div>
+<h3>Portal Purview bez zmian</h3>
+
+<p>
+Alerty DLP nadal będą dostępne w interfejsie Microsoft Purview.
+</p>
+
+</div>
+</article>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="section-head">
+<h2>Harmonogram</h2>
+</div>
+
+<div class="timeline">
+
+<div class="step">
+<div class="step-no">1</div>
+<div>
+<h3>Dostępne już teraz</h3>
+<p>Reguła Alert Tuning jest już widoczna w Microsoft Defender XDR.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="step-no">2</div>
+<div>
+<h3>12 października 2026</h3>
+<p>Reguła zostanie automatycznie włączona dla wszystkich organizacji.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="section-head">
+<h2>Co powinien zrobić administrator</h2>
+</div>
+
+<ul class="chk">
+<li><i class="fa-solid fa-circle-check"></i><span>sprawdź, czy SOC korzysta z alertów DLP w kolejce incydentów Defender XDR</span></li>
+<li><i class="fa-solid fa-circle-check"></i><span>zweryfikuj automatyzacje, raporty i integracje zależne od alertów DLP</span></li>
+<li><i class="fa-solid fa-circle-check"></i><span>jeżeli chcesz zachować obecne działanie, wyłącz regułę przed 12 października 2026</span></li>
+</ul>
+
+</section>
+
+<section class="section">
+
+<div class="highlight">
+
+<h2>Dokumentacja Microsoft</h2>
+
+<div class="doc-links">
+
+<a href="https://admin.microsoft.com/AdminPortalssageCenter/:/messages/MC1465771
+<i class="fa-solid fa-envelope-open-text"></i>
+MC1465771 w Message Center
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<div class="back-home">
+<a class="btn secondary" href="../index.html">
+<i class="fa-solid fa-house"></i>
+Wróć do Security Hub
+</a>
+</div>
+
+<footer>
+© <span id="year"></span>
+<a href="https://valcreon.com" class="footer-link">valcreon.com</a>
+• Microsoft 365 Security
+</footer>
+
+</div>
+
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+
+</body>
+</html>
