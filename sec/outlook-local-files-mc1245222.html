@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="MC1245222: nowy Outlook dla Windows umożliwi wysyłanie kopii lokalnie zapisanych plików Word, Excel i PowerPoint bezpośrednio z otwartej aplikacji Office. Zmiana uzupełnia brakującą integrację z nowym Outlookiem." />
+<title>Nowy Outlook: wysyłanie lokalnych plików bezpośrednio z aplikacji Office (MC1245222) | Valcreon Security</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+.alert-info{position:relative;padding:26px;border-radius:22px;border:1px solid rgba(59,130,246,.42);background:radial-gradient(700px 220px at 10% 0%, rgba(59,130,246,.22), transparent 58%), linear-gradient(180deg, rgba(59,130,246,.14), rgba(255,255,255,.03));box-shadow:0 18px 60px rgba(0,0,0,.45);}
+.alert-info .eyebrow{color:#93c5fd;}
+.alert-info h2{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0 0 12px;font-size:28px;letter-spacing:-.03em;}
+.alert-info h2 i{font-size:22px;color:#60a5fa;}
+.alert-info p{margin:0 0 12px;color:var(--muted);font-size:16px;line-height:1.75;}
+.alert-info p:last-child{margin-bottom:0;}
+.alert-info strong{color:#fff;}
+.chk{display:flex;flex-direction:column;gap:10px;margin:14px 0 0;padding:0;list-style:none;}
+.chk li{display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:1.55;color:var(--muted);}
+.chk li i{margin-top:4px;color:#a78bfa;font-size:13px;flex-shrink:0;}
+.chk li span{flex:1;min-width:0;}
+.doc-links{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+.doc-links a{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);font-size:14.5px;font-weight:600;line-height:1.5;transition:all .18s ease;}
+.doc-links a:hover{background:rgba(255,255,255,.06);border-color:var(--stroke-strong);transform:translateY(-1px);}
+.doc-links a i{color:#a78bfa;}
+.comparison{width:100%;border-collapse:separate;border-spacing:0;margin-top:6px;font-size:14.5px;}
+.comparison th{text-align:left;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#a78bfa;padding:0 14px 12px 0;border-bottom:1px solid rgba(255,255,255,.10);}
+.comparison td{padding:14px 14px 14px 0;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top;color:var(--muted);line-height:1.6;}
+.comparison td:first-child{width:35%;color:var(--text);font-weight:600;}
+.comparison tr:last-child td{border-bottom:none;}
+.comparison .yes{color:#22c55e;font-weight:700;}
+@media (max-width:980px){.alert-info{padding:18px;}.card-top,.highlight{min-height:auto;}}
+@media (max-width:768px){.comparison th{display:none;}.comparison tr{display:grid;grid-template-columns:1fr;gap:2px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);}.comparison td{padding:0;border:none;}.comparison td:first-child{width:auto;margin-bottom:2px;}.alert-info h2{font-size:23px;}.alert-info h2 i{font-size:17px;}}
+@media (max-width:480px){.btn{width:100%;justify-content:center;}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="topbar">
+<a class="back-link" href="../index.html" aria-label="Powrót do Security Hub"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
+<span class="pill"><i class="fa-solid fa-bullhorn"></i>Nowy Outlook · MC1245222</span>
+</div>
+<section class="hero glass">
+<div class="hero-grid">
+<div>
+<div class="hero-label"><i class="fa-brands fa-microsoft"></i>Nowy Outlook dla Windows · Pliki lokalne · Integracja z Office</div>
+<h1>Wyślij lokalny dokument bezpośrednio z Worda, Excela lub PowerPointa</h1>
+<p class="lead">Microsoft uzupełnia brakującą integrację pomiędzy aplikacjami <strong>Word, Excel i PowerPoint</strong> a <strong>nowym Outlookiem dla Windows</strong>. Użytkownik będzie mógł wysłać kopię aktualnie otwartego, lokalnie zapisanego dokumentu bezpośrednio z aplikacji Office. Nie jest to nowa możliwość ręcznego dodawania załącznika w Outlooku.</p>
+</div>
+<div class="hero-side">
+<div class="signal">
+<div class="signal-top"><div class="signal-title"><span class="dot"></span>Najważniejsze</div></div>
+<div class="mini-chips"><div class="mini-chip">MC1245222</div><div class="mini-chip">Roadmap 557675</div><div class="mini-chip">Nowy Outlook</div><div class="mini-chip">Listopad 2026</div><div class="mini-chip">Włączone domyślnie</div></div>
+</div>
+<div class="signal">
+<div class="signal-top"><div class="signal-title"><span class="dot"></span>Co naprawdę się zmienia</div></div>
+<p style="margin:0;color:var(--muted);line-height:1.65;font-size:14px;">Lokalny plik można już dziś ręcznie dołączyć w nowym Outlooku. Nowością jest wysłanie kopii otwartego dokumentu z poziomu aplikacji Office przy użyciu nowego Outlooka.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="alert-info">
+<div class="eyebrow">Najważniejsze wyjaśnienie</div>
+<h2><i class="fa-solid fa-circle-info"></i>To nie jest nowa obsługa zwykłych załączników</h2>
+<p>W nowym Outlooku dla Windows już teraz można utworzyć wiadomość i ręcznie dołączyć plik zapisany lokalnie. Komunikat <strong>MC1245222</strong> dotyczy innej ścieżki: wysłania kopii pliku bezpośrednio z otwartego Worda, Excela lub PowerPointa.</p>
+<p>Zmiana usuwa zależność tego scenariusza od klasycznego Outlooka i przybliża nowy Outlook do zgodności funkcjonalnej z klasycznym klientem.</p>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Co i dlaczego</h2><p class="section-desc">Komunikat <strong>MC1245222</strong> zapowiada obsługę wysyłania lokalnie zapisanych dokumentów Office jako załączników przez nowy Outlook dla Windows. Powiązany Microsoft 365 Roadmap ID: <strong>557675</strong>.</p></div>
+<div class="grid-2">
+<article class="highlight">
+<h2>Kontekst</h2>
+<p>Nowy Outlook obsługuje ręczne załączanie lokalnych plików do wiadomości. Brakowało jednak pełnej integracji z poleceniami udostępniania dostępnymi wewnątrz klasycznych aplikacji Office. Po wdrożeniu użytkownik pracujący w lokalnym dokumencie będzie mógł wysłać jego kopię bez przechodzenia najpierw do Outlooka i ręcznego wybierania pliku.</p>
+<ul class="chk">
+<li><i class="fa-solid fa-circle-check"></i><span>dotyczy lokalnie zapisanych plików Word, Excel i PowerPoint</span></li>
+<li><i class="fa-solid fa-circle-check"></i><span>uruchamiane z poziomu otwartej aplikacji Office</span></li>
+<li><i class="fa-solid fa-circle-check"></i><span>wiadomość jest obsługiwana przez nowy Outlook dla Windows</span></li>
+</ul>
+</article>
+<article class="card tldr">
+<div class="eyebrow">W skrócie</div>
+<h3>Co trzeba zapamiętać</h3>
+<p><strong>• ręczne załączanie lokalnych plików w nowym Outlooku już działa</strong><br><strong>• nowością jest wysłanie kopii otwartego dokumentu bezpośrednio z aplikacji Office</strong><br><strong>• obsługiwane są pliki Word, Excel i PowerPoint</strong><br><strong>• funkcja będzie włączona domyślnie</strong><br><strong>• administrator nie musi nic konfigurować</strong><br><strong>• istniejące polityki Outlook i Exchange nadal obowiązują</strong></p>
+</article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Przed i po zmianie</h2><p class="section-desc">Różnica dotyczy miejsca, z którego użytkownik rozpoczyna wysyłanie dokumentu.</p></div>
+<article class="card">
+<div class="card-top">
+<table class="comparison">
+<thead><tr><th>Scenariusz</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Nowy Outlook → Nowa wiadomość → Dołącz plik lokalny</td><td><span class="yes">Działa już teraz.</span> Użytkownik może ręcznie wybrać lokalny dokument i dodać go jako załącznik.</td></tr>
+<tr><td>Word / Excel / PowerPoint → Udostępnij lub wyślij kopię → Nowy Outlook</td><td><span class="yes">To jest zapowiadana zmiana.</span> Otwarty, lokalnie zapisany dokument będzie można przekazać bezpośrednio do wiadomości w nowym Outlooku.</td></tr>
+<tr><td>Plik zapisany w OneDrive</td><td>Nie jest głównym zakresem tej zmiany. Komunikat wskazuje konkretnie pliki przechowywane lokalnie, poza OneDrive.</td></tr>
+</tbody>
+</table>
+</div>
+</article>
+</section>
+<section class="section">
+<div class="section-head"><h2>Harmonogram</h2><p class="section-desc">Microsoft zaktualizował terminy 1 września 2026.</p></div>
+<div class="grid-2">
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-globe"></i></div><div class="eyebrow">Worldwide</div><h3>Listopad i grudzień 2026</h3><p>Rozpoczęcie wdrażania na początku listopada 2026. Zakończenie jest oczekiwane do początku grudnia 2026.</p></div></article>
+<article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-building-shield"></i></div><div class="eyebrow">GCC</div><h3>Styczeń i luty 2027</h3><p>Rozpoczęcie wdrażania w połowie stycznia 2027. Zakończenie jest oczekiwane do połowy lutego 2027.</p></div></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Kogo to dotyczy</h2><p class="section-desc">Zmiana jest istotna głównie dla organizacji przechodzących z klasycznego Outlooka na nowy Outlook dla Windows.</p></div>
+<div class="grid-2">
+<article class="card"><div class="card-top"><div class="eyebrow">Użytkownicy</div><h3>Kto skorzysta</h3><p>Osoby pracujące na lokalnie zapisanych dokumentach Word, Excel i PowerPoint, które chcą wysłać kopię bezpośrednio z otwartej aplikacji Office.</p></div></article>
+<article class="card"><div class="card-top"><div class="eyebrow">Organizacje</div><h3>Gdzie ma to znaczenie</h3><p>Firmy wdrażające nowy Outlook lub rezygnujące z klasycznego Outlooka, szczególnie tam, gdzie użytkownicy korzystają z poleceń udostępniania w aplikacjach Office.</p></div></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Co powinna zrobić firma</h2><p class="section-desc">Zmiana nie wymaga konfiguracji administracyjnej.</p></div>
+<div class="timeline">
+<div class="step"><div class="step-no">1</div><div><h3>Poinformuj helpdesk</h3><ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>wyjaśnij, że chodzi o integrację z poziomu Worda, Excela i PowerPointa, a nie o zwykłe dodawanie załączników w Outlooku</span></li></ul></div></div>
+<div class="step"><div class="step-no">2</div><div><h3>Sprawdź instrukcje wewnętrzne</h3><ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>zaktualizuj materiały, które nadal wskazują klasyczny Outlook jako wymagany do wysyłania kopii dokumentu z aplikacji Office</span></li></ul></div></div>
+<div class="step"><div class="step-no">3</div><div><h3>Nie twórz nowej polityki</h3><ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>funkcja jest włączona domyślnie, a dotychczasowe zasady Outlook i Exchange nadal mają zastosowanie</span></li></ul></div></div>
+</div>
+</section>
+<section class="section">
+<div class="grid-2">
+<article class="card"><div class="card-top">
+<div class="eyebrow">Rekomendacja Valcreon</div>
+<h3>Traktuj to jako usunięcie luki funkcjonalnej</h3>
+<p>Nie ma potrzeby komunikować tej zmiany jako nowego sposobu dodawania załączników. Najlepszy opis dla użytkownika i helpdesku to: nowy Outlook będzie obsługiwał wysłanie kopii lokalnego dokumentu bezpośrednio z Worda, Excela lub PowerPointa, tak jak wcześniej klasyczny Outlook.</p>
+</div></article>
+<div class="highlight">
+<h2>Dokumentacja Microsoft</h2>
+<p>Oficjalne odnośniki do komunikatu MC1245222 oraz pozycji na mapie rozwoju Microsoft 365.</p>
+<div class="doc-links">
+<a href="https://www.microsoft.com/microsoft-365/roadmap?filters=&searchterms=557675#Roadmap" target="_blank" rel="noreferrer"><i class="fa-solid fa-map"></i>Microsoft 365 Roadmap ID 557675</a>
+<a href="https://admin.microsoft.com/AdminPortal/home#/MessageCenter/:/messages/MC1245222" target="_blank" rel="noreferrer"><i class="fa-solid fa-envelope-open-text"></i>MC1245222 w centrum administracyjnym Microsoft 365</a>
+</div>
+</div>
+</div>
+</section>
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://valcreon.com" class="footer-link">valcreon.com</a> • Microsoft 365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
