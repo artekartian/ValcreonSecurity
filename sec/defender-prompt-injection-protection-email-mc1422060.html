@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="MC1422060: Microsoft Defender for Office 365 wykrywa wiadomości zawierające prompt injection skierowany przeciwko asystentom AI i automatycznie poddaje zagrożenia wysokiej pewności kwarantannie." />
+<title>Defender for Office 365: ochrona przed prompt injection w poczcie (MC1422060) | Valcreon Security</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+.alert-critical{position:relative;padding:26px;border-radius:22px;border:1px solid rgba(239,68,68,.42);background:radial-gradient(700px 220px at 10% 0%,rgba(239,68,68,.22),transparent 58%),linear-gradient(180deg,rgba(239,68,68,.14),rgba(255,255,255,.03));box-shadow:0 18px 60px rgba(0,0,0,.45);}
+.alert-critical .eyebrow{color:#fca5a5;}
+.alert-critical h2{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0 0 12px;font-size:28px;letter-spacing:-.03em;}
+.alert-critical h2 i{font-size:22px;color:#f87171;}
+.alert-critical p{margin:0 0 12px;color:var(--muted);font-size:16px;line-height:1.75;}
+.alert-critical p:last-child{margin-bottom:0;}
+.alert-critical strong{color:#fff;}
+.chk{display:flex;flex-direction:column;gap:10px;margin:14px 0 0;padding:0;list-style:none;}
+.chk li{display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:1.55;color:var(--muted);}
+.chk li i{margin-top:4px;color:#a78bfa;font-size:13px;flex-shrink:0;}
+.chk li span{flex:1;min-width:0;}
+.doc-links{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+.doc-links a{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);font-size:14.5px;font-weight:600;line-height:1.5;transition:all .18s ease;}
+.doc-links a:hover{background:rgba(255,255,255,.06);border-color:var(--stroke-strong);transform:translateY(-1px);}
+.doc-links a i{color:#a78bfa;}
+.comparison{width:100%;border-collapse:separate;border-spacing:0;margin-top:6px;font-size:14.5px;}
+.comparison th{text-align:left;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#a78bfa;padding:0 14px 12px 0;border-bottom:1px solid rgba(255,255,255,.10);}
+.comparison td{padding:14px 14px 14px 0;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top;color:var(--muted);line-height:1.6;}
+.comparison td:first-child{width:35%;color:var(--text);font-weight:600;}
+.comparison tr:last-child td{border-bottom:none;}
+.comparison .yes{color:#22c55e;font-weight:700;}
+@media (max-width:980px){.alert-critical{padding:18px;}.card-top,.highlight{min-height:auto;}}
+@media (max-width:768px){.comparison th{display:none;}.comparison tr{display:grid;grid-template-columns:1fr;gap:2px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);}.comparison td{padding:0;border:none;}.comparison td:first-child{width:auto;margin-bottom:2px;}.alert-critical h2{font-size:23px;}.alert-critical h2 i{font-size:17px;}}
+@media (max-width:480px){.btn{width:100%;justify-content:center;}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="topbar">
+<a class="back-link" href="../index.html" aria-label="Powrót do Security Hub"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
+<span class="pill"><i class="fa-solid fa-shield-halved"></i>Defender for Office 365 · MC1422060</span>
+</div>
+<section class="hero glass">
+<div class="hero-grid">
+<div>
+<div class="hero-label"><i class="fa-brands fa-microsoft"></i>Microsoft Defender for Office 365 · AI Security · Exchange Online</div>
+<h1>Defender zatrzyma wiadomości próbujące manipulować Copilotem</h1>
+<p class="lead">Microsoft Defender for Office 365 doda ochronę przed <strong>prompt injection w wiadomościach e-mail</strong>. Mechanizm wykrywa treści, które próbują sterować asystentem AI lub agentem, a zagrożenia o wysokiej pewności wykrycia automatycznie kieruje do kwarantanny.</p>
+</div>
+<div class="hero-side">
+<div class="signal"><div class="signal-top"><div class="signal-title"><span class="dot"></span>Najważniejsze</div></div><div class="mini-chips"><div class="mini-chip">MC1422060</div><div class="mini-chip">Defender Plan 2</div><div class="mini-chip">Microsoft 365 E5</div><div class="mini-chip">Październik 2026</div><div class="mini-chip">Włączone domyślnie</div></div></div>
+<div class="signal"><div class="signal-top"><div class="signal-title"><span class="dot"></span>O co chodzi</div></div><p style="margin:0;color:var(--muted);line-height:1.65;font-size:14px;">Atakujący może ukryć w e-mailu instrukcje przeznaczone dla AI. Defender ma zatrzymać taką wiadomość, zanim zostanie przetworzona przez asystenta lub automatyczny proces.</p></div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="alert-critical">
+<div class="eyebrow">Najważniejsza zmiana</div>
+<h2><i class="fa-solid fa-triangle-exclamation"></i>Wiadomość może atakować AI zamiast człowieka</h2>
+<p>Prompt injection polega na umieszczeniu w wiadomości instrukcji, które model AI może potraktować jak polecenie. Celem ataku może być manipulowanie odpowiedzią, próba ujawnienia danych, poznanie dostępnych narzędzi albo odsłonięcie instrukcji systemowych.</p>
+<p>Defender będzie klasyfikował zagrożenia o wysokiej pewności jako <strong>High Confidence Phish</strong> i automatycznie umieszczał je w kwarantannie.</p>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Co i dlaczego</h2><p class="section-desc">Komunikat <strong>MC1422060</strong> rozszerza ochronę poczty o zagrożenia skierowane przeciwko asystentom i agentom AI przetwarzającym wiadomości.</p></div>
+<div class="grid-2">
+<article class="highlight"><h2>Kontekst</h2><p>Tradycyjny phishing próbuje skłonić użytkownika do kliknięcia lub odpowiedzi. Prompt injection próbuje skłonić model AI do wykonania instrukcji zapisanej w treści, temacie, załączniku, cytowanej odpowiedzi lub ukrytym znaczniku wiadomości.</p><ul class="chk"><li><i class="fa-solid fa-circle-check"></i><span>analiza odbywa się w przepływie ochrony poczty</span></li><li><i class="fa-solid fa-circle-check"></i><span>wykrycie pojawi się jako Prompt Injection Protection</span></li><li><i class="fa-solid fa-circle-check"></i><span>zdarzenia będą widoczne w istniejących raportach i dochodzeniach Microsoft Defender</span></li></ul></article>
+<article class="card tldr"><div class="eyebrow">W skrócie</div><h3>Co trzeba zapamiętać</h3><p><strong>• Defender wykrywa prompt injection osadzony w e-mailu</strong><br><strong>• zagrożenie jest klasyfikowane jako High Confidence Phish</strong><br><strong>• wiadomość trafia automatycznie do kwarantanny</strong><br><strong>• funkcja jest włączona domyślnie dla uprawnionych tenantów</strong><br><strong>• dotychczasowe polityki i procesy pozostają bez zmian</strong><br><strong>• wymagana jest licencja Defender for Office 365 Plan 2 lub Microsoft 365 E5</strong></p></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Jak działa ochrona</h2><p class="section-desc">Nowa technologia wykrywania korzysta z istniejącego przepływu kontroli poczty oraz kwarantanny.</p></div>
+<article class="card"><div class="card-top"><table class="comparison"><thead><tr><th>Etap</th><th>Działanie</th></tr></thead><tbody><tr><td>Analiza wiadomości</td><td>Defender sprawdza przychodzącą pocztę pod kątem treści próbujących manipulować modelem AI.</td></tr><tr><td>Klasyfikacja</td><td>Wiadomość o wysokiej pewności wykrycia jest oznaczana jako <strong>High Confidence Phish</strong>.</td></tr><tr><td>Technologia wykrycia</td><td>W szczegółach zdarzenia pojawia się wartość <strong>Prompt Injection Protection</strong>.</td></tr><tr><td>Reakcja</td><td><span class="yes">Automatyczna kwarantanna</span> następuje przed przetworzeniem wiadomości przez przepływ wykorzystujący AI.</td></tr></tbody></table></div></article>
+</section>
+<section class="section">
+<div class="section-head"><h2>Zakres licencyjny i usługowy</h2><p class="section-desc">Funkcja obejmuje organizacje korzystające z rozszerzonej ochrony Microsoft Defender for Office 365.</p></div>
+<div class="grid-2"><article class="card"><div class="card-top"><div class="eyebrow">Licencje</div><h3>Plan 2 lub Microsoft 365 E5</h3><p>Ochrona jest przeznaczona dla organizacji z Microsoft Defender for Office 365 Plan 2 albo Microsoft 365 E5.</p></div></article><article class="card"><div class="card-top"><div class="eyebrow">Usługi</div><h3>Exchange Online i Microsoft Defender</h3><p>Zakres obejmuje Exchange Online, Microsoft Defender for Office 365 oraz środowiska dochodzeń i raportowania Microsoft Defender XDR.</p></div></article></div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Harmonogram</h2><p class="section-desc">Microsoft zaktualizował harmonogram 2 września 2026.</p></div>
+<div class="grid-2"><article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-flask"></i></div><div class="eyebrow">Public Preview</div><h3>Lipiec–wrzesień 2026</h3><p>Wdrożenie wersji Public Preview rozpoczęło się na początku lipca 2026 i miało zakończyć się na początku września 2026.</p></div></article><article class="card"><div class="card-top"><div class="icon"><i class="fa-solid fa-globe"></i></div><div class="eyebrow">General Availability</div><h3>Początek października 2026</h3><p>Rozpoczęcie i zakończenie światowego wdrożenia ogólnej dostępności jest planowane na początek października 2026.</p></div></article></div>
+</section>
+<section class="section">
+<div class="section-head"><h2>Co powinna zrobić firma</h2><p class="section-desc">Funkcja nie wymaga włączenia, ale zespół bezpieczeństwa powinien znać nową kategorię wykryć.</p></div>
+<div class="timeline"><div class="step"><div class="step-no">1</div><div><h3>Przejrzyj obsługę kwarantanny</h3><ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>potwierdź, że istniejący proces obejmuje wiadomości sklasyfikowane jako High Confidence Phish</span></li></ul></div></div><div class="step"><div class="step-no">2</div><div><h3>Przygotuj obsługę false positive</h3><ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>korzystaj z procesu submissions w Microsoft Defender, jeśli poprawna wiadomość zostanie wykryta błędnie</span></li></ul></div></div><div class="step"><div class="step-no">3</div><div><h3>Poinformuj SOC i helpdesk</h3><ul class="chk"><li><i class="fa-solid fa-angle-right"></i><span>wyjaśnij znaczenie technologii wykrycia Prompt Injection Protection oraz jej powiązanie z kwarantanną</span></li></ul></div></div></div>
+</section>
+<section class="section">
+<div class="grid-2"><article class="card"><div class="card-top"><div class="eyebrow">Rekomendacja Valcreon</div><h3>Włącz nową kategorię do procesu obsługi incydentów AI</h3><p>Wykrycie prompt injection należy traktować jako zagrożenie dla przepływu wykorzystującego AI, a nie wyłącznie jako nietypowy phishing. Warto obserwować nowe zdarzenia w Microsoft Defender, weryfikować kwarantannę i analizować ewentualne fałszywe alarmy przez oficjalny proces submissions.</p></div></article><div class="highlight"><h2>Dokumentacja Microsoft</h2><p>Oficjalne materiały dotyczące ochrony przed prompt injection w poczcie.</p><div class="doc-links"><a href="https://learn.microsoft.com/defender-office-365/step-by-step-guides/prompt-injection-protection-defender-for-office-365" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>Prompt injection protection w Microsoft Defender for Office 365</a><a href="https://admin.microsoft.com/AdminPortal/home#/MessageCenter/:/messages/MC1422060" target="_blank" rel="noreferrer"><i class="fa-solid fa-envelope-open-text"></i>MC1422060 w centrum administracyjnym Microsoft 365</a></div></div></div>
+</section>
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://valcreon.com" class="footer-link">valcreon.com</a> • Microsoft 365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>
