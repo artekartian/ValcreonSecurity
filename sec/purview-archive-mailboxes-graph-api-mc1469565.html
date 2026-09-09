@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="MC1469565: Microsoft Graph zyskuje obsługę archiwów Exchange Online. Organizacje korzystające z EWS powinny przygotować migrację przed jego wyłączeniem." />
+<title>Microsoft Purview: obsługa archiwów Exchange przez Microsoft Graph (MC1469565) | Valcreon Security</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+
+<div class="container">
+
+<div class="topbar">
+<a class="back-link" href="../index.html">
+<i class="fa-solid fa-arrow-left"></i>
+<span>Powrót do Security Hub</span>
+</a>
+
+<span class="pill">
+<i class="fa-solid fa-box-archive"></i>
+MC1469565
+</span>
+</div>
+
+<section class="hero glass">
+<div class="hero-grid">
+
+<div>
+<div class="hero-label">
+<i class="fa-brands fa-microsoft"></i>
+Microsoft Purview · Exchange Online · Graph
+</div>
+
+<h1>Microsoft Graph przejmuje obsługę archiwów Exchange Online</h1>
+
+<p class="lead">
+Microsoft rozszerza obsługę archiwów skrzynek pocztowych w Microsoft Graph. To element przygotowań do wycofania Exchange Web Services (EWS) w Exchange Online.
+</p>
+</div>
+
+<div class="hero-side">
+
+<div class="signal">
+<div class="signal-top">
+<div class="signal-title">
+<span class="dot"></span>
+Najważniejsze
+</div>
+</div>
+
+<div class="mini-chips">
+<div class="mini-chip">MC1469565</div>
+<div class="mini-chip">Graph API</div>
+<div class="mini-chip">EWS</div>
+<div class="mini-chip">Archive Mailboxes</div>
+</div>
+</div>
+
+<div class="signal">
+<div class="signal-top">
+<div class="signal-title">
+<span class="dot"></span>
+Termin
+</div>
+</div>
+
+<p style="margin:0;color:var(--muted);line-height:1.65;font-size:14px;">
+EWS będzie wyłączany od października 2026 i ma zostać całkowicie wyłączony do kwietnia 2027.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section class="section">
+
+<div class="section-head">
+<h2>Co się zmienia</h2>
+<p class="section-desc">
+Microsoft Graph będzie obsługiwał scenariusze związane z archiwami skrzynek pocztowych, które wcześniej często wykorzystywały EWS.
+</p>
+</div>
+
+<div class="grid-3">
+
+<article class="card">
+<div class="card-top">
+<div class="icon">
+<i class="fa-solid fa-file-export"></i>
+</div>
+<div class="eyebrow">Import i eksport</div>
+<h3>Dane skrzynek</h3>
+<p>Graph udostępnia interfejsy do importu i eksportu danych skrzynek pocztowych.</p>
+</div>
+</article>
+
+<article class="card">
+<div class="card-top">
+<div class="icon">
+<i class="fa-solid fa-folder-tree"></i>
+</div>
+<div class="eyebrow">Archiwa</div>
+<h3>Zarządzanie folderami</h3>
+<p>Dostępne są API do zarządzania folderami w archiwach skrzynek pocztowych.</p>
+</div>
+</article>
+
+<article class="card">
+<div class="card-top">
+<div class="icon">
+<i class="fa-solid fa-scale-balanced"></i>
+</div>
+<div class="eyebrow">Compliance</div>
+<h3>Purview i eDiscovery</h3>
+<p>Zmiana dotyczy rozwiązań compliance, backupu, eksportu danych i eDiscovery.</p>
+</div>
+</article>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="section-head">
+<h2>Kogo dotyczy</h2>
+<p class="section-desc">
+Organizacji używających aplikacji lub narzędzi korzystających z EWS dla archiwów Exchange Online.
+</p>
+</div>
+
+<div class="grid-2">
+
+<article class="card">
+<div class="card-top">
+<div class="eyebrow">Przykłady</div>
+<h3>Najczęstsze rozwiązania</h3>
+<p>
+• eDiscovery<br>
+• backup i eksport danych<br>
+• procesy compliance<br>
+• Data Lifecycle Management<br>
+• własne aplikacje korzystające z archiwów
+</p>
+</div>
+</article>
+
+<article class="card tldr">
+<div class="eyebrow">Ryzyko</div>
+<h3>Po wyłączeniu EWS</h3>
+<p>
+Aplikacje i skrypty korzystające z EWS do obsługi archiwów mogą przestać działać, jeśli nie zostaną zaktualizowane do Microsoft Graph.
+</p>
+</article>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="section-head">
+<h2>Co należy zrobić</h2>
+<p class="section-desc">
+Microsoft wymaga przygotowania migracji przed październikiem 2026.
+</p>
+</div>
+
+<div class="timeline">
+
+<div class="step">
+<div class="step-no">1</div>
+<div>
+<h3>Zidentyfikuj EWS</h3>
+<p>Sprawdź aplikacje, skrypty i narzędzia korzystające z EWS dla archiwów Exchange.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="step-no">2</div>
+<div>
+<h3>Zweryfikuj dostawców</h3>
+<p>Potwierdź plany migracji u producentów rozwiązań zewnętrznych.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="step-no">3</div>
+<div>
+<h3>Przejdź na Graph</h3>
+<p>Zaktualizuj aplikacje do obsługi Microsoft Graph API.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="step-no">4</div>
+<div>
+<h3>Przetestuj archiwa</h3>
+<p>Zweryfikuj działanie archiwów, szczególnie w środowiskach z auto-expanding archives.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="grid-2">
+
+<article class="card tldr">
+<div class="eyebrow">W skrócie</div>
+<h3>Najważniejsze informacje</h3>
+<p>
+<strong>• EWS jest wycofywany w Exchange Online</strong><br>
+<strong>• Microsoft Graph zyskuje obsługę archiwów</strong><br>
+<strong>• dotyczy Purview, eDiscovery i backupów</strong><br>
+<strong>• wymagane może być dostosowanie aplikacji</strong><br>
+<strong>• migrację warto rozpocząć przed październikiem 2026</strong>
+</p>
+</article>
+
+<div class="highlight">
+<h2>Dla administratorów</h2>
+<p>
+Jeżeli organizacja korzysta z archiwów Exchange Online przez EWS, należy zweryfikować rozwiązania compliance, backupowe i integracje własne przed wyłączeniem tej technologii.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<div class="back-home">
+<a class="btn secondary" href="../index.html">
+<i class="fa-solid fa-house"></i>
+Wróć do Security Hub
+</a>
+</div>
+
+<footer>
+© <span id="year"></span> <a href="https://valcreon.com" class="footer-link">valcreon.com</a> • Microsoft 365 Security
+</footer>
+
+</div>
+
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+
+</body>
+</html>
