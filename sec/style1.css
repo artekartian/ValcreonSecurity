@@ -171,6 +171,7 @@
       font-weight:700;
       color:rgba(255,255,255,.94);
       letter-spacing:.01em;
+	  margin-bottom:8px;	
     }
 
     .dot{
