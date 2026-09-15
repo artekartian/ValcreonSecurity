@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="MC1471876: Microsoft wydał aktualizację OOB naprawiającą problemy po wrześniowej aktualizacji zabezpieczeń Windows 2026." />
+<title>Aktualizacja OOB dla Windows po wrześniowej aktualizacji zabezpieczeń (MC1471876) | 1sec.pl</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+.alert-info{padding:26px;border-radius:22px;border:1px solid rgba(59,130,246,.42);background:linear-gradient(180deg,rgba(59,130,246,.14),rgba(255,255,255,.03));}
+.chk{display:flex;flex-direction:column;gap:10px;padding:0;list-style:none;}
+.chk li{display:flex;gap:10px;color:var(--muted);}
+.chk i,.doc-links i{color:#a78bfa;}
+.doc-links{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+.doc-links a{display:flex;flex-wrap:wrap;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);}
+@media (max-width:980px){.card-top,.highlight{min-height:auto}.alert-info{padding:18px}}
+@media (max-width:480px){.btn{width:100%;justify-content:center}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="topbar">
+<a class="back-link" href="../index.html"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
+<span class="pill"><i class="fa-solid fa-shield-halved"></i>Windows · MC1471876</span>
+</div>
+
+<section class="hero glass">
+<div class="hero-grid">
+<div>
+<div class="hero-label"><i class="fa-brands fa-microsoft"></i>Windows Update · Aktualizacja Out-of-Band</div>
+<h1>Microsoft naprawia problemy po wrześniowej aktualizacji Windows</h1>
+<p class="lead">Microsoft opublikował awaryjną aktualizację Out-of-Band (OOB), która usuwa problemy występujące na części urządzeń po instalacji aktualizacji zabezpieczeń Windows z 8 września 2026 r.</p>
+</div>
+<div class="hero-side">
+<div class="signal">
+<div class="signal-title"><span class="dot"></span>Najważniejsze</div>
+<div class="mini-chips">
+<div class="mini-chip">MC1471876</div><div class="mini-chip">Windows 11</div><div class="mini-chip">Windows Server</div><div class="mini-chip">OOB</div><div class="mini-chip">14 września 2026</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="alert-info">
+<div class="eyebrow">Wymagane działanie</div>
+<h2><i class="fa-solid fa-triangle-exclamation"></i>Wdróż aktualizację OOB na urządzeniach objętych problemem</h2>
+<p>Aktualizacja została wydana 14 września 2026 r. Dla większości wersji Windows jest pakietem skumulowanym i zawiera poprawki z aktualizacji zabezpieczeń opublikowanej 8 września 2026 r.</p>
+<p>Wyjątkiem są urządzenia korzystające z hotpatch. Muszą mieć zainstalowaną wrześniową aktualizację zabezpieczeń, aby automatycznie otrzymać odpowiadającą jej aktualizację hotpatch.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head">
+<h2>Naprawione problemy</h2>
+<p class="section-desc">Poprawki dotyczą wirtualizacji, usług pulpitu zdalnego oraz wybranych urządzeń audio USB.</p>
+</div>
+<div class="grid-2">
+<article class="highlight">
+<h2>Co mogło przestać działać</h2>
+<ul class="chk">
+<li><i class="fa-solid fa-circle-check"></i><span>udostępnione foldery hosta w maszynach wirtualnych Linux opartych na Hyper-V</span></li>
+<li><i class="fa-solid fa-circle-check"></i><span>Remote Desktop Services, w tym tworzenie nowych sesji oraz logowanie lokalne i zdalne</span></li>
+<li><i class="fa-solid fa-circle-check"></i><span>urządzenia USB Audio Class 1.0 pracujące w trybach dźwięku wielokanałowego</span></li>
+</ul>
+</article>
+<article class="card tldr">
+<div class="eyebrow">W skrócie</div>
+<h3>Co trzeba zapamiętać</h3>
+<p><strong>• poprawka OOB jest już dostępna</strong><br><strong>• dla nowszych wersji Windows 11 jest aktualizacją zabezpieczeń</strong><br><strong>• pakiety są dostępne w Windows Update, WSUS i Microsoft Update Catalog</strong><br><strong>• Windows 11 23H2 i Windows 10 22H2 ESU otrzymują aktualizację opcjonalną</strong><br><strong>• hotpatch wymaga wcześniejszej aktualizacji z 8 września</strong></p>
+</article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Sposób dystrybucji</h2></div>
+<div class="grid-2">
+<article class="card">
+<div class="card-top"><div class="eyebrow">Windows 11 26H1, 25H2 i 24H2</div><h3>Automatyczna instalacja</h3><p>Aktualizacja OOB jest aktualizacją zabezpieczeń. Pobiera się i instaluje automatycznie przez Windows Update oraz Windows Update for Business zgodnie ze skonfigurowanymi zasadami. Jest również dostępna w Microsoft Update Catalog i synchronizuje się z WSUS.</p></div>
+</article>
+<article class="card">
+<div class="card-top"><div class="eyebrow">Windows 11 23H2 i Windows 10 22H2 ESU</div><h3>Aktualizacja opcjonalna</h3><p>Aby ją zainstalować, przejdź do ustawień Windows Update, wyszukaj aktualizacje, a następnie wybierz pobranie i instalację. Pakiet jest także dostępny w Microsoft Update Catalog.</p></div>
+</article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Hotpatch i poprawki bezpieczeństwa</h2></div>
+<div class="grid-2">
+<article class="card"><div class="card-top"><div class="eyebrow">Hotpatch</div><h3>Windows 11 25H2 i 24H2</h3><p>Odpowiadająca aktualizacja hotpatch jest dostępna dla urządzeń zapisanych do aktualizacji hotpatch. Urządzenie musi wcześniej mieć zainstalowaną aktualizację zabezpieczeń z września 2026 r.</p></div></article>
+<article class="card"><div class="card-top"><div class="eyebrow">Bezpieczeństwo</div><h3>Dodatkowe poprawki CVE</h3><p>Pakiety dla Windows 11 26H1, 25H2 i 24H2 zawierają poprawkę dla CVE-2026-62721. Pakiet dla Windows 11 26H1 zawiera także poprawkę dla CVE-2026-85921.</p></div></article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>Co powinien zrobić administrator</h2></div>
+<ul class="chk">
+<li><i class="fa-solid fa-circle-check"></i><span>sprawdź, które urządzenia otrzymały aktualizację zabezpieczeń z 8 września 2026 r.</span></li>
+<li><i class="fa-solid fa-circle-check"></i><span>nadaj priorytet urządzeniom korzystającym z Hyper-V, Remote Desktop Services lub wielokanałowych urządzeń USB Audio Class 1.0</span></li>
+<li><i class="fa-solid fa-circle-check"></i><span>zweryfikuj synchronizację odpowiednich pakietów w WSUS</span></li>
+<li><i class="fa-solid fa-circle-check"></i><span>dla Windows 11 23H2 i Windows 10 22H2 ESU zaplanuj instalację opcjonalnej aktualizacji</span></li>
+<li><i class="fa-solid fa-circle-check"></i><span>w środowiskach hotpatch potwierdź obecność wrześniowej aktualizacji bazowej</span></li>
+</ul>
+</section>
+
+<section class="section">
+<div class="highlight">
+<h2>Dokumentacja Microsoft</h2>
+<p>Szczegóły dotyczące naprawionych problemów, poprawek bezpieczeństwa i instalacji znajdują się w dokumentacji Microsoft.</p>
+<div class="doc-links">
+<a href="https://support.microsoft.com/help/5124008" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>Wrześniowa aktualizacja zabezpieczeń Windows 2026</a>
+<a href="https://learn.microsoft.com/windows/release-health/resolved-issues-windows-11-25h2#4983msgdesc" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>Problem z folderami hosta w maszynach Linux na Hyper-V</a>
+<a href="https://learn.microsoft.com/windows/release-health/resolved-issues-windows-11-25h2#4981msgdesc" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>Problem z Remote Desktop Services</a>
+<a href="https://learn.microsoft.com/windows/release-health/status-windows-11-25h2#4984msgdesc" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>Problem z urządzeniami USB Audio Class 1.0</a>
+<a href="https://catalog.update.microsoft.com/" target="_blank" rel="noreferrer"><i class="fa-solid fa-download"></i>Microsoft Update Catalog</a>
+<a href="https://learn.microsoft.com/windows/deployment/windows-autopatch/manage/windows-autopatch-hotpatch-updates" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>Windows Autopatch: aktualizacje hotpatch</a>
+<a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62721" target="_blank" rel="noreferrer"><i class="fa-solid fa-shield-halved"></i>CVE-2026-62721</a>
+<a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85921" target="_blank" rel="noreferrer"><i class="fa-solid fa-shield-halved"></i>CVE-2026-85921</a>
+<a href="https://support.microsoft.com/help/5129194" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>KB5129194: Windows 11 26H1</a>
+<a href="https://support.microsoft.com/help/5129195" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>KB5129195: Windows 11 25H2 i 24H2</a>
+<a href="https://support.microsoft.com/help/5129241" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>KB5129241: hotpatch dla Windows 11 25H2 i 24H2</a>
+<a href="https://support.microsoft.com/help/5129242" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>KB5129242: Windows 11 23H2</a>
+<a href="https://support.microsoft.com/help/5129235" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>KB5129235: Windows Server 2025</a>
+<a href="https://support.microsoft.com/help/5129237" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>KB5129237: Windows Server 2022</a>
+<a href="https://support.microsoft.com/help/5129236" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>KB5129236: Windows 10 22H2 i Enterprise LTSC 2021</a>
+<a href="https://support.microsoft.com/help/5129238" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>KB5129238: Windows 10 Enterprise LTSC 2019 i Windows Server 2019</a>
+<a href="https://support.microsoft.com/help/5129239" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>KB5129239: Windows 10 Enterprise LTSB 2016 i Windows Server 2016</a>
+<a href="https://support.microsoft.com/help/5129243" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>KB5129243: Windows Server 2012 R2</a>
+<a href="https://support.microsoft.com/help/5129244" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>KB5129244: Windows Server 2012</a>
+</div>
+</div>
+</section>
+
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://1sec.pl" class="footer-link">1sec.pl</a> • Microsoft 365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>
