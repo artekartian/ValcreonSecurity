@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="MC1479514: Teams domyślnie włączy udostępnianie plików w zewnętrznych czatach federacyjnych." />
+<title>Microsoft Teams: udostępnianie plików w czatach federacyjnych (MC1479514) | 1sec.pl</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="stylesheet" href="style11.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+.doc-links{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.doc-links a{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);font-size:14.5px;font-weight:600;line-height:1.5}
+.doc-links a i{color:#a78bfa}
+.hero-grid{grid-template-columns:1fr}
+.hero-content{max-width:900px}
+.hero-meta{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:22px}
+.hero-meta-title{display:inline-flex;align-items:center;gap:9px;margin-right:4px;font-size:13px;font-weight:700;color:rgba(255,255,255,.94)}
+.hero-meta .mini-chips{display:flex;flex-wrap:wrap;gap:8px}
+.hero-meta .mini-chip{padding:7px 10px}
+.code-block{display:block;margin-top:12px;padding:14px 16px;border-radius:14px;border:1px solid var(--stroke);background:rgba(0,0,0,.24);color:#eef2ff;overflow-x:auto;white-space:pre-wrap;word-break:break-word}
+@media (max-width:560px){.hero-meta{align-items:flex-start}.hero-meta-title{width:100%;margin-bottom:2px}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="topbar">
+<a class="back-link" href="../index.html"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
+<span class="pill"><i class="fa-solid fa-shield-halved"></i>Microsoft Teams · MC1479514</span>
+</div>
+<section class="hero glass">
+<div class="hero-grid">
+<div class="hero-content">
+<div class="hero-label"><i class="fa-brands fa-microsoft"></i>Microsoft Teams · Dostęp zewnętrzny</div>
+<h1>Pliki w zewnętrznych czatach Teams będą domyślnie dostępne</h1>
+<p class="lead">Microsoft zmieni domyślne ustawienie udostępniania plików w zewnętrznych czatach federacyjnych z wyłączonego na włączone. Użytkownicy będą mogli dołączać pliki, a Teams automatycznie nada wymagane uprawnienia uczestnikom czatu.</p>
+<div class="hero-meta" aria-label="Najważniejsze informacje">
+<div class="hero-meta-title"><span class="dot"></span>Najważniejsze</div>
+<div class="mini-chips"><div class="mini-chip">MC1479514</div><div class="mini-chip">Microsoft Teams</div><div class="mini-chip">Czaty federacyjne</div><div class="mini-chip">OneDrive</div><div class="mini-chip">Październik–listopad 2026</div></div>
+</div>
+</div>
+</div>
+</section>
+<section class="section"><div class="highlight"><h2>Co się zmienia i dlaczego</h2><p>Obecnie administrator musi najpierw włączyć udostępnianie plików w czatach z osobami spoza organizacji. Po zmianie funkcja będzie domyślnie włączona. Użytkownik dołączy plik lub przeciągnie go do pola wiadomości, a Teams automatycznie zastosuje uprawnienia potrzebne uczestnikom zewnętrznego czatu. Nadal obowiązują istniejące mechanizmy kontroli w OneDrive, SharePoint i zabezpieczeniach Microsoft 365.</p></div></section>
+<section class="section"><div class="grid-2">
+<article class="highlight"><h2>Co oznacza „Federated” w Teams</h2><p>Czat federacyjny to rozmowa z użytkownikiem należącym do innej organizacji, prowadzona przez funkcję dostępu zewnętrznego w Teams. Obejmuje zewnętrzne czaty 1:1, zewnętrzne czaty grupowe oraz czaty spotkań. W tej zmianie chodzi o współpracę z osobami spoza własnej organizacji bezpośrednio w czacie Teams.</p></article>
+<article class="card tldr"><div class="eyebrow">W skrócie</div><h3>Najważniejsze informacje</h3><p><strong>• udostępnianie plików zostanie domyślnie włączone</strong><br><strong>• zmiana obejmie także tenanty z wcześniejszym ustawieniem Disabled</strong><br><strong>• pliki trafią do OneDrive nadawcy i otrzymają etykietę External</strong><br><strong>• wklejone linki zachowają istniejące uprawnienia</strong><br><strong>• administrator może ponownie wyłączyć funkcję przez PowerShell</strong></p></article>
+</div></section>
+<section class="section"><div class="section-head"><h2>Harmonogram</h2></div><div class="grid-2">
+<article class="card"><div class="card-top"><div class="eyebrow">Targeted Release</div><h3>Koniec października 2026</h3><p>Wdrożenie rozpocznie się pod koniec października 2026 r. i ma zakończyć się pod koniec listopada 2026 r.</p></div></article>
+<article class="card"><div class="card-top"><div class="eyebrow">General Availability</div><h3>Październik–listopad 2026</h3><p>Wdrożenie na całym świecie, w GCC, GCC High i DoD rozpocznie się pod koniec października i ma zakończyć się pod koniec listopada 2026 r.</p></div></article>
+</div></section>
+<section class="section"><div class="section-head"><h2>Wpływ na organizację</h2></div><div class="timeline">
+<div class="step"><div class="step-no">1</div><div><h3>Nowa domyślna konfiguracja</h3><p>Udostępnianie plików w zewnętrznych czatach zostanie włączone domyślnie we wszystkich tenantach Microsoft 365, również tam, gdzie wcześniej ustawiono wartość Disabled.</p></div></div>
+<div class="step"><div class="step-no">2</div><div><h3>Nowy sposób wysyłania</h3><p>Użytkownicy zobaczą spinacz i będą mogli dołączyć plik albo przeciągnąć go do pola wiadomości. Nadawca może sprawdzić, zmienić lub usunąć uprawnienia przed wysłaniem.</p></div></div>
+<div class="step"><div class="step-no">3</div><div><h3>Automatyczne uprawnienia</h3><p>Automatyczne nadanie dostępu dotyczy tylko plików przesyłanych przez funkcję dołączania lub przeciągania. Linki wklejone do czatu zachowają dotychczasowe uprawnienia.</p></div></div>
+<div class="step"><div class="step-no">4</div><div><h3>Kontrola po wysłaniu</h3><p>Nadawca może później zmienić albo cofnąć dostęp. Plik jest przechowywany w OneDrive nadawcy i wyświetlany z etykietą External.</p></div></div>
+</div></section>
+<section class="section"><div class="grid-2">
+<article class="card"><div class="card-top"><div class="eyebrow">Działanie wymagane</div><h3>Jeśli pliki mają pozostać wyłączone</h3><p>Po dotarciu wdrożenia do organizacji ponownie zastosuj ustawienie Disabled. Zmiany zasad mogą być widoczne dla użytkowników dopiero po kilku godzinach.</p><code class="code-block">Set-CsTeamsFilesPolicy -Identity Global -FileSharingInChatsWithExternalUsers Disabled</code><code class="code-block">Get-CsTeamsFilesPolicy | Select Identity, FileSharingInChatsWithExternalUsers</code></div></article>
+<article class="card"><div class="card-top"><div class="eyebrow">Opcjonalna konfiguracja</div><h3>Załączniki bez automatycznego dostępu</h3><p>Można pozostawić możliwość dołączania plików, ale wyłączyć automatyczne nadawanie uprawnień. W takim przypadku użytkownik może być zmuszony do ręcznego przyznania dostępu odbiorcom zewnętrznym.</p><code class="code-block">Set-CsTeamsMessagingPolicy -Identity Global -AutoShareFilesInExternalChats Disabled</code></div></article>
+</div></section>
+<section class="section"><div class="highlight"><h2>Rekomendowane działania</h2><ul><li>sprawdź konfigurację udostępniania zewnętrznego w SharePoint, OneDrive i Microsoft Entra,</li><li>rozważ Microsoft Entra B2B dla udostępniania zewnętrznego w SharePoint i OneDrive,</li><li>poinformuj Help Desk i zespoły wsparcia,</li><li>zaktualizuj dokumentację oraz szkolenia użytkowników,</li><li>wyjaśnij użytkownikom różnicę między przesłaniem pliku a wklejeniem linku.</li></ul></div></section>
+<section class="section"><div class="grid-2">
+<div class="highlight"><h2>Dokumentacja Microsoft</h2><p>Opis udostępniania plików i składników Loop w zewnętrznych czatach Teams.</p><div class="doc-links"><a href="https://learn.microsoft.com/microsoftteams/share-files-loop-in-external-chats" target="_blank" rel="noreferrer"><i class="fa-solid fa-book"></i>Share files and Loop in external chats - Microsoft Teams</a><a href="https://admin.microsoft.com/AdminPortal/home#/MessageCenter/:/messages/MC1479514?MCLinkSource=MajorUpdate" target="_blank" rel="noreferrer"><i class="fa-solid fa-up-right-from-square"></i>Komunikat MC1479514 w centrum administracyjnym Microsoft 365</a></div></div>
+<article class="card"><div class="card-top"><div class="eyebrow">Zgodność i bezpieczeństwo</div><h3>Istniejące kontrole pozostają aktywne</h3><p>Uprawnienia mogą być automatycznie nadawane uczestnikom zewnętrznego czatu. Nadal obowiązują ustawienia OneDrive i SharePoint, etykiety poufności, ograniczenia domen oraz pozostałe zabezpieczenia. Administratorzy zachowują kontrolę przez zasady Teams PowerShell.</p></div></article>
+</div></section>
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://1sec.pl" class="footer-link">1sec.pl</a> • Microsoft 365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>
