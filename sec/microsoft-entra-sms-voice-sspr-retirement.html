@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Microsoft wycofa własne SMS i połączenia głosowe z odzyskiwania haseł SSPR w Entra ID." />
+<title>Microsoft Entra ID: koniec SMS i połączeń głosowych Microsoft w SSPR | 1sec.pl</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+.doc-links{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.doc-links a{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);font-size:14.5px;font-weight:600;line-height:1.5}
+.doc-links a i{color:#a78bfa}
+.hero-grid{grid-template-columns:1fr}
+.hero-content{max-width:930px}
+.hero-meta{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:22px}
+.hero-meta-title{display:inline-flex;align-items:center;gap:9px;margin-right:4px;font-size:13px;font-weight:700;color:rgba(255,255,255,.94)}
+.hero-meta .mini-chips{display:flex;flex-wrap:wrap;gap:8px}
+.hero-meta .mini-chip{padding:7px 10px}
+.highlight ul,.highlight ol{margin:14px 0 0;padding-left:22px;color:var(--muted);line-height:1.75}
+.highlight li+li{margin-top:8px}
+.data-table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px}
+.data-table th{text-align:left;font-weight:700;padding:12px;border-bottom:1px solid var(--stroke);color:#fff}
+.data-table td{padding:12px;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top;color:var(--muted);line-height:1.55}
+.data-table tr:last-child td{border-bottom:none}
+@media(max-width:700px){.data-table,.data-table tbody,.data-table tr,.data-table td{display:block}.data-table thead{display:none}.data-table tr{padding:10px 0;border-bottom:1px solid var(--stroke)}.data-table td{border:0;padding:5px 0}.data-table td::before{content:attr(data-label);display:block;color:#fff;font-weight:700;margin-bottom:2px}}
+@media (max-width:560px){.hero-meta{align-items:flex-start}.hero-meta-title{width:100%;margin-bottom:2px}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="topbar">
+<a class="back-link" href="../index.html"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
+<span class="pill"><i class="fa-solid fa-shield-halved"></i>Microsoft Entra ID · SSPR</span>
+</div>
+<section class="hero glass">
+<div class="hero-grid"><div class="hero-content">
+<div class="hero-label"><i class="fa-brands fa-microsoft"></i>Message Center · MC1536049</div>
+<h1>Koniec SMS i połączeń głosowych Microsoft w odzyskiwaniu haseł SSPR</h1>
+<p class="lead">Microsoft wycofa dostarczane przez siebie uwierzytelnianie SMS i głosowe z Microsoft Entra ID. Po dotarciu odpowiedniej fazy wdrożenia do środowiska organizacja będzie miała 50 dni na przygotowanie użytkowników do odzyskiwania hasła innymi metodami.</p>
+<div class="hero-meta" aria-label="Najważniejsze informacje"><div class="hero-meta-title"><span class="dot"></span>Najważniejsze</div><div class="mini-chips"><div class="mini-chip">MC1536049</div><div class="mini-chip">Microsoft Entra ID</div><div class="mini-chip">SSPR</div><div class="mini-chip">SMS i voice</div><div class="mini-chip">luty 2027</div></div></div>
+</div></div>
+</section>
+<section class="section"><div class="highlight"><h2>Co i dlaczego się zmienia</h2><p>Po wycofaniu metod SMS i połączeń głosowych dostarczanych przez Microsoft przestaną one być dostępne również w samoobsługowym resetowaniu hasła, czyli SSPR. Użytkownik może nadal logować się inną metodą, ale nie odzyska zapomnianego hasła, jeśli nie ma wystarczającej liczby metod spełniających wymagania polityki SSPR. Klucze dostępu i inne metody logowania nie spełniają automatycznie wymagań SSPR.</p></div></section>
+<section class="section"><div class="section-head"><h2>Harmonogram wdrożenia</h2></div><div class="card"><div class="card-top"><div class="eyebrow">General Availability · Worldwide i GCC</div><h3>Start wdrożenia w lutym 2027 r.</h3><p>Daty oznaczają początek wdrożenia etapowego, a nie jeden wspólny termin odcięcia SSPR dla wszystkich organizacji. Okres 50 dni rozpoczyna się wtedy, gdy właściwa faza dotrze do danego środowiska.</p></div><div class="card-bottom"><table class="data-table"><thead><tr><th>Grupa użytkowników</th><th>Początek wycofywania logowania</th><th>Koniec przejścia SSPR</th></tr></thead><tbody><tr><td data-label="Grupa użytkowników">Użytkownicy inni niż Globalni administratorzy i użytkownicy zewnętrzni</td><td data-label="Początek">1 lutego 2027 r.</td><td data-label="Koniec SSPR">50 dni po dotarciu wdrożenia do środowiska</td></tr><tr><td data-label="Grupa użytkowników">Globalni administratorzy i użytkownicy zewnętrzni</td><td data-label="Początek">1 lipca 2027 r.</td><td data-label="Koniec SSPR">50 dni po dotarciu osobnej fazy do środowiska</td></tr></tbody></table></div></div></section>
+<section class="section"><div class="section-head"><h2>Wpływ na organizację</h2></div><div class="grid-2">
+<article class="card"><div class="card-top"><div class="eyebrow">Kogo dotyczy</div><h3>Użytkownicy zależni od telefonu w SSPR</h3><p>Zmiana obejmuje organizacje, w których SMS lub połączenie głosowe Microsoft jest potrzebne do spełnienia wymagań weryfikacji przy resecie hasła. Dotyczy to również osób mających inną metodę logowania, ale nadal używających telefonu do odzyskiwania hasła.</p></div></article>
+<article class="card"><div class="card-top"><div class="eyebrow">Usługa</div><h3>Microsoft Entra ID SSPR</h3><p>Po zakończeniu przejścia SMS i połączenia głosowe dostarczane przez Microsoft nie będą opcjami odzyskiwania. Wymaganie jednej lub dwóch metod określone w polityce SSPR pozostaje bez zmian.</p></div></article>
+</div></section>
+<section class="section"><div class="section-head"><h2>Co wydarzy się w okresie 50 dni</h2></div><div class="timeline">
+<div class="step"><div class="step-no">1</div><div><h3>Dotychczasowe rejestracje pozostaną tymczasowo aktywne</h3><p>Istniejące numery SMS i połączenia głosowe będą działać w SSPR zgodnie z bieżącą polityką odzyskiwania przez 50-dniowy okres przejściowy.</p></div></div>
+<div class="step"><div class="step-no">2</div><div><h3>Zatrzymają się rejestracje i przypomnienia dla telefonu</h3><p>Rejestracja i odświeżanie SMS oraz voice dla SSPR przestaną być proponowane. Monity dotyczące innych kwalifikujących się metod pozostaną dostępne.</p></div></div>
+<div class="step"><div class="step-no">3</div><div><h3>Zmieni się widok My Sign-Ins</h3><p>Użytkownicy nie dodadzą metod SMS i voice ani nie zmienią numerów uwierzytelniania. Istniejące rejestracje telefoniczne będą wyglądać na wyłączone, mimo że w okresie przejściowym mogą jeszcze działać w SSPR.</p></div></div>
+<div class="step"><div class="step-no">4</div><div><h3>CYOT pozostanie dostępną ścieżką</h3><p>Odzyskiwanie przez obsługiwanego, zarządzanego przez klienta dostawcę telefonii może nadal działać. Jeśli telefon ma pozostać metodą odzyskiwania, organizacja musi skonfigurować wspieranego dostawcę CYOT.</p></div></div>
+</div></section>
+<section class="section"><div class="grid-2">
+<article class="card tldr"><div class="eyebrow">Po zakończeniu 50 dni</div><h3>Doświadczenie użytkownika zależy od pozostałych metod</h3><p><strong>Wystarczająca liczba metod:</strong><br>użytkownik nadal może samodzielnie zresetować hasło.<br><br><strong>Niewystarczająca liczba metod:</strong><br>użytkownik nie ukończy SSPR i otrzyma polecenie kontaktu z administratorem.</p></article>
+<div class="highlight"><h2>Ważne ograniczenia</h2><ul><li>Microsoft nie zmieni automatycznie polityki SSPR.</li><li>Microsoft nie włączy automatycznie opcji „Allow password change after secure sign-in”.</li><li>Sam passkey nie spełnia automatycznie wymagań odzyskiwania SSPR.</li><li>Bez przygotowania alternatywnych metod może wzrosnąć liczba zgłoszeń do helpdesku.</li></ul></div>
+</div></section>
+<section class="section"><div class="section-head"><h2>Wymagane działania administratora</h2></div><div class="timeline">
+<div class="step"><div class="step-no">1</div><div><h3>Zidentyfikuj użytkowników zależnych od SMS lub voice</h3><p>Sprawdź także osoby, które mają zarejestrowaną inną metodę logowania, ale do odzyskiwania hasła nadal potrzebują telefonu.</p></div></div>
+<div class="step"><div class="step-no">2</div><div><h3>Przygotuj alternatywne metody odzyskiwania</h3><p>Zapewnij użytkownikom wystarczającą liczbę kwalifikujących się metod zgodną z polityką SSPR. Jeżeli wymagane jest odzyskiwanie telefoniczne, przed końcem przejścia skonfiguruj i przetestuj wspieranego dostawcę telefonii.</p></div></div>
+<div class="step"><div class="step-no">3</div><div><h3>Przetestuj proces i poinformuj użytkowników</h3><p>Zweryfikuj odzyskiwanie hasła z politykami SSPR i Conditional Access. Przekaż użytkownikom oraz helpdeskowi terminy, instrukcje rejestracji i dostępne ścieżki wsparcia.</p></div></div>
+</div></section>
+<section class="section"><div class="highlight"><h2><i class="fa-solid fa-key" style="margin-right: 8px;"></i>Zalecenie dla użytkowników passkey</h2><p>Tam, gdzie funkcja jest dostępna, administrator może włączyć „Allow password change after secure sign-in”. Uprawniony użytkownik zaloguje się kluczem dostępu, a następnie zmieni zapomniane hasło w My Sign-Ins bez znajomości i podawania bieżącego hasła.</p></div></section>
+<section class="section"><div class="highlight"><h2>Dokumentacja Microsoft</h2><p>Materiały źródłowe opisują wycofanie metod, działanie SSPR oraz wybór dostawcy telefonii.</p><div class="doc-links">
+<a href="https://learn.microsoft.com/entra/identity/authentication/concept-sms-voice-retirement" target="_blank" rel="noreferrer"><i class="fa-solid fa-mobile-screen-button"></i>Wycofanie SMS i voice oraz wskazówki migracyjne</a>
+<a href="https://learn.microsoft.com/entra/identity/authentication/concept-sspr-howitworks" target="_blank" rel="noreferrer"><i class="fa-solid fa-unlock-keyhole"></i>Jak działa samoobsługowe resetowanie hasła Microsoft Entra</a>
+<a href="https://learn.microsoft.com/entra/identity/authentication/concept-sspr-howitworks?tabs=secure-sign-in#tab/secure-sign-in" target="_blank" rel="noreferrer"><i class="fa-solid fa-fingerprint"></i>Allow password change after secure sign-in</a>
+<a href="https://learn.microsoft.com/entra/identity/authentication/concept-phone-providers" target="_blank" rel="noreferrer"><i class="fa-solid fa-phone-volume"></i>Wybór dostawcy telefonii dla SMS i voice</a>
+</div></div></section>
+<section class="section"><div class="highlight"><h2>Aspekty zgodności</h2><p>Jeśli odzyskiwanie telefoniczne jest wymagane z przyczyn regulacyjnych lub operacyjnych, przed właściwym terminem odcięcia SSPR zaplanuj i zweryfikuj wspieranego dostawcę zarządzanego przez organizację.</p></div></section>
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://1sec.pl" class="footer-link">1sec.pl</a> • Microsoft 365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>
