@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Od 14 grudnia 2026 nowe foldery node_modules nie będą domyślnie synchronizowane przez OneDrive." />
+<title>OneDrive: foldery node_modules domyślnie bez synchronizacji | 1sec.pl</title>
+<link rel="icon" href="../fav.ico" type="image/x-icon">
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+.doc-links{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.doc-links a{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);font-size:14.5px;font-weight:600;line-height:1.5}
+.doc-links a i{color:#a78bfa}
+.status-alert{border-left:4px solid #f59e0b;background:linear-gradient(180deg,rgba(245,158,11,.10),rgba(255,255,255,.03))}
+.status-alert .eyebrow{color:#fbbf24}
+.action-list{display:grid;gap:12px;margin-top:16px}
+.action-item{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:16px;border:1px solid var(--stroke);background:rgba(255,255,255,.03)}
+.action-item i{margin-top:3px;color:#a78bfa}
+.action-item b{display:block;margin-bottom:4px;color:#fff}
+.action-item span{color:var(--muted);font-size:14px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="topbar">
+<a class="back-link" href="../index.html"><i class="fa-solid fa-arrow-left"></i><span>Powrót do Security Hub</span></a>
+<span class="pill"><i class="fa-brands fa-microsoft"></i>Microsoft OneDrive · MC1558030</span>
+</div>
+<section class="hero glass">
+<div class="hero-grid">
+<div>
+<div class="hero-label"><i class="fa-solid fa-folder-tree"></i>Microsoft OneDrive · przygotowanie administratora zalecane</div>
+<h1>OneDrive: foldery node_modules domyślnie bez synchronizacji</h1>
+<p class="lead">Od 14 grudnia 2026 aplikacja synchronizacji OneDrive dla Windows i Mac będzie domyślnie pomijać nowo utworzone foldery o nazwie <code>node_modules</code>. Zmiana ma poprawić wydajność oraz ograniczyć zbędne użycie pamięci i przepustowości.</p>
+</div>
+<div class="hero-side">
+<div class="signal">
+<div class="signal-title"><span class="dot"></span>Najważniejsze informacje</div>
+<div class="mini-chips"><div class="mini-chip">Start: 14 grudnia 2026</div><div class="mini-chip">Koniec: połowa stycznia 2027</div><div class="mini-chip">Windows i Mac</div><div class="mini-chip">MC1558030</div></div>
+</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="highlight">
+<h2>Co się zmienia?</h2>
+<p>OneDrive rozszerza domyślną listę wykluczeń synchronizacji. Nowe foldery nazwane dokładnie <code>node_modules</code>, niezależnie od wielkości liter, pozostaną na urządzeniu i nie zostaną przesłane do OneDrive. Foldery, które już są synchronizowane, nadal będą synchronizowane.</p>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><div><h2>Dlaczego Microsoft wprowadza zmianę?</h2><p class="section-desc">Projekty JavaScript i Node.js mogą tworzyć dziesiątki tysięcy małych plików zależności.</p></div></div>
+<div class="grid-2">
+<article class="card"><div class="card-top"><div class="eyebrow">Wydajność</div><h3>Mniej zbędnych operacji synchronizacji</h3><p>Wykluczenie folderów z zależnościami ma poprawić działanie aplikacji synchronizacji OneDrive.</p></div></article>
+<article class="card"><div class="card-top"><div class="eyebrow">Zasoby</div><h3>Mniejsze użycie pamięci i łącza</h3><p>Pliki zależności nie będą domyślnie przesyłane do chmury. Deweloperzy mogą odtworzyć folder za pomocą menedżera pakietów.</p></div></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><div><h2>Harmonogram</h2><p class="section-desc">Globalne wdrożenie opisane w komunikacie <strong>MC1558030</strong>.</p></div></div>
+<div class="timeline">
+<div class="step"><div class="step-no">1</div><div><h3>14 grudnia 2026</h3><p>Rozpoczęcie wdrażania zmiany w ramach ogólnej dostępności na całym świecie.</p></div></div>
+<div class="step"><div class="step-no">2</div><div><h3>Połowa stycznia 2027</h3><p>Planowane zakończenie globalnego wdrożenia.</p></div></div>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><div><h2>Wpływ na organizację</h2><p class="section-desc">Zmiana dotyczy użytkowników kont służbowych i szkolnych tworzących projekty w lokalizacjach synchronizowanych przez OneDrive.</p></div></div>
+<div class="grid-2">
+<article class="card status-alert"><div class="card-top"><div class="eyebrow">Nowe foldery</div><h3>Brak synchronizacji bez komunikatu</h3><p>Nowo utworzone foldery <code>node_modules</code> pozostaną lokalnie. Użytkownik nie otrzyma monitu, a zawartość nie będzie dostępna w OneDrive w sieci Web ani na innych urządzeniach.</p></div></article>
+<article class="card"><div class="card-top"><div class="eyebrow">Istniejące foldery</div><h3>Synchronizacja będzie kontynuowana</h3><p>OneDrive nie usunie już synchronizowanych folderów ani ich zawartości z chmury lub urządzeń.</p></div></article>
+<article class="card"><div class="card-top"><div class="eyebrow">Zakres</div><h3>Windows, Mac i Known Folder Move</h3><p>Zmiana obejmuje OneDrive dla Windows i Mac, także foldery Pulpit i Dokumenty zarządzane przez Known Folder Move.</p></div></article>
+<article class="card tldr"><div class="eyebrow">Kontrola administratora</div><h3>Można wyłączyć domyślną listę wykluczeń</h3><p>Jeśli organizacja musi synchronizować foldery <code>node_modules</code>, administrator może użyć istniejących zasad synchronizacji OneDrive.</p></article>
+</div>
+</section>
+<section class="section">
+<div class="section-head"><div><h2>Zalecane działania</h2><p class="section-desc">Działanie nie jest wymagane, jeśli organizacja akceptuje nowe zachowanie domyślne.</p></div></div>
+<div class="action-list">
+<div class="action-item"><i class="fa-solid fa-sliders" style="margin-right: 8px;"></i><div><b>Sprawdź wymagania dotyczące synchronizacji</b><span>Ustal, czy zespoły deweloperskie przechowują projekty z folderami <code>node_modules</code> w lokalizacjach synchronizowanych przez OneDrive.</span></div></div>
+<div class="action-item"><i class="fa-solid fa-gears" style="margin-right: 8px;"></i><div><b>Skonfiguruj zasady przed 14 grudnia 2026</b><span>Jeśli foldery muszą nadal trafiać do OneDrive, odpowiednio skonfiguruj istniejące zasady synchronizacji.</span></div></div>
+<div class="action-item"><i class="fa-solid fa-code" style="margin-right: 8px;"></i><div><b>Poinformuj deweloperów</b><span>Wyjaśnij nowe zachowanie osobom utrzymującym projekty kodu w folderach OneDrive.</span></div></div>
+<div class="action-item"><i class="fa-solid fa-headset" style="margin-right: 8px;"></i><div><b>Zaktualizuj dokumentację i helpdesk</b><span>Uzupełnij wewnętrzne instrukcje o informację, że nowe foldery <code>node_modules</code> nie będą domyślnie synchronizowane.</span></div></div>
+</div>
+</section>
+<section class="section">
+<div class="highlight"><h2>Zgodność i dokumentacja</h2><p>Microsoft nie wskazał szczególnych kwestii zgodności. Organizacja powinna przejrzeć zmianę zgodnie z własnymi wymaganiami.</p><div class="doc-links">
+<a href="https://learn.microsoft.com/sharepoint/deploy-and-configure-on-macos" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-book"></i>Wdrażanie i konfigurowanie aplikacji synchronizacji OneDrive dla Mac</a>
+<a href="https://learn.microsoft.com/sharepoint/use-group-policy" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-book"></i>Zasady OneDrive do kontrolowania ustawień synchronizacji</a>
+</div></div>
+</section>
+<div class="back-home"><a class="btn secondary" href="../index.html"><i class="fa-solid fa-house"></i>Wróć do Security Hub</a></div>
+<footer>© <span id="year"></span> <a href="https://1sec.pl" class="footer-link">1sec.pl</a> • Microsoft 365 Security</footer>
+</div>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>
